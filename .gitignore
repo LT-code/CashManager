@@ -1,2 +1,5 @@
 Documentation/UML/Dia/*.dia~
 Documentation/UML/Dia/*.dia.autosave
+Server/.idea
+/.metadata/
+Back/.metadata
