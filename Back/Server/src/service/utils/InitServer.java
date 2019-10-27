@@ -6,12 +6,12 @@ import javax.servlet.ServletContextListener;
 public class InitServer implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		System.out.println("Start server");	
-		
+		CM_Log.info("Start server");
+		CM_Database.getDBParam(sce.getServletContext().getResourceAsStream("/WEB-INF/conf/dbconfig.properties"));
 	}
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		System.out.println("End server");		
+		CM_Log.info("End server");		
 	}
 }

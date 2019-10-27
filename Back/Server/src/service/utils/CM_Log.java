@@ -1,13 +1,33 @@
 package service.utils;
 
-public final class CM_Log {
+public class CM_Log {
     // Operations
-    public final void info (String message) {
+    public static void info(String message) {
+    	CM_Log.message("INFO", message);
     }
-    public final void error (String message) {
+    
+    public static void debug(String message) {
+    	CM_Log.message("DEBUG", message);
     }
-    public final void debug (String message) {
+    
+    private static void message(String type, String message) {
+    	System.out.println(type + " --> " + message);
     }
-    private final void message (String message) {
+    
+    //################################################
+    // error
+    //################################################
+    public static void error(String message) {
+    	CM_Log.message("ERROR", message);
+    }
+    
+    public static void error(Exception e) {
+    	CM_Log.error(e, "");
+    }
+    
+    public static void error(Exception e, String message) {
+    	CM_Log.message("ERROR", message);
+    	System.out.println("	| Message: " + e.getMessage());
+    	System.out.println("	| Exception: " + e.getCause());
     }
 }
