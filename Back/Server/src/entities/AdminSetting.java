@@ -1,4 +1,4 @@
-package service.setting;
+package entities;
 
 public class AdminSetting extends Setting {
     // Operations

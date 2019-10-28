@@ -2,9 +2,7 @@ package service.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.NotActiveException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,29 +10,25 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
-import javax.servlet.ServletContext;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.omg.CORBA.portable.ApplicationException;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
-
-import service.type.ResultDB;
+import exception.NoResultException;
 
 public class CM_Database {
-	private final static String propertiesFileForTest = (new File("./")).getAbsolutePath() + "/WebContent/WEB-INF/conf/dbconfig.properties";
-    // Attributes
+	private final static String propertiesFileForTest = (new File("./")).getAbsolutePath() + "/WebContent/META-INF/conf/dbconfig.properties";
+    
+	// Attributes
     private static String host;
     private static int port;
     private static String dbName;
     private static String user;
     private static String password;
     
+   
     //private static Connection connection;
     
     // Operations
@@ -96,7 +90,7 @@ public class CM_Database {
     	if ( connection != null )
 	        try {
 	        	connection.close();
-	        	CM_Log.debug("DataBase closed");
+	        	//CM_Log.debug("DataBase closed");
 	        } catch ( SQLException ignore ) {
 	        	CM_Log.error(ignore);
 	        }
@@ -108,7 +102,7 @@ public class CM_Database {
     	if ( statement != null )
 	        try {
 	        	statement.close();
-	        	CM_Log.debug("Statement closed");
+	        	//CM_Log.debug("Statement closed");
 	        } catch ( SQLException ignore ) {
 	        	CM_Log.error(ignore);
 	        }
@@ -120,7 +114,7 @@ public class CM_Database {
     	if ( resultSet != null )
 	        try {
 	        	resultSet.close();
-	        	CM_Log.debug("ResultSet closed");
+	        	//CM_Log.debug("ResultSet closed");
 	        } catch ( SQLException ignore ) {
 	        	CM_Log.error(ignore);
 	        }    	
@@ -129,44 +123,9 @@ public class CM_Database {
     
     //===================================================================================
     /*
-     * 
-     */
-    public static boolean createDataBase() {
-    	Connection c = null;
-    	Statement statement = null;
-    	ResultSet resultat = null;
-    	
-    	try {
-    		c = CM_Database.connect();
-    		statement = c.createStatement();
-    		resultat = statement.executeQuery( 	"drop table if exists Setting;\n");
-    		resultat = statement.executeQuery( 	"create table Setting (" + 
-							    				"   idSetting       	INT AUTO_INCREMENT PRIMARY KEY not null," + 
-							    				"   connectionDelay		INT                            not null," + 
-							    				"   maxAttemps      	INT                            not null" + 
-							    				");" );
-    		CM_Log.debug("Creation tables is a success");
-    		return true;
-    	}
-    	catch (SQLException e) {
-			CM_Log.error(e);
-		}
-    	finally {
-    		close(c, statement, resultat);
-    	}
- 
-		return false;
-    }
-    
-    //###################################################################################
-    // Private
-    //###################################################################################
-  
-    //===================================================================================
-    /*
      * Prepare and execute sql request
      */
-    public static int executePreparedSQL(String sql, boolean returnGeneratedKeys, Object[] fieldValues) {
+    public static int executePreparedSQL(String sql, boolean returnGeneratedKeys, Object[] values) throws NoResultException {
     	Connection connexion = null;
 	    PreparedStatement preparedStatement = null;
     	ResultSet valeursAutoGenerees = null;
@@ -174,14 +133,13 @@ public class CM_Database {
 	    try {
 	        /* Récupération d'une connexion depuis la Factory */
 	        connexion = CM_Database.connect();
-	        preparedStatement = CM_Database.initialisationRequetePreparee( connexion, sql, returnGeneratedKeys, fieldValues);
+	        preparedStatement = CM_Database.initialisationRequetePreparee( connexion, sql, returnGeneratedKeys, values);
 	      
 	        int statut = preparedStatement.executeUpdate();
 	        
 	        /* Analyse du statut retourné par la requête d'insertion */
 	        if ( statut == 0 ) {
-	            CM_Log.error( "Échec de la création de l'utilisateur, aucune ligne ajoutée dans la table." );
-	            return -1;
+	            throw new NoResultException( "The Database returned an empty result set.");
 	        }
 	        
 	        if(returnGeneratedKeys) {
@@ -189,11 +147,7 @@ public class CM_Database {
 		        valeursAutoGenerees = preparedStatement.getGeneratedKeys();
 		        if (valeursAutoGenerees.next())
 	                return valeursAutoGenerees.getInt(1);
-	        }
-	        else
-	        	return 1;
-	        
-	       
+	        }     
 	    } catch ( SQLException e ) {
 	        CM_Log.error( e );
 	    } finally {
@@ -201,6 +155,42 @@ public class CM_Database {
 	    }
     	
 	    return -1;
+    }
+    
+    //===================================================================================
+    /*
+     * Prepare and execute sql requestMySQLMySQL
+     */
+    public static ArrayList<Map<String, Object>> executeSQLRequest(String sql, Object[] values) {
+    	Connection connexion = null;
+	    PreparedStatement preparedStatement = null;
+	    ResultSet result = null;
+
+	    ArrayList<Map<String, Object>> rows = new ArrayList<>();
+	    	    
+	    try {
+	        /* Récupération d'une connexion depuis la Factory */
+	        connexion = CM_Database.connect();
+	        preparedStatement = CM_Database.initialisationRequetePreparee( connexion, sql, true, values);
+	      
+	        
+	        result = preparedStatement.executeQuery();;
+	        ResultSetMetaData md = preparedStatement.getMetaData();
+	        int columns = md.getColumnCount();
+	        while (result.next()){
+	            Map<String, Object> row = new HashMap<String, Object>(columns);
+	            for(int i = 1; i <= columns; ++i){
+	                row.put(md.getColumnName(i), result.getObject(i));
+	            }
+	            rows.add(row);
+	        }
+	    } catch ( SQLException e ) {
+	        CM_Log.error( e );
+	    } finally {
+	        CM_Database.close( connexion, preparedStatement, result );
+	    }
+    	
+	    return rows;
     }
     
     //===================================================================================

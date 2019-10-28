@@ -7,7 +7,7 @@ public class InitServer implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		CM_Log.info("Start server");
-		CM_Database.getDBParam(sce.getServletContext().getResourceAsStream("/WEB-INF/conf/dbconfig.properties"));
+		CM_Database.getDBParam(sce.getServletContext().getResourceAsStream("/META-INF/conf/dbconfig.properties"));
 	}
 
 	@Override
