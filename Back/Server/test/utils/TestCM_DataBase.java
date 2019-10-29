@@ -12,14 +12,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import service.utils.CM_Database;
-
 public class TestCM_DataBase {
 	protected Connection c;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() {
-		CM_Database.getDBParam();
+		DBConnector.getDBParam();
 	}
 
 	@Before
@@ -30,9 +28,9 @@ public class TestCM_DataBase {
 	@Test
 	public void test_0_db_connection() throws SQLException {
 		System.out.println("\n==================test db connection");
-		c = CM_Database.connect();
+		c = DBConnector.connect();
         assertTrue(c != null);
-        CM_Database.close(c);
+        DBConnector.close(c);
 	}
 
 	@After

@@ -22,20 +22,32 @@ public class ServicesTest {
     }
 
     //##########################################################################
+    //  Insert
+    //##########################################################################
+    
+    @Test
+    public void failDouble_insert() {
+    	System.out.println("=========================== test failDouble_insert " + fab.getEntity().getTable().getName());
+        assertTrue(fab.getService().add(fab.getEntity()));
+        assertFalse(fab.getService().add(fab.getEntity()));
+        assertTrue(fab.getService().delete(fab.getEntity()));
+    }
+    
+    //##########################################################################
     //  Delete
     //##########################################################################
 
     @Test
     public void failDelete_IdZero() {
     	System.out.println("=========================== test failDelete_IdZero " + fab.getEntity().getTable().getName());
-        fab.getEntity().setEntityID(new Long(0));
+        fab.getEntity().setEntityID(fab.getNullID());
         assertFalse(fab.getService().delete(fab.getEntity()));
     }
 
     @Test
     public void failDelete_IdNoExist() {
     	System.out.println("=========================== test failDelete_IdNoExist " + fab.getEntity().getTable().getName());
-        fab.getEntity().setEntityID(new Long("84984165417115"));
+        fab.getEntity().setEntityID(fab.getUnknownID());
         assertFalse(fab.getService().delete(fab.getEntity()));
     }
 
@@ -47,14 +59,14 @@ public class ServicesTest {
     @Test
     public void failUpdateDestination_IdNoExist() {
     	System.out.println("=========================== test failUpdateDestination_IdNoExist " + fab.getEntity().getTable().getName());
-        fab.getEntity().setEntityID(new Long("84984165417115"));
+        fab.getEntity().setEntityID(fab.getUnknownID());
         assertFalse(fab.getService().update(fab.getEntity()));
     }
 
     @Test
     public void failUpdateDestination_IdZero() {
     	System.out.println("=========================== test failUpdateDestination_IdZero " + fab.getEntity().getTable().getName());
-        fab.getEntity().setEntityID(new Long(0));
+        fab.getEntity().setEntityID(fab.getNullID());
         assertFalse(fab.getService().update(fab.getEntity()));
     }
     

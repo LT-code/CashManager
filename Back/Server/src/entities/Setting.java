@@ -6,9 +6,9 @@ import utils.TableFields;
 public class Setting implements EntityClass {
 	private final static Table table =  new Table(	"Setting",
 													new TableFields[]	{	
-														new TableFields("idSetting", 		TableFields.TYPE_INT, TableFields.KEY_PRIMARY),
-														new TableFields("connectionDelay",	TableFields.TYPE_INT),
-														new TableFields("maxAttemps", 		TableFields.TYPE_INT)
+														new TableFields("idSetting", 		TableFields.TYPE_INT, 11, TableFields.KEY_PRIMARY, TableFields.KEY_AUTOGEN),
+														new TableFields("connectionDelay",	TableFields.TYPE_INT, 3),
+														new TableFields("maxAttemps", 		TableFields.TYPE_INT, 3)
 													});
     // Attributes_T
 	private long idSetting;

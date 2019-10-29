@@ -6,39 +6,53 @@ import utils.TableFields;
 public class Machine implements EntityClass {
 	private final static Table table =  new Table(	"Machine",
 													new TableFields[]	{	
-														new TableFields("idMachine", 		TableFields.TYPE_VARCHAR, 	TableFields.KEY_PRIMARY),
-														new TableFields("idSetting",		TableFields.TYPE_INT, 		TableFields.KEY_FOREIGN),
-														new TableFields("isAdmin", 			TableFields.TYPE_BOOLEAN),
-														new TableFields("password", 		TableFields.TYPE_VARCHAR)
+														new TableFields("idMachine", 		TableFields.TYPE_VARCHAR, 	30, TableFields.KEY_PRIMARY),
+														new TableFields("idSetting",		TableFields.TYPE_INT, 		11,	TableFields.KEY_FOREIGN),
+														new TableFields("isAdmin", 			TableFields.TYPE_BOOLEAN,	0),
+														new TableFields("password", 		TableFields.TYPE_VARCHAR,	30)
 													});
     // Attributes_T
-	private long idSetting;
-	protected int connectionDelay;
-    protected int attemptsNumber;
+	private String idMachine;
+	protected long idSetting;
+	protected boolean isAdmin;
+    protected String password;
     
     // Operations
-    public Machine() {
-    	this.idSetting = 0;
-		this.connectionDelay = 30;
-		this.attemptsNumber = 3;
+    public Machine() {};
+    
+    public Machine(String idMachine, long idSetting, boolean isAdmin, String password) {
+		this.idMachine = idMachine;
+		this.idSetting = idSetting;
+		this.isAdmin = isAdmin;
+		this.password = password;
 	}
     
-    public Machine(long idSetting, int connectionDelay, int attemptsNumber) {
-    	this.idSetting = idSetting;
-		this.connectionDelay = connectionDelay;
-		this.attemptsNumber = attemptsNumber;
-	}   
-    
-    public boolean connectServer(String ip, String password) {
+    public long getIdSetting() {
+		return idSetting;
+	}
+
+	public void setIdSetting(long idSetting) {
+		this.idSetting = idSetting;
+	}
+
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public boolean connectServer(String ip, String password) {
 		return false;
-    }
-    
-    public int getAttemptsNumber() {
-		return this.attemptsNumber;
-    }
-    
-    public int getConnectionDelay () {
-		return this.connectionDelay;
     }
 
 	@Override
@@ -48,21 +62,21 @@ public class Machine implements EntityClass {
 
 	@Override
 	public Object[] getFieldsValues() {
-		return new Object[] {this.connectionDelay, this.attemptsNumber};
+		return new Object[] {this.idMachine, this.idSetting, this.isAdmin, this.password};
 	}
 
 	@Override
 	public String entityNameClass() {
-		return "a setting";
+		return "a machine";
 	}
 
 	@Override
 	public void setEntityID(Object id) {
-		this.idSetting = (long) id;
+		this.idMachine = (String) id;
 	}
 
 	@Override
 	public Object getEntityID() {
-		return this.idSetting;
+		return this.idMachine;
 	}
 }

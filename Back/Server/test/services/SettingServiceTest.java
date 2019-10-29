@@ -13,29 +13,26 @@ import org.junit.Test;
 import entities.Setting;
 import fabrique.FabriqueAService;
 import fabrique.ServicesTest;
-import service.utils.CM_Database;
+import service.utils.InitServer;
+import utils.DBConnector;
 
 public class SettingServiceTest extends ServicesTest {
 	private static SettingService settingService;
 	private static Setting setting;
 	
-	@BeforeClass
-	public static void setUpClass() {
-		CM_Database.getDBParam();
-	}
-
+	
     @Before
     public void setUp() {
+    	
     	setting = new Setting();
     	settingService = new SettingService();
 
-        fab = new FabriqueAService(setting, settingService);
+        fab = new FabriqueAService(setting, settingService, new Long(0), new Long("84984165417115"));
     }
     
     @Test
     public void test1() {
-    	System.out.println("t\n" + 
-    			"import java.awt.List;est 1======================================");
+    	System.out.println("test 1======================================");
     	ArrayList<Map<String, Object>> toto = settingService.ListSetting();
     	if(!toto.isEmpty())
 	    	for(Map<String, Object> map : toto)

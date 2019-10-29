@@ -1,4 +1,4 @@
-package service.utils;
+package utils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,8 +17,9 @@ import java.util.Map;
 import java.util.Properties;
 
 import exception.NoResultException;
+import service.utils.CM_Log;
 
-public class CM_Database {
+public class DBConnector {
 	private final static String propertiesFileForTest = (new File("./")).getAbsolutePath() + "/WebContent/META-INF/conf/dbconfig.properties";
     
 	// Attributes
@@ -41,11 +42,11 @@ public class CM_Database {
         	Properties properties = new Properties();
             properties.load(inStream == null ? new FileInputStream(new File(propertiesFileForTest)) : inStream );
             
- 	        CM_Database.host = properties.getProperty( "host" );
- 	        CM_Database.dbName = properties.getProperty( "dbName" );
- 	        CM_Database.port = Integer.parseInt(properties.getProperty( "port" ));
- 	        CM_Database.user = properties.getProperty( "user" );
- 	        CM_Database.password = properties.getProperty( "password" );
+ 	        DBConnector.host = properties.getProperty( "host" );
+ 	        DBConnector.dbName = properties.getProperty( "dbName" );
+ 	        DBConnector.port = Integer.parseInt(properties.getProperty( "port" ));
+ 	        DBConnector.user = properties.getProperty( "user" );
+ 	        DBConnector.password = properties.getProperty( "password" );
  	        CM_Log.info("DB parameters has been gotten");
         }
         catch (Exception e) {
@@ -64,14 +65,14 @@ public class CM_Database {
     public static Connection connect() {
     	Connection connection = null;
     	System.out.println("---------------------");
-    	String url = "jdbc:mariadb://" + CM_Database.host + ":" + CM_Database.port + "/" + CM_Database.dbName;
+    	String url = "jdbc:mariadb://" + DBConnector.host + ":" + DBConnector.port + "/" + DBConnector.dbName;
 
     	try {
     		Class.forName("org.mariadb.jdbc.Driver");
     		connection = DriverManager.getConnection(
     													url,
-    													CM_Database.user,
-    													CM_Database.password
+    													DBConnector.user,
+    													DBConnector.password
     												);
     	    CM_Log.debug("Connect to the DataBase " + url);
 
@@ -132,8 +133,8 @@ public class CM_Database {
 	    	    
 	    try {
 	        /* Récupération d'une connexion depuis la Factory */
-	        connexion = CM_Database.connect();
-	        preparedStatement = CM_Database.initialisationRequetePreparee( connexion, sql, returnGeneratedKeys, values);
+	        connexion = DBConnector.connect();
+	        preparedStatement = DBConnector.initialisationRequetePreparee( connexion, sql, returnGeneratedKeys, values);
 	      
 	        int statut = preparedStatement.executeUpdate();
 	        
@@ -151,7 +152,7 @@ public class CM_Database {
 	    } catch ( SQLException e ) {
 	        CM_Log.error( e );
 	    } finally {
-	        CM_Database.close( connexion, preparedStatement, valeursAutoGenerees );
+	        DBConnector.close( connexion, preparedStatement, valeursAutoGenerees );
 	    }
     	
 	    return -1;
@@ -159,9 +160,35 @@ public class CM_Database {
     
     //===================================================================================
     /*
+     * 
+     */
+    public static boolean executeSQL(String query) {
+    	Connection c = null;
+    	Statement statement = null;
+    	ResultSet resultat = null;
+    	
+    	try {
+    		c = DBConnector.connect();
+    		statement = c.createStatement();
+    		resultat = statement.executeQuery(query);
+    		return true;
+    	}
+    	catch (SQLException e) {
+			CM_Log.error(e);
+		}
+    	finally {
+    		close(c, statement, resultat);
+    	}
+ 
+		return false;
+    }
+
+    
+    //===================================================================================
+    /*
      * Prepare and execute sql requestMySQLMySQL
      */
-    public static ArrayList<Map<String, Object>> executeSQLRequest(String sql, Object[] values) {
+    public static ArrayList<Map<String, Object>> executeQuerySQL(String sql, Object[] values) {
     	Connection connexion = null;
 	    PreparedStatement preparedStatement = null;
 	    ResultSet result = null;
@@ -170,8 +197,8 @@ public class CM_Database {
 	    	    
 	    try {
 	        /* Récupération d'une connexion depuis la Factory */
-	        connexion = CM_Database.connect();
-	        preparedStatement = CM_Database.initialisationRequetePreparee( connexion, sql, true, values);
+	        connexion = DBConnector.connect();
+	        preparedStatement = DBConnector.initialisationRequetePreparee( connexion, sql, true, values);
 	      
 	        
 	        result = preparedStatement.executeQuery();;
@@ -187,7 +214,7 @@ public class CM_Database {
 	    } catch ( SQLException e ) {
 	        CM_Log.error( e );
 	    } finally {
-	        CM_Database.close( connexion, preparedStatement, result );
+	        DBConnector.close( connexion, preparedStatement, result );
 	    }
     	
 	    return rows;
