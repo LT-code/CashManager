@@ -17,7 +17,6 @@ import java.util.Map;
 import java.util.Properties;
 
 import exception.NoResultException;
-import service.utils.CM_Log;
 
 public class DBConnector {
 	private final static String propertiesFileForTest = (new File("./")).getAbsolutePath() + "/WebContent/META-INF/conf/dbconfig.properties";
@@ -29,7 +28,19 @@ public class DBConnector {
     private static String user;
     private static String password;
     
+    private Connection connection;
+    private PreparedStatement preparedStatement;
+    private ResultSet result;
+    private Statement statement;
    
+   public DBConnector() throws ClassNotFoundException, SQLException {
+	   connection = null;
+	   preparedStatement = null;
+	   result = null;
+	   statement = null;
+	   this.connect();
+   }
+    
     //private static Connection connection;
     
     // Operations
@@ -62,23 +73,18 @@ public class DBConnector {
      * 	Connect to the data base
      * 	Need the execution of getDBParam to works
      */
-    public static Connection connect() {
-    	Connection connection = null;
+    public Connection connect() throws ClassNotFoundException, SQLException {
     	System.out.println("---------------------");
     	String url = "jdbc:mariadb://" + DBConnector.host + ":" + DBConnector.port + "/" + DBConnector.dbName;
 
-    	try {
-    		Class.forName("org.mariadb.jdbc.Driver");
-    		connection = DriverManager.getConnection(
-    													url,
-    													DBConnector.user,
-    													DBConnector.password
-    												);
-    	    CM_Log.debug("Connect to the DataBase " + url);
+		Class.forName("org.mariadb.jdbc.Driver");
+		connection = DriverManager.getConnection(
+													url,
+													DBConnector.user,
+													DBConnector.password
+												);
+	    CM_Log.debug("Connect to the DataBase " + url);
 
-    	} catch ( SQLException | ClassNotFoundException e ) {
-    	    CM_Log.error(e);
-    	}
     	
     	return connection;
     }
@@ -87,7 +93,7 @@ public class DBConnector {
     /*
      * 	Close the dataBase connection
      */
-    public static void close(Connection connection) {
+    public void close() {
     	if ( connection != null )
 	        try {
 	        	connection.close();
@@ -95,11 +101,7 @@ public class DBConnector {
 	        } catch ( SQLException ignore ) {
 	        	CM_Log.error(ignore);
 	        }
-    }
-    
-    public static void close(Connection connection, Statement statement) {
-    	close(connection);
-    	
+
     	if ( statement != null )
 	        try {
 	        	statement.close();
@@ -107,14 +109,18 @@ public class DBConnector {
 	        } catch ( SQLException ignore ) {
 	        	CM_Log.error(ignore);
 	        }
-    }
-    
-    public static void close(Connection connection, Statement statement, ResultSet resultSet) {
-    	close(connection, statement);
     	
-    	if ( resultSet != null )
+    	if ( preparedStatement != null )
 	        try {
-	        	resultSet.close();
+	        	preparedStatement.close();
+	        	//CM_Log.debug("Statement closed");
+	        } catch ( SQLException ignore ) {
+	        	CM_Log.error(ignore);
+	        }
+
+    	if ( result != null )
+	        try {
+	        	result.close();
 	        	//CM_Log.debug("ResultSet closed");
 	        } catch ( SQLException ignore ) {
 	        	CM_Log.error(ignore);
@@ -126,35 +132,25 @@ public class DBConnector {
     /*
      * Prepare and execute sql request
      */
-    public static int executePreparedSQL(String sql, boolean returnGeneratedKeys, Object[] values) throws NoResultException {
-    	Connection connexion = null;
-	    PreparedStatement preparedStatement = null;
-    	ResultSet valeursAutoGenerees = null;
-	    	    
-	    try {
-	        /* Récupération d'une connexion depuis la Factory */
-	        connexion = DBConnector.connect();
-	        preparedStatement = DBConnector.initialisationRequetePreparee( connexion, sql, returnGeneratedKeys, values);
-	      
-	        int statut = preparedStatement.executeUpdate();
-	        
-	        /* Analyse du statut retourné par la requête d'insertion */
-	        if ( statut == 0 ) {
-	            throw new NoResultException( "The Database returned an empty result set.");
-	        }
-	        
-	        if(returnGeneratedKeys) {
-	        	/* Récupération de l'id auto-généré par la requête d'insertion s */
-		        valeursAutoGenerees = preparedStatement.getGeneratedKeys();
-		        if (valeursAutoGenerees.next())
-	                return valeursAutoGenerees.getInt(1);
-	        }     
-	    } catch ( SQLException e ) {
-	        CM_Log.error( e );
-	    } finally {
-	        DBConnector.close( connexion, preparedStatement, valeursAutoGenerees );
-	    }
-    	
+    public int executePreparedSQL(String sql, boolean returnGeneratedKeys, Object[] values) throws NoResultException, SQLException {
+	   
+        /* Récupération d'une connexion depuis la Factory */
+        this.initialisationRequetePreparee( sql, returnGeneratedKeys, values);
+      
+        int statut = preparedStatement.executeUpdate();
+        
+        /* Analyse du statut retourné par la requête d'insertion */
+        if ( statut == 0 ) {
+            throw new NoResultException( "The Database returned an empty result set.");
+        }
+        
+        if(returnGeneratedKeys) {
+        	/* Récupération de l'id auto-généré par la requête d'insertion s */
+	        result = preparedStatement.getGeneratedKeys();
+	        if (result.next())
+                return result.getInt(1);
+        }     
+
 	    return -1;
     }
     
@@ -162,25 +158,9 @@ public class DBConnector {
     /*
      * 
      */
-    public static boolean executeSQL(String query) {
-    	Connection c = null;
-    	Statement statement = null;
-    	ResultSet resultat = null;
-    	
-    	try {
-    		c = DBConnector.connect();
-    		statement = c.createStatement();
-    		resultat = statement.executeQuery(query);
-    		return true;
-    	}
-    	catch (SQLException e) {
-			CM_Log.error(e);
-		}
-    	finally {
-    		close(c, statement, resultat);
-    	}
- 
-		return false;
+    public void executeSQL(String query) throws SQLException {
+		statement = connection.createStatement();
+		statement.executeQuery(query);
     }
 
     
@@ -188,34 +168,23 @@ public class DBConnector {
     /*
      * Prepare and execute sql requestMySQLMySQL
      */
-    public static ArrayList<Map<String, Object>> executeQuerySQL(String sql, Object[] values) {
-    	Connection connexion = null;
-	    PreparedStatement preparedStatement = null;
-	    ResultSet result = null;
-
+    public ArrayList<Map<String, Object>> executeQuerySQL(String sql, Object[] values) throws SQLException {
 	    ArrayList<Map<String, Object>> rows = new ArrayList<>();
-	    	    
-	    try {
-	        /* Récupération d'une connexion depuis la Factory */
-	        connexion = DBConnector.connect();
-	        preparedStatement = DBConnector.initialisationRequetePreparee( connexion, sql, true, values);
-	      
-	        
-	        result = preparedStatement.executeQuery();;
-	        ResultSetMetaData md = preparedStatement.getMetaData();
-	        int columns = md.getColumnCount();
-	        while (result.next()){
-	            Map<String, Object> row = new HashMap<String, Object>(columns);
-	            for(int i = 1; i <= columns; ++i){
-	                row.put(md.getColumnName(i), result.getObject(i));
-	            }
-	            rows.add(row);
-	        }
-	    } catch ( SQLException e ) {
-	        CM_Log.error( e );
-	    } finally {
-	        DBConnector.close( connexion, preparedStatement, result );
-	    }
+	    	
+        /* Récupération d'une connexion depuis la Factory */
+        this.initialisationRequetePreparee( sql, true, values);
+      
+        
+        result = preparedStatement.executeQuery();;
+        ResultSetMetaData md = preparedStatement.getMetaData();
+        int columns = md.getColumnCount();
+        while (result.next()){
+            Map<String, Object> row = new HashMap<String, Object>(columns);
+            for(int i = 1; i <= columns; ++i){
+                row.put(md.getColumnName(i), result.getObject(i));
+            }
+            rows.add(row);
+        }
     	
 	    return rows;
     }
@@ -225,13 +194,12 @@ public class DBConnector {
      * Initialise la requête préparée basée sur la connexion passée en argument,
      * avec la requête SQL et les objets donnés.
      */
-    private static PreparedStatement initialisationRequetePreparee( Connection connexion, String sql, boolean returnGeneratedKeys, Object[] objets) throws SQLException {
-        PreparedStatement preparedStatement = connexion.prepareStatement( sql, returnGeneratedKeys ? Statement.RETURN_GENERATED_KEYS : Statement.NO_GENERATED_KEYS );
+    private void initialisationRequetePreparee( String sql, boolean returnGeneratedKeys, Object[] objets) throws SQLException {
+        preparedStatement = connection.prepareStatement( sql, returnGeneratedKeys ? Statement.RETURN_GENERATED_KEYS : Statement.NO_GENERATED_KEYS );
         //preparedStatement.setTimestamp(1, new java.sql.Timestamp(new java.util.Date().getTime())); 
         for ( int i = 0; i < objets.length; i++ )
             preparedStatement.setObject( i + 1, objets[i] );
            
         CM_Log.debug(sql + " " + Arrays.asList(objets));
-        return preparedStatement;
     }
 }

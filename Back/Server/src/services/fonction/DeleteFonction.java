@@ -2,9 +2,12 @@ package services.fonction;
 
 import exception.NoResultException;
 import exception.ValidatorNotRecpectedException;
-import entities.EntityClass;
+
+import java.sql.SQLException;
+
 import services.Service;
 import services.fonction.ServiceFonction;
+import tables.TableClass;
 
 public class DeleteFonction extends ServiceFonction {
     public DeleteFonction(Service service) {
@@ -17,7 +20,7 @@ public class DeleteFonction extends ServiceFonction {
     }
 
     @Override
-    public void execute(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException {
+    public void execute(TableClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
         if(!service.validatorAdd(entityClass))
             throw new ValidatorNotRecpectedException("delete " + entityClass.getClass());
         service.methodDelete(entityClass);

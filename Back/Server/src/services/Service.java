@@ -1,18 +1,27 @@
 package services;
 
+import utils.DBConnector;
 import utils.ErrorsHandler;
 import services.fonction.AddFonction;
 import services.fonction.DeleteFonction;
 import services.fonction.ServiceFonction;
 import services.fonction.UpdateFonction;
+import tables.TableClass;
+
+import java.sql.SQLException;
+
 import dao.Dao;
-import entities.EntityClass;
 import exception.NoResultException;
 import exception.ValidatorNotRecpectedException;
 
 
 public abstract class Service {
-    protected ErrorsHandler errHandler = new ErrorsHandler();
+	DBConnector db;
+	protected ErrorsHandler errHandler = new ErrorsHandler();
+	
+	public Service(DBConnector db) {
+		this.db = db;
+	}    
 
     public abstract Dao getDao();
     
@@ -28,50 +37,50 @@ public abstract class Service {
     }
 
     
-    public boolean add(EntityClass entityClass) {
+    public boolean add(TableClass entityClass) {
         return serviceMethod(new AddFonction(this), entityClass);
     }
     
-    public boolean update(EntityClass entityClass) {
+    public boolean update(TableClass entityClass) {
         return serviceMethod(new UpdateFonction(this), entityClass);
     }
     
-    public boolean delete(EntityClass entityClass) {
+    public boolean delete(TableClass entityClass) {
         return serviceMethod(new DeleteFonction(this), entityClass);
     }
 
     
-    public void methodAdd(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException {
+    public void methodAdd(TableClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
         this.getDao().add(entityClass);
     }
     
-    public void methodUpdate(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException {
+    public void methodUpdate(TableClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
         this.getDao().update(entityClass);
     }
     
-    public void methodDelete(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException {
+    public void methodDelete(TableClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
         this.getDao().delete(entityClass);
     }
 
     
-    public abstract boolean validator(EntityClass entityClass);
+    public abstract boolean validator(TableClass entityClass);
     
-    public boolean validatorAdd(EntityClass entityClass) {
+    public boolean validatorAdd(TableClass entityClass) {
         return validator(entityClass);
     }
     
-    public boolean validatorUpdate(EntityClass entityClass) {
+    public boolean validatorUpdate(TableClass entityClass) {
         return validator(entityClass);
     }
 
-    public boolean validatorDelete(EntityClass entityClass) {
+    public boolean validatorDelete(TableClass entityClass) {
         boolean res = validator(entityClass);
         if(entityClass.getEntityID() instanceof Long)
         	res = res && (long) entityClass.getEntityID() <= 0;
         return res;
     }
     
-    protected boolean serviceMethod(ServiceFonction serviceFonction, EntityClass entityClass) {
+    protected boolean serviceMethod(ServiceFonction serviceFonction, TableClass entityClass) {
         try {
             serviceFonction.execute(entityClass);
             errHandler.setInfo("Success of " + serviceFonction.getMessage() + entityClass.entityNameClass() + ".", entityClass.toString());

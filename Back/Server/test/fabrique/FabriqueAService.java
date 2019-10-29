@@ -1,15 +1,15 @@
 package fabrique;
 
-import entities.EntityClass;
 import services.Service;
+import tables.TableClass;
 
 public class FabriqueAService {
     private Service service;
-    private EntityClass entityClass;
+    private TableClass entityClass;
     private Object nullID;
     private Object unkownID;
 
-    public FabriqueAService(EntityClass entityClass, Service service, Object nullID, Object unkownID) {
+    public FabriqueAService(TableClass entityClass, Service service, Object nullID, Object unkownID) {
         this.service = service;
         this.entityClass = entityClass;
         this.nullID = nullID;
@@ -19,7 +19,7 @@ public class FabriqueAService {
     public Service getService() {
         return service;
     }
-    public EntityClass getEntity() {
+    public TableClass getEntity() {
         return entityClass;
     }
     

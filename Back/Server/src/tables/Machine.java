@@ -1,9 +1,9 @@
-package entities;
+package tables;
 
 import utils.Table;
 import utils.TableFields;
 
-public class Machine implements EntityClass {
+public class Machine implements TableClass {
 	private final static Table table =  new Table(	"Machine",
 													new TableFields[]	{	
 														new TableFields("idMachine", 		TableFields.TYPE_VARCHAR, 	30, TableFields.KEY_PRIMARY),

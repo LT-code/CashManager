@@ -18,6 +18,6 @@
 </context-param>
   
    <listener>
-        <listener-class>service.utils.InitServer</listener-class>
+        <listener-class>utils.InitServer</listener-class>
     </listener>
 </web-app>

@@ -1,4 +1,4 @@
-package service.utils;
+package utils;
 
 public class CM_Log {
     // Operations

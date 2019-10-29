@@ -1,20 +1,30 @@
 package dao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
-import entities.EntityClass;
 import exception.NoResultException;
-import service.utils.CM_Log;
+import tables.TableClass;
+import utils.CM_Log;
 import utils.DBConnector;
+import utils.ErrorsHandler;
 
 public abstract class Dao {
+	DBConnector db;
+	ErrorsHandler errorHandler;
+	
+	public Dao(DBConnector db, ErrorsHandler errorHandler) {
+		this.db = db;
+		this.errorHandler = errorHandler;
+	}
+	
 	//===================================================================================
     /*
      * 
      */
-    public boolean add(EntityClass entityClass) throws NoResultException {
-    	long id = DBConnector.executePreparedSQL(
+    public boolean add(TableClass entityClass) throws NoResultException, SQLException {
+    	long id = db.executePreparedSQL(
 													"INSERT INTO " + entityClass.getTable().getName() +" (" + entityClass.getTable().getFields() + ") " +
 													"VALUES (" + entityClass.getTable().getFieldsPrepared() + ");",
 													true,
@@ -33,8 +43,8 @@ public abstract class Dao {
     /*
      * 
      */
-    public boolean update(EntityClass entityClass) throws NoResultException {
-    	boolean res = DBConnector.executePreparedSQL(
+    public boolean update(TableClass entityClass) throws NoResultException, SQLException {
+    	boolean res = db.executePreparedSQL(
 														"UPDATE " + entityClass.getTable().getName() + " " +
 														"SET " + entityClass.getTable().getSetFields() + " " +
 														"WHERE " + entityClass.getTable().getSetID() + ";",
@@ -58,8 +68,8 @@ public abstract class Dao {
     /*
      * 
      */
-    public boolean delete(EntityClass entityClass) throws NoResultException {
-    	boolean res = DBConnector.executePreparedSQL(
+    public boolean delete(TableClass entityClass) throws NoResultException, SQLException {
+    	boolean res = db.executePreparedSQL(
 														"DELETE FROM " + entityClass.getTable().getName() +" " +
 														"WHERE " + entityClass.getTable().getSetID() + ";",
 														false,
@@ -74,11 +84,11 @@ public abstract class Dao {
     /*
      * 
      */
-    protected ArrayList<Map<String, Object>> query(String queryString, Object[] values) {
-  		return DBConnector.executeQuerySQL(queryString, values);
+    protected ArrayList<Map<String, Object>> query(String queryString, Object[] values) throws SQLException {
+  		return db.executeQuerySQL(queryString, values);
     }
     //------------------------------------------------------------
-    protected ArrayList<Map<String, Object>> query(String queryString) {
+    protected ArrayList<Map<String, Object>> query(String queryString) throws SQLException {
     	return query(queryString, new Object[]{});
     }
 }

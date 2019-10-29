@@ -5,11 +5,11 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import service.utils.InitServer;
 import utils.DBConnector;
+import utils.InitServer;
 
 @RunWith(Suite.class)
-@SuiteClasses({ MachineServiceTest.class, SettingServiceTest.class })
+@SuiteClasses({ MachineServiceTest.class, SettingServiceTest.class , CartServiceTest.class})
 public class AllTests {
 	@BeforeClass
 	public static void setUpClass() throws InstantiationException, IllegalAccessException {
