@@ -1,21 +1,21 @@
 package services;
 
+import dao.ArticleDao;
 import dao.Dao;
-import dao.MachineDao;
 import entities.EntityClass;
 import utils.DBConnector;
 import utils.ErrorsHandler;
 
-public class MachineService extends Service {
-	MachineDao machineDao = new MachineDao(db, this.getErrorsHandler());
+public class ArticleService extends Service {
+	ArticleDao articleDao = new ArticleDao(db, this.getErrorsHandler());
 	
-	public MachineService(DBConnector db, ErrorsHandler errHandler) {
+	public ArticleService(DBConnector db, ErrorsHandler errHandler) {
 		super(db, errHandler);
 	}
 	
 	@Override
 	public Dao getDao() {
-		return this.machineDao;
+		return this.articleDao;
 	}
 
 	@Override

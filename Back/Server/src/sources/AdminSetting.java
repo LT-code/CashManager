@@ -1,6 +1,6 @@
 package sources;
 
-import tables.Setting;
+import entities.Setting;
 
 public class AdminSetting extends Setting {
     // Operations

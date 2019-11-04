@@ -1,13 +1,11 @@
 package services.fonction;
 
-import exception.NoResultException;
-import exception.ValidatorNotRecpectedException;
-
 import java.sql.SQLException;
 
+import entities.EntityClass;
+import exception.NoResultException;
+import exception.ValidatorNotRecpectedException;
 import services.Service;
-import services.fonction.ServiceFonction;
-import tables.TableClass;
 
 public class AddFonction extends ServiceFonction {
     public AddFonction(Service service) {
@@ -20,7 +18,7 @@ public class AddFonction extends ServiceFonction {
     }
 
     @Override
-    public void execute(TableClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
+    public void execute(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
         if(!service.validatorAdd(entityClass))
             throw new ValidatorNotRecpectedException("add " + entityClass.getClass());
         service.methodAdd(entityClass);

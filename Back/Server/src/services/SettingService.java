@@ -1,21 +1,20 @@
 package services;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
 import dao.Dao;
 import dao.SettingDao;
-import tables.Setting;
-import tables.TableClass;
+import entities.EntityClass;
+import entities.Setting;
 import utils.DBConnector;
 import utils.ErrorsHandler;
 
 public class SettingService extends Service {
 	SettingDao settingDao = new SettingDao(db, this.getErrorsHandler());
 	
-	public SettingService(DBConnector db) {
-		super(db);
+	public SettingService(DBConnector db, ErrorsHandler errHandler) {
+		super(db, errHandler);
 	}
 	
 	public ArrayList<Map<String, Object>> ListSetting() {
@@ -38,7 +37,7 @@ public class SettingService extends Service {
 	}
 
 	@Override
-	public boolean validator(TableClass entityClass) {
+	public boolean validator(EntityClass entityClass) {
 		return 	((Setting) entityClass).getAttemptsNumber() > 1 &&
 				((Setting) entityClass).getConnectionDelay() < 180 &&
 				((Setting) entityClass).getConnectionDelay() > 0;

@@ -1,78 +1,87 @@
 package fabrique;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestWatchman;
+import org.junit.runners.model.FrameworkMethod;
 
+import utils.ErrorsHandler;
+
+@SuppressWarnings("deprecation")
 public class ServicesTest {
-    protected FabriqueAService fab;
+	protected FabriqueAService fab;
+	protected ErrorsHandler errHandler = new ErrorsHandler();
 
-    @Test
-    public void addUpdateDelete() {
-    	System.out.println("=========================== test addUpdateDelete " + fab.getEntity().getTable().getName());
-        assertTrue(fab.getService().add(fab.getEntity()));
-        assertTrue(fab.getService().update(fab.getEntity()));
-        assertTrue(fab.getService().delete(fab.getEntity()));
-    }
+	
+	@Rule
+	public TestWatchman watchman = new TestWatchman() {
+		public void starting(FrameworkMethod method) {
+			System.out.println("\n####################################################################################" );
+			System.out.println("######## " + method.getName());
+			System.out.println("####################################################################################" );
+		}
+	};
 
-    @Test
-    public void addDelete() {
-    	System.out.println("=========================== test addDelete " + fab.getEntity().getTable().getName());
-        assertTrue(fab.getService().add(fab.getEntity()));
-        assertTrue(fab.getService().delete(fab.getEntity()));
-    }
+	@Test
+	public void addUpdateDelete() {
+		assertTrue(fab.getService().add(fab.getEntity()));
+		assertTrue(fab.getService().update(fab.getEntity()));
+		assertTrue(fab.getService().delete(fab.getEntity()));
+	}
 
-    //##########################################################################
-    //  Insert
-    //##########################################################################
-    
-    @Test
-    public void failDouble_insert() {
-    	System.out.println("=========================== test failDouble_insert " + fab.getEntity().getTable().getName());
-        assertTrue(fab.getService().add(fab.getEntity()));
-        assertFalse(fab.getService().add(fab.getEntity()));
-        assertTrue(fab.getService().delete(fab.getEntity()));
-    }
-    
-    //##########################################################################
-    //  Delete
-    //##########################################################################
+	@Test
+	public void addDelete() {
+		assertTrue(fab.getService().add(fab.getEntity()));
+		assertTrue(fab.getService().delete(fab.getEntity()));
+	}
 
-    @Test
-    public void failDelete_IdZero() {
-    	System.out.println("=========================== test failDelete_IdZero " + fab.getEntity().getTable().getName());
-        fab.getEntity().setEntityID(fab.getNullID());
-        assertFalse(fab.getService().delete(fab.getEntity()));
-    }
+	// ##########################################################################
+	// Insert
+	// ##########################################################################
 
-    @Test
-    public void failDelete_IdNoExist() {
-    	System.out.println("=========================== test failDelete_IdNoExist " + fab.getEntity().getTable().getName());
-        fab.getEntity().setEntityID(fab.getUnknownID());
-        assertFalse(fab.getService().delete(fab.getEntity()));
-    }
+	@Test
+	public void failDouble_insert() {
+		assertTrue(fab.getService().add(fab.getEntity()));
+		assertFalse(fab.getService().add(fab.getEntity()));
+		assertTrue(fab.getService().delete(fab.getEntity()));
+	}
 
+	// ##########################################################################
+	// Delete
+	// ##########################################################################
 
-    //##########################################################################
-    //  Update
-    //##########################################################################
+	@Test
+	public void failDelete_IdZero() {
+		fab.getEntity().setId(fab.getNullID());
+		assertFalse(fab.getService().delete(fab.getEntity()));
+	}
 
-    @Test
-    public void failUpdateDestination_IdNoExist() {
-    	System.out.println("=========================== test failUpdateDestination_IdNoExist " + fab.getEntity().getTable().getName());
-        fab.getEntity().setEntityID(fab.getUnknownID());
-        assertFalse(fab.getService().update(fab.getEntity()));
-    }
+	@Test
+	public void failDelete_IdNoExist() {
+		fab.getEntity().setId(fab.getUnknownID());
+		assertFalse(fab.getService().delete(fab.getEntity()));
+	}
 
-    @Test
-    public void failUpdateDestination_IdZero() {
-    	System.out.println("=========================== test failUpdateDestination_IdZero " + fab.getEntity().getTable().getName());
-        fab.getEntity().setEntityID(fab.getNullID());
-        assertFalse(fab.getService().update(fab.getEntity()));
-    }
-    
-    //##########################################################################
-    //  function to override
-    //##########################################################################
-    
-    
+	// ##########################################################################
+	// Update
+	// ##########################################################################
+
+	@Test
+	public void failUpdateDestination_IdNoExist() {
+		fab.getEntity().setId(fab.getUnknownID());
+		assertFalse(fab.getService().update(fab.getEntity()));
+	}
+
+	@Test
+	public void failUpdateDestination_IdZero() {
+		fab.getEntity().setId(fab.getNullID());
+		assertFalse(fab.getService().update(fab.getEntity()));
+	}
+
+	// ##########################################################################
+	// function to override
+	// ##########################################################################
 }

@@ -1,13 +1,12 @@
 package services.fonction;
 
+import java.sql.SQLException;
+
+import entities.EntityClass;
 import exception.NoResultException;
 import exception.NotFoundException;
 import exception.ValidatorNotRecpectedException;
-
-import java.sql.SQLException;
-
 import services.Service;
-import tables.TableClass;
 
 public abstract class ServiceFonction {
     protected Service service;
@@ -23,5 +22,5 @@ public abstract class ServiceFonction {
 
     public abstract String getMessage();
 
-    public abstract void execute(TableClass entityClass) throws ValidatorNotRecpectedException, NotFoundException, NoResultException, SQLException;
+    public abstract void execute(EntityClass entityClass) throws ValidatorNotRecpectedException, NotFoundException, NoResultException, SQLException;
 }

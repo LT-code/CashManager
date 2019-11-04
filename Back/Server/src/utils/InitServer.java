@@ -1,39 +1,48 @@
 package utils;
 
-import java.util.Set;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import org.reflections.Reflections;
-
-import tables.TableClass;
+import tables.ArticleTable;
+import tables.CartTable;
+import tables.MachineTable;
+import tables.SettingTable;
 
 public class InitServer implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		CM_Log.info("Start server");
+		Log.info("Start server");
 		DBConnector.getDBParam(sce.getServletContext().getResourceAsStream("/META-INF/conf/dbconfig.properties"));
+		restetDataBase();
 		createAllTables();
 	}
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		CM_Log.info("End server");		
+		Log.info("End server");		
 	}
 	
 	public static void createAllTables() {
 		try {
-			Reflections reflections = new Reflections("tables");
-		    Set<Class<? extends TableClass>> classes = reflections.getSubTypesOf(TableClass.class);
-		    for (Class<? extends TableClass> aClass : classes) {
-		    	TableClass ec = aClass.newInstance();
-		    	ec.createTable();
-			    CM_Log.info(ec.getTable().getName() + " DataBase was deleted and created");
-		    }
+			SettingTable.createTable();
+			ArticleTable.createTable();
+			MachineTable.createTable();
+			CartTable.createTable();
 		}
 		catch(Exception e) {
-			CM_Log.error(e);
+			Log.error(ErrorsHandler.getMessageError(e));
+		}
+	}
+	
+	public static void restetDataBase() {
+		try {
+			DBConnector db = new DBConnector(new ErrorsHandler());			
+	    	db.executeSQL("DROP DATABASE " + db.getDbName() + ";");
+	    	db.executeSQL("CREATE DATABASE " + db.getDbName() + ";");
+	      	db.close();
+		}
+		catch(Exception e) {
+			Log.error(ErrorsHandler.getMessageError(e));
 		}
 	}
 }

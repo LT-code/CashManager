@@ -1,19 +1,21 @@
 package services;
 
+import static org.junit.Assert.assertFalse;
+
 import java.sql.SQLException;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.Test;
 
+import entities.Cart;
+import entities.Machine;
+import entities.Setting;
+import exception.FailedDBConnection;
 import fabrique.FabriqueAService;
 import fabrique.ServicesTest;
-import tables.Cart;
-import tables.Machine;
-import tables.Setting;
 import utils.DBConnector;
-import utils.InitServer;
+import utils.ErrorsHandler;
 
 public class CartServiceTest extends ServicesTest {
 	private static CartService cartService;
@@ -26,25 +28,32 @@ public class CartServiceTest extends ServicesTest {
 	
 	
 	@Before
-	public void setUp() throws ClassNotFoundException, SQLException {
-		db = new DBConnector();
+	public void setUp() throws ClassNotFoundException, SQLException, FailedDBConnection {
+		ErrorsHandler errHandler = new ErrorsHandler();
+		db = new DBConnector(errHandler);
 		
 		setting = new Setting();
-    	settingService = new SettingService(db);
+    	settingService = new SettingService(db, errHandler);
     	settingService.add(setting);
     	
-    	machine = new Machine("knb7T8U56787Hknkl", (Long) setting.getEntityID(), true, "HUG8E89Fz");
-    	machineService = new MachineService(db);
+    	machine = new Machine("knb7T8U56787Hknkl", (Long) setting.getId(), true, "HUG8E89Fz");
+    	machineService = new MachineService(db, errHandler);
 		machineService.add(machine);
     	
-    	cart = new Cart((String) machine.getEntityID());
-    	cartService = new CartService(db);
+    	cart = new Cart((String) machine.getId());
+    	cartService = new CartService(db, errHandler);
     	
         fab = new FabriqueAService(cart, cartService, new Long(0), new Long("84984165417115"));
     }
+	
+	@Test
+	public void test_MachineFKConstraint() {
+		cart.setIdMachine("FFFFFFFFFFFFFFFFFF");
+		assertFalse(cartService.add(cart));
+	}
 
     @After
-    public void tearDown() {
+    public void tearDown() throws SQLException {
     	machineService.delete(machine);
     	settingService.delete(setting);
     	db.close();

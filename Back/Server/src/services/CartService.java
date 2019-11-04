@@ -3,14 +3,15 @@ package services;
 
 import dao.CartDao;
 import dao.Dao;
-import tables.TableClass;
+import entities.EntityClass;
 import utils.DBConnector;
+import utils.ErrorsHandler;
 
 public class CartService extends Service {
 	CartDao cartDao = new CartDao(db, this.getErrorsHandler());
 	
-	public CartService(DBConnector db) {
-		super(db);
+	public CartService(DBConnector db, ErrorsHandler errHandler) {
+		super(db, errHandler);
 	}
 	
 
@@ -20,7 +21,7 @@ public class CartService extends Service {
 	}
 
 	@Override
-	public boolean validator(TableClass entityClass) {
+	public boolean validator(EntityClass entityClass) {
 		return true;
 	}
 }
