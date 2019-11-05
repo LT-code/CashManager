@@ -4,12 +4,12 @@ import dao.ArticleDao;
 import dao.Dao;
 import entities.EntityClass;
 import utils.DBConnector;
-import utils.ErrorsHandler;
+import utils.LogsHandler;
 
 public class ArticleService extends Service {
 	ArticleDao articleDao = new ArticleDao(db, this.getErrorsHandler());
 	
-	public ArticleService(DBConnector db, ErrorsHandler errHandler) {
+	public ArticleService(DBConnector db, LogsHandler errHandler) {
 		super(db, errHandler);
 	}
 	

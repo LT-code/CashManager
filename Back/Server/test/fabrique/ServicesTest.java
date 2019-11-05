@@ -3,25 +3,38 @@ package fabrique;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.sql.SQLException;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestWatchman;
 import org.junit.runners.model.FrameworkMethod;
 
-import utils.ErrorsHandler;
+import utils.DBConnector;
+import utils.LogsHandler;
 
 @SuppressWarnings("deprecation")
 public class ServicesTest {
 	protected FabriqueAService fab;
-	protected ErrorsHandler errHandler = new ErrorsHandler();
+	protected LogsHandler logsHandler = new LogsHandler();
+	protected DBConnector db;
+	private String testName;
 
+    public void afterTest() throws SQLException {
+    	db.close();
+    	logsHandler.displayLogs();
+    }
+    
+    public void beforeTest() throws SQLException {
+    	System.out.println("\n####################################################################################" );
+		System.out.println("######## " + fab.getEntity().table().getName() + " ######## " + testName);
+		System.out.println("####################################################################################" );
+    }
 	
 	@Rule
 	public TestWatchman watchman = new TestWatchman() {
 		public void starting(FrameworkMethod method) {
-			System.out.println("\n####################################################################################" );
-			System.out.println("######## " + method.getName());
-			System.out.println("####################################################################################" );
+			testName = method.getName();
 		}
 	};
 
@@ -38,16 +51,6 @@ public class ServicesTest {
 		assertTrue(fab.getService().delete(fab.getEntity()));
 	}
 
-	// ##########################################################################
-	// Insert
-	// ##########################################################################
-
-	@Test
-	public void failDouble_insert() {
-		assertTrue(fab.getService().add(fab.getEntity()));
-		assertFalse(fab.getService().add(fab.getEntity()));
-		assertTrue(fab.getService().delete(fab.getEntity()));
-	}
 
 	// ##########################################################################
 	// Delete

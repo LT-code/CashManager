@@ -11,28 +11,21 @@ import services.fonction.DeleteFonction;
 import services.fonction.ServiceFonction;
 import services.fonction.UpdateFonction;
 import utils.DBConnector;
-import utils.ErrorsHandler;
+import utils.LogsHandler;
 
 
 public abstract class Service {
 	DBConnector db;
-	protected ErrorsHandler errHandler;
+	protected LogsHandler errHandler;
 	
-	public Service(DBConnector db, ErrorsHandler errHandler) {
+	public Service(DBConnector db, LogsHandler errHandler) {
 		this.db = db;
 		this.errHandler = errHandler;
 	}    
 
     public abstract Dao getDao();
     
-    public boolean isTransactionValid() {
-        return errHandler.isValid();
-    }
-    public String getTransactionMessage() {
-        return errHandler.getMessage();
-    }
-    
-    public ErrorsHandler getErrorsHandler() {
+    public LogsHandler getErrorsHandler() {
         return errHandler;
     }
 
@@ -83,12 +76,12 @@ public abstract class Service {
     protected boolean serviceMethod(ServiceFonction serviceFonction, EntityClass entityClass) {
         try {
             serviceFonction.execute(entityClass);
-            errHandler.setInfo("Success of " + serviceFonction.getMessage() + entityClass.table().entityNameClass() + ".", entityClass.toString());
+            errHandler.addInfo("Success of " + serviceFonction.getMessage() + entityClass.table().entityNameClass() + ".");
         }
         catch (Exception e) {
             if(e instanceof ValidatorNotRecpectedException)
                 return false;
-            errHandler.setError("failed " + serviceFonction.getMessage() + entityClass.table().entityNameClass() + ".", ErrorsHandler.getMessageError(e) + " | " +  entityClass.toString());
+            errHandler.addError(e);
         }
 
         return errHandler.isValid();

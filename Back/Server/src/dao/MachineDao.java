@@ -1,11 +1,11 @@
 package dao;
 
 import utils.DBConnector;
-import utils.ErrorsHandler;
+import utils.LogsHandler;
 
 public class MachineDao extends Dao {
 
-	public MachineDao(DBConnector db, ErrorsHandler errorHandler) {
+	public MachineDao(DBConnector db, LogsHandler errorHandler) {
 		super(db, errorHandler);
 	}
 	

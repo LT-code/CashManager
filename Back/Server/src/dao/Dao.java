@@ -7,13 +7,13 @@ import java.util.Map;
 import entities.EntityClass;
 import exception.NoResultException;
 import utils.DBConnector;
-import utils.ErrorsHandler;
+import utils.LogsHandler;
 
 public abstract class Dao {
 	DBConnector db;
-	ErrorsHandler errorHandler;
+	LogsHandler errorHandler;
 	
-	public Dao(DBConnector db, ErrorsHandler errorHandler) {
+	public Dao(DBConnector db, LogsHandler errorHandler) {
 		this.db = db;
 		this.errorHandler = errorHandler;
 	}

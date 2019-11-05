@@ -14,7 +14,6 @@ import entities.Article;
 import exception.FailedDBConnection;
 import services.ArticleService;
 import utils.DBConnector;
-import utils.ErrorsHandler;
 
 /**
  * Servlet implementation class ArticleServlet
@@ -31,8 +30,8 @@ public class ArticleServlet extends Servlet {
 		Article article = null;
 		try {
 			JSONObject params = getJsonParams(request);
-			DBConnector db = new DBConnector(this.getErrorsHandler());
-			ArticleService articleService = new ArticleService(db, this.getErrorsHandler());
+			DBConnector db = new DBConnector(this.getLogsHandler());
+			ArticleService articleService = new ArticleService(db, this.getLogsHandler());
 	    	articleService.add(
 	    			article = new Article(
 		    			params.getString("code"),
@@ -41,7 +40,7 @@ public class ArticleServlet extends Servlet {
 
 	    	db.close();
 		} catch (JSONException | FailedDBConnection e) {
-			System.out.println(ErrorsHandler.getMessageError(e));
+			this.getLogsHandler().addError(e);
 		}
 		
 		writeResponse(response, article);

@@ -15,26 +15,25 @@ import exception.FailedDBConnection;
 import fabrique.FabriqueAService;
 import fabrique.ServicesTest;
 import utils.DBConnector;
-import utils.ErrorsHandler;
 
 public class SettingServiceTest extends ServicesTest {
 	private static SettingService settingService;
 	private static Setting setting;
-	private DBConnector db;
+	
 	
     @Before
     public void setUp() throws ClassNotFoundException, SQLException, FailedDBConnection {
-    	ErrorsHandler errHandler = new ErrorsHandler();
-    	db = new DBConnector(errHandler);
+    	db = new DBConnector(logsHandler);
     	setting = new Setting();
-    	settingService = new SettingService(db, errHandler);
+    	settingService = new SettingService(db, logsHandler);
 
         fab = new FabriqueAService(setting, settingService, new Long(0), new Long("84984165417115"));
+        beforeTest();
     }
     
     @Test
     public void test1() {
-    	settingService.add(setting);
+    	assertTrue(settingService.add(setting));
     	
     	ArrayList<Map<String, Object>> toto = settingService.ListSetting();
     	if(toto != null)
@@ -45,13 +44,12 @@ public class SettingServiceTest extends ServicesTest {
 		    		    Object value = entry.getValue();
 		    		    System.out.println(key + ":" + value);
 		    		}
-    	settingService.delete(setting);
+    	assertTrue(settingService.delete(setting));
     	assertTrue(true);
     }
 
     @After
     public void tearDown() throws SQLException {
-    	db.close();
+    	afterTest();
     }
-
 }

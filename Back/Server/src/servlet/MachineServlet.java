@@ -13,7 +13,6 @@ import entities.Machine;
 import exception.FailedDBConnection;
 import services.MachineService;
 import utils.DBConnector;
-import utils.ErrorsHandler;
 
 /**
  * Servlet implementation class MachineServlet
@@ -27,8 +26,8 @@ public class MachineServlet extends Servlet {
 		
 		try {
 			JSONObject params = getJsonParams(request);
-			DBConnector db = new DBConnector(this.getErrorsHandler());
-			MachineService articleService = new MachineService(db, this.getErrorsHandler());
+			DBConnector db = new DBConnector(this.getLogsHandler());
+			MachineService articleService = new MachineService(db, this.getLogsHandler());
 			articleService.add(
 					machine = new Machine(
 						params.getString("idMachine"), 
@@ -39,7 +38,7 @@ public class MachineServlet extends Servlet {
 			
 			db.close();
 		} catch (JSONException | FailedDBConnection e) {
-			System.out.println(ErrorsHandler.getMessageError(e));
+			this.getLogsHandler().addError(e);
 		}
 
 		writeResponse(response, machine);

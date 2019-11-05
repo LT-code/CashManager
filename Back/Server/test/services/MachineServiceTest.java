@@ -14,29 +14,27 @@ import exception.FailedDBConnection;
 import fabrique.FabriqueAService;
 import fabrique.ServicesTest;
 import utils.DBConnector;
-import utils.ErrorsHandler;
 
 public class MachineServiceTest extends ServicesTest {
 	private static MachineService machineService;
 	private static SettingService settingService;
 	private static Setting setting;
 	private static Machine machine;
-	private static DBConnector db;
 	
 	
 	@Before
 	public void setUp() throws ClassNotFoundException, SQLException, FailedDBConnection {
-		ErrorsHandler errHandler = new ErrorsHandler();
-		db = new DBConnector(errHandler);
+		db = new DBConnector(logsHandler);
 		
 		setting = new Setting();
-    	settingService = new SettingService(db, errHandler);
+    	settingService = new SettingService(db, logsHandler);
     	settingService.add(setting);
     	
     	machine = new Machine("knb7T8U56787Hknkl", (Long) setting.getId(), true, "HUG8E89Fz");
-    	machineService = new MachineService(db, errHandler);
+    	machineService = new MachineService(db, logsHandler);
     	
         fab = new FabriqueAService(machine, machineService, new String(""), new String("FFFFFFFFFFFFFFFFFFFFF"));
+        beforeTest();
     }
 	
 	@Test
@@ -48,6 +46,6 @@ public class MachineServiceTest extends ServicesTest {
     @After
     public void tearDown() throws SQLException {
     	settingService.delete(setting);
-    	db.close();
+    	afterTest();
     }
 }

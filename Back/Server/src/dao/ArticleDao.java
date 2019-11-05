@@ -1,11 +1,11 @@
 package dao;
 
 import utils.DBConnector;
-import utils.ErrorsHandler;
+import utils.LogsHandler;
 
 public class ArticleDao extends Dao {
 
-	public ArticleDao(DBConnector db, ErrorsHandler errorHandler) {
+	public ArticleDao(DBConnector db, LogsHandler errorHandler) {
 		super(db, errorHandler);
 	}
 	

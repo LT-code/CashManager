@@ -4,7 +4,6 @@ import java.sql.SQLException;
 
 import entities.EntityClass;
 import exception.NoResultException;
-import exception.NotFoundException;
 import exception.ValidatorNotRecpectedException;
 import services.Service;
 
@@ -22,5 +21,5 @@ public abstract class ServiceFonction {
 
     public abstract String getMessage();
 
-    public abstract void execute(EntityClass entityClass) throws ValidatorNotRecpectedException, NotFoundException, NoResultException, SQLException;
+    public abstract void execute(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException;
 }

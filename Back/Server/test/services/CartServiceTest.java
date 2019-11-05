@@ -15,7 +15,6 @@ import exception.FailedDBConnection;
 import fabrique.FabriqueAService;
 import fabrique.ServicesTest;
 import utils.DBConnector;
-import utils.ErrorsHandler;
 
 public class CartServiceTest extends ServicesTest {
 	private static CartService cartService;
@@ -24,26 +23,25 @@ public class CartServiceTest extends ServicesTest {
 	private static Cart cart;
 	private static Machine machine;
 	private static Setting setting;
-	private static DBConnector db;
 	
 	
 	@Before
 	public void setUp() throws ClassNotFoundException, SQLException, FailedDBConnection {
-		ErrorsHandler errHandler = new ErrorsHandler();
-		db = new DBConnector(errHandler);
+		db = new DBConnector(logsHandler);
 		
 		setting = new Setting();
-    	settingService = new SettingService(db, errHandler);
+    	settingService = new SettingService(db, logsHandler);
     	settingService.add(setting);
     	
     	machine = new Machine("knb7T8U56787Hknkl", (Long) setting.getId(), true, "HUG8E89Fz");
-    	machineService = new MachineService(db, errHandler);
+    	machineService = new MachineService(db, logsHandler);
 		machineService.add(machine);
     	
     	cart = new Cart((String) machine.getId());
-    	cartService = new CartService(db, errHandler);
+    	cartService = new CartService(db, logsHandler);
     	
         fab = new FabriqueAService(cart, cartService, new Long(0), new Long("84984165417115"));
+        beforeTest();
     }
 	
 	@Test
@@ -56,6 +54,6 @@ public class CartServiceTest extends ServicesTest {
     public void tearDown() throws SQLException {
     	machineService.delete(machine);
     	settingService.delete(setting);
-    	db.close();
+    	afterTest();
     }
 }

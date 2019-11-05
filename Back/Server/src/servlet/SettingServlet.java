@@ -13,7 +13,6 @@ import entities.Setting;
 import exception.FailedDBConnection;
 import services.SettingService;
 import utils.DBConnector;
-import utils.ErrorsHandler;
 
 /**
  * Servlet implementation class SettingServlet
@@ -28,14 +27,14 @@ public class SettingServlet extends Servlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		Setting setting = null;
 		try {
-			DBConnector db = new DBConnector(this.getErrorsHandler());
-			SettingService service = new SettingService(db, this.getErrorsHandler());
+			DBConnector db = new DBConnector(this.getLogsHandler());
+			SettingService service = new SettingService(db, this.getLogsHandler());
 			service.add(setting = new Setting());
 			db.close();
 		} catch (JSONException | FailedDBConnection e) {
-			System.out.println(ErrorsHandler.getMessageError(e));
+			this.getLogsHandler().addError(e);
 		}
-
+		
 		writeResponse(response, setting);
 	}
 }

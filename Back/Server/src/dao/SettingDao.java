@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import utils.DBConnector;
-import utils.ErrorsHandler;
+import utils.LogsHandler;
 
 public class SettingDao extends Dao {
-	public SettingDao(DBConnector db, ErrorsHandler errorHandler) {
+	public SettingDao(DBConnector db, LogsHandler errorHandler) {
 		super(db, errorHandler);
 	}
 

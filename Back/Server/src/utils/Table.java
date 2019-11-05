@@ -85,7 +85,7 @@ public class Table {
 	}
 
 	public void createTable() throws SQLException, FailedDBConnection {    
-    	DBConnector db = new DBConnector(new ErrorsHandler());
+    	DBConnector db = new DBConnector(new LogsHandler());
       	db.executeSQL(this.getTableToSQL());
       	db.close();
     }

@@ -8,12 +8,12 @@ import dao.SettingDao;
 import entities.EntityClass;
 import entities.Setting;
 import utils.DBConnector;
-import utils.ErrorsHandler;
+import utils.LogsHandler;
 
 public class SettingService extends Service {
 	SettingDao settingDao = new SettingDao(db, this.getErrorsHandler());
 	
-	public SettingService(DBConnector db, ErrorsHandler errHandler) {
+	public SettingService(DBConnector db, LogsHandler errHandler) {
 		super(db, errHandler);
 	}
 	
@@ -21,12 +21,12 @@ public class SettingService extends Service {
 		try 
 		{
 			ArrayList<Map<String, Object>> list =  this.settingDao.listSetting();
-			errHandler.setInfo("Succès de la recuperation des settings.", list.toString());
+			errHandler.addInfo("Succès de la recuperation des settings.");
 	
 	      return list;
 	    }
 	    catch (Exception e) {
-	      errHandler.setError("Echec lors de la recuperation des settings", ErrorsHandler.getMessageError(e));
+	      errHandler.addError(e);
 	    }
 	    return null;
 	}

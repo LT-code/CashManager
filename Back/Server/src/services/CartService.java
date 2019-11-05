@@ -5,12 +5,12 @@ import dao.CartDao;
 import dao.Dao;
 import entities.EntityClass;
 import utils.DBConnector;
-import utils.ErrorsHandler;
+import utils.LogsHandler;
 
 public class CartService extends Service {
 	CartDao cartDao = new CartDao(db, this.getErrorsHandler());
 	
-	public CartService(DBConnector db, ErrorsHandler errHandler) {
+	public CartService(DBConnector db, LogsHandler errHandler) {
 		super(db, errHandler);
 	}
 	

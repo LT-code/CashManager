@@ -14,20 +14,19 @@ import utils.DBConnector;
 public class ArticleServiceTest extends ServicesTest {
 	private static ArticleService articleService;
 	private static Article article;
-	private DBConnector db;
 	
     @Before
     public void setUp() throws ClassNotFoundException, SQLException, FailedDBConnection {
-    	db = new DBConnector(errHandler);
+    	db = new DBConnector(logsHandler);
     	article = new Article("122GYHU3342", "Souris logitech");
-    	articleService = new ArticleService(db, errHandler);
+    	articleService = new ArticleService(db, logsHandler);
 
         fab = new FabriqueAService(article, articleService, new String(""), new String("FFFFFFFFFFFFFFFFFFFFF"));
+        beforeTest();
     }
 
     @After
     public void tearDown() throws SQLException {
-    	db.close();
+    	afterTest();
     }
-
 }

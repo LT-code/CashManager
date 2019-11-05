@@ -13,12 +13,12 @@ import entities.Cart;
 import exception.FailedDBConnection;
 import services.CartService;
 import utils.DBConnector;
-import utils.ErrorsHandler;
+import utils.LogsHandler;
 
 /**
  * Servlet implementation class MachineServlet
  */
-@WebServlet("/machine")
+@WebServlet("/cart")
 public class CartServlet extends Servlet {
 	private static final long serialVersionUID = 1L;
 
@@ -27,8 +27,8 @@ public class CartServlet extends Servlet {
 		
 		try {
 			JSONObject params = getJsonParams(request);
-			DBConnector db = new DBConnector(this.getErrorsHandler());
-			CartService cartService = new CartService(db, this.getErrorsHandler());
+			DBConnector db = new DBConnector(this.getLogsHandler());
+			CartService cartService = new CartService(db, this.getLogsHandler());
 			cartService.add(
 					cart = new Cart(
 						params.getString("idMachine")
@@ -36,7 +36,7 @@ public class CartServlet extends Servlet {
 			
 			db.close();
 		} catch (JSONException | FailedDBConnection e) {
-			System.out.println(ErrorsHandler.getMessageError(e));
+			System.out.println(LogsHandler.getMessageError(e));
 		}
 
 		writeResponse(response, cart);

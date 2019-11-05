@@ -19,7 +19,7 @@ public class DeleteFonction extends ServiceFonction {
 
     @Override
     public void execute(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
-        if(!service.validatorAdd(entityClass))
+        if(!service.validatorDelete(entityClass))
             throw new ValidatorNotRecpectedException("delete " + entityClass.getClass());
         service.methodDelete(entityClass);
     }

@@ -35,9 +35,9 @@ public class DBConnector {
 	private ResultSet result;
 	private Statement statement;
 
-	private ErrorsHandler errHandler;
+	private LogsHandler errHandler;
 
-	public DBConnector(ErrorsHandler errHandler) throws FailedDBConnection {
+	public DBConnector(LogsHandler errHandler) throws FailedDBConnection {
 		connection = null;
 		preparedStatement = null;
 		result = null;
@@ -67,9 +67,9 @@ public class DBConnector {
 			DBConnector.port = Integer.parseInt(properties.getProperty("port"));
 			DBConnector.user = properties.getProperty("user");
 			DBConnector.password = properties.getProperty("password");
-			Log.info("DB parameters has been gotten");
+			System.out.println("DB parameters has been gotten");
 		} catch (Exception e) {
-			Log.error(ErrorsHandler.getMessageError(e));
+			System.out.println(LogsHandler.getMessageError(e));
 		}
 	}
 
@@ -89,9 +89,9 @@ public class DBConnector {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 			connection = DriverManager.getConnection(url, DBConnector.user, DBConnector.password);
-			errHandler.setInfo(null, "Connected to the DataBase " + url);
+			errHandler.addInfo("Connected to the DataBase " + url);
 		} catch (ClassNotFoundException | SQLException e) {
-			errHandler.setError("We could not connect the server to the database.", ErrorsHandler.getMessageError(e));
+			errHandler.addError(LogsHandler.getMessageError(e));
 			throw new FailedDBConnection();
 		}
 
