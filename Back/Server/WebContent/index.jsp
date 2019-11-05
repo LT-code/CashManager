@@ -8,6 +8,9 @@
 <title>Hello World Java EE</title>
 </head>
 <body>
-    <h1>Hello JSP and Servlet!</h1>
+    <h1>Welcome in cash manager!</h1>
+    
+    <h2>Routes description</h2>
+    
 </body>
 </html>

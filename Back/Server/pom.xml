@@ -15,7 +15,7 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
@@ -50,6 +50,7 @@
 		</dependency>
 	</dependencies>
 
+
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -60,7 +61,21 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
+
 			</plugin>
+
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.junit.platform</groupId>
+						<artifactId>junit-platform-surefire-provider</artifactId>
+						<version>1.0.1</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.1</version>
