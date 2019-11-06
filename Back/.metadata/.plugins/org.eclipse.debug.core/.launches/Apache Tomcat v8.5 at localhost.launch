@@ -10,5 +10,5 @@
 <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java-8-openjdk"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="start"/>
 <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcatalina.base=&quot;/home/retzs64/Programmation/Epitech/CashManager/Back/.metadata/.plugins/org.eclipse.wst.server.core/tmp0&quot; -Dcatalina.home=&quot;/usr/share/tomcat8&quot; -Dwtp.deploy=&quot;/home/retzs64/Programmation/Epitech/CashManager/Back/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps&quot; -Djava.endorsed.dirs=&quot;/usr/share/tomcat8/endorsed&quot;"/>
-<stringAttribute key="server-id" value="Tomcat v8.0 Server at localhost"/>
+<stringAttribute key="server-id" value="Apache Tomcat v8.5 at localhost"/>
 </launchConfiguration>
