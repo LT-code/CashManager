@@ -1,5 +1,12 @@
 #!/bin/bash
 
-sh Docker/build.sh
+mvn clean install
+
+docker-compose build
+
 sh Docker/clean.sh
-sh Docker/start.sh
+
+docker-compose up 
+#sh Docker/build.sh
+
+#sh Docker/start.sh

@@ -60,14 +60,14 @@ public class DBConnector {
 	public static void getDBParam(InputStream inStream) {
 		try {
 			Properties properties = new Properties();
-			properties.load(inStream == null ? new FileInputStream(new File(propertiesFileForTest)) : inStream);
+			properties.load((inStream == null ? new FileInputStream(new File(propertiesFileForTest)) : inStream));
 
 			DBConnector.host = properties.getProperty("host");
 			DBConnector.dbName = properties.getProperty("dbName");
 			DBConnector.port = Integer.parseInt(properties.getProperty("port"));
 			DBConnector.user = properties.getProperty("user");
 			DBConnector.password = properties.getProperty("password");
-			System.out.println("DB parameters has been gotten");
+			System.out.println("DB parameters has been gotten " + DBConnector.host);
 		} catch (Exception e) {
 			System.out.println(LogsHandler.getMessageError(e));
 		}

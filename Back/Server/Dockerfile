@@ -1,7 +1,6 @@
 FROM centos
 
-MAINTAINER aksarav@middlewareinventory.com
-
+ENV CASHMANAGER_DOCKER_PRODUCTION 1
 RUN mkdir /opt/tomcat/
 
 WORKDIR /opt/tomcat

@@ -9,11 +9,27 @@ import tables.MachineTable;
 import tables.SettingTable;
 
 public class InitServer implements ServletContextListener {
+	private final static String CASHMANAGER_DOCKER_PRODUCTION = "CASHMANAGER_DOCKER_PRODUCTION";
+	
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		System.out.println("Start server");
-		DBConnector.getDBParam(sce.getServletContext().getResourceAsStream("/META-INF/conf/dbconfig.properties"));
+		
+		String propertiesFileName = "dbconfig.properties";
+		String val = System.getenv(CASHMANAGER_DOCKER_PRODUCTION);
+		
+		if(val != null)
+			if(val.equals("1")) {
+				System.out.println("Production properties");
+				propertiesFileName = "prod." + propertiesFileName;
+			}
+			else
+				System.out.println("Classic properties");
+			
+		DBConnector.getDBParam(sce.getServletContext().getResourceAsStream("/META-INF/conf/" + propertiesFileName));
+		
 		restetDataBase();
+		
 		createAllTables();
 	}
 
