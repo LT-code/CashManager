@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+/home/retzs64/Programmation/Epitech/CashManager/Back/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+4128811433.index
+99393153.index
+36312323.index
+2159171109.index
+1639028141.index
