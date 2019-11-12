@@ -16,9 +16,7 @@ public class MachineServlet extends Servlet {
 	private static final long serialVersionUID = 1L;
 	
 	@Override
-	public ServletFunction post(HttpServletRequest request) {
-		return ;
-		
+	public ServletFunction post(HttpServletRequest request) {		
 		switch(ServletTools.getCurrentUrlPath(request)) {
 			case "/cashmanager/machine/create":
 				return new MachineCreate();
