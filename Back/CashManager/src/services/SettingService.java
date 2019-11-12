@@ -1,5 +1,6 @@
 package services;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -11,24 +12,17 @@ import utils.DBConnector;
 import utils.LogsHandler;
 
 public class SettingService extends Service {
-	SettingDao settingDao = new SettingDao(db, this.getErrorsHandler());
+	SettingDao settingDao = new SettingDao(db, this.getLogsHandler());
 	
-	public SettingService(DBConnector db, LogsHandler errHandler) {
-		super(db, errHandler);
+	public SettingService(DBConnector db, LogsHandler logsHandler) {
+		super(db, logsHandler);
 	}
 	
-	public ArrayList<Map<String, Object>> ListSetting() {
-		try 
-		{
-			ArrayList<Map<String, Object>> list =  this.settingDao.listSetting();
-			errHandler.addInfo("Succès de la recuperation des settings.");
-	
-	      return list;
-	    }
-	    catch (Exception e) {
-	      errHandler.addError(e);
-	    }
-	    return null;
+	public ArrayList<Map<String, Object>> ListSetting() throws SQLException {
+		ArrayList<Map<String, Object>> list = null;
+		list =  this.settingDao.listSetting();
+		logsHandler.addInfo("Succès de la recuperation des settings.");
+		return list;
 	}
 
 	@Override

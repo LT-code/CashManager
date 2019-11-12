@@ -9,6 +9,7 @@ public class Machine implements EntityClass {
 	protected long idSetting;
 	protected boolean isAdmin;
     protected String password;
+    protected String token;
     
     // Operations    
     public Machine(String idMachine, long idSetting, boolean isAdmin, String password) {
@@ -16,6 +17,7 @@ public class Machine implements EntityClass {
 		this.idSetting = idSetting;
 		this.isAdmin = isAdmin;
 		this.password = password;
+		this.token = null;
 	}
     
     @Override
@@ -44,21 +46,25 @@ public class Machine implements EntityClass {
 		this.isAdmin = isAdmin;
 	}
 
-	public String getPassword() {
+	public String pGetPassword() {
 		return password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public String getToken() {
+		return token;
+	}
 
-	public boolean connectServer(String ip, String password) {
-		return false;
-    }
+	public void setToken(String token) {
+		this.token = token;
+	}
 	
 	@Override
 	public Object[] fieldsValues() {
-		return new Object[] {this.idMachine, this.idSetting, this.isAdmin, this.password};
+		return new Object[] {this.idMachine, this.idSetting, this.isAdmin, this.password, this.token};
 	}
 
 	@Override

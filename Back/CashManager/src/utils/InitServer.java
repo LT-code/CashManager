@@ -14,19 +14,14 @@ public class InitServer implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		System.out.println("Start server");
+		String fileProperties = "dbconfig";
+		String envVar = System.getenv(CASHMANAGER_DOCKER_PRODUCTION);
 		
-		String propertiesFileName = "dbconfig.properties";
-		String val = System.getenv(CASHMANAGER_DOCKER_PRODUCTION);
-		
-		if(val != null)
-			if(val.equals("1")) {
-				System.out.println("Production properties");
-				propertiesFileName = "prod." + propertiesFileName;
-			}
-			else
-				System.out.println("Classic properties");
+		if(envVar != null)
+			if(envVar.equals("1"))
+				fileProperties = "dbconfigProd";
 			
-		DBConnector.getDBParam(sce.getServletContext().getResourceAsStream("/META-INF/conf/" + propertiesFileName));
+		DBConnector.getDBParam(sce.getServletContext().getResourceAsStream(sce.getServletContext().getInitParameter(fileProperties)));
 		
 		restetDataBase();
 		
@@ -53,9 +48,10 @@ public class InitServer implements ServletContextListener {
 	public static void restetDataBase() {
 		try {
 			DBConnector db = new DBConnector(new LogsHandler());			
-	    	db.executeSQL("DROP DATABASE " + db.getDbName() + ";");
+	    	db.executeSQL("DROP DATABASE IF EXISTS " + db.getDbName() + ";");
 	    	db.executeSQL("CREATE DATABASE " + db.getDbName() + ";");
 	      	db.close();
+	      	System.out.println("Database has been droped and created");
 		}
 		catch(Exception e) {
 			System.out.println("InitServer Error : " + LogsHandler.getMessageError(e));

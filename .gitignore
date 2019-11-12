@@ -3,3 +3,4 @@ Documentation/UML/Dia/*.dia.autosave
 Server/.idea
 /.metadata/
 #Back/.metadata
+Back/.metadata/.plugins

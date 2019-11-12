@@ -6,6 +6,7 @@ import java.util.Map;
 
 import entities.EntityClass;
 import exception.NoResultException;
+import exception.InvalidNumberReslut;
 import utils.DBConnector;
 import utils.LogsHandler;
 
@@ -83,11 +84,27 @@ public abstract class Dao {
     /*
      * 
      */
-    protected ArrayList<Map<String, Object>> query(String queryString, Object[] values) throws SQLException {
+    protected ArrayList<Map<String, Object>> queryList(String queryString, Object[] values) throws SQLException {
   		return db.executeQuerySQL(queryString, values);
     }
     //------------------------------------------------------------
-    protected ArrayList<Map<String, Object>> query(String queryString) throws SQLException {
+    protected ArrayList<Map<String, Object>> queryList(String queryString) throws SQLException {
+    	return queryList(queryString, new Object[]{});
+    }
+    
+    //===================================================================================
+    /*
+     * 
+     */
+    protected Map<String, Object> query(String queryString, Object[] values) throws SQLException, InvalidNumberReslut {
+    	ArrayList<Map<String, Object>> res = db.executeQuerySQL(queryString, values);
+    	if(res.size() != 1)
+    		throw new InvalidNumberReslut(res.size());
+    	return res.get(0);
+    }
+    //------------------------------------------------------------
+    protected Map<String, Object> query(String queryString) throws SQLException, InvalidNumberReslut {
     	return query(queryString, new Object[]{});
     }
+    
 }

@@ -13,6 +13,6 @@ public class SettingDao extends Dao {
 	}
 
 	public ArrayList<Map<String, Object>> listSetting() throws SQLException {
-		return query("Select * from Setting;");
+		return queryList("Select * from Setting;");
 	}
 }

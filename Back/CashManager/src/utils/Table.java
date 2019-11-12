@@ -73,14 +73,14 @@ public class Table {
 					(fields[i].getType() == TableFields.TYPE_INT &&
 					 fields[i].getKeyType() == TableFields.KEY_PRIMARY ? "AUTO_INCREMENT " : " ") +
 					(fields[i].getKeyType() == TableFields.KEY_PRIMARY ? "PRIMARY KEY " : " ") +
-					(fields[i].getKeyType() != TableFields.KEY_FOREIGN ? "not null" : "");
+					(fields[i].getKeyType() == TableFields.KEY_UNIQUE ? "UNIQUE " : 
+						(fields[i].getKeyType() != TableFields.KEY_FOREIGN ? "not null" : ""));
 					
 			if(fields[i].getKeyType() == TableFields.KEY_FOREIGN)
 				res += ",\nFOREIGN KEY (" + fields[i].getName() + ") REFERENCES " + fields[i].getAssociatedTable();
 		}
 			
 		res += "\n)";
-		
 		return res;
 	}
 
@@ -88,6 +88,7 @@ public class Table {
     	DBConnector db = new DBConnector(new LogsHandler());
       	db.executeSQL(this.getTableToSQL());
       	db.close();
+      	System.out.println(this.getName() + " creation succed");
     }
 
 	public String entityNameClass() {

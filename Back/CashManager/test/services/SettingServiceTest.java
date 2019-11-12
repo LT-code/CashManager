@@ -32,7 +32,7 @@ public class SettingServiceTest extends ServicesTest {
     }
     
     @Test
-    public void test1() {
+    public void test1() throws SQLException {
     	assertTrue(settingService.add(setting));
     	
     	ArrayList<Map<String, Object>> toto = settingService.ListSetting();

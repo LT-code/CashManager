@@ -12,6 +12,8 @@ import entities.Cart;
 import entities.Machine;
 import entities.Setting;
 import exception.FailedDBConnection;
+import exception.NoResultException;
+import exception.ValidatorNotRecpectedException;
 import fabrique.FabriqueAService;
 import fabrique.ServicesTest;
 import utils.DBConnector;
@@ -26,7 +28,7 @@ public class CartServiceTest extends ServicesTest {
 	
 	
 	@Before
-	public void setUp() throws ClassNotFoundException, SQLException, FailedDBConnection {
+	public void setUp() throws ClassNotFoundException, SQLException, FailedDBConnection, ValidatorNotRecpectedException, NoResultException {
 		db = new DBConnector(logsHandler);
 		
 		setting = new Setting();
@@ -51,7 +53,7 @@ public class CartServiceTest extends ServicesTest {
 	}
 
     @After
-    public void tearDown() throws SQLException {
+    public void tearDown() throws SQLException, ValidatorNotRecpectedException, NoResultException {
     	machineService.delete(machine);
     	settingService.delete(setting);
     	afterTest();

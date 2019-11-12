@@ -16,17 +16,17 @@ import utils.LogsHandler;
 
 public abstract class Service {
 	DBConnector db;
-	protected LogsHandler errHandler;
+	protected LogsHandler logsHandler;
 	
 	public Service(DBConnector db, LogsHandler errHandler) {
 		this.db = db;
-		this.errHandler = errHandler;
+		this.logsHandler = errHandler;
 	}    
 
     public abstract Dao getDao();
     
-    public LogsHandler getErrorsHandler() {
-        return errHandler;
+    public LogsHandler getLogsHandler() {
+        return logsHandler;
     }
 
     
@@ -67,23 +67,21 @@ public abstract class Service {
     }
 
     public boolean validatorDelete(EntityClass entityClass) {
-        boolean res = validator(entityClass);
+    	System.out.println(entityClass.getId());
         if(entityClass.getId() instanceof Long)
-        	res = res && (long) entityClass.getId() <= 0;
-        return res;
+        	return(long) entityClass.getId() > 0;
+        return true;
     }
     
     protected boolean serviceMethod(ServiceFonction serviceFonction, EntityClass entityClass) {
         try {
             serviceFonction.execute(entityClass);
-            errHandler.addInfo("Success of " + serviceFonction.getMessage() + entityClass.table().entityNameClass() + ".");
+            logsHandler.addInfo("Success of " + serviceFonction.getMessage() + entityClass.table().entityNameClass() + ".");
         }
         catch (Exception e) {
-            if(e instanceof ValidatorNotRecpectedException)
-                return false;
-            errHandler.addError(e);
+        	logsHandler.addError(e); 
         }
 
-        return errHandler.isValid();
+        return logsHandler.isValid();
     }
 }

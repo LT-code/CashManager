@@ -9,12 +9,21 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
   <context-param>
-    <param-name>contextConfigLocation</param-name>
+    <param-name>dbconfig</param-name>
     <param-value>
         /META-INF/conf/dbconfig.properties
     </param-value>
   </context-param>
+  
+  <context-param>
+    <param-name>dbconfigProd</param-name>
+    <param-value>
+        /META-INF/conf/prod.dbconfig.properties
+    </param-value>
+  </context-param>
+  
   <listener>
     <listener-class>utils.InitServer</listener-class>
   </listener>
