@@ -37,7 +37,7 @@ public class DBConnector {
 
 	private LogsHandler errHandler;
 
-	public DBConnector(LogsHandler errHandler) throws FailedDBConnection {
+	public DBConnector(LogsHandler errHandler) {
 		connection = null;
 		preparedStatement = null;
 		result = null;
@@ -82,8 +82,7 @@ public class DBConnector {
 	/*
 	 * Connect to the data base Need the execution of getDBParam to works
 	 */
-	public Connection connect() throws FailedDBConnection {
-		
+	public Connection connect() {
 		String url = "jdbc:mariadb://" + DBConnector.host + ":" + DBConnector.port + "/" + DBConnector.dbName;
 
 		try {
@@ -92,9 +91,7 @@ public class DBConnector {
 			errHandler.addInfo("Connected to the DataBase " + url);
 		} catch (ClassNotFoundException | SQLException e) {
 			errHandler.addError(LogsHandler.getMessageError(e));
-			throw new FailedDBConnection();
 		}
-
 
 		return connection;
 	}
