@@ -12,6 +12,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONObject;
 
 import utils.DBConnector;
+import utils.HttpStatus;
 import utils.LogsHandler;
 import utils.ServletTools;
 
@@ -34,19 +35,23 @@ public class ServletRequest {
 	public void executeRequest(HttpServletRequest request, HttpServletResponse response) {
 		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
 		DBConnector db = null;	
-		JSONObject params = ServletTools.getJsonParams(request, log);
+		JSONObject bodyParams = ServletTools.getJsonParams(request, log);
 		
-		if(params != null)			
+		if(bodyParams != null)			
 			if((db = new DBConnector(this.log)) != null) {
 				try  {
+					JSONObject urlParams = new JSONObject(new ObjectMapper().writeValueAsString(request.getParameterMap()));
+					log.addDebug("Body param receved : " + bodyParams);
+					log.addDebug("Url param receved : " + urlParams);
+					
 					list = servletFunction.execute(	db, 
-													params,
-													new JSONObject(new ObjectMapper().writeValueAsString(request.getParameterMap())),
+													bodyParams,
+													urlParams,
 													list,
 													log);
 				}
 				catch(Exception e) {
-					this.log.addError(e);
+					this.log.addError(e, HttpStatus.INTERNAL_ERROR);
 				}
 			}
 		ServletTools.writeResponse(response, list, log);

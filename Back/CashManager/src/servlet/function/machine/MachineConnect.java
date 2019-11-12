@@ -11,6 +11,7 @@ import entities.Machine;
 import services.MachineService;
 import servlet.function.ServletFunction;
 import utils.DBConnector;
+import utils.HttpStatus;
 import utils.LogsHandler;
 import utils.ResponseHandler;
 
@@ -30,7 +31,7 @@ public class MachineConnect implements ServletFunction {
 					m.setToken(this.generateToken());
 				while(!articleService.update(m));				
 			} else
-				log.addError("Passwords doesn't match");
+				log.addError("Passwords doesn't match", HttpStatus.BAD_REQUEST);
 			list.add(ResponseHandler.objectToMap(m));
 		}
 		db.close();

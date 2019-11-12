@@ -5,6 +5,7 @@ import dao.Dao;
 import entities.Article;
 import entities.EntityClass;
 import utils.DBConnector;
+import utils.HttpStatus;
 import utils.LogsHandler;
 
 public class ArticleService extends Service {
@@ -22,7 +23,7 @@ public class ArticleService extends Service {
 			return a;
 		}
 	    catch (Exception e) {
-	    	this.getLogsHandler().addError(e); 
+	    	this.getLogsHandler().addError(e, HttpStatus.BAD_REQUEST); 
 	    }
 	    return a;
 	}

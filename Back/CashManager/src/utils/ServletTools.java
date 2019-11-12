@@ -12,11 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import servlet.function.ServletFunction;
+
 public class ServletTools {
-	public static String getCurrentUrlPath(HttpServletRequest request) {
-		return request.getRequestURI();
+	public static ServletFunction getServletFunction(HttpServletRequest request, Object[][] listRoutes) {
+		if(listRoutes != null)
+			for(int i = 0; i < listRoutes.length; i++)
+				if(listRoutes[i][0].equals(request.getRequestURI()))
+					return (ServletFunction) listRoutes[i][1];
+				
+		return null;
 	}
-	
 
     public static JSONObject getJsonParams(HttpServletRequest request, LogsHandler log) {
 		StringBuffer jb = new StringBuffer();
@@ -29,9 +35,8 @@ public class ServletTools {
 
 			String strjson = jb.toString();
 			jsonObject = new JSONObject(strjson.equals("") ? "{}" : strjson);
-			log.addInfo("Params sent : " + jsonObject.toString());
 		} catch (JSONException | IOException e) {
-			log.addError(e);
+			log.addError(e, HttpStatus.BAD_REQUEST);
 		}
 		
 		return jsonObject;
@@ -42,15 +47,13 @@ public class ServletTools {
 		
     	PrintWriter writer;
 		try {
+			response.setStatus((log.isValid() ? 200 : 400));
 			writer = response.getWriter();
-			writer.println(ResponseHandler.serilize(
-					log.isValid(),
-					log.getPrincipalMessages(),
-					list
-				));
+			writer.println(ResponseHandler.serilize(log.getPrincipalMessages(),	list));
+			
 			writer.close();
 		} catch (IOException e) {
-			log.addError(e);
+			log.addError(e, HttpStatus.INTERNAL_ERROR);
 		}
 		
 		log.displayLogs();

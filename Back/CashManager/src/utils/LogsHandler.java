@@ -8,6 +8,7 @@ public class LogsHandler {
     private boolean isValid;
     private String principalMessages;
     private List<String> messages;
+    private int httpStatus;
     
     public LogsHandler() {
         this.isValid = true;
@@ -23,19 +24,24 @@ public class LogsHandler {
         return isValid;
     }
     
-    public void addError(Exception e) {
-    	addError(e.getMessage(), LogsHandler.getMessageError(e));
+    public int getHttpStatus() {
+    	return httpStatus;
     }
     
-    public void addError(String message) {
-    	addError(message, message);
+    public void addError(Exception e, int status) {
+    	addError(e.getMessage(), LogsHandler.getMessageError(e), status);
     }
     
-    public void addError(String principalMessage, String message) {
+    public void addError(String message, int status) {
+    	addError(message, message, status);
+    }
+    
+    public void addError(String principalMessage, String message, int status) {
     	this.isValid = false;
     	//this.principalMessages += (principalMessages == "" ? "" : "\n") + principalMessage;
     	this.principalMessages = principalMessage;
-    	messages.add("ERROR | /!\\ " + message);
+    	this.httpStatus = status;
+    	messages.add("ERROR | /!\\ " + status + " " + message);
     }
     
     public void addDebug(String message) {
@@ -43,7 +49,12 @@ public class LogsHandler {
     }
 
     public void addInfo(String message) {
+    	addInfo(message, HttpStatus.SUCCESS);
+    }
+    
+    public void addInfo(String message, int status) {
     	this.isValid = true && this.isValid;
+    	this.httpStatus = status;
     	messages.add("INFO  | --> " + message);
     }
     

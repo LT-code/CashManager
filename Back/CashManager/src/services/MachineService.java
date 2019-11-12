@@ -5,6 +5,7 @@ import dao.MachineDao;
 import entities.EntityClass;
 import entities.Machine;
 import utils.DBConnector;
+import utils.HttpStatus;
 import utils.LogsHandler;
 
 public class MachineService extends Service {
@@ -22,7 +23,7 @@ public class MachineService extends Service {
 			return m;
 		}
 	    catch (Exception e) {
-	    	this.getLogsHandler().addError(e); 
+	    	this.getLogsHandler().addError(e, HttpStatus.BAD_REQUEST); 
 	    }
 	    return m;
 	}

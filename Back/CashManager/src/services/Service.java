@@ -11,6 +11,7 @@ import services.fonction.DeleteFonction;
 import services.fonction.ServiceFonction;
 import services.fonction.UpdateFonction;
 import utils.DBConnector;
+import utils.HttpStatus;
 import utils.LogsHandler;
 
 
@@ -76,10 +77,10 @@ public abstract class Service {
     protected boolean serviceMethod(ServiceFonction serviceFonction, EntityClass entityClass) {
         try {
             serviceFonction.execute(entityClass);
-            logsHandler.addInfo("Success of " + serviceFonction.getMessage() + entityClass.table().entityNameClass() + ".");
+            logsHandler.addInfo("Success of " + serviceFonction.getMessage() + entityClass.table().entityNameClass() + ".", (serviceFonction instanceof AddFonction ? HttpStatus.CREATED : HttpStatus.SUCCESS));
         }
         catch (Exception e) {
-        	logsHandler.addError(e); 
+        	logsHandler.addError(e, HttpStatus.BAD_REQUEST); 
         }
 
         return logsHandler.isValid();

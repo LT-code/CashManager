@@ -87,9 +87,9 @@ public class DBConnector {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 			connection = DriverManager.getConnection(url, DBConnector.user, DBConnector.password);
-			errHandler.addInfo("Connected to the DataBase " + url);
+			errHandler.addDebug("Connected to the DataBase " + url);
 		} catch (ClassNotFoundException | SQLException e) {
-			errHandler.addError(LogsHandler.getMessageError(e));
+			errHandler.addError(LogsHandler.getMessageError(e), HttpStatus.INTERNAL_ERROR);
 		}
 
 		return connection;

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import servlet.function.ServletFunction;
 import servlet.function.ServletRequest;
 import utils.LogsHandler;
+import utils.ServletTools;
 
 
 /**
@@ -18,6 +19,7 @@ import utils.LogsHandler;
 public abstract class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private LogsHandler log;
+	public static final String API_ROUTE = "/cashmanager";
 
 	/**
      * @see HttpServlet#HttpServlet()
@@ -28,10 +30,10 @@ public abstract class Servlet extends HttpServlet {
         log.addDebug("servlet creation");
     }
     
-    public ServletFunction get(HttpServletRequest request) 	{ return null; }
-    public ServletFunction post(HttpServletRequest request) 	{ return null; }
-    public ServletFunction delete(HttpServletRequest request){ return null; }
-    public ServletFunction put(HttpServletRequest request) 	{ return null; }
+    public Object[][] get() 	{ return null; }
+    public Object[][] post()	{ return null; }
+    public Object[][] delete()	{ return null; }
+    public Object[][] put() 	{ return null; }
     
 	/**
 	 * @throws IOException 
@@ -41,7 +43,7 @@ public abstract class Servlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		beforRequest("Post", request);
-		ServletFunction sf = post(request);
+		ServletFunction sf = ServletTools.getServletFunction(request, post());
     	if(sf != null)
     		new ServletRequest(sf, log).executeRequest(request, response);
     	else
@@ -56,7 +58,7 @@ public abstract class Servlet extends HttpServlet {
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     	beforRequest("Get", request);
-    	ServletFunction sf = get(request);
+    	ServletFunction sf = ServletTools.getServletFunction(request, get());
     	if(sf != null)
     		new ServletRequest(sf, log).executeRequest(request, response);
     	else
@@ -71,7 +73,7 @@ public abstract class Servlet extends HttpServlet {
 	@Override
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		beforRequest("Put", request);
-		ServletFunction sf = put(request);
+		ServletFunction sf = ServletTools.getServletFunction(request, put());
     	if(sf != null)
     		new ServletRequest(sf, log).executeRequest(request, response);
     	else
@@ -86,7 +88,7 @@ public abstract class Servlet extends HttpServlet {
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		beforRequest("Delete", request);
-		ServletFunction sf = delete(request);
+		ServletFunction sf = ServletTools.getServletFunction(request, delete());;
     	if(sf != null)
     		new ServletRequest(sf, log).executeRequest(request, response);
     	else

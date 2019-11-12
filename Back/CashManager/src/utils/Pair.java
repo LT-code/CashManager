@@ -34,8 +34,8 @@ public class Pair<T1,T2> {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Pair)) return false;
-	        @SuppressWarnings("unchecked")
-			Pair<T1, T2> pairo = (Pair<T1, T2>) o;
+        @SuppressWarnings("unchecked")
+		Pair<T1, T2> pairo = (Pair<T1, T2>) o;
         return this.left.equals(pairo.getLeft()) &&
                 this.right.equals(pairo.getRight());
     }

@@ -1,11 +1,8 @@
 package servlet;
 
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServletRequest;
 
-import servlet.function.ServletFunction;
 import servlet.function.setting.SettingCreate;
-import utils.ServletTools;
 
 /**
  * Servlet implementation class SettingServlet
@@ -14,12 +11,13 @@ import utils.ServletTools;
 public class SettingServlet extends Servlet {
 	private static final long serialVersionUID = 1L;
 	
+	private static Object[][] ROUTES_POST =
+		{
+			{ API_ROUTE + "/setting/create", new SettingCreate() }
+		};
+	
 	@Override
-	public ServletFunction post(HttpServletRequest request) {
-		switch(ServletTools.getCurrentUrlPath(request)) {
-			case "/cashmanager/setting/create":
-				return new SettingCreate();
-		}			
-		return null;
+	public Object[][] post() {
+		return ROUTES_POST;
 	}
 }

@@ -6,7 +6,7 @@ import java.util.Map;
 import org.codehaus.jackson.map.ObjectMapper;
 
 public class ResponseHandler {
-	public static String serilize(boolean status, String message, List<Map<String,Object>> list) {
+	public static String serilize(String message, List<Map<String,Object>> list) {
 		String data = "";
 		if(list != null) {
 			if(list.size() > 1)
@@ -32,7 +32,6 @@ public class ResponseHandler {
 		}
 		
 		return "{" +
-				"\"status\":\"" + status + "\"," +
 				"\"message\":\"" + message + "\"," +
 				"\"data\":" + (data != "" ? data : "{}") + "" +
 				"}";
