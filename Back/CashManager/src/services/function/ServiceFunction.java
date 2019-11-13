@@ -1,4 +1,4 @@
-package services.fonction;
+package services.function;
 
 import java.sql.SQLException;
 
@@ -7,7 +7,7 @@ import exception.NoResultException;
 import exception.ValidatorNotRecpectedException;
 import services.Service;
 
-public abstract class ServiceFonction {
+public abstract class ServiceFunction {
     protected Service service;
     protected Object returnObject;
 
@@ -15,7 +15,7 @@ public abstract class ServiceFonction {
         return returnObject;
     }
 
-    public ServiceFonction(Service service) {
+    public ServiceFunction(Service service) {
         this.service = service;
     }
 

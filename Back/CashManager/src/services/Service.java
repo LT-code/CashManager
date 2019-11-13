@@ -6,10 +6,10 @@ import dao.Dao;
 import entities.EntityClass;
 import exception.NoResultException;
 import exception.ValidatorNotRecpectedException;
-import services.fonction.AddFonction;
-import services.fonction.DeleteFonction;
-import services.fonction.ServiceFonction;
-import services.fonction.UpdateFonction;
+import services.function.AddFunction;
+import services.function.DeleteFunction;
+import services.function.ServiceFunction;
+import services.function.UpdateFunction;
 import utils.DBConnector;
 import utils.HttpStatus;
 import utils.LogsHandler;
@@ -32,15 +32,15 @@ public abstract class Service {
 
     
     public boolean add(EntityClass entityClass) {
-        return serviceMethod(new AddFonction(this), entityClass);
+        return serviceMethod(new AddFunction(this), entityClass);
     }
     
     public boolean update(EntityClass entityClass) {
-        return serviceMethod(new UpdateFonction(this), entityClass);
+        return serviceMethod(new UpdateFunction(this), entityClass);
     }
     
     public boolean delete(EntityClass entityClass) {
-        return serviceMethod(new DeleteFonction(this), entityClass);
+        return serviceMethod(new DeleteFunction(this), entityClass);
     }
 
     
@@ -74,10 +74,10 @@ public abstract class Service {
         return true;
     }
     
-    protected boolean serviceMethod(ServiceFonction serviceFonction, EntityClass entityClass) {
+    protected boolean serviceMethod(ServiceFunction serviceFonction, EntityClass entityClass) {
         try {
             serviceFonction.execute(entityClass);
-            logsHandler.addInfo("Success of " + serviceFonction.getMessage() + entityClass.table().entityNameClass() + ".", (serviceFonction instanceof AddFonction ? HttpStatus.CREATED : HttpStatus.SUCCESS));
+            logsHandler.addInfo("Success of " + serviceFonction.getMessage() + entityClass.table().entityNameClass() + ".", (serviceFonction instanceof AddFunction ? HttpStatus.CREATED : HttpStatus.SUCCESS));
         }
         catch (Exception e) {
         	logsHandler.addError(e, HttpStatus.BAD_REQUEST); 

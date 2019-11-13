@@ -1,4 +1,4 @@
-package services.fonction;
+package services.function;
 
 import java.sql.SQLException;
 
@@ -7,8 +7,8 @@ import exception.NoResultException;
 import exception.ValidatorNotRecpectedException;
 import services.Service;
 
-public class DeleteFonction extends ServiceFonction {
-    public DeleteFonction(Service service) {
+public class DeleteFunction extends ServiceFunction {
+    public DeleteFunction(Service service) {
         super(service);
     }
 

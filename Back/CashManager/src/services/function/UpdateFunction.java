@@ -1,4 +1,4 @@
-package services.fonction;
+package services.function;
 
 import java.sql.SQLException;
 
@@ -7,20 +7,20 @@ import exception.NoResultException;
 import exception.ValidatorNotRecpectedException;
 import services.Service;
 
-public class AddFonction extends ServiceFonction {
-    public AddFonction(Service service) {
+public class UpdateFunction extends ServiceFunction {
+    public UpdateFunction(Service service) {
         super(service);
     }
 
     @Override
     public String getMessage() {
-        return "creating ";
+        return "updating ";
     }
 
     @Override
     public void execute(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
-        if(!service.validatorAdd(entityClass))
-            throw new ValidatorNotRecpectedException("add " + entityClass.getClass());
-        service.methodAdd(entityClass);
+        if(!service.validatorUpdate(entityClass))
+            throw new ValidatorNotRecpectedException("update " + entityClass.getClass());
+        service.methodUpdate(entityClass);
     }
 }
