@@ -18,6 +18,7 @@ jobs:
       working-directory: ./Back/CashManager/
       run: sh run_docker.sh
     
+    
     #- name: Build with Maven
     #  working-directory: ./Back/CashManager/
     #  run: mvn clean install
