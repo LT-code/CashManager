@@ -1,8 +1,11 @@
 package utils;
 
+import java.sql.SQLException;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import exception.FailedDBConnection;
 import tables.ArticleTable;
 import tables.CartTable;
 import tables.MachineTable;
@@ -22,7 +25,7 @@ public class InitServer implements ServletContextListener {
 				fileProperties = "dbconfigProd";
 			
 		DBConnector.getDBParam(sce.getServletContext().getResourceAsStream(sce.getServletContext().getInitParameter(fileProperties)));
-		
+
 		restetDataBase();
 		
 		createAllTables();
@@ -39,25 +42,25 @@ public class InitServer implements ServletContextListener {
 			ArticleTable.createTable();
 			MachineTable.createTable();
 			CartTable.createTable();
-		}
-		catch(Exception e) {
-			System.out.println("InitServer Error : " + LogsHandler.getMessageError(e));
+		} catch (ClassNotFoundException | SQLException | FailedDBConnection e) {
+			System.out.println("InitServer Error : " + e.getMessage());
+			try { Thread.sleep(4000); }catch(Exception e1) {};
+			createAllTables();
 		}
 	}
 	
 	public static void restetDataBase() {
-		DBConnector db = null;
-		
 		try {
-			if((db = new DBConnector(new LogsHandler())).isConnected()) {
-				db.executeSQL("DROP DATABASE IF EXISTS " + db.getDbName() + ";");
-		    	db.executeSQL("CREATE DATABASE " + db.getDbName() + ";");
-		      	db.close();
-		      	System.out.println("Database has been droped and created");
-			}	      	
+			DBConnector db = new DBConnector(new LogsHandler());
+			db.executeSQL("DROP DATABASE IF EXISTS " + db.getDbName() + ";");
+			db.executeSQL("CREATE DATABASE " + db.getDbName() + ";");
+	      	db.close();
+	      	System.out.println("Database has been droped and created");
+		} catch (SQLException | ClassNotFoundException e) {
+			System.out.println("InitServer Error : " + e.getMessage());
+			try { Thread.sleep(4000); }catch(Exception e1) {};
+			restetDataBase();
 		}
-		catch(Exception e) {
-			System.out.println("InitServer Error : " + LogsHandler.getMessageError(e));
-		}
+    	
 	}
 }

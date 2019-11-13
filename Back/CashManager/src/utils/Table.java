@@ -84,14 +84,11 @@ public class Table {
 		return res;
 	}
 
-	public void createTable() throws SQLException, FailedDBConnection {    
-    	DBConnector db;
-    	
-    	if((db = new DBConnector(new LogsHandler())).isConnected()) {
-    		db.executeSQL(this.getTableToSQL());
-          	db.close();
-          	System.out.println(this.getName() + " creation succed");
-    	}
+	public void createTable() throws SQLException, FailedDBConnection, ClassNotFoundException {    
+    	DBConnector db = new DBConnector(new LogsHandler());
+		db.executeSQL(this.getTableToSQL());
+      	db.close();
+      	System.out.println(this.getName() + " creation succed");
     }
 
 	public String entityNameClass() {

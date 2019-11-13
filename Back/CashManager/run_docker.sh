@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mvn clean install
+mvn install
 
 docker-compose build
 

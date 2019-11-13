@@ -1,4 +1,4 @@
-package fabrique;
+package services.fabrique;
 
 import entities.EntityClass;
 import services.Service;

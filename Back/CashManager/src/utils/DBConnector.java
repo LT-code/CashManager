@@ -36,7 +36,7 @@ public class DBConnector {
 
 	private LogsHandler errHandler;
 
-	public DBConnector(LogsHandler errHandler) {
+	public DBConnector(LogsHandler errHandler) throws ClassNotFoundException, SQLException {
 		connection = null;
 		preparedStatement = null;
 		result = null;
@@ -48,11 +48,6 @@ public class DBConnector {
 	public String getDbName() {
 		return dbName;
 	}
-	
-	public boolean isConnected() {
-		return connection != null;
-	}
-	
 	
 	// ===================================================================================
 	/*
@@ -83,16 +78,12 @@ public class DBConnector {
 	/*
 	 * Connect to the data base Need the execution of getDBParam to works
 	 */
-	public void connect() {
+	public void connect() throws ClassNotFoundException, SQLException {
 		String url = "jdbc:mariadb://" + DBConnector.host + ":" + DBConnector.port + "/" + DBConnector.dbName;
 
-		try {
-			Class.forName("org.mariadb.jdbc.Driver");
-			connection = DriverManager.getConnection(url, DBConnector.user, DBConnector.password);
-			errHandler.addDebug("Connected to the DataBase " + url);
-		} catch (ClassNotFoundException | SQLException e) {
-			errHandler.addError(e, HttpStatus.INTERNAL_ERROR);
-		}
+		Class.forName("org.mariadb.jdbc.Driver");
+		connection = DriverManager.getConnection(url, DBConnector.user, DBConnector.password);
+		errHandler.addDebug("Connected to the DataBase " + url);
 	}
 
 	// ===================================================================================

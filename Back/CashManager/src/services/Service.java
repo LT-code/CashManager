@@ -31,18 +31,17 @@ public abstract class Service {
     }
 
     
-    public boolean add(EntityClass entityClass) {
-        return serviceMethod(new AddFunction(this), entityClass);
+    public void add(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
+        serviceMethod(new AddFunction(this), entityClass);
     }
     
-    public boolean update(EntityClass entityClass) {
-        return serviceMethod(new UpdateFunction(this), entityClass);
+    public void update(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
+        serviceMethod(new UpdateFunction(this), entityClass);
     }
     
-    public boolean delete(EntityClass entityClass) {
-        return serviceMethod(new DeleteFunction(this), entityClass);
+    public void delete(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
+        serviceMethod(new DeleteFunction(this), entityClass);
     }
-
     
     public void methodAdd(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
         this.getDao().add(entityClass);
@@ -70,19 +69,14 @@ public abstract class Service {
     public boolean validatorDelete(EntityClass entityClass) {
     	System.out.println(entityClass.getId());
         if(entityClass.getId() instanceof Long)
-        	return(long) entityClass.getId() > 0;
+        	return (long) entityClass.getId() > 0;
+    	if(entityClass.getId() instanceof String)
+        	return !entityClass.getId().equals("") ;
         return true;
     }
     
-    protected boolean serviceMethod(ServiceFunction serviceFonction, EntityClass entityClass) {
-        try {
-            serviceFonction.execute(entityClass);
-            logsHandler.addInfo("Success of " + serviceFonction.getMessage() + entityClass.table().entityNameClass() + ".", (serviceFonction instanceof AddFunction ? HttpStatus.CREATED : HttpStatus.SUCCESS));
-        }
-        catch (Exception e) {
-        	logsHandler.addError(e, HttpStatus.BAD_REQUEST); 
-        }
-
-        return logsHandler.isValid();
-    }
+    protected void serviceMethod(ServiceFunction serviceFonction, EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
+        serviceFonction.execute(entityClass);
+        logsHandler.addInfo("Success of " + serviceFonction.getMessage() + entityClass.table().entityNameClass() + ".", (serviceFonction instanceof AddFunction ? HttpStatus.CREATED : HttpStatus.SUCCESS));
+	}
 }

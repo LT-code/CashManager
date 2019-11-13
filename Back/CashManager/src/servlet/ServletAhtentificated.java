@@ -1,8 +1,13 @@
 package servlet;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.http.HttpHeaders;
+
 import entities.Machine;
+import exception.InvalidNumberReslut;
 import services.MachineService;
 import servlet.function.ServletFunction;
 import servlet.permissions.ServletAdminMachine;
@@ -27,7 +32,7 @@ public class ServletAhtentificated {
 		this.log = log;
 	}
 
-	public boolean isAllowed() {
+	public boolean isAllowed() throws SQLException, InvalidNumberReslut {
 		if(sf instanceof ServletAdminMachine)
 			return checkIfAdmin();
 			
@@ -37,17 +42,17 @@ public class ServletAhtentificated {
 		return true;
 	}
 	
-	private boolean checkIfAdmin() {
+	private boolean checkIfAdmin() throws SQLException, InvalidNumberReslut {
 		Machine m = getMachine();
 		return m == null ? false : m.isAdmin();
 	}
 	
-	private boolean checkIfLambda() {
+	private boolean checkIfLambda() throws SQLException, InvalidNumberReslut {
 		return getMachine() != null;
 	}
 	
-	private Machine getMachine() {
+	private Machine getMachine() throws SQLException, InvalidNumberReslut {
 		MachineService m = new MachineService(db, log);
-		return m.getByToken(request.getHeader("Authorization"));
+		return m.getByToken(request.getHeader(HttpHeaders.AUTHORIZATION));
 	}
 }

@@ -9,5 +9,5 @@ import utils.DBConnector;
 import utils.LogsHandler;
 
 public interface ServletFunction {
-	public abstract List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log);
+	public abstract List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception;
 }

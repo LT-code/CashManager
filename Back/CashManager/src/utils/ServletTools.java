@@ -9,6 +9,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,32 +27,20 @@ public class ServletTools {
 		return null;
 	}
 
-    public static JSONObject getJsonBodyParams(HttpServletRequest request, LogsHandler log) {
+    public static JSONObject getJsonBodyParams(HttpServletRequest request, LogsHandler log) throws IOException {
 		StringBuffer jb = new StringBuffer();
-		String line = null;	
-		JSONObject jsonObject = null;
-		try {
-			BufferedReader reader = request.getReader();
-			while ((line = reader.readLine()) != null)
-				jb.append(line);
+		String line = null;
+	
+		BufferedReader reader = request.getReader();
+		while ((line = reader.readLine()) != null)
+			jb.append(line);
 
-			String strjson = jb.toString();
-			jsonObject = new JSONObject(strjson.equals("") ? "{}" : strjson);
-		} catch (JSONException | IOException e) {
-			log.addError(e, HttpStatus.BAD_REQUEST);
-		}
-		
-		return jsonObject;
+		String strjson = jb.toString();		
+		return new JSONObject(strjson.equals("") ? "{}" : strjson);
     }
     
-    public static JSONObject getJsonUrlParams(HttpServletRequest request, LogsHandler log) {
-    	JSONObject jsonObject = null;
-    	try {
-    		jsonObject = new JSONObject(new ObjectMapper().writeValueAsString(request.getParameterMap()));
-		} catch (JSONException | IOException e) {
-			log.addError(e, HttpStatus.BAD_REQUEST);
-		}
-    	return jsonObject;
+    public static JSONObject getJsonUrlParams(HttpServletRequest request, LogsHandler log) throws JsonGenerationException, JsonMappingException, JSONException, IOException {
+    	return new JSONObject(new ObjectMapper().writeValueAsString(request.getParameterMap()));
     }
     
     public static void writeResponse(HttpServletResponse response, List<Map<String, Object>> list, LogsHandler log) {

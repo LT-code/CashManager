@@ -7,8 +7,7 @@ import org.junit.Before;
 
 import entities.Article;
 import exception.FailedDBConnection;
-import fabrique.FabriqueAService;
-import fabrique.ServicesTest;
+import services.fabrique.FabriqueAService;
 import utils.DBConnector;
 
 public class ArticleServiceTest extends ServicesTest {

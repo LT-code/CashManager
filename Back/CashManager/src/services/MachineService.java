@@ -1,11 +1,13 @@
 package services;
 
+import java.sql.SQLException;
+
 import dao.Dao;
 import dao.MachineDao;
 import entities.EntityClass;
 import entities.Machine;
+import exception.InvalidNumberReslut;
 import utils.DBConnector;
-import utils.HttpStatus;
 import utils.LogsHandler;
 
 public class MachineService extends Service {
@@ -15,30 +17,16 @@ public class MachineService extends Service {
 		super(db, errHandler);
 	}
 	
-	public Machine get(String code) {
-		Machine m = null;
-		try {
-			m =  this.machineDao.get(code);
-			logsHandler.addInfo("Succès de la recuperation de la machine " + code + ".");
-			return m;
-		}
-	    catch (Exception e) {
-	    	this.getLogsHandler().addError(e, HttpStatus.BAD_REQUEST); 
-	    }
-	    return m;
+	public Machine get(String code) throws SQLException, InvalidNumberReslut {
+		Machine m =  this.machineDao.get(code);
+		logsHandler.addInfo("Succès de la recuperation de la machine " + code + ".");
+		return m;
 	}
 	
-	public Machine getByToken(String token) {
-		Machine m = null;
-		try {
-			m =  this.machineDao.getByToken(token);
-			logsHandler.addInfo("Succès de la recuperation de la machine " + token + ".");
-			return m;
-		}
-	    catch (Exception e) {
-	    	this.getLogsHandler().addError(e, HttpStatus.BAD_REQUEST); 
-	    }
-	    return m;
+	public Machine getByToken(String token) throws SQLException, InvalidNumberReslut {
+		Machine m = this.machineDao.getByToken(token);
+		logsHandler.addInfo("Succès de la recuperation de la machine " + token + ".");
+		return m;
 	}
 	
 	@Override

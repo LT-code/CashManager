@@ -12,8 +12,9 @@ import org.junit.Test;
 
 import entities.Setting;
 import exception.FailedDBConnection;
-import fabrique.FabriqueAService;
-import fabrique.ServicesTest;
+import exception.NoResultException;
+import exception.ValidatorNotRecpectedException;
+import services.fabrique.FabriqueAService;
 import utils.DBConnector;
 
 public class SettingServiceTest extends ServicesTest {
@@ -32,8 +33,8 @@ public class SettingServiceTest extends ServicesTest {
     }
     
     @Test
-    public void test1() throws SQLException {
-    	assertTrue(settingService.add(setting));
+    public void test1() throws SQLException, ValidatorNotRecpectedException, NoResultException {
+    	settingService.add(setting);
     	
     	ArrayList<Map<String, Object>> toto = settingService.ListSetting();
     	if(toto != null)
@@ -44,7 +45,7 @@ public class SettingServiceTest extends ServicesTest {
 		    		    Object value = entry.getValue();
 		    		    System.out.println(key + ":" + value);
 		    		}
-    	assertTrue(settingService.delete(setting));
+    	settingService.delete(setting);
     	assertTrue(true);
     }
 

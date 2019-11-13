@@ -1,4 +1,4 @@
-version: '2.1'
+version: '3'
 services:
   ###################
   # back postgres
@@ -9,11 +9,6 @@ services:
     ports:
       - "3306:3306"
     restart: always
-    healthcheck:
-      test: "/usr/bin/mysql --user=root --password=root --execute \"SHOW DATABASES;\""
-      interval: 5s
-      timeout: 5s
-      retries: 30
     environment:
       MYSQL_DATABASE: cashmanager
       MYSQL_USER: root
@@ -32,7 +27,6 @@ services:
     environment:
       HOST: 0.0.0.0
     depends_on:
-      db:
-         condition: service_healthy
+      - db
     links:
       - db 

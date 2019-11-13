@@ -18,12 +18,12 @@ import utils.ResponseHandler;
  */
 public class ArticleRemove implements ServletFunction {
 	@Override
-	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) {
+	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		ArticleService articleService = new ArticleService(db, log);
 		System.out.println(urlParams);
 		Article a = articleService.get(urlParams.getString("code"));
-		if(articleService.delete(a))
-			list.add(ResponseHandler.objectToMap(a));
+		articleService.delete(a);
+		list.add(ResponseHandler.objectToMap(a));
 		db.close();
 		return list;
 	}

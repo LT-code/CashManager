@@ -17,14 +17,14 @@ import utils.ResponseHandler;
  */
 public class ArticleCreate implements ServletFunction {
 	@Override
-	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) {
+	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		ArticleService articleService = new ArticleService(db, log);
 		Article a;
-		if(articleService.add(
+		articleService.add(
 				a = new Article(
 					bodyParams.getString("code"), 
 					bodyParams.getString("name")
-				)))
+				));
 			list.add(ResponseHandler.objectToMap(a));
 		db.close();		
 		return list;

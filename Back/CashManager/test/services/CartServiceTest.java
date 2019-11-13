@@ -1,7 +1,5 @@
 package services;
 
-import static org.junit.Assert.assertFalse;
-
 import java.sql.SQLException;
 
 import org.junit.After;
@@ -14,8 +12,7 @@ import entities.Setting;
 import exception.FailedDBConnection;
 import exception.NoResultException;
 import exception.ValidatorNotRecpectedException;
-import fabrique.FabriqueAService;
-import fabrique.ServicesTest;
+import services.fabrique.FabriqueAService;
 import utils.DBConnector;
 
 public class CartServiceTest extends ServicesTest {
@@ -46,10 +43,10 @@ public class CartServiceTest extends ServicesTest {
         beforeTest();
     }
 	
-	@Test
-	public void test_MachineFKConstraint() {
+	@Test(expected=SQLException.class)
+	public void test_MachineFKConstraint() throws ValidatorNotRecpectedException, NoResultException, SQLException {
 		cart.setIdMachine("FFFFFFFFFFFFFFFFFF");
-		assertFalse(cartService.add(cart));
+		cartService.add(cart);
 	}
 
     @After

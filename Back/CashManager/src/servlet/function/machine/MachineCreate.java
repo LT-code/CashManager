@@ -18,17 +18,17 @@ import utils.ResponseHandler;
  */
 public class MachineCreate implements ServletFunction {
 	@Override
-	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) {
+	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		MachineService articleService = new MachineService(db, log);
 		Machine m;
-		if(articleService.add(
+		articleService.add(
 				m = new Machine(
 					bodyParams.getString("idMachine"), 
 					bodyParams.getLong("idSetting"),
 					bodyParams.getBoolean("isAdmin"),
 					bodyParams.getString("password")
-				)))
-			list.add(ResponseHandler.objectToMap(m));
+				));
+		list.add(ResponseHandler.objectToMap(m));
 		db.close();
 		return list;
 	}

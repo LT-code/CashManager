@@ -96,18 +96,16 @@ public abstract class Servlet extends HttpServlet {
 	 */
 	private void treatRequest(String type, Object[][] functionRes, HttpServletRequest request, HttpServletResponse response) {
 		log.addDebug(type + " request " + request.getRequestURI() + " | IP:" + request.getRemoteHost());
-		ServletFunction sf = ServletTools.getServletFunction(request, functionRes);
+		ServletFunction servletFunction = ServletTools.getServletFunction(request, functionRes);
 		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
 		
-		if (sf != null) {
-			DBConnector db = null;	
-			JSONObject bodyParams = ServletTools.getJsonBodyParams(request, log);
-			JSONObject urlParams = ServletTools.getJsonUrlParams(request, log);
-			
-			if(bodyParams != null && urlParams != null)
-				if((db = new DBConnector(this.log)).isConnected())
-					if(new ServletAhtentificated(db, request, sf, log).isAllowed())
-						executeRequest(request, response, sf, db, bodyParams, urlParams, list);
+		if (servletFunction != null) {
+			try {
+				executeRequest(request, response, servletFunction, list);
+			}
+			catch(Exception e) {
+				this.log.addError(e, HttpStatus.INTERNAL_ERROR);
+			}
 		}
 		else
 			log.addError("Not Found", HttpStatus.NOT_FOUND);
@@ -118,19 +116,23 @@ public abstract class Servlet extends HttpServlet {
 	/*
 	 * 
 	 */
-	private void executeRequest(HttpServletRequest request, HttpServletResponse response, ServletFunction servletFunction, DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list) {
-		log.addDebug("Body param receved : " + bodyParams);
-		log.addDebug("Url param receved : " + urlParams);
+	private void executeRequest(HttpServletRequest request, HttpServletResponse response, ServletFunction servletFunction, List<Map<String, Object>> list) throws Exception {
+		JSONObject bodyParams = ServletTools.getJsonBodyParams(request, log);
+		JSONObject urlParams = ServletTools.getJsonUrlParams(request, log);
 		
-		try  {					
-			list = servletFunction.execute(	db, 
-											bodyParams,
-											urlParams,
-											list,
-											log);
+		if(bodyParams != null && urlParams != null) {
+			DBConnector db = new DBConnector(this.log);
+			if(new ServletAhtentificated(db, request, servletFunction, log).isAllowed()) {
+				log.addDebug("Body param receved : " + bodyParams);
+				log.addDebug("Url param receved : " + urlParams);
+								
+				list = servletFunction.execute(	db, 
+												bodyParams,
+												urlParams,
+												list,
+												log);
+			}
 		}
-		catch(Exception e) {
-			this.log.addError(e, HttpStatus.INTERNAL_ERROR);
-		}
+			
 	}
 }

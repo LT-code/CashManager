@@ -17,14 +17,14 @@ import utils.ResponseHandler;
  */
 public class CartCreate implements ServletFunction {
 	@Override
-	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) {
+	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		CartService cartService = new CartService(db, log);
 		Cart c;
-		if(cartService.add(
+		cartService.add(
 				c = new Cart(
 					bodyParams.getString("idMachine")
-				)))
-			list.add(ResponseHandler.objectToMap(c));
+				));
+		list.add(ResponseHandler.objectToMap(c));
 		db.close();
 		return list;
 	}

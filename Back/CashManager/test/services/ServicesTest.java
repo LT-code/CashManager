@@ -1,7 +1,4 @@
-package fabrique;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+package services;
 
 import java.sql.SQLException;
 
@@ -10,11 +7,14 @@ import org.junit.Test;
 import org.junit.rules.TestWatchman;
 import org.junit.runners.model.FrameworkMethod;
 
+import exception.NoResultException;
+import exception.ValidatorNotRecpectedException;
+import services.fabrique.FabriqueAService;
 import utils.DBConnector;
 import utils.LogsHandler;
 
 @SuppressWarnings("deprecation")
-public class ServicesTest {
+public abstract class ServicesTest {
 	protected FabriqueAService fab;
 	protected LogsHandler logsHandler = new LogsHandler();
 	protected DBConnector db;
@@ -39,16 +39,16 @@ public class ServicesTest {
 	};
 
 	@Test
-	public void addUpdateDelete() {
-		assertTrue(fab.getService().add(fab.getEntity()));
-		assertTrue(fab.getService().update(fab.getEntity()));
-		assertTrue(fab.getService().delete(fab.getEntity()));
+	public void addUpdateDelete() throws ValidatorNotRecpectedException, NoResultException, SQLException {
+		fab.getService().add(fab.getEntity());
+		fab.getService().update(fab.getEntity());
+		fab.getService().delete(fab.getEntity());
 	}
 
 	@Test
-	public void addDelete() {
-		assertTrue(fab.getService().add(fab.getEntity()));
-		assertTrue(fab.getService().delete(fab.getEntity()));
+	public void addDelete() throws ValidatorNotRecpectedException, NoResultException, SQLException {
+		fab.getService().add(fab.getEntity());
+		fab.getService().delete(fab.getEntity());
 	}
 
 
@@ -56,35 +56,31 @@ public class ServicesTest {
 	// Delete
 	// ##########################################################################
 
-	@Test
-	public void failDelete_IdZero() {
+	@Test(expected=ValidatorNotRecpectedException.class)
+	public void failDelete_IdZero() throws ValidatorNotRecpectedException, NoResultException, SQLException {
 		fab.getEntity().setId(fab.getNullID());
-		assertFalse(fab.getService().delete(fab.getEntity()));
+		fab.getService().delete(fab.getEntity());
 	}
 
-	@Test
-	public void failDelete_IdNoExist() {
+	@Test(expected=NoResultException.class)
+	public void failDelete_IdNoExist() throws ValidatorNotRecpectedException, NoResultException, SQLException {
 		fab.getEntity().setId(fab.getUnknownID());
-		assertFalse(fab.getService().delete(fab.getEntity()));
+		fab.getService().delete(fab.getEntity());
 	}
 
 	// ##########################################################################
 	// Update
 	// ##########################################################################
 
-	@Test
-	public void failUpdateDestination_IdNoExist() {
+	@Test(expected=NoResultException.class)
+	public void failUpdateDestination_IdNoExist() throws ValidatorNotRecpectedException, NoResultException, SQLException {
 		fab.getEntity().setId(fab.getUnknownID());
-		assertFalse(fab.getService().update(fab.getEntity()));
+		fab.getService().update(fab.getEntity());
 	}
 
-	@Test
-	public void failUpdateDestination_IdZero() {
+	@Test(expected=NoResultException.class)
+	public void failUpdateDestination_IdZero() throws ValidatorNotRecpectedException, NoResultException, SQLException {
 		fab.getEntity().setId(fab.getNullID());
-		assertFalse(fab.getService().update(fab.getEntity()));
+		fab.getService().update(fab.getEntity());
 	}
-
-	// ##########################################################################
-	// function to override
-	// ##########################################################################
 }

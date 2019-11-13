@@ -1,11 +1,13 @@
 package services;
 
+import java.sql.SQLException;
+
 import dao.ArticleDao;
 import dao.Dao;
 import entities.Article;
 import entities.EntityClass;
+import exception.InvalidNumberReslut;
 import utils.DBConnector;
-import utils.HttpStatus;
 import utils.LogsHandler;
 
 public class ArticleService extends Service {
@@ -15,17 +17,10 @@ public class ArticleService extends Service {
 		super(db, errHandler);
 	}
 	
-	public Article get(String code) {
-		Article a = null;
-		try {
-			a =  this.articleDao.get(code);
-			logsHandler.addInfo("Success getting article " + code + ".");
-			return a;
-		}
-	    catch (Exception e) {
-	    	this.getLogsHandler().addError(e, HttpStatus.BAD_REQUEST); 
-	    }
-	    return a;
+	public Article get(String code) throws SQLException, InvalidNumberReslut {
+		Article a = this.articleDao.get(code);
+		logsHandler.addInfo("Success getting article " + code + ".");
+		return a;
 	}
 	
 	@Override

@@ -1,4 +1,4 @@
-package services;
+
 
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -10,10 +10,10 @@ import utils.InitServer;
 
 @RunWith(Suite.class)
 @SuiteClasses	({ 
-					MachineServiceTest.class,
-					SettingServiceTest.class,
-					CartServiceTest.class,
-					ArticleServiceTest.class
+					services.MachineServiceTest.class,
+					services.SettingServiceTest.class,
+					services.CartServiceTest.class,
+					services.ArticleServiceTest.class
 				})
 
 public class AllTests {

@@ -22,14 +22,13 @@ public class MachineConnect implements ServletFunction {
 	public static final int TOKEN_SIZE = 100;
 	
 	@Override
-	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) {
+	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		MachineService articleService = new MachineService(db, log);
 		Machine m = articleService.get(bodyParams.getString("idMachine"));
 		if (m != null) {
 			if (m.pGetPassword().equals(bodyParams.getString("password"))) {
-				do
-					m.setToken(this.generateToken());
-				while(!articleService.update(m));				
+				m.setToken(this.generateToken());
+				articleService.update(m);				
 			} else
 				log.addError("Passwords doesn't match", HttpStatus.BAD_REQUEST);
 			list.add(ResponseHandler.objectToMap(m));

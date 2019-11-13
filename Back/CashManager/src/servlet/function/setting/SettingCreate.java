@@ -14,7 +14,7 @@ import utils.ResponseHandler;
 
 public class SettingCreate implements ServletFunction {
 	@Override
-	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) {
+	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		SettingService service = new SettingService(db, log);
 		Setting s = new Setting();
 		service.add(s);
