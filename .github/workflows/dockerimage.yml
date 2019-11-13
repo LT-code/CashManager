@@ -1,3 +1,5 @@
+name: Docker Image
+
 on: [push]
 
 jobs:
@@ -13,7 +15,10 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn clean install --file ./Back/CashManager/pom.xml
+      working-directory: ./Back/CashManager/
+      run: mvn clean install
+      
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      working-directory: ./Back/CashManager/
+      run: docker build . --tag my-image-name:$(date +%s)
