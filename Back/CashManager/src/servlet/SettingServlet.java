@@ -11,7 +11,7 @@ import servlet.function.setting.SettingCreate;
 public class SettingServlet extends Servlet {
 	private static final long serialVersionUID = 1L;
 	
-	private static Object[][] ROUTES_POST =
+	private static final Object[][] ROUTES_POST =
 		{
 			{ API_ROUTE + "/setting/create", new SettingCreate() }
 		};

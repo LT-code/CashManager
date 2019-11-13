@@ -19,7 +19,20 @@ public class MachineService extends Service {
 		Machine m = null;
 		try {
 			m =  this.machineDao.get(code);
-			logsHandler.addInfo("Succès de la recuperation du la machine " + code + ".");
+			logsHandler.addInfo("Succès de la recuperation de la machine " + code + ".");
+			return m;
+		}
+	    catch (Exception e) {
+	    	this.getLogsHandler().addError(e, HttpStatus.BAD_REQUEST); 
+	    }
+	    return m;
+	}
+	
+	public Machine getByToken(String token) {
+		Machine m = null;
+		try {
+			m =  this.machineDao.getByToken(token);
+			logsHandler.addInfo("Succès de la recuperation de la machine " + token + ".");
 			return m;
 		}
 	    catch (Exception e) {

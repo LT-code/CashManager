@@ -49,9 +49,11 @@ public class DBConnector {
 		return dbName;
 	}
 	
-	// private static Connection connection;
-
-	// Operations
+	public boolean isConnected() {
+		return connection != null;
+	}
+	
+	
 	// ===================================================================================
 	/*
 	 * /WEB-INF/conf/dbconfig.properties
@@ -81,7 +83,7 @@ public class DBConnector {
 	/*
 	 * Connect to the data base Need the execution of getDBParam to works
 	 */
-	public Connection connect() {
+	public void connect() {
 		String url = "jdbc:mariadb://" + DBConnector.host + ":" + DBConnector.port + "/" + DBConnector.dbName;
 
 		try {
@@ -89,10 +91,8 @@ public class DBConnector {
 			connection = DriverManager.getConnection(url, DBConnector.user, DBConnector.password);
 			errHandler.addDebug("Connected to the DataBase " + url);
 		} catch (ClassNotFoundException | SQLException e) {
-			errHandler.addError(LogsHandler.getMessageError(e), HttpStatus.INTERNAL_ERROR);
+			errHandler.addError(e, HttpStatus.INTERNAL_ERROR);
 		}
-
-		return connection;
 	}
 
 	// ===================================================================================

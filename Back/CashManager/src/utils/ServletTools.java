@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -24,7 +25,7 @@ public class ServletTools {
 		return null;
 	}
 
-    public static JSONObject getJsonParams(HttpServletRequest request, LogsHandler log) {
+    public static JSONObject getJsonBodyParams(HttpServletRequest request, LogsHandler log) {
 		StringBuffer jb = new StringBuffer();
 		String line = null;	
 		JSONObject jsonObject = null;
@@ -40,6 +41,16 @@ public class ServletTools {
 		}
 		
 		return jsonObject;
+    }
+    
+    public static JSONObject getJsonUrlParams(HttpServletRequest request, LogsHandler log) {
+    	JSONObject jsonObject = null;
+    	try {
+    		jsonObject = new JSONObject(new ObjectMapper().writeValueAsString(request.getParameterMap()));
+		} catch (JSONException | IOException e) {
+			log.addError(e, HttpStatus.BAD_REQUEST);
+		}
+    	return jsonObject;
     }
     
     public static void writeResponse(HttpServletResponse response, List<Map<String, Object>> list, LogsHandler log) {

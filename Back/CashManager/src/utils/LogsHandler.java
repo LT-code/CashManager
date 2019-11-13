@@ -1,6 +1,7 @@
 package utils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -36,12 +37,12 @@ public class LogsHandler {
     	addError(message, message, status);
     }
     
-    public void addError(String principalMessage, String message, int status) {
+    public void addError(String principalMessage, String fullMessage, int status) {
     	this.isValid = false;
     	//this.principalMessages += (principalMessages == "" ? "" : "\n") + principalMessage;
     	this.principalMessages = principalMessage;
     	this.httpStatus = status;
-    	messages.add("ERROR | /!\\ " + status + " " + message);
+    	messages.add("ERROR | /!\\ Status : " + status + " " + fullMessage);
     }
     
     public void addDebug(String message) {
@@ -77,8 +78,7 @@ public class LogsHandler {
         return "\n" +   "       ---------------------------------------------------------------------------------------------------" + "\n" +
                         "       | Exception           = " + e.getClass() + "\n" +
                         "       | Message             = " + e.getMessage() + "\n" +
-                        "       | LocalizedMessage    = " + e.getLocalizedMessage() + "\n" +
-                        "       | Cause               = " + e.getCause() + "\n" +
+                        "       | LocalizedMessage    = " + Arrays.toString(e.getStackTrace()) + "\n" +
                         "       ---------------------------------------------------------------------------------------------------" + "\n";
-    }
+	}
 }

@@ -46,12 +46,15 @@ public class InitServer implements ServletContextListener {
 	}
 	
 	public static void restetDataBase() {
+		DBConnector db = null;
+		
 		try {
-			DBConnector db = new DBConnector(new LogsHandler());			
-	    	db.executeSQL("DROP DATABASE IF EXISTS " + db.getDbName() + ";");
-	    	db.executeSQL("CREATE DATABASE " + db.getDbName() + ";");
-	      	db.close();
-	      	System.out.println("Database has been droped and created");
+			if((db = new DBConnector(new LogsHandler())).isConnected()) {
+				db.executeSQL("DROP DATABASE IF EXISTS " + db.getDbName() + ";");
+		    	db.executeSQL("CREATE DATABASE " + db.getDbName() + ";");
+		      	db.close();
+		      	System.out.println("Database has been droped and created");
+			}	      	
 		}
 		catch(Exception e) {
 			System.out.println("InitServer Error : " + LogsHandler.getMessageError(e));

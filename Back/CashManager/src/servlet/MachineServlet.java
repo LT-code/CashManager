@@ -12,7 +12,7 @@ import servlet.function.machine.MachineCreate;
 public class MachineServlet extends Servlet {
 	private static final long serialVersionUID = 1L;
 	
-	private static Object[][] ROUTES_POST =
+	private static final Object[][] ROUTES_POST =
 		{
 			{ API_ROUTE + "/machine/create", new MachineCreate() },
 			{ API_ROUTE + "/machine/connect", new MachineConnect() }

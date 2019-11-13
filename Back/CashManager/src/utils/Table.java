@@ -85,10 +85,13 @@ public class Table {
 	}
 
 	public void createTable() throws SQLException, FailedDBConnection {    
-    	DBConnector db = new DBConnector(new LogsHandler());
-      	db.executeSQL(this.getTableToSQL());
-      	db.close();
-      	System.out.println(this.getName() + " creation succed");
+    	DBConnector db;
+    	
+    	if((db = new DBConnector(new LogsHandler())).isConnected()) {
+    		db.executeSQL(this.getTableToSQL());
+          	db.close();
+          	System.out.println(this.getName() + " creation succed");
+    	}
     }
 
 	public String entityNameClass() {

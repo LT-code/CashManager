@@ -22,4 +22,12 @@ public class MachineDao extends Dao {
 							(boolean) m.get("isAdmin"),
 							(String) m.get("password"));
 	}
+	
+	public Machine getByToken(String token) throws SQLException, InvalidNumberReslut {
+		Map<String, Object> m = query("Select * from " + MachineTable.getTable().getName() + " where token = ?", new Object[]{token});
+		return new Machine(	(String) m.get("idMachine"), 
+							(int) m.get("idSetting"),
+							(boolean) m.get("isAdmin"),
+							(String) m.get("password"));
+	}
 }
