@@ -35,26 +35,26 @@ class ScanFragment : Fragment() {
         return root
     }
 
-    override fun onStart() {
-        super.onStart()
-        btnScanArticles.setOnClickListener {
-            val scanner = IntentIntegrator.forSupportFragment(this)
-            scanner.initiateScan()
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (resultCode == Activity.RESULT_OK) {
-            val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-            if (result != null) {
-                if (result.contents == null) {
-                    Toast.makeText(context, "Cancelled", Toast.LENGTH_LONG + 2).show()
-                } else {
-                    Toast.makeText(context, "Scanned: " + result.contents, Toast.LENGTH_LONG + 2).show()
-                }
-            } else {
-                super.onActivityResult(requestCode, resultCode, data)
-            }
-        }
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        btnScanArticles.setOnClickListener {
+//            val scanner = IntentIntegrator.forSupportFragment(this)
+//            scanner.initiateScan()
+//        }
+//    }
+//
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        if (resultCode == Activity.RESULT_OK) {
+//            val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+//            if (result != null) {
+//                if (result.contents == null) {
+//                    Toast.makeText(context, "Cancelled", Toast.LENGTH_LONG + 2).show()
+//                } else {
+//                    Toast.makeText(context, "Scanned: " + result.contents, Toast.LENGTH_LONG + 2).show()
+//                }
+//            } else {
+//                super.onActivityResult(requestCode, resultCode, data)
+//            }
+//        }
+//    }
 }

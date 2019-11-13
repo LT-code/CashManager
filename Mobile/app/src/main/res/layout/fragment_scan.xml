@@ -25,6 +25,7 @@
         android:layout_height="240dp"
         android:layout_marginBottom="108dp"
         android:background="@android:drawable/dialog_holo_light_frame"
+        android:onClick="launchScan"
         android:scaleType="fitCenter"
         android:tint="#4D7597"
         app:layout_constraintBottom_toBottomOf="parent"
