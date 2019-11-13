@@ -14,11 +14,14 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Build with Maven
+    - name: Build with Maven and docker
       working-directory: ./Back/CashManager/
-      run: mvn clean install
-    - name: ls
-      run: ls -la
-    - name: Build the Docker image
-      working-directory: ./Back/CashManager/
-      run: docker build . --tag my-image-name:$(date +%s)
+      run: sh run_docker.sh
+    
+    #- name: Build with Maven
+    #  working-directory: ./Back/CashManager/
+    #  run: mvn clean install
+    #  
+    #- name: Build the Docker image
+    #  working-directory: ./Back/CashManager/
+    #  run: docker build . --tag my-image-name:$(date +%s)
