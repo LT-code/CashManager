@@ -1,15 +1,20 @@
-package com.epitech.cashmanager
+package com.epitech.cashmanager.activity
 
 import android.app.Activity
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
+import android.widget.RadioButton
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.epitech.cashmanager.R
 import com.google.zxing.integration.android.IntentIntegrator
+import kotlinx.android.synthetic.main.fragment_scan.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +27,27 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         navView.setupWithNavController(navController)
+    }
+
+    fun onRadioButtonClicked(view: View) {
+        if (view is RadioButton) {
+            // Is the button now checked?
+            val checked = view.isChecked
+
+            // Check which radio button was clicked
+            when (view.getId()) {
+                R.id.radioBtnCreditCard ->
+                    if (checked) {
+                        // Credit Card Code
+                        Toast.makeText(this, "Credit Card", Toast.LENGTH_LONG + 2).show()
+                    }
+                R.id.radioBtnBankCheck ->
+                    if (checked) {
+                        // Bank Check Code
+                        Toast.makeText(this, "Bank Check", Toast.LENGTH_LONG + 2).show()
+                    }
+            }
+        }
     }
 
     fun launchScan(view: View) {
