@@ -13,10 +13,14 @@ release(){
 	  -H "Accept: application/vnd.heroku+json; version=3.docker-releases"
 }
 
-echo api
-echo $HEROKU_API_KEY
+echo "---- Heroku connection"
 echo $HEROKU_API_KEY | docker login --username=thomas.lopez@eptiech.eu --password-stdin registry.heroku.com
 
+echo "---- Docker change tag"
 docker tag $1 registry.heroku.com/epitech-cashmanager-msc/web
+
+echo "---- Docker push image"
 docker push registry.heroku.com/epitech-cashmanager-msc/web
+
+echo "---- Release"
 release epitech-cashmanager-msc
