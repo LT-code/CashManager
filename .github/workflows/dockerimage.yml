@@ -26,3 +26,5 @@ jobs:
     - name: Deployment on heroku
       working-directory: ./Back/CashManager/
       run: sh Docker/deploy.sh "epitech-cashmanager/server"
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
