@@ -17,10 +17,10 @@ echo "---- Heroku connection"
 echo $HEROKU_API_KEY | docker login --username=thomas.lopez@eptiech.eu --password-stdin registry.heroku.com
 
 echo "---- Docker change tag"
-docker tag $1 registry.heroku.com/epitech-cashmanager-msc/web
+docker tag $1 registry.heroku.com/cashmanager-epitech/web
 
 echo "---- Docker push image"
-docker push registry.heroku.com/epitech-cashmanager-msc/web
+docker push registry.heroku.com/cashmanager-epitech/web
 
 echo "---- Release"
-release epitech-cashmanager-msc
+release cashmanager-epitech
