@@ -13,10 +13,9 @@ release(){
 	  -H "Accept: application/vnd.heroku+json; version=3.docker-releases"
 }
 
-echo $HEROKU_API_KEY | docker login --username=amoniack7@gmail.com --password-stdin registry.heroku.com
+echo $HEROKU_API_KEY | docker login --username=thomas.lopez@eptiech.eu --password-stdin registry.heroku.com
 
-
-docker build -t cm50/server .
-docker tag cm50/server registry.heroku.com/cash-manager-50-server/web
-docker push registry.heroku.com/cash-manager-50-server/web
-release cash-manager-50-server
+docker build -t $ODCKER_IMG_NAME/web .
+docker tag $ODCKER_IMG_NAME/web registry.heroku.com/$ODCKER_IMG_NAME/web
+docker push registry.heroku.com/$ODCKER_IMG_NAME/web
+release $ODCKER_IMG_NAME
