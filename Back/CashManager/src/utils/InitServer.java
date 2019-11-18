@@ -45,7 +45,11 @@ public class InitServer implements ServletContextListener {
 	}
 	
 	public static void createAllTables() {
+		createAllTables(0);
+	}
+	public static void createAllTables(int attemps) {
 		try {
+			attemps++;
 			SettingTable.createTable();
 			ArticleTable.createTable();
 			MachineTable.createTable();
@@ -53,7 +57,10 @@ public class InitServer implements ServletContextListener {
 		} catch (ClassNotFoundException | SQLException | FailedDBConnection e) {
 			System.out.println("InitServer Error : " + e.getMessage());
 			try { TimeUnit.SECONDS.sleep(4); }catch(Exception e1) {System.out.println(LogsHandler.getMessageError(e1));};
-			createAllTables();
+			if(attemps > 15)
+				System.exit(-1);
+		
+			createAllTables(attemps);
 		}
 	}
 	
