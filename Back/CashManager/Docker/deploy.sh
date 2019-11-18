@@ -15,7 +15,7 @@ release(){
 
 echo $HEROKU_API_KEY | docker login --username=thomas.lopez@eptiech.eu --password-stdin registry.heroku.com
 
-docker build -t $ODCKER_IMG_NAME/web .
-docker tag $ODCKER_IMG_NAME/web registry.heroku.com/$ODCKER_IMG_NAME/web
-docker push registry.heroku.com/$ODCKER_IMG_NAME/web
-release $ODCKER_IMG_NAME
+docker build -t $1 .
+docker tag $1 registry.heroku.com/$1
+docker push registry.heroku.com/$1
+release $1
