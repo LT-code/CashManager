@@ -1,6 +1,7 @@
 package utils;
 
 import java.sql.SQLException;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -12,17 +13,24 @@ import tables.MachineTable;
 import tables.SettingTable;
 
 public class InitServer implements ServletContextListener {
+	private final static String CASHMANAGER_DOCKER_LOCAL = "CASHMANAGER_DOCKER_PRODUCTION";
 	private final static String CASHMANAGER_DOCKER_PRODUCTION = "CASHMANAGER_DOCKER_PRODUCTION";
 	
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		System.out.println("Start server");
 		String fileProperties = "dbconfig";
-		String envVar = System.getenv(CASHMANAGER_DOCKER_PRODUCTION);
+		String envVarProd = System.getenv(CASHMANAGER_DOCKER_PRODUCTION);
+		String envVarLocal = System.getenv(CASHMANAGER_DOCKER_LOCAL);
 		
-		if(envVar != null)
-			if(envVar.equals("1"))
-				fileProperties = "dbconfigProd";
+		if(envVarLocal != null) {
+			if(envVarLocal.equals("1"))
+				fileProperties = "dbconfigLocal";
+		}
+		else
+			if(envVarProd != null)
+				if(envVarProd.equals("1"))
+					fileProperties = "dbconfigProd";
 			
 		DBConnector.getDBParam(sce.getServletContext().getResourceAsStream(sce.getServletContext().getInitParameter(fileProperties)));
 
@@ -44,7 +52,7 @@ public class InitServer implements ServletContextListener {
 			CartTable.createTable();
 		} catch (ClassNotFoundException | SQLException | FailedDBConnection e) {
 			System.out.println("InitServer Error : " + e.getMessage());
-			try { Thread.sleep(4000); }catch(Exception e1) {};
+			try { TimeUnit.SECONDS.sleep(4); }catch(Exception e1) {System.out.println(LogsHandler.getMessageError(e1));};
 			createAllTables();
 		}
 	}

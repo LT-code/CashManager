@@ -24,6 +24,13 @@
     </param-value>
   </context-param>
   
+  <context-param>
+    <param-name>dbconfigLocal</param-name>
+    <param-value>
+        /META-INF/conf/local.dbconfig.properties
+    </param-value>
+  </context-param>
+  
   <listener>
     <listener-class>utils.InitServer</listener-class>
   </listener>

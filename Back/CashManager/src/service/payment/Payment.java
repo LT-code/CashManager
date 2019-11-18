@@ -18,16 +18,20 @@ abstract class Payment {
     public void cancel() {
     	
     }
+    
     /**
      * RF_110: The payment server must allow or refuse the payment
      * @return void
      */
     public void allow () {
+    	
     }
+    
     /**
      * RF_110: The payment server must allow or refuse the payment
      * @return void
      */
     public void refuse () {
+    	
     }
 }

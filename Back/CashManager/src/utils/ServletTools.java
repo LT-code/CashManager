@@ -48,7 +48,7 @@ public class ServletTools {
 		
     	PrintWriter writer;
 		try {
-			response.setStatus((log.isValid() ? 200 : 400));
+			response.setStatus((log.getHttpStatus()));
 			writer = response.getWriter();
 			writer.println(ResponseHandler.serilize(log.getPrincipalMessages(),	list));
 			
