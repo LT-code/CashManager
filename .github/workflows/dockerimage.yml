@@ -22,3 +22,7 @@ jobs:
     - name: Build the Docker image
       working-directory: ./Back/CashManager/
       run: docker build . --tag my-image-name:$(date +%s)
+    
+    - name: Deployment on heroku
+      working-directory: ./Back/CashManager/
+      run: sh Docker/deploy.sh
