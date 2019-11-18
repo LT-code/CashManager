@@ -21,8 +21,8 @@ jobs:
       
     - name: Build the Docker image
       working-directory: ./Back/CashManager/
-      run: docker build -t $DOCKER_IMG_NAME/web .
+      run: docker build -t epitech-cashmanager/server .
     
     - name: Deployment on heroku
       working-directory: ./Back/CashManager/
-      run: sh Docker/deploy.sh
+      run: sh Docker/deploy.sh "epitech-cashmanager/server"
