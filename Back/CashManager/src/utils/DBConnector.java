@@ -63,6 +63,10 @@ public class DBConnector {
 			DBConnector.port = Integer.parseInt(properties.getProperty("port"));
 			DBConnector.user = properties.getProperty("user");
 			DBConnector.password = properties.getProperty("password");
+			
+			if(DBConnector.password.equals("check_env"))
+				DBConnector.password = System.getenv(InitServer.CASHMANAGER_DB_PASSWORD);
+			
 			System.out.println("DB parameters has been gotten " + DBConnector.host);
 		} catch (Exception e) {
 			System.out.println(LogsHandler.getMessageError(e));
@@ -79,9 +83,9 @@ public class DBConnector {
 	 * Connect to the data base Need the execution of getDBParam to works
 	 */
 	public void connect() throws ClassNotFoundException, SQLException {
-		String url = "jdbc:mariadb://" + DBConnector.host + ":" + DBConnector.port + "/" + DBConnector.dbName;
-
-		Class.forName("org.mariadb.jdbc.Driver");
+		//String url = "jdbc:mariadb://" + DBConnector.host + ":" + DBConnector.port + "/" + DBConnector.dbName;
+		//Class.forName("org.mariadb.jdbc.Driver");
+		String url = "jdbc:mysql://" + DBConnector.host + ":" + DBConnector.port + "/" + DBConnector.dbName;
 		connection = DriverManager.getConnection(url, DBConnector.user, DBConnector.password);
 		errHandler.addDebug("Connected to the DataBase " + url);
 	}

@@ -15,6 +15,7 @@ import tables.SettingTable;
 public class InitServer implements ServletContextListener {
 	private final static String CASHMANAGER_DOCKER_LOCAL = "CASHMANAGER_DOCKER_LOCAL";
 	private final static String CASHMANAGER_DOCKER_PRODUCTION = "CASHMANAGER_DOCKER_PRODUCTION";
+	public final static String CASHMANAGER_DB_PASSWORD = "CASHMANAGER_DB_PASSWORD";
 	
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
@@ -35,7 +36,7 @@ public class InitServer implements ServletContextListener {
 			
 		DBConnector.getDBParam(sce.getServletContext().getResourceAsStream(sce.getServletContext().getInitParameter(fileProperties)));
 
-		restetDataBase();
+		//restetDataBase();
 		
 		createAllTables();
 	}
@@ -56,7 +57,7 @@ public class InitServer implements ServletContextListener {
 			MachineTable.createTable();
 			CartTable.createTable();
 		} catch (ClassNotFoundException | SQLException | FailedDBConnection e) {
-			System.out.println("InitServer Error : " + e.getMessage());
+			System.out.println("InitServer Error creation tables : " + e.getMessage());
 			try { TimeUnit.SECONDS.sleep(5); }catch(Exception e1) {System.out.println(LogsHandler.getMessageError(e1));};
 			if(attemps > 10)
 				System.exit(-1);
@@ -73,7 +74,7 @@ public class InitServer implements ServletContextListener {
 	      	db.close();
 	      	System.out.println("Database has been droped and created");
 		} catch (SQLException | ClassNotFoundException e) {
-			System.out.println("InitServer Error : " + e.getMessage());
+			System.out.println("InitServer Error reset database : " + e.getMessage());
 			try { Thread.sleep(4000); }catch(Exception e1) {};
 			restetDataBase();
 		}

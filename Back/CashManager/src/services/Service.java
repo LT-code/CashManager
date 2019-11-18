@@ -67,7 +67,6 @@ public abstract class Service {
     }
 
     public boolean validatorDelete(EntityClass entityClass) {
-    	System.out.println(entityClass.getId());
         if(entityClass.getId() instanceof Long)
         	return (long) entityClass.getId() > 0;
     	if(entityClass.getId() instanceof String)

@@ -86,8 +86,8 @@ public class Table {
 
 	public void createTable() throws SQLException, FailedDBConnection, ClassNotFoundException {    
     	DBConnector db = new DBConnector(new LogsHandler());
-		db.executeSQL(this.getTableToSQL());
-      	db.close();
+    	db.executeSQL(this.getTableToSQL()); 
+		db.close();
       	System.out.println(this.getName() + " creation succed");
     }
 
