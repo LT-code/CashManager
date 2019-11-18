@@ -65,7 +65,7 @@ public class Table {
 	}
 	
 	public String getTableToSQL() {
-		String res = "create table " + name + " (";
+		String res = "create table if not exists " + name + " (";
 		for(int i = 0; i < fields.length; i++) {
 			res += 	(i < 1 ? "\n" : ", \n") +
 					fields[i].getName() + " " +

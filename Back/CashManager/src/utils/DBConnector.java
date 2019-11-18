@@ -85,6 +85,7 @@ public class DBConnector {
 	public void connect() throws ClassNotFoundException, SQLException {
 		//String url = "jdbc:mariadb://" + DBConnector.host + ":" + DBConnector.port + "/" + DBConnector.dbName;
 		//Class.forName("org.mariadb.jdbc.Driver");
+		Class.forName("com.mysql.jdbc.Driver");
 		String url = "jdbc:mysql://" + DBConnector.host + ":" + DBConnector.port + "/" + DBConnector.dbName;
 		connection = DriverManager.getConnection(url, DBConnector.user, DBConnector.password);
 		errHandler.addDebug("Connected to the DataBase " + url);
@@ -145,7 +146,7 @@ public class DBConnector {
 	 */
 	public void executeSQL(String query) throws SQLException {
 		statement = connection.createStatement();
-		statement.executeQuery(query);
+		statement.executeUpdate(query);
 	}
 
 	// ===================================================================================
