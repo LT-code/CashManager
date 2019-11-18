@@ -15,7 +15,6 @@ release(){
 
 echo $HEROKU_API_KEY | docker login --username=thomas.lopez@eptiech.eu --password-stdin registry.heroku.com
 
-docker build -t $1 .
 docker tag $1 registry.heroku.com/epitech-cashmanager-msc/web
 docker push registry.heroku.com/epitech-cashmanager-msc/web
 release epitech-cashmanager-msc
