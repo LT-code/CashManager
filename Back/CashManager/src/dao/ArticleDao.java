@@ -18,6 +18,7 @@ public class ArticleDao extends Dao {
 	public Article get(String code) throws SQLException, InvalidNumberReslut {
 		Map<String, Object> m = query("Select * from " + ArticleTable.getTable().getName() + " where " + ArticleTable.getTable().getIDSet(), new Object[]{code});
 		return new Article(	(String) m.get("code"), 
-							(String) m.get("name"));
+							(String) m.get("name"),
+							(float) m.get("price"));
 	}
 }

@@ -17,7 +17,7 @@ public class ArticleServiceTest extends ServicesTest {
     @Before
     public void setUp() throws ClassNotFoundException, SQLException, FailedDBConnection {
     	db = new DBConnector(logsHandler);
-    	article = new Article("122GYHU3342", "Souris logitech");
+    	article = new Article("122GYHU3342", "Souris logitech", 4.50F);
     	articleService = new ArticleService(db, logsHandler);
 
         fab = new FabriqueAService(article, articleService, new String(""), new String("FFFFFFFFFFFFFFFFFFFFF"));

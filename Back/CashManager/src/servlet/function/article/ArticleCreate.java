@@ -23,7 +23,8 @@ public class ArticleCreate implements ServletFunction {
 		articleService.add(
 				a = new Article(
 					bodyParams.getString("code"), 
-					bodyParams.getString("name")
+					bodyParams.getString("name"),
+					bodyParams.getFloat("price")
 				));
 			list.add(ResponseHandler.objectToMap(a));
 		db.close();		

@@ -7,10 +7,12 @@ public class Article implements EntityClass{
     // Attributes
     private String code;
     private String name;
+    private float price;
     
-    public Article(String code, String name) {
+    public Article(String code, String name, float price) {
     	this.code = code;
     	this.name = name;
+    	this.price = price;
     }
     
     @Override
@@ -23,14 +25,13 @@ public class Article implements EntityClass{
     	this.name = name;
     }
 	
-	@Override
-	public Object getId() {
-		return code;
-	}
-    
     public String getName() {
 		return name;
     	
+    }
+    
+    public float getPrice() {
+		return price;
     }
     
     public void setCode(String code) {
@@ -38,8 +39,13 @@ public class Article implements EntityClass{
     }
     
 	@Override
+	public Object getId() {
+		return code;
+	}
+    
+	@Override
 	public Object[] fieldsValues() {
-		return  new Object[]{code, name};
+		return  new Object[]{code, name, price};
 	}
 	
 	@Override

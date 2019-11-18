@@ -12,7 +12,8 @@ public class ArticleTable implements TableClass {
 						"an article",
 				new TableFields[]	{	
 					new TableFields("code", 		TableFields.TYPE_VARCHAR, 	30, 	TableFields.KEY_PRIMARY),
-					new TableFields("name",			TableFields.TYPE_VARCHAR, 	100)
+					new TableFields("name",			TableFields.TYPE_VARCHAR, 	100),
+					new TableFields("price",		TableFields.TYPE_FLOAT, 	6)
 			});
 	
 	public static Table getTable() {

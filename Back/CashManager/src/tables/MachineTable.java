@@ -14,7 +14,7 @@ public class MachineTable implements TableClass {
 				new TableFields[]	{	
 					new TableFields("idMachine", 		TableFields.TYPE_VARCHAR, 	30, TableFields.KEY_PRIMARY),
 					new TableFields("idSetting",		TableFields.TYPE_INT, 		11,	TableFields.KEY_FOREIGN, SettingTable.getTable().getName() + "(idSetting)"),
-					new TableFields("isAdmin", 			TableFields.TYPE_BOOLEAN,	0),
+					new TableFields("isAdmin", 			TableFields.TYPE_BOOLEAN,	1),
 					new TableFields("password", 		TableFields.TYPE_VARCHAR,	30),
 					new TableFields("token", 			TableFields.TYPE_VARCHAR,	MachineConnect.TOKEN_SIZE, TableFields.KEY_UNIQUE)
 			});
