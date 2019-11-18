@@ -13,7 +13,7 @@ import tables.MachineTable;
 import tables.SettingTable;
 
 public class InitServer implements ServletContextListener {
-	private final static String CASHMANAGER_DOCKER_LOCAL = "CASHMANAGER_DOCKER_PRODUCTION";
+	private final static String CASHMANAGER_DOCKER_LOCAL = "CASHMANAGER_DOCKER_LOCAL";
 	private final static String CASHMANAGER_DOCKER_PRODUCTION = "CASHMANAGER_DOCKER_PRODUCTION";
 	
 	@Override
@@ -31,6 +31,7 @@ public class InitServer implements ServletContextListener {
 			if(envVarProd != null)
 				if(envVarProd.equals("1"))
 					fileProperties = "dbconfigProd";
+		System.out.println("File Properties choosen : " + fileProperties);
 			
 		DBConnector.getDBParam(sce.getServletContext().getResourceAsStream(sce.getServletContext().getInitParameter(fileProperties)));
 
@@ -56,8 +57,8 @@ public class InitServer implements ServletContextListener {
 			CartTable.createTable();
 		} catch (ClassNotFoundException | SQLException | FailedDBConnection e) {
 			System.out.println("InitServer Error : " + e.getMessage());
-			try { TimeUnit.SECONDS.sleep(4); }catch(Exception e1) {System.out.println(LogsHandler.getMessageError(e1));};
-			if(attemps > 15)
+			try { TimeUnit.SECONDS.sleep(5); }catch(Exception e1) {System.out.println(LogsHandler.getMessageError(e1));};
+			if(attemps > 10)
 				System.exit(-1);
 		
 			createAllTables(attemps);
