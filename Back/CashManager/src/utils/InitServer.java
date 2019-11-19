@@ -41,6 +41,8 @@ public class InitServer implements ServletContextListener {
 		//restetDataBase();
 		
 		createAllTables();
+		
+		System.out.println("Env PORT : " + System.getenv("PORT"));
 	}
 
 	@Override

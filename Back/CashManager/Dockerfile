@@ -22,6 +22,4 @@ WORKDIR /opt/tomcat/webapps
 RUN rm * -r
 COPY ./target/cashmanager-1.0.war ./cashmanager.war
 
-EXPOSE 8080
-
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
