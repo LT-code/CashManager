@@ -16,10 +16,13 @@ RUN mv apache-tomcat-8.5.47/* /opt/tomcat/.
 RUN rm apache-tomcat-8.5.47* -r
 RUN yum -y install java
 RUN java -version
-RUN ls
+
+COPY ./Docker/runserver.sh ./bin/runserver.sh
+RUN chmod 755 bin/runserver.sh
+
 
 WORKDIR /opt/tomcat/webapps
 RUN rm * -r
 COPY ./target/cashmanager-1.0.war ./cashmanager.war
 
-CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+CMD ["/opt/tomcat/bin/runserver.sh"]
