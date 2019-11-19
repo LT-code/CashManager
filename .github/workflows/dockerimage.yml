@@ -22,6 +22,9 @@ jobs:
     - name: Build the Docker image
       working-directory: ./Back/CashManager/
       run: docker build -t epitech-cashmanager/server .
+      env:
+        CASHMANAGER_DB_PASSWORD: ${{ secrets.CASHMANAGER_DB_PASSWORD }}
+
     
     - name: Deployment on heroku
       working-directory: ./Back/CashManager/
