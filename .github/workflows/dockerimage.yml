@@ -21,7 +21,7 @@ jobs:
       
     - name: Build the Docker image
       working-directory: ./Back/CashManager/
-      run: docker build -t epitech-cashmanager/server . --build-arg CASHMANAGER_DB_PASSWORD=${{ secrets.CASHMANAGER_DB_PASSWORD }}
+      run: docker build -t epitech-cashmanager/server . --build-arg CASHMANAGER_DB_PASSWORD="${{ secrets.CASHMANAGER_DB_PASSWORD }}"
       env:
         CASHMANAGER_DB_PASSWORD: ${{ secrets.CASHMANAGER_DB_PASSWORD }}
 
