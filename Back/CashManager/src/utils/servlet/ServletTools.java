@@ -17,6 +17,8 @@ import org.json.JSONObject;
 
 import servlet.Servlet;
 import servlet.function.RouteFunction;
+import servlet.permissions.ServletAdminMachine;
+import servlet.permissions.ServletLanbdaMachine;
 import utils.LogsHandler;
 
 public class ServletTools {
@@ -78,7 +80,13 @@ public class ServletTools {
 		for(Route route : servlet.getRoutes()) {
 			urlParams = route.getUrlParamsRequired();
 			jsonParams = route.getBodyParamsRequired();
-			res += 	route.getStringType() + " " + route.getRoutePath() + (urlParams != "" ? "?" + urlParams : "") + (jsonParams != "" ? " | Body JSON Params : " + jsonParams : "") + "</br>";
+			
+			res += 	route.getStringType() + " " + route.getRoutePath() +
+					(route.getServletFunction() instanceof ServletAdminMachine ? " (Admin machine token auth required)" : "") +
+					(route.getServletFunction() instanceof ServletLanbdaMachine ? " (Machine auth token required)" : "") +
+					(urlParams != "" ? "?" + urlParams : "") +
+					(jsonParams != "" ? " | Body JSON Params : " + jsonParams : "")
+					+ "</br>";
 			
 		}
 						

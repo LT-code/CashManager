@@ -83,6 +83,6 @@ public class TableFields {
 	}
 	
 	public String getTypeString() {
-		return TYPE[this.type] + "(" + this.size + ")";
+		return TYPE[this.type] + (this.type == TableFields.TYPE_FLOAT ? "" : "(" + this.size + ")");
 	}
 }

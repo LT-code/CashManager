@@ -93,7 +93,7 @@ public class Table {
     	if(tableCurrentTable != null)
     		if(tableCurrentTable.size() == fields.length) {
     			for(int i = 0; i < tableCurrentTable.size(); i++) {
-	    			if(!tableCurrentTable.get(i).get("COLUMN_NAME").equals(fields[i].getName()))
+    				if(!tableCurrentTable.get(i).get("COLUMN_NAME").equals(fields[i].getName()))
 	    				return true;
     				if(!tableCurrentTable.get(i).get("COLUMN_TYPE").equals(fields[i].getTypeString()))
     					return true;
