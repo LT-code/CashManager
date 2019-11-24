@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import entities.CartArticles;
 import services.CartArticlesService;
 import servlet.function.RouteFunction;
+import servlet.permissions.ServletLanbdaMachine;
 import utils.LogsHandler;
 import utils.bdd.DBConnector;
 import utils.servlet.ResponseHandler;
@@ -15,7 +16,7 @@ import utils.servlet.ResponseHandler;
 /**
  * Create a machine
  */
-public class CartAddArticle implements RouteFunction {
+public class CartAddArticle implements RouteFunction, ServletLanbdaMachine {
 	@Override
 	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		CartArticlesService cartArticleService = new CartArticlesService(db, log);

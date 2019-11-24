@@ -3,6 +3,7 @@ package servlet;
 import javax.servlet.annotation.WebServlet;
 
 import servlet.function.setting.SettingCreate;
+import servlet.function.setting.SettingRemove;
 import utils.servlet.Route;
 
 /**
@@ -14,7 +15,8 @@ public class SettingServlet extends Servlet {
 
 	private static final Route[] ROUTES =
 		{
-			new Route(Route.POST, API_ROUTE + "/setting/create", new SettingCreate(), "", "")
+			new Route(Route.POST, API_ROUTE + "/setting/create", new SettingCreate(), "", ""),
+			new Route(Route.DELETE, API_ROUTE + "/setting/remove", new SettingRemove(), "", "code=?")
 		};
 	
 	@Override

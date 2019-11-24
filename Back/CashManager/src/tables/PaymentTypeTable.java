@@ -2,7 +2,13 @@ package tables;
 
 import java.sql.SQLException;
 
+import entities.PaymentType;
 import exception.FailedDBConnection;
+import exception.NoResultException;
+import exception.ValidatorNotRecpectedException;
+import services.PaymentTypeService;
+import utils.LogsHandler;
+import utils.bdd.DBConnector;
 import utils.bdd.Table;
 import utils.bdd.TableFields;
 
@@ -19,7 +25,15 @@ public class PaymentTypeTable implements TableClass {
 		return table;
 	}   
 
-	public static void createTable() throws ClassNotFoundException, SQLException, FailedDBConnection {
-		table.createTable();
+	public static void createTable() throws ClassNotFoundException, SQLException, FailedDBConnection, ValidatorNotRecpectedException, NoResultException {
+		if(table.createTable()) {
+			LogsHandler logs = new LogsHandler();
+			DBConnector db = new DBConnector(logs);
+			PaymentTypeService service = new PaymentTypeService(db, logs);
+			service.add(new PaymentType("Cheque"));
+			service.add(new PaymentType("Credit card"));
+			logs.displayLogs();
+			db.close();
+		}
 	}
 }

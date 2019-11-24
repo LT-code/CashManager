@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import entities.Article;
 import services.ArticleService;
 import servlet.function.RouteFunction;
+import servlet.permissions.ServletAdminMachine;
 import utils.LogsHandler;
 import utils.bdd.DBConnector;
 import utils.servlet.ResponseHandler;
@@ -15,7 +16,7 @@ import utils.servlet.ResponseHandler;
 /**
  * Create a machine
  */
-public class ArticleCreate implements RouteFunction {
+public class ArticleCreate implements RouteFunction, ServletAdminMachine {
 	@Override
 	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		ArticleService articleService = new ArticleService(db, log);
