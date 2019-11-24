@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
+import exception.HttpStatusException;
 import servlet.function.RouteFunction;
 import utils.LogsHandler;
 import utils.bdd.DBConnector;
@@ -103,7 +104,10 @@ public abstract class Servlet extends HttpServlet {
 				executeRequest(request, response, servletFunction, list);
 			}
 			catch(Exception e) {
-				this.log.addError(e, HttpStatus.INTERNAL_ERROR);
+				if(e instanceof HttpStatusException)
+					this.log.addError(e, ((HttpStatusException) e).getHttpStatus());
+				else
+					this.log.addError(e, HttpStatus.INTERNAL_ERROR);
 			}
 		}
 		else

@@ -5,6 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.http.HttpHeaders;
 
 import entities.Machine;
+import exception.AccessForbidden;
+import exception.AccessUnauthorized;
+import exception.InvalidNumberReslut;
 import services.MachineService;
 import servlet.function.RouteFunction;
 import servlet.permissions.ServletAdminMachine;
@@ -50,6 +53,17 @@ public class ServletAhtentificated {
 	
 	private Machine getMachine() throws Exception {
 		MachineService m = new MachineService(db, log);
-		return m.getByToken(request.getHeader(HttpHeaders.AUTHORIZATION));
+		try {
+			String token = request.getHeader(HttpHeaders.AUTHORIZATION);
+			if(token == null)
+				throw new AccessUnauthorized();
+			
+			return m.getByToken(token);
+		}
+		catch(Exception e) {
+			if(e instanceof InvalidNumberReslut)
+				throw new AccessForbidden();
+			throw e;
+		}
 	}
 }

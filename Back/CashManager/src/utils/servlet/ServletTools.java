@@ -54,8 +54,10 @@ public class ServletTools {
 			response.setStatus((log.getHttpStatus()));
 			writer = response.getWriter();
 			
-			if(log.getHttpStatus() == HttpStatus.NOT_FOUND)
+			if(log.getHttpStatus() == HttpStatus.NOT_FOUND) {
+				response.setHeader("Content-type", "text/html; charset=iso-8859-1");
 				writer.println(servlet.getServletRoutes());
+			}
 			else
 				writer.println(ResponseHandler.serilize(log.getPrincipalMessages(),	list));
 			
