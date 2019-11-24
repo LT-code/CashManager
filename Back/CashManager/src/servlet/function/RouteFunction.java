@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
-import utils.DBConnector;
 import utils.LogsHandler;
+import utils.bdd.DBConnector;
 
-public interface ServletFunction {
+public interface RouteFunction {
 	public abstract List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception;
 }

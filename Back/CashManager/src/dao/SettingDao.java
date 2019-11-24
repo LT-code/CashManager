@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
-import utils.DBConnector;
+import utils.bdd.DBConnector;
 import utils.LogsHandler;
 
 public class SettingDao extends Dao {

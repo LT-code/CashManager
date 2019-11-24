@@ -6,15 +6,16 @@ import java.util.Map;
 
 import dao.CartArticlesDao;
 import dao.Dao;
+import entities.CartArticles;
 import entities.EntityClass;
 import exception.InvalidNumberReslut;
 import utils.LogsHandler;
 import utils.bdd.DBConnector;
 
-public class CartService extends Service {
+public class CartArticlesService extends Service {
 	CartArticlesDao cartArticlesDao = new CartArticlesDao(db, this.getLogsHandler());
 	
-	public CartService(DBConnector db, LogsHandler errHandler) {
+	public CartArticlesService(DBConnector db, LogsHandler errHandler) {
 		super(db, errHandler);
 	}
 	
@@ -26,8 +27,14 @@ public class CartService extends Service {
 	public ArrayList<Map<String, Object>> listArticles(long idCart) throws SQLException, InvalidNumberReslut {
 		ArrayList<Map<String, Object>> list = null;
 		list =  this.cartArticlesDao.listArticles(idCart);
-		logsHandler.addInfo("Succès de la recuperation des settings.");
+		logsHandler.addInfo("Succès de la recuperation des articles du cart " + idCart + ".");
 		return list;
+	}
+	
+	public CartArticles get(long idCart, String codeArticle) throws SQLException, InvalidNumberReslut {
+		CartArticles a = this.cartArticlesDao.get(idCart, codeArticle);
+		logsHandler.addInfo("Success getting CartArticles " + codeArticle + ".");
+		return a;
 	}
 
 	@Override

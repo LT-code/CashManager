@@ -7,7 +7,7 @@ import dao.Dao;
 import entities.Article;
 import entities.EntityClass;
 import exception.InvalidNumberReslut;
-import utils.DBConnector;
+import utils.bdd.DBConnector;
 import utils.LogsHandler;
 
 public class ArticleService extends Service {

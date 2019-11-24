@@ -1,7 +1,7 @@
 package entities;
 
 import tables.ArticleTable;
-import utils.Table;
+import utils.bdd.Table;
 
 public class Payment implements EntityClass{
 	public final static String STATUS_NOT_DEFINED = "Not defined";

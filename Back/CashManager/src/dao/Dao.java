@@ -7,7 +7,7 @@ import java.util.Map;
 import entities.EntityClass;
 import exception.NoResultException;
 import exception.InvalidNumberReslut;
-import utils.DBConnector;
+import utils.bdd.DBConnector;
 import utils.LogsHandler;
 
 public abstract class Dao {

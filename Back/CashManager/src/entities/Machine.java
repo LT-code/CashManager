@@ -1,7 +1,9 @@
 package entities;
 
+import java.util.Map;
+
 import tables.MachineTable;
-import utils.Table;
+import utils.bdd.Table;
 
 public class Machine implements EntityClass {
     // Attributes_T
@@ -18,6 +20,13 @@ public class Machine implements EntityClass {
 		this.isAdmin = isAdmin;
 		this.password = password;
 		this.token = null;
+	}
+    
+    public Machine(Map<String, Object> m) {
+		this(	(String) m.get("idMachine"),
+				(long) m.get("idSetting"),
+				(boolean) m.get("isAdmin"),
+				(String) m.get("password"));
 	}
     
     @Override

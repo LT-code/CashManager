@@ -1,7 +1,9 @@
 package entities;
 
+import java.util.Map;
+
 import tables.CartTable;
-import utils.Table;
+import utils.bdd.Table;
 
 public class Cart implements EntityClass {
     // Attributes_T
@@ -14,7 +16,11 @@ public class Cart implements EntityClass {
 		this.idMachine = idMachine;
 	}  
     
-    @Override
+    public Cart(Map<String, Object> m) {
+		this((String) m.get("idMachine"));
+	}
+
+	@Override
 	public void setId(Object id) {
 		this.idCart = (long) id;
 	}

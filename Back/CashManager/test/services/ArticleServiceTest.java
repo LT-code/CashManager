@@ -8,7 +8,7 @@ import org.junit.Before;
 import entities.Article;
 import exception.FailedDBConnection;
 import services.fabrique.FabriqueAService;
-import utils.DBConnector;
+import utils.bdd.DBConnector;
 
 public class ArticleServiceTest extends ServicesTest {
 	private static ArticleService articleService;

@@ -1,26 +1,24 @@
-package servlet.function.setting;
+package servlet.function.article;
 
 import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
 
-import entities.Setting;
-import services.SettingService;
+import entities.Article;
+import services.ArticleService;
 import servlet.function.RouteFunction;
-import servlet.permissions.ServletAdminMachine;
 import utils.LogsHandler;
 import utils.bdd.DBConnector;
 import utils.servlet.ResponseHandler;
 
-public class SettingCreate implements RouteFunction, ServletAdminMachine {
+public class GetArticle implements RouteFunction {
 	@Override
 	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
-		SettingService service = new SettingService(db, log);
-		Setting s = new Setting();
-		service.add(s);
+		ArticleService articleService = new ArticleService(db, log);
+		Article a = (Article) articleService.get(urlParams.getString("code"));
+		list.add(ResponseHandler.objectToMap(a));
 		db.close();
-		list.add(ResponseHandler.objectToMap(s));
 		return list;
 	}
 }

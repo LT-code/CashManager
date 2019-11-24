@@ -1,7 +1,7 @@
 package entities;
 
 import tables.ArticleTable;
-import utils.Table;
+import utils.bdd.Table;
 
 public class PaymentType implements EntityClass{	
     // Attributes

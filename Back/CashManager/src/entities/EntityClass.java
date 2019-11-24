@@ -1,6 +1,6 @@
 package entities;
 
-import utils.Table;
+import utils.bdd.Table;
 
 public interface EntityClass {
 	public Object[] fieldsValues();

@@ -1,4 +1,4 @@
-package utils;
+package utils.servlet;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,15 +15,17 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import servlet.function.ServletFunction;
+import servlet.Servlet;
+import servlet.function.RouteFunction;
+import utils.LogsHandler;
 
 public class ServletTools {
-	public static ServletFunction getServletFunction(HttpServletRequest request, Object[][] listRoutes) {
+	public static RouteFunction getServletFunction(int type, HttpServletRequest request, Route[] listRoutes) {
 		if(listRoutes != null)
 			for(int i = 0; i < listRoutes.length; i++)
-				if(listRoutes[i][0].equals(request.getRequestURI()))
-					return (ServletFunction) listRoutes[i][1];
-				
+				if(listRoutes[i].getType() == type)
+					if(listRoutes[i].getRoutePath().equals(request.getRequestURI()))
+						return (RouteFunction) listRoutes[i].getServletFunction();
 		return null;
 	}
 
@@ -43,14 +45,19 @@ public class ServletTools {
     	return new JSONObject(new ObjectMapper().writeValueAsString(request.getParameterMap()));
     }
     
-    public static void writeResponse(HttpServletResponse response, List<Map<String, Object>> list, LogsHandler log) {
+    public static void writeResponse(HttpServletResponse response, List<Map<String, Object>> list, LogsHandler log, Servlet servlet) {
     	response.setHeader("Content-type", "json/application");
 		
     	PrintWriter writer;
 		try {
+			
 			response.setStatus((log.getHttpStatus()));
 			writer = response.getWriter();
-			writer.println(ResponseHandler.serilize(log.getPrincipalMessages(),	list));
+			
+			if(log.getHttpStatus() == HttpStatus.NOT_FOUND)
+				writer.println(servlet.getServletRoutes());
+			else
+				writer.println(ResponseHandler.serilize(log.getPrincipalMessages(),	list));
 			
 			writer.close();
 		} catch (IOException e) {
@@ -60,4 +67,20 @@ public class ServletTools {
 		log.displayLogs();
     }
 
+    public static String getServletRoutes(Servlet servlet) {
+		String res = "<div>";
+		String urlParams = "";
+		String jsonParams = "";
+		
+		res += "<h1>" + servlet.toString() + "</h1>";
+		for(Route route : servlet.getRoutes()) {
+			urlParams = route.getUrlParamsRequired();
+			jsonParams = route.getBodyParamsRequired();
+			res += 	route.getStringType() + " " + route.getRoutePath() + (urlParams != "" ? "?" + urlParams : "") + (jsonParams != "" ? " | Body JSON Params : " + jsonParams : "") + "</br>";
+			
+		}
+						
+		
+		return res + "</div>";
+	}
 }

@@ -1,4 +1,4 @@
-package utils;
+package utils.servlet;
 
 import java.sql.SQLException;
 import java.util.concurrent.TimeUnit;
@@ -13,6 +13,8 @@ import tables.ArticleTable;
 import tables.CartTable;
 import tables.MachineTable;
 import tables.SettingTable;
+import utils.LogsHandler;
+import utils.bdd.DBConnector;
 
 public class InitServer implements ServletContextListener {
 	private final static String CASHMANAGER_DOCKER_LOCAL = "CASHMANAGER_DOCKER_LOCAL";

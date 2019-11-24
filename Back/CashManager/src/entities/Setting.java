@@ -1,7 +1,7 @@
 package entities;
 
 import tables.SettingTable;
-import utils.Table;
+import utils.bdd.Table;
 
 public class Setting implements EntityClass {
     // Attributes_T

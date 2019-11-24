@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import utils.HttpStatus;
+import utils.servlet.HttpStatus;
 
 public class SettingServletTest extends ServletTest {
 
@@ -24,5 +24,4 @@ public class SettingServletTest extends ServletTest {
     public void tearDown() {
     	afterTest();
     }
-
 }

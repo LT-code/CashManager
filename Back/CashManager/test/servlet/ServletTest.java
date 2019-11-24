@@ -22,7 +22,7 @@ import org.junit.Rule;
 import org.junit.rules.TestWatchman;
 import org.junit.runners.model.FrameworkMethod;
 
-import utils.ResponseHandler;
+import utils.servlet.ResponseHandler;
 
 @SuppressWarnings("deprecation")
 public abstract class ServletTest {

@@ -7,10 +7,10 @@ import exception.FailedDBConnection;
 import exception.NoResultException;
 import exception.ValidatorNotRecpectedException;
 import services.SettingService;
-import utils.DBConnector;
 import utils.LogsHandler;
-import utils.Table;
-import utils.TableFields;
+import utils.bdd.DBConnector;
+import utils.bdd.Table;
+import utils.bdd.TableFields;
 
 public class SettingTable {
 	private final static Table table = 

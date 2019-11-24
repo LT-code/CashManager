@@ -7,7 +7,7 @@ import dao.MachineDao;
 import entities.EntityClass;
 import entities.Machine;
 import exception.InvalidNumberReslut;
-import utils.DBConnector;
+import utils.bdd.DBConnector;
 import utils.LogsHandler;
 
 public class MachineService extends Service {

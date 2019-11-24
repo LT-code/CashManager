@@ -7,16 +7,16 @@ import org.json.JSONObject;
 
 import entities.Machine;
 import services.MachineService;
-import servlet.function.ServletFunction;
-import utils.DBConnector;
+import servlet.function.RouteFunction;
 import utils.LogsHandler;
-import utils.ResponseHandler;
+import utils.bdd.DBConnector;
+import utils.servlet.ResponseHandler;
 
 
 /**
  * Create a machine
  */
-public class MachineCreate implements ServletFunction {
+public class MachineCreate implements RouteFunction {
 	@Override
 	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		MachineService articleService = new MachineService(db, log);

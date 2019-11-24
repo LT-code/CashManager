@@ -1,4 +1,4 @@
-package utils;
+package utils.servlet;
 
 public class HttpStatus {
 	public static final int SUCCESS = 200;

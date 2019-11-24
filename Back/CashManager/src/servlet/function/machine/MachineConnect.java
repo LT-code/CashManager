@@ -9,22 +9,22 @@ import org.json.JSONObject;
 
 import entities.Machine;
 import services.MachineService;
-import servlet.function.ServletFunction;
-import utils.DBConnector;
-import utils.HttpStatus;
+import servlet.function.RouteFunction;
 import utils.LogsHandler;
-import utils.ResponseHandler;
+import utils.bdd.DBConnector;
+import utils.servlet.HttpStatus;
+import utils.servlet.ResponseHandler;
 
 /**
  * Create a machine
  */
-public class MachineConnect implements ServletFunction {
+public class MachineConnect implements RouteFunction {
 	public static final int TOKEN_SIZE = 100;
 	
 	@Override
 	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		MachineService articleService = new MachineService(db, log);
-		Machine m = articleService.get(bodyParams.getString("idMachine"));
+		Machine m = (Machine) articleService.get(bodyParams.getString("idMachine"));
 		if (m != null) {
 			if (m.pGetPassword().equals(bodyParams.getString("password"))) {
 				m.setToken(this.generateToken());

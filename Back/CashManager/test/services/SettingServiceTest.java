@@ -15,7 +15,7 @@ import exception.FailedDBConnection;
 import exception.NoResultException;
 import exception.ValidatorNotRecpectedException;
 import services.fabrique.FabriqueAService;
-import utils.DBConnector;
+import utils.bdd.DBConnector;
 
 public class SettingServiceTest extends ServicesTest {
 	private static SettingService settingService;

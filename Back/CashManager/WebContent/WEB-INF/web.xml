@@ -32,6 +32,6 @@
   </context-param>
   
   <listener>
-    <listener-class>utils.InitServer</listener-class>
+    <listener-class>utils.servlet.InitServer</listener-class>
   </listener>
 </web-app>

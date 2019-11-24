@@ -8,7 +8,7 @@ import dao.Dao;
 import dao.SettingDao;
 import entities.EntityClass;
 import entities.Setting;
-import utils.DBConnector;
+import utils.bdd.DBConnector;
 import utils.LogsHandler;
 
 public class SettingService extends Service {

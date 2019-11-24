@@ -12,11 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
-import servlet.function.ServletFunction;
-import utils.DBConnector;
-import utils.HttpStatus;
+import servlet.function.RouteFunction;
 import utils.LogsHandler;
-import utils.ServletTools;
+import utils.bdd.DBConnector;
+import utils.servlet.HttpStatus;
+import utils.servlet.Route;
+import utils.servlet.ServletAhtentificated;
+import utils.servlet.ServletTools;
 
 /**
  * Servlet implementation class EngineServlet
@@ -38,10 +40,7 @@ public abstract class Servlet extends HttpServlet {
 	/*
 	 *  Those functions are made to be overrided with the servlet's routes
 	 */
-	public Object[][] get() 	{ return null; }
-	public Object[][] post() 	{ return null; }
-	public Object[][] delete() 	{ return null; }
-	public Object[][] put() 	{ return null; }
+	public Route[] getRoutes() 	{ return null; }
 
 	/**
 	 * @throws IOException
@@ -51,7 +50,7 @@ public abstract class Servlet extends HttpServlet {
 	 */
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)	throws ServletException, IOException {
-		treatRequest("Post", post(), request, response);
+		treatRequest(Route.POST, getRoutes(), request, response);
 	}
 
 	/**
@@ -62,7 +61,7 @@ public abstract class Servlet extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		treatRequest("Get", get(), request, response);
+		treatRequest(Route.GET, getRoutes(), request, response);
 	}
 
 	/**
@@ -73,7 +72,7 @@ public abstract class Servlet extends HttpServlet {
 	 */
 	@Override
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		treatRequest("Put", put(), request, response);
+		treatRequest(Route.PUT, getRoutes(), request, response);
 	}
 
 	/**
@@ -83,20 +82,20 @@ public abstract class Servlet extends HttpServlet {
 	 */
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		treatRequest("Delete", delete(), request, response);
+		treatRequest(Route.DELETE, getRoutes(), request, response);
 	}
 
 	/**
-	 * 
+	 * - Check authorisations and erros to finally send the response
 	 * @param type for logging the request
 	 * @param functionRes for choosing the right route
 	 * @param request
 	 * @param response
 	 * @return whether the user is allowed to use the function or not
 	 */
-	private void treatRequest(String type, Object[][] functionRes, HttpServletRequest request, HttpServletResponse response) {
+	private void treatRequest(int type, Route[] functionRes, HttpServletRequest request, HttpServletResponse response) {
 		log.addDebug(type + " request " + request.getRequestURI() + " | IP:" + request.getRemoteHost());
-		ServletFunction servletFunction = ServletTools.getServletFunction(request, functionRes);
+		RouteFunction servletFunction = ServletTools.getServletFunction(type, request, functionRes);
 		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
 		
 		if (servletFunction != null) {
@@ -110,13 +109,17 @@ public abstract class Servlet extends HttpServlet {
 		else
 			log.addError("Not Found", HttpStatus.NOT_FOUND);
 
-		ServletTools.writeResponse(response, list, log);
+		ServletTools.writeResponse(response, list, log, this);
+	}
+	
+	public String getServletRoutes() {
+		return ServletTools.getServletRoutes(this);
 	}
 	
 	/*
-	 * 
+	 * Get the body and url parametres and execute the function of the route
 	 */
-	private void executeRequest(HttpServletRequest request, HttpServletResponse response, ServletFunction servletFunction, List<Map<String, Object>> list) throws Exception {
+	private void executeRequest(HttpServletRequest request, HttpServletResponse response, RouteFunction servletFunction, List<Map<String, Object>> list) throws Exception {
 		JSONObject bodyParams = ServletTools.getJsonBodyParams(request, log);
 		JSONObject urlParams = ServletTools.getJsonUrlParams(request, log);
 		
@@ -133,6 +136,5 @@ public abstract class Servlet extends HttpServlet {
 												log);
 			}
 		}
-			
 	}
 }

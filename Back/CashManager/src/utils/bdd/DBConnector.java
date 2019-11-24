@@ -1,4 +1,4 @@
-package utils;
+package utils.bdd;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,6 +17,8 @@ import java.util.Map;
 import java.util.Properties;
 
 import exception.NoResultException;
+import utils.LogsHandler;
+import utils.servlet.InitServer;
 
 public class DBConnector {
 	private final static String propertiesFileForTest = (new File("./")).getAbsolutePath()
@@ -160,7 +162,7 @@ public class DBConnector {
 		this.initialisationRequetePreparee(sql, true, values);
 
 		result = preparedStatement.executeQuery();
-		;
+		
 		ResultSetMetaData md = preparedStatement.getMetaData();
 		int columns = md.getColumnCount();
 		while (result.next()) {

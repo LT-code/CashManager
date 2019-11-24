@@ -6,7 +6,7 @@ import java.util.Map;
 import entities.Article;
 import exception.InvalidNumberReslut;
 import tables.ArticleTable;
-import utils.DBConnector;
+import utils.bdd.DBConnector;
 import utils.LogsHandler;
 
 public class ArticleDao extends Dao {

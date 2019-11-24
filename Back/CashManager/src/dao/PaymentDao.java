@@ -1,6 +1,6 @@
 package dao;
 
-import utils.DBConnector;
+import utils.bdd.DBConnector;
 import utils.LogsHandler;
 
 public class PaymentDao extends Dao {

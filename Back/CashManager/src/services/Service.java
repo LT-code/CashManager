@@ -10,8 +10,8 @@ import services.function.AddFunction;
 import services.function.DeleteFunction;
 import services.function.ServiceFunction;
 import services.function.UpdateFunction;
-import utils.DBConnector;
-import utils.HttpStatus;
+import utils.bdd.DBConnector;
+import utils.servlet.HttpStatus;
 import utils.LogsHandler;
 
 

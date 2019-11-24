@@ -8,19 +8,20 @@ import org.json.JSONObject;
 import entities.Setting;
 import services.SettingService;
 import servlet.function.RouteFunction;
-import servlet.permissions.ServletAdminMachine;
 import utils.LogsHandler;
 import utils.bdd.DBConnector;
 import utils.servlet.ResponseHandler;
 
-public class SettingCreate implements RouteFunction, ServletAdminMachine {
+public class SettingRemove implements RouteFunction {
 	@Override
 	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		SettingService service = new SettingService(db, log);
+		
 		Setting s = new Setting();
 		service.add(s);
 		db.close();
 		list.add(ResponseHandler.objectToMap(s));
 		return list;
 	}
+
 }

@@ -1,19 +1,18 @@
-
-
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import utils.DBConnector;
-import utils.InitServer;
+import utils.bdd.DBConnector;
+import utils.servlet.InitServer;
 
 @RunWith(Suite.class)
 @SuiteClasses	({ 
 					services.MachineServiceTest.class,
 					services.SettingServiceTest.class,
 					services.CartServiceTest.class,
-					services.ArticleServiceTest.class
+					services.ArticleServiceTest.class,
+					services.CartArticlesServiceTest.class
 				})
 
 public class TestSuite {
@@ -23,6 +22,5 @@ public class TestSuite {
 		
 		//InitServer.restetDataBase();
 		InitServer.createAllTables();
-		
 	}
 }

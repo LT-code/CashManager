@@ -1,4 +1,4 @@
-package utils;
+package utils.bdd;
 
 public class TableFields {
 	// key 

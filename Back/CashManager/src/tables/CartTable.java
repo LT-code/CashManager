@@ -3,8 +3,8 @@ package tables;
 import java.sql.SQLException;
 
 import exception.FailedDBConnection;
-import utils.Table;
-import utils.TableFields;
+import utils.bdd.Table;
+import utils.bdd.TableFields;
 
 public class CartTable implements TableClass {
 	private final static Table table = 

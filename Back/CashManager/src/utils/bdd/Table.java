@@ -1,10 +1,11 @@
-package utils;
+package utils.bdd;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
 import exception.FailedDBConnection;
+import utils.LogsHandler;
 
 public class Table {
 	private String name;
@@ -87,7 +88,7 @@ public class Table {
 	
 	public boolean isDifferentTable(DBConnector db) {
 		ArrayList<Map<String, Object>> tableCurrentTable = null;
-    	try{tableCurrentTable = db.executeQuerySQL("describe " + name + ";", new Object[]{});}catch(Exception e) {};
+    	try{tableCurrentTable = db.executeQuerySQL("describe " + db.getDbName() + "." + name + ";", new Object[]{});}catch(Exception e) {e.printStackTrace();};
     	
     	if(tableCurrentTable != null)
     		if(tableCurrentTable.size() == fields.length) {

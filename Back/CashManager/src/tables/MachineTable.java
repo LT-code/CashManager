@@ -4,8 +4,8 @@ import java.sql.SQLException;
 
 import exception.FailedDBConnection;
 import servlet.function.machine.MachineConnect;
-import utils.Table;
-import utils.TableFields;
+import utils.bdd.Table;
+import utils.bdd.TableFields;
 
 public class MachineTable implements TableClass {
 	private final static Table table = 

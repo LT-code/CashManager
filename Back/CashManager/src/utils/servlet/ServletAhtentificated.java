@@ -1,19 +1,16 @@
-package servlet;
-
-import java.sql.SQLException;
+package utils.servlet;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.http.HttpHeaders;
 
 import entities.Machine;
-import exception.InvalidNumberReslut;
 import services.MachineService;
-import servlet.function.ServletFunction;
+import servlet.function.RouteFunction;
 import servlet.permissions.ServletAdminMachine;
 import servlet.permissions.ServletLanbdaMachine;
-import utils.DBConnector;
 import utils.LogsHandler;
+import utils.bdd.DBConnector;
 
 /**
  * Servlet implementation class EngineServlet
@@ -21,10 +18,10 @@ import utils.LogsHandler;
 public class ServletAhtentificated {
 	DBConnector db;
 	HttpServletRequest request;
-	ServletFunction sf;
+	RouteFunction sf;
 	LogsHandler log;
 		
-	public ServletAhtentificated(DBConnector db, HttpServletRequest request, ServletFunction sf, LogsHandler log) {
+	public ServletAhtentificated(DBConnector db, HttpServletRequest request, RouteFunction sf, LogsHandler log) {
 		super();
 		this.db = db;
 		this.request = request;
@@ -32,7 +29,7 @@ public class ServletAhtentificated {
 		this.log = log;
 	}
 
-	public boolean isAllowed() throws SQLException, InvalidNumberReslut {
+	public boolean isAllowed() throws Exception {
 		if(sf instanceof ServletAdminMachine)
 			return checkIfAdmin();
 			
@@ -42,16 +39,16 @@ public class ServletAhtentificated {
 		return true;
 	}
 	
-	private boolean checkIfAdmin() throws SQLException, InvalidNumberReslut {
+	private boolean checkIfAdmin() throws Exception {
 		Machine m = getMachine();
 		return m == null ? false : m.isAdmin();
 	}
 	
-	private boolean checkIfLambda() throws SQLException, InvalidNumberReslut {
+	private boolean checkIfLambda() throws Exception {
 		return getMachine() != null;
 	}
 	
-	private Machine getMachine() throws SQLException, InvalidNumberReslut {
+	private Machine getMachine() throws Exception {
 		MachineService m = new MachineService(db, log);
 		return m.getByToken(request.getHeader(HttpHeaders.AUTHORIZATION));
 	}
