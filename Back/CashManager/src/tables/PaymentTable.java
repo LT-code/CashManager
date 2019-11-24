@@ -12,8 +12,8 @@ public class PaymentTable implements TableClass {
 						"a payment",
 				new TableFields[]	{	
 					new TableFields("idPayment", 	TableFields.TYPE_INT, 		11, TableFields.KEY_PRIMARY, TableFields.KEY_AUTOGEN),
-					new TableFields("idCart",		TableFields.TYPE_INT, 		11,	TableFields.KEY_FOREIGN, CartTable.getTable().getName() + "(idCart)"),
-					new TableFields("idType", 		TableFields.TYPE_BOOLEAN,	11, TableFields.KEY_FOREIGN, PaymentTypeTable.getTable().getName() + "(idType)"),
+					new TableFields("idCart",		TableFields.TYPE_INT, 		11,	TableFields.KEY_FOREIGN, CartTable.getTable().getName() + "Cart(idCart)"),
+					new TableFields("idType", 		TableFields.TYPE_BOOLEAN,	11, TableFields.KEY_FOREIGN, PaymentTypeTable.getTable().getName() + "PaymentType(idType)"),
 					new TableFields("status", 		TableFields.TYPE_VARCHAR,	10)
 			});
 	

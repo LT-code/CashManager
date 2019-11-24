@@ -10,8 +10,11 @@ import exception.FailedDBConnection;
 import exception.NoResultException;
 import exception.ValidatorNotRecpectedException;
 import tables.ArticleTable;
+import tables.CartArticlesTable;
 import tables.CartTable;
 import tables.MachineTable;
+import tables.PaymentTable;
+import tables.PaymentTypeTable;
 import tables.SettingTable;
 import utils.LogsHandler;
 import utils.bdd.DBConnector;
@@ -62,6 +65,10 @@ public class InitServer implements ServletContextListener {
 			ArticleTable.createTable();
 			MachineTable.createTable();
 			CartTable.createTable();
+			PaymentTypeTable.createTable();
+			CartArticlesTable.createTable();
+			PaymentTable.createTable();
+			
 		} catch (ClassNotFoundException | SQLException | FailedDBConnection | NoResultException | ValidatorNotRecpectedException e) {
 			System.out.println("InitServer Error creation tables : " + e.getMessage());
 			try { TimeUnit.SECONDS.sleep(5); }catch(Exception e1) {System.out.println(LogsHandler.getMessageError(e1));};

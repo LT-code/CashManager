@@ -163,13 +163,12 @@ public class DBConnector {
 
 		result = preparedStatement.executeQuery();
 		
-		ResultSetMetaData md = preparedStatement.getMetaData();
+		ResultSetMetaData md = result.getMetaData();
 		int columns = md.getColumnCount();
 		while (result.next()) {
 			Map<String, Object> row = new HashMap<String, Object>(columns);
-			for (int i = 1; i <= columns; ++i) {
+			for (int i = 1; i <= columns; ++i)
 				row.put(md.getColumnName(i), result.getObject(i));
-			}
 			rows.add(row);
 		}
 

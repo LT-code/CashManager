@@ -88,7 +88,7 @@ public class Table {
 	
 	public boolean isDifferentTable(DBConnector db) {
 		ArrayList<Map<String, Object>> tableCurrentTable = null;
-    	try{tableCurrentTable = db.executeQuerySQL("describe " + db.getDbName() + "." + name + ";", new Object[]{});}catch(Exception e) {e.printStackTrace();};
+    	try{tableCurrentTable = db.executeQuerySQL("describe " + db.getDbName() + "." + name + ";", new Object[]{});}catch(Exception e) {System.out.println(e.getMessage());};
     	
     	if(tableCurrentTable != null)
     		if(tableCurrentTable.size() == fields.length) {
