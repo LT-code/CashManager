@@ -1,6 +1,6 @@
 package entities;
 
-import tables.ArticleTable;
+import tables.PaymentTypeTable;
 import utils.bdd.Table;
 
 public class PaymentType implements EntityClass{	
@@ -9,6 +9,7 @@ public class PaymentType implements EntityClass{
     private String name;
     
     public PaymentType(String name) {
+    	this.idType = 0;
     	this.name = name;
     }
     
@@ -33,6 +34,6 @@ public class PaymentType implements EntityClass{
 	
 	@Override
 	public Table table() {
-		return ArticleTable.getTable();
+		return PaymentTypeTable.getTable();
 	}
 }

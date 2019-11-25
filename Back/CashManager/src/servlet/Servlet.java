@@ -98,10 +98,12 @@ public abstract class Servlet extends HttpServlet {
 		log.addDebug(type + " request " + request.getRequestURI() + " | IP:" + request.getRemoteHost());
 		RouteFunction servletFunction = ServletTools.getServletFunction(type, request, functionRes);
 		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
+		DBConnector db = null;
 		
 		if (servletFunction != null) {
 			try {
-				executeRequest(request, response, servletFunction, list);
+				db = new DBConnector(this.log);
+				executeRequest(request, response, servletFunction, list, db);
 			}
 			catch(Exception e) {
 				if(e instanceof HttpStatusException)
@@ -109,6 +111,7 @@ public abstract class Servlet extends HttpServlet {
 				else
 					this.log.addError(e, HttpStatus.INTERNAL_ERROR);
 			}
+			db.close();
 		}
 		else
 			log.addError("Not Found", HttpStatus.NOT_FOUND);
@@ -123,12 +126,11 @@ public abstract class Servlet extends HttpServlet {
 	/*
 	 * Get the body and url parametres and execute the function of the route
 	 */
-	private void executeRequest(HttpServletRequest request, HttpServletResponse response, RouteFunction servletFunction, List<Map<String, Object>> list) throws Exception {
+	private void executeRequest(HttpServletRequest request, HttpServletResponse response, RouteFunction servletFunction, List<Map<String, Object>> list, DBConnector db) throws Exception {
 		JSONObject bodyParams = ServletTools.getJsonBodyParams(request, log);
 		JSONObject urlParams = ServletTools.getJsonUrlParams(request, log);
 		
 		if(bodyParams != null && urlParams != null) {
-			DBConnector db = new DBConnector(this.log);
 			if(new ServletAhtentificated(db, request, servletFunction, log).isAllowed()) {
 				log.addDebug("Body param receved : " + bodyParams);
 				log.addDebug("Url param receved : " + urlParams);
