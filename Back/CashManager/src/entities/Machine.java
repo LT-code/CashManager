@@ -24,7 +24,7 @@ public class Machine implements EntityClass {
     
     public Machine(Map<String, Object> m) {
 		this(	(String) m.get("idMachine"),
-				(long) m.get("idSetting"),
+				(int) m.get("idSetting"),
 				(boolean) m.get("isAdmin"),
 				(String) m.get("password"));
 	}

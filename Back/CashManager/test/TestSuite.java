@@ -12,7 +12,9 @@ import utils.servlet.InitServer;
 					services.SettingServiceTest.class,
 					services.CartServiceTest.class,
 					services.ArticleServiceTest.class,
-					services.CartArticlesServiceTest.class
+					services.CartArticlesServiceTest.class,
+					services.PaymentTypeServiceTest.class, 
+					services.PaymentServiceTest.class
 				})
 
 public class TestSuite {
@@ -20,7 +22,7 @@ public class TestSuite {
 	public static void setUpClass() throws InstantiationException, IllegalAccessException {
 		DBConnector.getDBParam();
 		
-		//InitServer.restetDataBase();
+		InitServer.restetDataBase();
 		InitServer.createAllTables();
 	}
 }

@@ -3,6 +3,7 @@ package servlet;
 import javax.servlet.annotation.WebServlet;
 
 import servlet.function.article.ArticleCreate;
+import servlet.function.article.ArticleGet;
 import servlet.function.article.ArticleRemove;
 import utils.servlet.Route;
 
@@ -17,7 +18,7 @@ public class ArticleServlet extends Servlet {
 		{
 			new Route(Route.POST, API_ROUTE + "/article/create", new ArticleCreate(), "String code, String name, float price", ""),
 			new Route(Route.DELETE, API_ROUTE + "/article/remove", new ArticleRemove(), "", "code=?"),
-			new Route(Route.GET, API_ROUTE + "/article/get", new ArticleRemove(), "", "code=?")
+			new Route(Route.GET, API_ROUTE + "/article/get", new ArticleGet(), "", "code=?")
 		};
 	
 	@Override
