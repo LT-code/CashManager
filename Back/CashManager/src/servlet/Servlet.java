@@ -102,8 +102,7 @@ public abstract class Servlet extends HttpServlet {
 		
 		if (servletFunction != null) {
 			try {
-				db = new DBConnector(this.log);
-				executeRequest(request, response, servletFunction, list, db);
+				executeRequest(request, response, servletFunction, list, db = new DBConnector(this.log));
 			}
 			catch(Exception e) {
 				if(e instanceof HttpStatusException)

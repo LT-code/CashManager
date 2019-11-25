@@ -25,15 +25,13 @@ public class PaymentTypeTable implements TableClass {
 		return table;
 	}   
 
-	public static void createTable() throws ClassNotFoundException, SQLException, FailedDBConnection, ValidatorNotRecpectedException, NoResultException {
-		if(table.createTable()) {
+	public static void createTable(DBConnector db) throws ClassNotFoundException, SQLException, FailedDBConnection, ValidatorNotRecpectedException, NoResultException {
+		if(table.createTable(db)) {
 			LogsHandler logs = new LogsHandler();
-			DBConnector db = new DBConnector(logs);
 			PaymentTypeService service = new PaymentTypeService(db, logs);
 			service.add(new PaymentType("Cheque"));
 			service.add(new PaymentType("Credit card"));
 			logs.displayLogs();
-			db.close();
 		}
 	}
 }

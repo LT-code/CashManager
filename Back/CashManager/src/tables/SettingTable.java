@@ -26,14 +26,12 @@ public class SettingTable {
 		return table;
 	}    
 
-	public static void createTable() throws ClassNotFoundException, SQLException, FailedDBConnection, ValidatorNotRecpectedException, NoResultException {
-		if(table.createTable()) {
+	public static void createTable(DBConnector db) throws ClassNotFoundException, SQLException, FailedDBConnection, ValidatorNotRecpectedException, NoResultException {
+		if(table.createTable(db)) {
 			LogsHandler logs = new LogsHandler();
-			DBConnector db = new DBConnector(logs);
 			SettingService settingService = new SettingService(db, logs);
 			settingService.add(new Setting());
 			logs.displayLogs();
-			db.close();
 		}
 	}
 }

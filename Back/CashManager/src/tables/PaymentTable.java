@@ -3,6 +3,7 @@ package tables;
 import java.sql.SQLException;
 
 import exception.FailedDBConnection;
+import utils.bdd.DBConnector;
 import utils.bdd.Table;
 import utils.bdd.TableFields;
 
@@ -21,7 +22,7 @@ public class PaymentTable implements TableClass {
 		return table;
 	}   
 
-	public static void createTable() throws ClassNotFoundException, SQLException, FailedDBConnection {
-		table.createTable();
+	public static void createTable(DBConnector db) throws ClassNotFoundException, SQLException, FailedDBConnection {
+		table.createTable(db);
 	}
 }

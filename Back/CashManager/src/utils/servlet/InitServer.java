@@ -59,15 +59,17 @@ public class InitServer implements ServletContextListener {
 		createAllTables(0);
 	}
 	public static void createAllTables(int attemps) {
+		DBConnector db = null;
 		try {
+			db = new DBConnector(new LogsHandler());
 			attemps++;
-			SettingTable.createTable();
-			ArticleTable.createTable();
-			MachineTable.createTable();
-			CartTable.createTable();
-			PaymentTypeTable.createTable();
-			CartArticlesTable.createTable();
-			PaymentTable.createTable();
+			SettingTable.createTable(db);
+			ArticleTable.createTable(db);
+			MachineTable.createTable(db);
+			CartTable.createTable(db);
+			PaymentTypeTable.createTable(db);
+			CartArticlesTable.createTable(db);
+			PaymentTable.createTable(db);
 			
 		} catch (ClassNotFoundException | SQLException | FailedDBConnection | NoResultException | ValidatorNotRecpectedException e) {
 			System.out.println("InitServer Error creation tables : " + e.getMessage());
@@ -76,6 +78,8 @@ public class InitServer implements ServletContextListener {
 				System.exit(-1);
 		
 			createAllTables(attemps);
+		} finally {
+			if(db != null) db.close();
 		}
 	}
 	
