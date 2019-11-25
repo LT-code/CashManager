@@ -1,6 +1,6 @@
 package com.epitech.cashmanager.model
 
-class Course(
+class Article(
     val title: String,
-    val time: Int
+    val price: Int
 )

@@ -4,7 +4,6 @@ import com.epitech.cashmanager.global.MyApp.GlobalVar.backUrl
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
 class RetrofitInstance {
 
     val retrofit = Retrofit.Builder()

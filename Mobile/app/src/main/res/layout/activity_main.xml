@@ -43,7 +43,7 @@
         android:background="#FFFFFF"
         android:onClick="goToSettings"
         android:scaleType="fitCenter"
-        android:tint="#80FFFFFF"
+        android:tint="@color/colorSilver"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_btn_settings" />

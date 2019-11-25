@@ -1,47 +1,42 @@
 package com.epitech.cashmanager.ui.scan
 
-import android.app.Activity
-import android.content.Intent
+import android.nfc.NfcAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.epitech.cashmanager.R
-import com.google.zxing.integration.android.IntentIntegrator
+import com.epitech.cashmanager.databinding.FragmentScanBinding
+import com.epitech.cashmanager.global.MyApp
 import kotlinx.android.synthetic.main.fragment_scan.*
 
 class ScanFragment : Fragment() {
 
-    private lateinit var scanViewModel: ScanViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        scanViewModel =
-            ViewModelProviders.of(this).get(ScanViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_scan, container, false)
-        val textView: TextView = root.findViewById(R.id.text_scan)
-        scanViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
-
-        return root
+        var binding : FragmentScanBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_scan, container, false)
+        var view : View = binding.root
+        binding.signalState = MyApp.networkLink
+        return view
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//        btnScanArticles.setOnClickListener {
-//            val scanner = IntentIntegrator.forSupportFragment(this)
-//            scanner.initiateScan()
-//        }
-//    }
+    override fun onStart() {
+        super.onStart()
+        radioBtnCreditCard.isChecked = MyApp.isCreditCardSelected
+        radioBtnBankCheck.isChecked = MyApp.isBankCheckSelected
+        MyApp.nfcAdapter = NfcAdapter.getDefaultAdapter(context)
+        if (!MyApp.isNFCCompatible(MyApp.nfcAdapter)) {
+            radioBtnCreditCard.isEnabled = false
+            radioBtnBankCheck.isChecked = true
+        } else {
+            if (!MyApp.isNFCActivate(MyApp.nfcAdapter)) {
+                Toast.makeText(context, "don't forget to activate NFC", Toast.LENGTH_LONG + 2).show()
+            }
+        }
+    }
 //
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 //        if (resultCode == Activity.RESULT_OK) {
