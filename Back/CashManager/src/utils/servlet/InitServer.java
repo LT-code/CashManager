@@ -1,6 +1,7 @@
 package utils.servlet;
 
 import java.sql.SQLException;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -70,9 +71,9 @@ public class InitServer implements ServletContextListener {
 			
 		} catch (ClassNotFoundException | SQLException | FailedDBConnection | NoResultException | ValidatorNotRecpectedException e) {
 			System.out.println("InitServer Error creation tables : " + e.getMessage());
-			//try { TimeUnit.SECONDS.sleep(5); }catch(Exception e1) {System.out.println(LogsHandler.getMessageError(e1));};
-			//if(attemps > 10)
-			//	System.exit(-1);
+			try { TimeUnit.SECONDS.sleep(5); }catch(Exception e1) {System.out.println(LogsHandler.getMessageError(e1));};
+			if(attemps > 20)
+				System.exit(-1);
 		
 			createAllTables(attemps);
 		}
