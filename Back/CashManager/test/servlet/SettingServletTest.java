@@ -23,7 +23,7 @@ public class SettingServletTest extends ServletTest {
 	}
 	
 	@Test
-	public void test_simpleAdd_noToken() {
+	public void test_simpleAdd_Token() {
 		JSONObject res = sendPost("/setting/create", "", null);
 		assertEquals(HttpStatus.FORBIDDEN, res.get("status"));
 	}
