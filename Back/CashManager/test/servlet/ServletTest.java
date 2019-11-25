@@ -64,7 +64,7 @@ public abstract class ServletTest {
 		return false;
 	}
 	
-	public static boolean sendPost(int statusExpected, String route, String params, String bodyParams, String expectedResponse) {
+	public static JSONObject sendPost(String route, String params, String bodyParams) {
 		HttpPost post = new HttpPost(API_TEST_URL + Servlet.API_ROUTE + route + "?" + params);
 		post.addHeader(HttpHeaders.AUTHORIZATION, "");
 
@@ -81,20 +81,18 @@ public abstract class ServletTest {
 			post.setEntity(new UrlEncodedFormEntity(urlParameters));
 			
 			try (CloseableHttpClient httpClient = HttpClients.createDefault(); 
-				 CloseableHttpResponse response = httpClient.execute(post)) {
-					JSONObject res = new JSONObject(EntityUtils.toString(response.getEntity()));
-					JSONObject expected = new JSONObject(expectedResponse);
-					
-					System.out.println("Json response :\n	res:		" + res + "\n	expected:	" + expected);
-					System.out.println("status :\n	res:		" + response.getStatusLine().getStatusCode() + "\n	expected:	" + statusExpected);
-					
-					return res.toString().equals(expected.toString()) && response.getStatusLine().getStatusCode() == statusExpected;
+				CloseableHttpResponse response = httpClient.execute(post)) {
+				JSONObject res = new JSONObject(EntityUtils.toString(response.getEntity()));
+				
+				res.put("status", response.getStatusLine().getStatusCode());
+				
+				return res;
 	        }
 		} catch (ParseException | IOException e) {
 			e.printStackTrace();
 		}
 
-        return false;
+        return null;
 
     }
 }

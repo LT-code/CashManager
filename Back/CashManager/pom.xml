@@ -47,6 +47,11 @@
 		    <version>8.0.18</version>
 		</dependency>
 				
+		<dependency>
+			<groupId>com.googlecode.junit-toolbox</groupId>
+			<artifactId>junit-toolbox</artifactId>
+			<version>1.5</version>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>

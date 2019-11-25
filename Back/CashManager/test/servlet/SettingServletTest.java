@@ -1,7 +1,8 @@
 package servlet;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.json.JSONObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,8 +17,15 @@ public class SettingServletTest extends ServletTest {
     }
 	
 	@Test
-	public void test_simpleAdd() {
-		assertTrue(sendPost(HttpStatus.CREATED, "/setting/create", "", null, "{\"data\":{\"attemptsNumber\":3,\"id\":1,\"connectionDelay\":30},\"message\":\"\"}"));
+	public void test_simpleAdd_noToken() {
+		JSONObject res = sendPost("/setting/create", "", null);
+		assertEquals(HttpStatus.FORBIDDEN, res.get("status"));
+	}
+	
+	@Test
+	public void test_simpleAdd_noToken() {
+		JSONObject res = sendPost("/setting/create", "", null);
+		assertEquals(HttpStatus.FORBIDDEN, res.get("status"));
 	}
 	
 	 @After

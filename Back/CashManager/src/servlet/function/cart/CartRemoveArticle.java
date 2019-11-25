@@ -3,8 +3,6 @@ package servlet.function.cart;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.Servlet;
-
 import org.json.JSONObject;
 
 import entities.CartArticles;

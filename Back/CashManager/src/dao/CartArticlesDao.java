@@ -4,10 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
-import entities.Article;
 import entities.CartArticles;
 import exception.InvalidNumberReslut;
-import tables.ArticleTable;
 import tables.CartArticlesTable;
 import tables.CartTable;
 import utils.LogsHandler;
