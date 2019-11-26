@@ -1,9 +1,15 @@
 package services;
 
+import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Map;
 
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 
 import entities.Article;
 import entities.Cart;
@@ -11,6 +17,7 @@ import entities.CartArticles;
 import entities.Machine;
 import entities.Setting;
 import exception.FailedDBConnection;
+import exception.InvalidNumberReslut;
 import exception.NoResultException;
 import exception.ValidatorNotRecpectedException;
 import services.fabrique.FabriqueAService;
@@ -54,6 +61,25 @@ public class CartArticlesServiceTest extends ServicesTest {
         fab = new FabriqueAService(cartArticles, cartArticlesService, new Long("0"), new Long("64578364"));
         beforeTest();
     }
+	
+	@Test
+    public void test_listArticles() throws SQLException, InvalidNumberReslut, ValidatorNotRecpectedException, NoResultException, JsonGenerationException, JsonMappingException, IOException {
+		Article article2 = new Article("ONGYHU3ODZI342", "PC MacBook", 999.99F);
+		CartArticles cartArticles2 = new CartArticles((long) cart.getId(), (String) article2.getId());
+		
+		articleService.add(article2);
+		cartArticlesService.add(cartArticles);
+		cartArticlesService.add(cartArticles);
+		cartArticlesService.add(cartArticles2);
+		
+		Map<String, Object> list = cartArticlesService.listArticles((long) cart.getId());
+		
+		System.out.println(new ObjectMapper().writeValueAsString(list.toString()));
+		
+		cartArticlesService.delete(cartArticles);
+		cartArticlesService.delete(cartArticles2);
+		articleService.delete(article2);
+	}
 
     @After
     public void tearDown() throws SQLException, ValidatorNotRecpectedException, NoResultException {

@@ -1,7 +1,6 @@
 package services;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Map;
 
 import dao.CartArticlesDao;
@@ -24,8 +23,8 @@ public class CartArticlesService extends Service {
 		return this.cartArticlesDao;
 	}
 	
-	public ArrayList<Map<String, Object>> listArticles(long idCart) throws SQLException, InvalidNumberReslut {
-		ArrayList<Map<String, Object>> list = null;
+	public Map<String, Object> listArticles(long idCart) throws SQLException, InvalidNumberReslut {
+		Map<String, Object> list = null;
 		list =  this.cartArticlesDao.listArticles(idCart);
 		logsHandler.addInfo("Succès de la recuperation des articles du cart " + idCart + ".");
 		return list;

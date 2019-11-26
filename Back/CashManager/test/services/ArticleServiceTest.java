@@ -23,6 +23,8 @@ public class ArticleServiceTest extends ServicesTest {
         fab = new FabriqueAService(article, articleService, new String(""), new String("FFFFFFFFFFFFFFFFFFFFF"));
         beforeTest();
     }
+    
+  
 
     @After
     public void tearDown() throws SQLException {
