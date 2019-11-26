@@ -1,88 +1,81 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import org.apache.http.HttpHeaders;
-import org.apache.http.NameValuePair;
 import org.apache.http.ParseException;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestWatchman;
 import org.junit.runners.model.FrameworkMethod;
 
-import utils.servlet.ResponseHandler;
-
 @SuppressWarnings("deprecation")
 public abstract class ServletTest {
 	private String testName;
+	public static String lambdaIdMachine;
+	public static String lambdaTokenMachine;
+	public static String adminIdMachine;
+	public static String adminTokenMachine;
 	
 	private static final String API_TEST_URL = "http://localhost:8080";
-	private final CloseableHttpClient httpClient = HttpClients.createDefault();
-
-    public void afterTest() {
+	
+	@After
+    public void tearDown() {
+    	
     }
-    
-    public void beforeTest() {
-    	System.out.println("\n####################################################################################" );
+	
+	@Before
+	public void setUp() {
+		System.out.println("\n####################################################################################" );
 		System.out.println("######## " + "" + " ######## " + testName);
 		System.out.println("####################################################################################" );
     }
 	
-	@Rule
-	public TestWatchman watchman = new TestWatchman() {
-		public void starting(FrameworkMethod method) {
-			testName = method.getName();
-		}
-	};
-
-	public boolean sendGet(String route, String params, JSONObject expectedResponse) {
-		HttpGet get = new HttpGet(API_TEST_URL + Servlet.API_ROUTE + route + "?" + params);
-		get.addHeader(HttpHeaders.AUTHORIZATION, "");
-        
-		try {
-			try (CloseableHttpResponse response = httpClient.execute(get)) {
-		        System.out.println(response.getStatusLine().toString());
-		
-				return new JSONObject(EntityUtils.toString(response.getEntity())).equals(expectedResponse);
-		    }
-		}
-		catch(IOException e) {
-			e.printStackTrace();
-		}
-		return false;
+	public static JSONObject sendPost(String route, String params, JSONObject bodyParams, String token) {
+		return send(new HttpPost(API_TEST_URL + Servlet.API_ROUTE + route + "?" + params), bodyParams, token);
 	}
 	
-	public static JSONObject sendPost(String route, String params, String bodyParams) {
-		HttpPost post = new HttpPost(API_TEST_URL + Servlet.API_ROUTE + route + "?" + params);
-		post.addHeader(HttpHeaders.AUTHORIZATION, "");
+	public static JSONObject sendPut(String route, String params, JSONObject bodyParams, String token) {
+		return send(new HttpPut(API_TEST_URL + Servlet.API_ROUTE + route + "?" + params), bodyParams, token);
+	}
+	
+	public static JSONObject sendDelete(String route, String params, JSONObject bodyParams, String token) {
+		return send(new HttpDelete(API_TEST_URL + Servlet.API_ROUTE + route + "?" + params), bodyParams, token);
+	}
+	
+	public static JSONObject sendGet(String route, String params, JSONObject bodyParams, String token) {
+		return send(new HttpGet(API_TEST_URL + Servlet.API_ROUTE + route + "?" + params), bodyParams, token);
+	}
+	
+	public static JSONObject send(HttpUriRequest request, JSONObject bodyParams, String token) {
+		if(token != null)
+			request.addHeader(HttpHeaders.AUTHORIZATION, token);
 
-        // add request parameter, form parameters
-        List<NameValuePair> urlParameters = new ArrayList<>();
-        
-        if(bodyParams != null) {
-        	Map<String, Object> json = ResponseHandler.objectToMap(new JSONObject(bodyParams));
-            for(Entry<String, Object> entry : json.entrySet())
-            	urlParameters.add(new BasicNameValuePair(entry.getKey(), entry.getValue().toString()));
-        }
-        
         try {
-			post.setEntity(new UrlEncodedFormEntity(urlParameters));
-			
+        	if(bodyParams != null) {
+        		if(request instanceof HttpPost)
+            		((HttpPost) request).setEntity(new StringEntity(bodyParams.toString()));
+        		if(request instanceof HttpPut)
+            		((HttpPut) request).setEntity(new StringEntity(bodyParams.toString()));
+        	}
+        		
 			try (CloseableHttpClient httpClient = HttpClients.createDefault(); 
-				CloseableHttpResponse response = httpClient.execute(post)) {
-				JSONObject res = new JSONObject(EntityUtils.toString(response.getEntity()));
+				CloseableHttpResponse response = httpClient.execute(request)) {
+				String result = EntityUtils.toString(response.getEntity());
+				System.out.println(request.getURI() + " " + response.getStatusLine().getStatusCode() + " " + result);
+				JSONObject res = new JSONObject(result);
 				
 				res.put("status", response.getStatusLine().getStatusCode());
 				
@@ -93,6 +86,12 @@ public abstract class ServletTest {
 		}
 
         return null;
-
     }
+	
+	@Rule
+	public TestWatchman watchman = new TestWatchman() {
+		public void starting(FrameworkMethod method) {
+			testName = method.getName();
+		}
+	};
 }

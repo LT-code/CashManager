@@ -19,7 +19,7 @@ public class SettingTable {
 				new TableFields[]	{	
 					new TableFields("idSetting", 		TableFields.TYPE_INT, 11, TableFields.KEY_PRIMARY, TableFields.KEY_AUTOGEN),
 					new TableFields("connectionDelay",	TableFields.TYPE_INT, 3),
-					new TableFields("maxAttemps", 		TableFields.TYPE_INT, 3)
+					new TableFields("attemptsNumber", 		TableFields.TYPE_INT, 3)
 			});
 	
 	public static Table getTable() {

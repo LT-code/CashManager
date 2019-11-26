@@ -37,7 +37,7 @@ public class MachineServiceTest extends ServicesTest {
     }
 	
 	@Test(expected=SQLException.class)
-	public void test_SettingFKConstraint() throws ValidatorNotRecpectedException, NoResultException, SQLException {
+	public void test8_SettingFKConstraint() throws ValidatorNotRecpectedException, NoResultException, SQLException {
 		machine.setIdSetting(0);
 		machineService.add(machine);
 	}

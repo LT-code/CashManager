@@ -8,8 +8,9 @@ import dao.Dao;
 import dao.SettingDao;
 import entities.EntityClass;
 import entities.Setting;
-import utils.bdd.DBConnector;
+import exception.InvalidNumberReslut;
 import utils.LogsHandler;
+import utils.bdd.DBConnector;
 
 public class SettingService extends Service {
 	SettingDao settingDao = new SettingDao(db, this.getLogsHandler());
@@ -23,6 +24,12 @@ public class SettingService extends Service {
 		list =  this.settingDao.listSetting();
 		logsHandler.addInfo("Succès de la recuperation des settings.");
 		return list;
+	}
+	
+	public Setting get(long idSetting) throws SQLException, InvalidNumberReslut {
+		Setting s =  this.settingDao.get(idSetting);
+		logsHandler.addInfo("Getting setting " + idSetting + " succed.");
+		return s;
 	}
 
 	@Override

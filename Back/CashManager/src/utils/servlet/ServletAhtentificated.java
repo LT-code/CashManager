@@ -34,21 +34,23 @@ public class ServletAhtentificated {
 
 	public boolean isAllowed() throws Exception {
 		if(sf instanceof ServletAdminMachine)
-			return checkIfAdmin();
+			checkIfAdmin();
 			
 		if(sf instanceof ServletLanbdaMachine)
-			return checkIfLambda();
+			checkIfLambda();
 		
 		return true;
 	}
 	
-	private boolean checkIfAdmin() throws Exception {
+	private void checkIfAdmin() throws Exception {
 		Machine m = getMachine();
-		return m == null ? false : m.isAdmin();
+		if(m == null ? true : !m.isAdmin())
+			throw new AccessForbidden();
 	}
 	
-	private boolean checkIfLambda() throws Exception {
-		return getMachine() != null;
+	private void checkIfLambda() throws Exception {
+		if(getMachine() == null)
+			throw new AccessForbidden();
 	}
 	
 	private Machine getMachine() throws Exception {

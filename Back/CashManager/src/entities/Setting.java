@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Map;
+
 import tables.SettingTable;
 import utils.bdd.Table;
 
@@ -22,7 +24,13 @@ public class Setting implements EntityClass {
 		this.attemptsNumber = attemptsNumber;
 	}
     
-    @Override
+    public Setting(Map<String, Object> s) {
+		this(	(int) s.get("connectionDelay"),
+				(int) s.get("attemptsNumber"));
+		this.idSetting = (int) s.get("idSetting");
+	}
+
+	@Override
 	public void setId(Object id) {
 		this.idSetting = (long) id;
 	}

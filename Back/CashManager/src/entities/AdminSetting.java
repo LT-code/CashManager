@@ -1,6 +1,4 @@
-package sources;
-
-import entities.Setting;
+package entities;
 
 public class AdminSetting extends Setting {
     // Operations

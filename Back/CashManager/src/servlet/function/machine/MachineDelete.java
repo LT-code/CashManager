@@ -1,12 +1,12 @@
-package servlet.function.article;
+package servlet.function.machine;
 
 import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
 
-import entities.Article;
-import services.ArticleService;
+import entities.Machine;
+import services.MachineService;
 import servlet.function.RouteFunction;
 import servlet.permissions.ServletAdminMachine;
 import utils.LogsHandler;
@@ -17,13 +17,13 @@ import utils.servlet.ResponseHandler;
 /**
  * Create a machine
  */
-public class ArticleRemove implements RouteFunction, ServletAdminMachine {
+public class MachineDelete implements RouteFunction, ServletAdminMachine {
 	@Override
 	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
-		ArticleService articleService = new ArticleService(db, log);
-		Article a = (Article) articleService.get((String) urlParams.getJSONArray("code").get(0));
-		articleService.delete(a);
-		list.add(ResponseHandler.objectToMap(a));
+		MachineService machineService = new MachineService(db, log);
+		Machine m = (Machine) machineService.get((String) urlParams.getJSONArray("idMachine").get(0));
+		machineService.delete(m);
+		list.add(ResponseHandler.objectToMap(m));
 		db.close();
 		return list;
 	}

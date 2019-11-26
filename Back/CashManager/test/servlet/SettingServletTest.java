@@ -3,33 +3,30 @@ package servlet;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.json.JSONObject;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import utils.servlet.HttpStatus;
 
-public class SettingServletTest extends ServletTest {
-
-	@Before
-	public void setUp() {
-		beforeTest();
-    }
+public class SettingServletTest extends ServletTest {	
+	private static int idSetting;
 	
 	@Test
-	public void test_simpleAdd_noToken() {
-		JSONObject res = sendPost("/setting/create", "", null);
-		assertEquals(HttpStatus.FORBIDDEN, res.get("status"));
+	public void test1_simpleAdd() {		
+		JSONObject res = sendPost("/setting/create", "", null, adminTokenMachine);
+		assertEquals(HttpStatus.CREATED, res.get("status"));
+		System.out.println(res);
+		idSetting = res.getJSONObject("data").getInt("id");
 	}
 	
 	@Test
-	public void test_simpleAdd_Token() {
-		JSONObject res = sendPost("/setting/create", "", null);
-		assertEquals(HttpStatus.FORBIDDEN, res.get("status"));
+	public void test2_simpleRemove() {		
+		JSONObject res = sendDelete("/setting/remove", "idSetting=" + idSetting, null, adminTokenMachine);
+		assertEquals(HttpStatus.SUCCESS, res.get("status"));
 	}
 	
-	 @After
-    public void tearDown() {
-    	afterTest();
-    }
+	@Test
+	public void test_simpleRemove_InvalidId() {		
+		JSONObject res = sendDelete("/setting/remove", "idSetting=293792487", null, adminTokenMachine);
+		assertEquals(HttpStatus.INTERNAL_ERROR, res.get("status"));
+	}
 }

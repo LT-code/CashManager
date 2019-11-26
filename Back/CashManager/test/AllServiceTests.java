@@ -17,7 +17,7 @@ import utils.servlet.InitServer;
 					services.PaymentServiceTest.class
 				})
 
-public class TestSuite {
+public class AllServiceTests {
 	@BeforeClass
 	public static void setUpClass() throws InstantiationException, IllegalAccessException {
 		DBConnector.getDBParam();

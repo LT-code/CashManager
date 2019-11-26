@@ -32,7 +32,7 @@ public class ResponseHandler {
 		}
 		
 		return "{" +
-				"\"message\":\"" + message + "\"," +
+				"\"message\":\"" + (message != null ? message.replace("\"", "'") : "") + "\"," +
 				"\"data\":" + (data != "" ? data : "{}") + "" +
 				"}";
 	}

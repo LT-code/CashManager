@@ -92,7 +92,8 @@ public class InitServer implements ServletContextListener {
 	      	
 	      	System.out.println("Database has been droped and created");
 		} catch (SQLException | ClassNotFoundException e) {
-			db.close();
+			if(db != null)
+				db.close();
 			System.out.println("InitServer Error reset database : " + e.getMessage());
 			try { Thread.sleep(4000); }catch(Exception e1) {};
 			restetDataBase();

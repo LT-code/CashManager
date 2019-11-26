@@ -13,7 +13,7 @@ public class CartTable implements TableClass {
 						"a cart",
 				new TableFields[]	{	
 					new TableFields("idCart", 		TableFields.TYPE_INT, 		11, TableFields.KEY_PRIMARY, TableFields.KEY_AUTOGEN),
-					new TableFields("idMachine",	TableFields.TYPE_VARCHAR, 	30, TableFields.KEY_FOREIGN, "Machine(idMachine)")
+					new TableFields("idMachine",	TableFields.TYPE_VARCHAR, 	30, TableFields.KEY_FOREIGN_ON_DELETE_CASCADE, "Machine(idMachine)")
 				});
 	
 	public static Table getTable() {

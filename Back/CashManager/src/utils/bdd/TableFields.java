@@ -7,6 +7,7 @@ public class TableFields {
 	public final static int KEY_FOREIGN = 2;
 	public final static int KEY_AUTOGEN = 3;
 	public final static int KEY_UNIQUE = 4;
+	public final static int KEY_FOREIGN_ON_DELETE_CASCADE = 5;
 	
 	public final static int TYPE_INT = 0;
 	public final static int TYPE_VARCHAR = 1;
@@ -59,7 +60,12 @@ public class TableFields {
 	}
 	
 	public boolean isPrimaryKey() {
-		return keyType == TableFields.KEY_PRIMARY;
+		return 	keyType == TableFields.KEY_PRIMARY;
+	}
+	
+	public boolean isForeignKey() {
+		return 	keyType == TableFields.KEY_FOREIGN ||
+				keyType == TableFields.KEY_FOREIGN_ON_DELETE_CASCADE;
 	}
 	
 	public String getName() {
