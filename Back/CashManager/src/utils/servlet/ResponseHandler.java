@@ -1,39 +1,24 @@
 package utils.servlet;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
 public class ResponseHandler {
-	public static String serilize(String message, List<Map<String,Object>> list) {
-		String data = "";
-		if(list != null) {
-			if(list.size() > 1)
-				data += "[";
-			for(Map<String, Object> map : list)	{
-				data += "{";
-				if(map != null) {
-					for(Map.Entry<String, Object> value : map.entrySet())
-					data += "\"" + value.getKey() + "\"" + ":" +
-							(value.getValue() instanceof String ? "\"" : "") +
-							value.getValue() +
-							(value.getValue() instanceof String ? "\"" : "") +
-							",";
-					data = data.substring(0, data.length() - 1);
-				}
-				
-				data += "}" + ",";
-			}
-			if(data != "")
-				data = data.substring(0, data.length() - 1);
-			if(list.size() > 1)
-				data += "]";
-		}
+	public static String serilize(String message, List<Map<String,Object>> list) throws JsonGenerationException, JsonMappingException, IOException {
+		String data = new ObjectMapper().writeValueAsString(list);
+		/*
+		JSONObject json = new JSONObject(data);
+		if(json.length() < 2)
+			data = data.substring(1, data.length() - 1);*/
 		
 		return "{" +
 				"\"message\":\"" + (message != null ? message.replace("\"", "'") : "") + "\"," +
-				"\"data\":" + (data != "" ? data : "{}") + "" +
+				"\"data\":" + (data != "" ? data : "[]") + "" +
 				"}";
 	}
 	

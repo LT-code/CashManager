@@ -15,7 +15,12 @@ public class CartArticles implements EntityClass{
     	this.codeArticle = codeArticle;
     }
        
-    public long getIdCart() {
+    public CartArticles(int idCartArticles, int idCart, String codeArticle) {
+		this(idCart, codeArticle);
+		this.idCartArticles = idCartArticles;
+	}
+
+	public long getIdCart() {
 		return idCart;
 	}
 

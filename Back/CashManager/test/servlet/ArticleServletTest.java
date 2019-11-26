@@ -26,8 +26,8 @@ public class ArticleServletTest extends ServletTest {
 	public void test1_simpleGet() {		
 		JSONObject res = sendGet("/article/get", "code=" + code, null, adminTokenMachine);
 		assertEquals(HttpStatus.SUCCESS, res.get("status"));
-		assertEquals(name, res.getJSONObject("data").get("name"));
-		assertEquals(price, res.getJSONObject("data").get("price"));		
+		assertEquals(name, res.getJSONArray("data").getJSONObject(0).get("name"));
+		assertEquals(price, res.getJSONArray("data").getJSONObject(0).get("price"));		
 	}
 	
 	@Test

@@ -4,6 +4,8 @@ import javax.servlet.annotation.WebServlet;
 
 import servlet.function.cart.CartAddArticle;
 import servlet.function.cart.CartCreate;
+import servlet.function.cart.CartGetArticles;
+import servlet.function.cart.CartRemoveArticle;
 import utils.servlet.Route;
 
 /**
@@ -17,8 +19,8 @@ public class CartServlet extends Servlet {
 		{
 			new Route(Route.POST, API_ROUTE + "/cart/create", 	new CartCreate(), "String idMachine", ""),
 			new Route(Route.POST, API_ROUTE + "/cart/add_article", new CartAddArticle(), "long idCart, String codeArticle", ""),
-			new Route(Route.DELETE, API_ROUTE + "/cart/remove_article", new CartCreate(), "", "idCart=?,codeArticle=?"),
-			new Route(Route.GET, API_ROUTE + "/cart/get_articles", new CartCreate(), "", "idCart=?")
+			new Route(Route.DELETE, API_ROUTE + "/cart/remove_article", new CartRemoveArticle(), "", "idCart=?,codeArticle=?"),
+			new Route(Route.GET, API_ROUTE + "/cart/get_articles", new CartGetArticles(), "", "idCart=?")
 		};
 	
 	@Override

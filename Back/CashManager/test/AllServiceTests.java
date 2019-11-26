@@ -8,13 +8,13 @@ import utils.servlet.InitServer;
 
 @RunWith(Suite.class)
 @SuiteClasses	({ 
+					services.PaymentServiceTest.class,
 					services.MachineServiceTest.class,
 					services.SettingServiceTest.class,
 					services.CartServiceTest.class,
 					services.ArticleServiceTest.class,
 					services.CartArticlesServiceTest.class,
 					services.PaymentTypeServiceTest.class, 
-					services.PaymentServiceTest.class
 				})
 
 public class AllServiceTests {

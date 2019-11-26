@@ -43,7 +43,7 @@ public class PaymentServiceTest extends ServicesTest {
     	machineService = new MachineService(db, logsHandler);
 		machineService.add(machine);
 		
-    	article = new Article("122GYHU3342", "Souris logitech", 4.50F);
+    	article = new Article("122GYHU3342", "Souris logitech", 43.50F);
     	articleService = new ArticleService(db, logsHandler);
     	articleService.add(article);
     	
@@ -58,7 +58,7 @@ public class PaymentServiceTest extends ServicesTest {
     	payment = new Payment((long) cart.getId(), 1);
     	paymentService = new PaymentService(db, logsHandler);
     	
-        fab = new FabriqueAService(payment, paymentService, new Long("0"), new Long("64578364"));
+        fab = new FabriqueAService(payment, paymentService, new Long(0), new Long("84984165417115"));
         beforeTest();
     }
 

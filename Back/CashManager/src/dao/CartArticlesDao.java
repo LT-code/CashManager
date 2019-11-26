@@ -44,8 +44,9 @@ public class CartArticlesDao extends Dao {
 	}
 	
 	public CartArticles get(long idCart, String codeArticle) throws SQLException, InvalidNumberReslut {
-		Map<String, Object> m = query("Select * from " + CartArticlesTable.getTable().getName() + " where codeArticle=?, idCart=?;", new Object[]{idCart, codeArticle});
-		return new CartArticles((long) m.get("idCart"), 
+		Map<String, Object> m = query("Select * from " + CartArticlesTable.getTable().getName() + " where idCart=? and codeArticle=?;", new Object[]{idCart, codeArticle});
+		return new CartArticles((int) m.get("idCartArticles"),
+								(int) m.get("idCart"), 
 								(String) m.get("codeArticle"));
 	}
 }

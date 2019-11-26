@@ -1,6 +1,6 @@
 package entities;
 
-import tables.ArticleTable;
+import tables.PaymentTable;
 import utils.bdd.Table;
 
 public class Payment implements EntityClass{
@@ -26,7 +26,7 @@ public class Payment implements EntityClass{
     
     @Override
 	public void setId(Object id) {
-		this.idPayment = (long) idPayment;
+		this.idPayment = (long) id;
 		
 	}
     
@@ -42,6 +42,6 @@ public class Payment implements EntityClass{
 	
 	@Override
 	public Table table() {
-		return ArticleTable.getTable();
+		return PaymentTable.getTable();
 	}
 }
