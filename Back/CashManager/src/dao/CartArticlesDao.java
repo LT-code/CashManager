@@ -13,7 +13,7 @@ import utils.bdd.DBConnector;
 
 public class CartArticlesDao extends Dao {
 	public CartArticlesDao(DBConnector db, LogsHandler errorHandler) {
-		super(db, errorHandler);
+		super(db, errorHandler, CartArticlesTable.getTable());
 	}
 	
 	public Map<String, Object> listArticles(long idCart) throws SQLException, InvalidNumberReslut {

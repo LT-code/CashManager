@@ -1,8 +1,5 @@
 package entities;
 
-import tables.ArticleTable;
-import utils.bdd.Table;
-
 public class Article implements EntityClass{
     // Attributes
     private String code;
@@ -46,10 +43,5 @@ public class Article implements EntityClass{
 	@Override
 	public Object[] fieldsValues() {
 		return  new Object[]{code, name, price};
-	}
-	
-	@Override
-	public Table table() {
-		return ArticleTable.getTable();
 	}
 }

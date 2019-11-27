@@ -12,7 +12,7 @@ import utils.bdd.DBConnector;
 
 public class SettingDao extends Dao {
 	public SettingDao(DBConnector db, LogsHandler errorHandler) {
-		super(db, errorHandler);
+		super(db, errorHandler, SettingTable.getTable());
 	}
 	public Setting get(long idSetting) throws SQLException, InvalidNumberReslut {
 		return new Setting(query("Select * from " + SettingTable.getTable().getName() + " where " + SettingTable.getTable().getIDSet(), new Object[]{idSetting}));

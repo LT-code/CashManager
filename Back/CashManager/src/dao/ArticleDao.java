@@ -12,7 +12,7 @@ import utils.LogsHandler;
 public class ArticleDao extends Dao {
 
 	public ArticleDao(DBConnector db, LogsHandler errorHandler) {
-		super(db, errorHandler);
+		super(db, errorHandler, ArticleTable.getTable());
 	}
 	
 	public Article get(String code) throws SQLException, InvalidNumberReslut {

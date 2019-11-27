@@ -11,6 +11,7 @@ import services.function.DeleteFunction;
 import services.function.ServiceFunction;
 import services.function.UpdateFunction;
 import utils.bdd.DBConnector;
+import utils.bdd.Table;
 import utils.servlet.HttpStatus;
 import utils.LogsHandler;
 
@@ -30,6 +31,7 @@ public abstract class Service {
         return logsHandler;
     }
 
+    //public abstract Map<String, Object> get();
     
     public void add(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
         serviceMethod(new AddFunction(this), entityClass);
@@ -42,6 +44,10 @@ public abstract class Service {
     public void delete(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
         serviceMethod(new DeleteFunction(this), entityClass);
     }
+    
+    /*public void methodGet(Object id) {
+    	this.getDao().get(id);
+    }*/
     
     public void methodAdd(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
         this.getDao().add(entityClass);
@@ -76,6 +82,6 @@ public abstract class Service {
     
     protected void serviceMethod(ServiceFunction serviceFonction, EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
         serviceFonction.execute(entityClass);
-        logsHandler.addInfo("Success of " + serviceFonction.getMessage() + entityClass.table().entityNameClass() + ".", (serviceFonction instanceof AddFunction ? HttpStatus.CREATED : HttpStatus.SUCCESS));
+        logsHandler.addInfo("Success of " + serviceFonction.getMessage() + this.getDao().getTable().entityNameClass() + ".", (serviceFonction instanceof AddFunction ? HttpStatus.CREATED : HttpStatus.SUCCESS));
 	}
 }

@@ -1,8 +1,5 @@
 package entities;
 
-import tables.CartArticlesTable;
-import utils.bdd.Table;
-
 public class CartArticles implements EntityClass{
     // Attributes
 	private long idCartArticles;
@@ -50,10 +47,5 @@ public class CartArticles implements EntityClass{
 	@Override
 	public Object[] fieldsValues() {
 		return  new Object[]{idCart, codeArticle};
-	}
-	
-	@Override
-	public Table table() {
-		return CartArticlesTable.getTable();
 	}
 }

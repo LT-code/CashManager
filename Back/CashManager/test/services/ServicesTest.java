@@ -27,7 +27,7 @@ public abstract class ServicesTest {
     
     public void beforeTest() throws SQLException {
     	System.out.println("\n####################################################################################" );
-		System.out.println("######## " + fab.getEntity().table().getName() + " ######## " + testName);
+		System.out.println("######## " + fab.getService().getDao().getTable().getName() + " ######## " + testName);
 		System.out.println("####################################################################################" );
     }
 	
