@@ -7,6 +7,7 @@ import java.util.Map;
 
 import entities.CartArticles;
 import exception.InvalidNumberReslut;
+import exception.NoResultException;
 import tables.CartArticlesTable;
 import utils.LogsHandler;
 import utils.bdd.DBConnector;
@@ -43,10 +44,12 @@ public class CartArticlesDao extends Dao {
 		return res;
 	}
 	
-	public CartArticles get(long idCart, String codeArticle) throws SQLException, InvalidNumberReslut {
-		Map<String, Object> m = query("Select * from " + CartArticlesTable.getTable().getName() + " where idCart=? and codeArticle=?;", new Object[]{idCart, codeArticle});
-		return new CartArticles((int) m.get("idCartArticles"),
-								(int) m.get("idCart"), 
-								(String) m.get("codeArticle"));
+	public CartArticles get(long idCart, String codeArticle) throws SQLException, InvalidNumberReslut, NoResultException {
+		ArrayList<Map<String, Object>> m = queryList("Select * from " + CartArticlesTable.getTable().getName() + " where idCart=? and codeArticle=?;", new Object[]{idCart, codeArticle});
+		if(m == null)
+			throw new NoResultException();
+		return new CartArticles((int) m.get(0).get("idCartArticles"),
+								(int) m.get(0).get("idCart"), 
+								(String) m.get(0).get("codeArticle"));
 	}
 }

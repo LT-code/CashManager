@@ -5,10 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.json.JSONObject;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import utils.servlet.HttpStatus;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CartArticlesServletTest extends ServletTest {		
 	private final static String code1 = "NKdoedIB2U98G3jigb";
 	private final static String code2 = "863IGdoedIB2G3jigb";
@@ -35,21 +38,90 @@ public class CartArticlesServletTest extends ServletTest {
 		assertEquals(HttpStatus.CREATED, res.get("status"));
 	}
 	
-	@Test
+	@Test 
 	public void test1_simpleAdd() {		
 		createArticle(idCart, code1);
 	}
 	
-	@Test
-	public void test1_simpleGet() {		
+	@Test   
+	public void test2_simpleGet() {		
 		JSONObject res = sendGet("/cart/get_articles", "idCart=" + idCart, null, lambdaTokenMachine);
 		assertEquals(1, res.getJSONArray("data").getJSONObject(0).getJSONArray("listArticle").getJSONObject(0).getInt("quantity"));
 		assertEquals(HttpStatus.SUCCESS, res.get("status"));
 	}
 	
+	@Test 
+	public void test3_simpleRemove() {		
+		deleteArticle(idCart, code1);
+	}
+	
+	@Test   
+	public void test4_doubleAdd() {
+		createArticle(idCart, code1);
+		createArticle(idCart, code2);
+	}
+	
 	@Test
-	public void test1_simpleRemove() {		
-		JSONObject res = sendDelete("/cart/remove_article", "codeArticle=" + code1 + "&idCart=" + idCart, null, lambdaTokenMachine);
+	public void test5_getDoubleArticle() {		
+		JSONObject res = sendGet("/cart/get_articles", "idCart=" + idCart, null, lambdaTokenMachine);
+		assertEquals(2, res.getJSONArray("data").getJSONObject(0).getJSONArray("listArticle").length());
+		assertEquals(HttpStatus.SUCCESS, res.get("status"));
+	}
+	
+	@Test  
+	public void test6_doubleDelete() {
+		deleteArticle(idCart, code1);
+		deleteArticle(idCart, code2);
+	}
+	
+	@Test   
+	public void test7_tripleAdd() {
+		createArticle(idCart, code1);
+		createArticle(idCart, code2);
+		createArticle(idCart, code2);
+	}
+	
+	@Test
+	public void test8_getTripleArticle() {		
+		JSONObject res = sendGet("/cart/get_articles", "idCart=" + idCart, null, lambdaTokenMachine);
+		assertEquals(2, res.getJSONArray("data").getJSONObject(0).getJSONArray("listArticle").length());
+		assertEquals(2, res.getJSONArray("data").getJSONObject(0).getJSONArray("listArticle").getJSONObject(0).getInt("quantity"));
+		assertEquals(1, res.getJSONArray("data").getJSONObject(0).getJSONArray("listArticle").getJSONObject(1).getInt("quantity"));
+		assertEquals(HttpStatus.SUCCESS, res.get("status"));
+	}
+	
+	@Test  
+	public void test9_tripleDelete() {
+		deleteArticle(idCart, code1);
+		deleteArticle(idCart, code2);
+		deleteArticle(idCart, code2);
+	}
+	
+	@Test
+	public void test_add_get_remove() {		
+		createArticle(idCart, code1);
+		createArticle(idCart, code2);
+		createArticle(idCart, code2);
+		
+		deleteArticle(idCart, code2);
+		
+		JSONObject res = sendGet("/cart/get_articles", "idCart=" + idCart, null, lambdaTokenMachine);
+		assertEquals(2, res.getJSONArray("data").getJSONObject(0).getJSONArray("listArticle").length());
+		assertEquals(1, res.getJSONArray("data").getJSONObject(0).getJSONArray("listArticle").getJSONObject(0).getInt("quantity"));
+		assertEquals(1, res.getJSONArray("data").getJSONObject(0).getJSONArray("listArticle").getJSONObject(1).getInt("quantity"));
+		assertEquals(HttpStatus.SUCCESS, res.get("status"));
+		
+		deleteArticle(idCart, code2);
+		
+		res = sendGet("/cart/get_articles", "idCart=" + idCart, null, lambdaTokenMachine);
+		assertEquals(1, res.getJSONArray("data").getJSONObject(0).getJSONArray("listArticle").length());
+		assertEquals(1, res.getJSONArray("data").getJSONObject(0).getJSONArray("listArticle").getJSONObject(0).getInt("quantity"));
+		assertEquals(HttpStatus.SUCCESS, res.get("status"));
+		
+		deleteArticle(idCart, code1);
+		
+		res = sendGet("/cart/get_articles", "idCart=" + idCart, null, lambdaTokenMachine);
+		assertEquals(0, res.getJSONArray("data").getJSONObject(0).getJSONArray("listArticle").length());
 		assertEquals(HttpStatus.SUCCESS, res.get("status"));
 	}
 	
@@ -73,4 +145,11 @@ public class CartArticlesServletTest extends ServletTest {
 		JSONObject res = sendPost("/cart/add_article", "", param, lambdaTokenMachine);
 		assertEquals(HttpStatus.CREATED, res.get("status"));
 	}
+	
+	private void deleteArticle(int idCart, String code) {
+		JSONObject res = sendDelete("/cart/remove_article", "codeArticle=" + code + "&idCart=" + idCart, null, lambdaTokenMachine);
+		assertEquals(HttpStatus.SUCCESS, res.get("status"));
+	}
+	
+	
 }
