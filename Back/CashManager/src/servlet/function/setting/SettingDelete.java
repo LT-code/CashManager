@@ -18,7 +18,7 @@ public class SettingDelete implements RouteFunction, ServletAdminMachine {
 	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		SettingService service = new SettingService(db, log);
 		
-		Setting s = service.get(Integer.parseInt((String) urlParams.getJSONArray("idSetting").get(0)));
+		Setting s = new Setting(service.get(Integer.parseInt((String) urlParams.getJSONArray("idSetting").get(0))));
 		service.delete(s);
 		db.close();
 		list.add(ResponseHandler.objectToMap(s));

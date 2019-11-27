@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Map;
+
 public class Article implements EntityClass{
     // Attributes
     private String code;
@@ -12,7 +14,13 @@ public class Article implements EntityClass{
     	this.price = price;
     }
     
-    @Override
+    public Article(Map<String, Object> map) {
+		this(	(String) map.get("code"), 
+				(String) map.get("name"),
+				(float) map.get("price"));
+	}
+
+	@Override
 	public void setId(Object id) {
 		this.code = (String) id;
 		

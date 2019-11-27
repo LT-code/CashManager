@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import entities.EntityClass;
-import exception.NoResultException;
 import exception.InvalidNumberReslut;
+import exception.NoResultException;
+import utils.LogsHandler;
 import utils.bdd.DBConnector;
 import utils.bdd.Table;
-import utils.LogsHandler;
 
 public abstract class Dao {
 	DBConnector db;
@@ -113,4 +113,8 @@ public abstract class Dao {
     public Table getTable() {
     	return table;
     }
+
+	public Map<String, Object> get(Object id) throws SQLException, InvalidNumberReslut {
+		return query("Select * from " + table.getName() + " where " + table.getIDSet(), new Object[]{id});
+	}
 }

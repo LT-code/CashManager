@@ -14,10 +14,6 @@ public class MachineDao extends Dao {
 		super(db, errorHandler, MachineTable.getTable());
 	}
 	
-	public Machine get(String code) throws SQLException, InvalidNumberReslut {
-		return new Machine(query("Select * from " + MachineTable.getTable().getName() + " where " + MachineTable.getTable().getIDSet(), new Object[]{code}));
-	}
-	
 	public Machine getByToken(String token) throws SQLException, InvalidNumberReslut {
 		return new Machine(	query("Select * from " + MachineTable.getTable().getName() + " where token = ?", new Object[]{token}));
 	}

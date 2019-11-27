@@ -1,19 +1,20 @@
 package services;
 
 import java.sql.SQLException;
+import java.util.Map;
 
 import dao.Dao;
 import entities.EntityClass;
+import exception.InvalidNumberReslut;
 import exception.NoResultException;
 import exception.ValidatorNotRecpectedException;
 import services.function.AddFunction;
 import services.function.DeleteFunction;
 import services.function.ServiceFunction;
 import services.function.UpdateFunction;
-import utils.bdd.DBConnector;
-import utils.bdd.Table;
-import utils.servlet.HttpStatus;
 import utils.LogsHandler;
+import utils.bdd.DBConnector;
+import utils.servlet.HttpStatus;
 
 
 public abstract class Service {
@@ -45,9 +46,11 @@ public abstract class Service {
         serviceMethod(new DeleteFunction(this), entityClass);
     }
     
-    /*public void methodGet(Object id) {
-    	this.getDao().get(id);
-    }*/
+    public Map<String, Object> get(Object id) throws SQLException, InvalidNumberReslut {
+    	Map<String, Object> map = this.getDao().get(id);
+    	logsHandler.addInfo("Success getting " + this.getDao().getTable().getName() + " id=" + id + ".");
+    	return map;
+    }
     
     public void methodAdd(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
         this.getDao().add(entityClass);

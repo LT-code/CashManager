@@ -37,11 +37,7 @@ public class CartArticlesServletTest extends ServletTest {
 	
 	@Test
 	public void test1_simpleAdd() {		
-		JSONObject param = new JSONObject();
-		param.put("idCart",idCart);
-		param.put("codeArticle", code1);
-		JSONObject res = sendPost("/cart/add_article", "", param, lambdaTokenMachine);
-		assertEquals(HttpStatus.CREATED, res.get("status"));
+		createArticle(idCart, code1);
 	}
 	
 	@Test
@@ -53,8 +49,7 @@ public class CartArticlesServletTest extends ServletTest {
 	
 	@Test
 	public void test1_simpleRemove() {		
-		JSONObject param = new JSONObject();
-		JSONObject res = sendDelete("/cart/remove_article", "codeArticle=" + code1 + "&idCart=" + idCart, param, lambdaTokenMachine);
+		JSONObject res = sendDelete("/cart/remove_article", "codeArticle=" + code1 + "&idCart=" + idCart, null, lambdaTokenMachine);
 		assertEquals(HttpStatus.SUCCESS, res.get("status"));
 	}
 	
@@ -69,5 +64,13 @@ public class CartArticlesServletTest extends ServletTest {
 		
 		//res = sendDelete("/cart/remove", "idCart=" + code2, null, adminTokenMachine);
 		//assertEquals(HttpStatus.SUCCESS, res.get("status"));
+	}
+	
+	private void createArticle(int idCart, String code) {
+		JSONObject param = new JSONObject();
+		param.put("idCart",idCart);
+		param.put("codeArticle", code);
+		JSONObject res = sendPost("/cart/add_article", "", param, lambdaTokenMachine);
+		assertEquals(HttpStatus.CREATED, res.get("status"));
 	}
 }
