@@ -31,6 +31,10 @@ public class LogsHandler {
     	return httpStatus;
     }
     
+    public void setHttpStatus(int status) {
+    	this.httpStatus = status;
+    }
+    
     public void addError(Exception e, int status) {
     	addError(e.getMessage(), LogsHandler.getMessageError(e), status);
     }

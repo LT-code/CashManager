@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Map;
+
 public class Payment implements EntityClass{
 	public final static String STATUS_NOT_DEFINED = "Not defined";
 	public final static String STATUS_ALLOWED = "Allowed";
@@ -17,7 +19,13 @@ public class Payment implements EntityClass{
     	this.status = STATUS_NOT_DEFINED;
     }
     
-    public void setStatus(String status) {
+    public Payment(Map<String, Object> map) {
+		this(	(long) map.get("idCart"),
+				(long) map.get("idType"));
+		this.status = (String) map.get("status");
+	}
+
+	public void setStatus(String status) {
     	this.status = status;
     }
     

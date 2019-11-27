@@ -1,5 +1,9 @@
 package services;
 
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
 import dao.Dao;
 import dao.PaymentTypeDao;
 import entities.EntityClass;
@@ -21,5 +25,11 @@ public class PaymentTypeService extends Service {
 	@Override
 	public boolean validator(EntityClass entityClass) {
 		return true;
+	}
+
+	public List<Map<String, Object>> listTypes() throws SQLException {
+		List<Map<String, Object>>  list = dao.listTypes();
+		logsHandler.addInfo("Success getting PaymentTypes.");
+		return list;
 	}
 }
