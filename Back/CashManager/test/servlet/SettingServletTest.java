@@ -15,7 +15,7 @@ public class SettingServletTest extends ServletTest {
 		JSONObject res = sendPost("/setting/create", "", null, adminTokenMachine);
 		assertEquals(HttpStatus.CREATED, res.get("status"));
 		System.out.println(res);
-		idSetting = res.getJSONObject("data").getInt("id");
+		idSetting = res.getJSONArray("data").getJSONObject(0).getInt("id");
 	}
 	
 	@Test

@@ -2,9 +2,6 @@ package entities;
 
 import java.util.Map;
 
-import tables.SettingTable;
-import utils.bdd.Table;
-
 public class Setting implements EntityClass {
     // Attributes_T
 	private long idSetting;
@@ -47,11 +44,6 @@ public class Setting implements EntityClass {
     public int getConnectionDelay () {
 		return this.connectionDelay;
     }
-
-	@Override
-	public Table table() {
-		return SettingTable.getTable();
-	}
 
 	@Override
 	public Object[] fieldsValues() {

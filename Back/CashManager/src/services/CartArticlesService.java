@@ -8,6 +8,7 @@ import dao.Dao;
 import entities.CartArticles;
 import entities.EntityClass;
 import exception.InvalidNumberReslut;
+import exception.NoResultException;
 import utils.LogsHandler;
 import utils.bdd.DBConnector;
 
@@ -30,7 +31,7 @@ public class CartArticlesService extends Service {
 		return list;
 	}
 	
-	public CartArticles get(long idCart, String codeArticle) throws SQLException, InvalidNumberReslut {
+	public CartArticles get(long idCart, String codeArticle) throws SQLException, InvalidNumberReslut, NoResultException {
 		CartArticles a = this.cartArticlesDao.get(idCart, codeArticle);
 		logsHandler.addInfo("Success getting CartArticles " + codeArticle + ".");
 		return a;

@@ -16,13 +16,7 @@ public class MachineService extends Service {
 	public MachineService(DBConnector db, LogsHandler errHandler) {
 		super(db, errHandler);
 	}
-	
-	public Machine get(String code) throws SQLException, InvalidNumberReslut {
-		Machine m =  this.machineDao.get(code);
-		logsHandler.addInfo("Succès de la recuperation de la machine " + code + ".");
-		return m;
-	}
-	
+
 	public Machine getByToken(String token) throws SQLException, InvalidNumberReslut {
 		Machine m = this.machineDao.getByToken(token);
 		logsHandler.addInfo("Succès de la recuperation de la machine " + token + ".");

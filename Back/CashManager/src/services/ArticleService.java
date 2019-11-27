@@ -1,26 +1,16 @@
 package services;
 
-import java.sql.SQLException;
-
 import dao.ArticleDao;
 import dao.Dao;
-import entities.Article;
 import entities.EntityClass;
-import exception.InvalidNumberReslut;
-import utils.bdd.DBConnector;
 import utils.LogsHandler;
+import utils.bdd.DBConnector;
 
 public class ArticleService extends Service {
 	ArticleDao articleDao = new ArticleDao(db, this.getLogsHandler());
 	
 	public ArticleService(DBConnector db, LogsHandler errHandler) {
 		super(db, errHandler);
-	}
-	
-	public Article get(String code) throws SQLException, InvalidNumberReslut {
-		Article a = this.articleDao.get(code);
-		logsHandler.addInfo("Success getting article " + code + ".");
-		return a;
 	}
 	
 	@Override

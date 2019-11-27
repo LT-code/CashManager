@@ -2,9 +2,6 @@ package entities;
 
 import java.util.Map;
 
-import tables.MachineTable;
-import utils.bdd.Table;
-
 public class Machine implements EntityClass {
     // Attributes_T
 	private String idMachine;
@@ -32,11 +29,6 @@ public class Machine implements EntityClass {
     @Override
 	public Object getId() {
 		return this.idMachine;
-	}
-
-	@Override
-	public Table table() {
-		return MachineTable.getTable();
 	}
     
     public long getIdSetting() {

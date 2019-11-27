@@ -1,13 +1,13 @@
 package services;
 
 import dao.Dao;
-import dao.PaymentTypeDao;
+import dao.PaymentDao;
 import entities.EntityClass;
 import utils.LogsHandler;
 import utils.bdd.DBConnector;
 
 public class PaymentService extends Service {
-	PaymentTypeDao dao = new PaymentTypeDao(db, this.getLogsHandler());
+	PaymentDao dao = new PaymentDao(db, this.getLogsHandler());
 	
 	public PaymentService(DBConnector db, LogsHandler errHandler) {
 		super(db, errHandler);

@@ -11,11 +11,7 @@ import utils.bdd.DBConnector;
 public class MachineDao extends Dao {
 
 	public MachineDao(DBConnector db, LogsHandler errorHandler) {
-		super(db, errorHandler);
-	}
-	
-	public Machine get(String code) throws SQLException, InvalidNumberReslut {
-		return new Machine(query("Select * from " + MachineTable.getTable().getName() + " where " + MachineTable.getTable().getIDSet(), new Object[]{code}));
+		super(db, errorHandler, MachineTable.getTable());
 	}
 	
 	public Machine getByToken(String token) throws SQLException, InvalidNumberReslut {

@@ -24,7 +24,7 @@ public class MachineConnect implements RouteFunction {
 	@Override
 	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		MachineService articleService = new MachineService(db, log);
-		Machine m = (Machine) articleService.get(bodyParams.getString("idMachine"));
+		Machine m = new Machine(articleService.get(bodyParams.getString("idMachine")));
 		if (m != null) {
 			if (m.pGetPassword().equals(bodyParams.getString("password"))) {
 				m.setToken(this.generateToken());

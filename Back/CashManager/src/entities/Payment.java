@@ -1,8 +1,5 @@
 package entities;
 
-import tables.ArticleTable;
-import utils.bdd.Table;
-
 public class Payment implements EntityClass{
 	public final static String STATUS_NOT_DEFINED = "Not defined";
 	public final static String STATUS_ALLOWED = "Allowed";
@@ -26,7 +23,7 @@ public class Payment implements EntityClass{
     
     @Override
 	public void setId(Object id) {
-		this.idPayment = (long) idPayment;
+		this.idPayment = (long) id;
 		
 	}
     
@@ -38,10 +35,5 @@ public class Payment implements EntityClass{
 	@Override
 	public Object[] fieldsValues() {
 		return  new Object[]{idCart, idType, status};
-	}
-	
-	@Override
-	public Table table() {
-		return ArticleTable.getTable();
 	}
 }

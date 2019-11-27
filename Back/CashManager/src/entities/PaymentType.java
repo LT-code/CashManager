@@ -1,8 +1,5 @@
 package entities;
 
-import tables.PaymentTypeTable;
-import utils.bdd.Table;
-
 public class PaymentType implements EntityClass{	
     // Attributes
     private long idType;
@@ -30,10 +27,5 @@ public class PaymentType implements EntityClass{
 	@Override
 	public Object[] fieldsValues() {
 		return  new Object[]{name};
-	}
-	
-	@Override
-	public Table table() {
-		return PaymentTypeTable.getTable();
 	}
 }
