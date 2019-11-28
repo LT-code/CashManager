@@ -14,6 +14,6 @@ public class PaymentDao extends Dao {
 	}
 
 	public Payment getActivePayment(int idCart) throws SQLException, InvalidNumberReslut {
-		return new Payment(query("select ", new Object[] {idCart}));
+		return new Payment(query("select * from "  + this.getTable().getName() + " where idCart = ? and status = ?;", new Object[] {idCart, Payment.STATUS_NOT_DEFINED}));
 	}
 }

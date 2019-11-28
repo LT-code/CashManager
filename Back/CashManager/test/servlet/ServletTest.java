@@ -28,6 +28,7 @@ public abstract class ServletTest {
 	public static String lambdaTokenMachine;
 	public static String adminIdMachine;
 	public static String adminTokenMachine;
+	public static int lambdaIdCart;
 	
 	private static final String API_TEST_URL = "http://localhost:8080";
 	

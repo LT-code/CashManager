@@ -14,6 +14,6 @@ public class PaymentTypeDao extends Dao {
 	}
 	
 	public List<Map<String, Object>> listTypes() throws SQLException {
-		return queryList("Select * from " + PaymentTypeTable.getTable());
+		return queryList("Select * from " + this.getTable().getName() + ";");
 	}
 }

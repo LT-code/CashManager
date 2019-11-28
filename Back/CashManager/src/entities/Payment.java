@@ -20,16 +20,33 @@ public class Payment implements EntityClass{
     }
     
     public Payment(Map<String, Object> map) {
-		this(	(long) map.get("idCart"),
-				(long) map.get("idType"));
+		this(	(int) map.get("idCart"),
+				(int) map.get("idType"));
 		this.status = (String) map.get("status");
+		this.idPayment = (int) map.get("idPayment");
 	}
 
+    public void setIdType(long idType) {
+    	this.idType = idType;
+    }
+    
 	public void setStatus(String status) {
     	this.status = status;
     }
     
-    @Override
+    public long getIdCart() {
+		return idCart;
+	}
+
+	public long getIdType() {
+		return idType;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	@Override
 	public void setId(Object id) {
 		this.idPayment = (long) id;
 		

@@ -13,6 +13,9 @@ import utils.bdd.Table;
 import utils.bdd.TableFields;
 
 public class PaymentTypeTable implements TableClass {
+	public static final String TYPE_CHEQUE = "Cheque";
+	public static final String TYPE_CREDIT_CARD = "Credit card";
+	
 	private final static Table table = 
 			new Table(	"PaymentType",
 						"a payment type",
@@ -29,7 +32,7 @@ public class PaymentTypeTable implements TableClass {
 		if(table.createTable(db)) {
 			LogsHandler logs = new LogsHandler();
 			PaymentTypeService service = new PaymentTypeService(db, logs);
-			service.add(new PaymentType("Cheque"));
+			service.add(new PaymentType(TYPE_CHEQUE));
 			service.add(new PaymentType("Credit card"));
 			logs.displayLogs();
 		}

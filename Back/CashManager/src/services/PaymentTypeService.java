@@ -1,6 +1,7 @@
 package services;
 
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -29,6 +30,8 @@ public class PaymentTypeService extends Service {
 
 	public List<Map<String, Object>> listTypes() throws SQLException {
 		List<Map<String, Object>>  list = dao.listTypes();
+		System.out.println("1111111111111111111111111111111111111111111111");
+		System.out.println(Arrays.toString(list.toArray()));
 		logsHandler.addInfo("Success getting PaymentTypes.");
 		return list;
 	}
