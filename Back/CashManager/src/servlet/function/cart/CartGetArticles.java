@@ -16,7 +16,6 @@ public class CartGetArticles implements RouteFunction, ServletLanbdaMachine {
 	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		CartArticlesService cartArticlesService = new CartArticlesService(db, log);
 		list.add(cartArticlesService.listArticles(Long.parseLong((String) urlParams.getJSONArray("idCart").get(0))));
-		db.close();
 		return list;
 	}
 }

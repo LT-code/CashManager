@@ -2,10 +2,18 @@ package entities;
 
 import java.util.Map;
 
-public class Payment implements EntityClass{
+import org.json.JSONObject;
+
+import utils.HttpService;
+import utils.LogsHandler;
+import utils.servlet.HttpStatus;
+
+public class Payment implements EntityClass {
 	public final static String STATUS_NOT_DEFINED = "Not defined";
 	public final static String STATUS_ALLOWED = "Allowed";
 	public final static String STATUS_REFUSED = "Refused";
+	
+	public final static String PaymentServerURI = "";
 	
     // Attributes
     private long idPayment;
@@ -25,6 +33,28 @@ public class Payment implements EntityClass{
 		this.status = (String) map.get("status");
 		this.idPayment = (int) map.get("idPayment");
 	}
+    
+    public boolean pay(JSONObject params, LogsHandler log) {
+    	JSONObject bodyParams = new JSONObject();
+    	switch((int) idType) {
+	    	case 1:
+	    		bodyParams.put("number", bodyParams.getString("number"));
+	    		bodyParams.put("pin", bodyParams.getString("pin"));
+	    	case 2:
+	    		bodyParams.put("code", bodyParams.getString("code"));
+    	}
+    		
+    	JSONObject response = HttpService.sendPost(PaymentServerURI, "", bodyParams, "");
+    	if(response.getInt("status") == HttpStatus.SUCCESS) {
+    		this.status = response.getString("payment_status");
+    		return this.status.equals(STATUS_ALLOWED);
+    	}
+    	else
+    		log.addError("Error during the connection with the payment server.", HttpStatus.INTERNAL_ERROR);
+    	
+    	return false;
+    		
+    }
 
     public void setIdType(long idType) {
     	this.idType = idType;

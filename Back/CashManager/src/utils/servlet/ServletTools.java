@@ -60,8 +60,12 @@ public class ServletTools {
 				response.setHeader("Content-type", "text/html; charset=iso-8859-1");
 				writer.println(servlet.getServletRoutes());
 			}
-			else
-				writer.println(ResponseHandler.serilize(log.getPrincipalMessages(),	list));
+			else {
+				String message = log.getPrincipalMessages();
+				if(message == null || message == "")
+					message = log.getLastInfo();
+				writer.println(ResponseHandler.serilize(message, list));
+			}
 			
 			writer.close();
 		} catch (IOException e) {

@@ -45,7 +45,6 @@ public class MachineConnect implements RouteFunction {
 			
 		}
 		log.setHttpStatus(HttpStatus.SUCCESS);
-		db.close();
 		return list;
 	}
 	

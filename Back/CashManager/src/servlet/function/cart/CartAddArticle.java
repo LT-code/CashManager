@@ -32,7 +32,6 @@ public class CartAddArticle implements RouteFunction, ServletLanbdaMachine {
 		Article a = new Article(new ArticleService(db, log).get(c.getCodeArticle()));
 		list.add(ResponseHandler.objectToMap(a));
 		log.setHttpStatus(HttpStatus.CREATED);
-		db.close();
 		return list;
 	}
 }

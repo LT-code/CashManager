@@ -24,7 +24,6 @@ public class MachineDelete implements RouteFunction, ServletAdminMachine {
 		Machine m = new Machine(machineService.get((String) urlParams.getJSONArray("idMachine").get(0)));
 		machineService.delete(m);
 		list.add(ResponseHandler.objectToMap(m));
-		db.close();
 		return list;
 	}
 }

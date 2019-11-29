@@ -29,7 +29,6 @@ public class MachineCreate implements RouteFunction {
 					bodyParams.getString("password")
 				));
 		list.add(ResponseHandler.objectToMap(m));
-		db.close();
 		return list;
 	}
 }

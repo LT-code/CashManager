@@ -19,8 +19,8 @@ public class GetPaymentTypes implements RouteFunction, ServletLanbdaMachine {
 	@Override
 	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		PaymentTypeService service = new PaymentTypeService(db, log);
-		list = service.listTypes();
-		db.close();
+		for(Map<String, Object> type : service.listTypes()) 
+			list.add(type);
 		return list;
 	}
 }

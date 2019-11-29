@@ -3,7 +3,6 @@ package servlet;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.json.JSONObject;
-import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -13,10 +12,6 @@ import utils.servlet.HttpStatus;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PaymentServletTest extends ServletTest {
-	@BeforeClass
-	public static void setUp2() {
-	}
-	
 	@Test 
 	public void test_getListTypes() {		
 		JSONObject res = sendGet("/payment/get_types", "", null, lambdaTokenMachine);
@@ -42,6 +37,13 @@ public class PaymentServletTest extends ServletTest {
 		params.put("idCart", lambdaIdCart);
 		params.put("idType", 2);
 		JSONObject res = sendPost("/payment/choose_payment_type", "", params, lambdaTokenMachine);
+		assertEquals(2, res.getJSONArray("data").getJSONObject(0).get("idType"));
+		assertEquals(HttpStatus.SUCCESS, res.get("status"));
+	}
+	
+	@Test
+	public void test_3_cancelPayment() {
+		JSONObject res = sendDelete("/payment/cancel", "idCart=" + lambdaIdCart, null, lambdaTokenMachine);
 		assertEquals(2, res.getJSONArray("data").getJSONObject(0).get("idType"));
 		assertEquals(HttpStatus.SUCCESS, res.get("status"));
 	}

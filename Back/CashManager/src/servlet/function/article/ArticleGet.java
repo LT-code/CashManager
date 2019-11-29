@@ -19,7 +19,6 @@ public class ArticleGet implements RouteFunction, ServletLanbdaMachine {
 		ArticleService articleService = new ArticleService(db, log);
 		Article a = new Article(articleService.get((String) urlParams.getJSONArray("code").get(0)));
 		list.add(ResponseHandler.objectToMap(a));
-		db.close();
 		return list;
 	}
 }

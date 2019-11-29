@@ -19,7 +19,6 @@ public class SettingCreate implements RouteFunction, ServletAdminMachine {
 		SettingService service = new SettingService(db, log);
 		Setting s = new Setting();
 		service.add(s);
-		db.close();
 		list.add(ResponseHandler.objectToMap(s));
 		return list;
 	}

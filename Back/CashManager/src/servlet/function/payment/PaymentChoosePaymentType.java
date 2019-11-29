@@ -48,7 +48,6 @@ public class PaymentChoosePaymentType implements RouteFunction, ServletLanbdaMac
 		
 		list.add(ResponseHandler.objectToMap(p));
 		log.setHttpStatus(HttpStatus.SUCCESS);
-		db.close();
 		return list;
 	}
 }

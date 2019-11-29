@@ -1,25 +1,13 @@
 package servlet;
 
-import java.io.IOException;
-
-import org.apache.http.HttpHeaders;
-import org.apache.http.ParseException;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpPut;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestWatchman;
 import org.junit.runners.model.FrameworkMethod;
+
+import utils.HttpService;
 
 @SuppressWarnings("deprecation")
 public abstract class ServletTest {
@@ -37,56 +25,27 @@ public abstract class ServletTest {
     	
     }
 	
+	public static JSONObject sendPost(String route, String params, JSONObject bodyParams, String token) {
+		return HttpService.sendPost(API_TEST_URL + Servlet.API_ROUTE + route, params, bodyParams, token);
+	}
+	
+	public static JSONObject sendPut(String route, String params, JSONObject bodyParams, String token) {
+		return HttpService.sendPut(API_TEST_URL + Servlet.API_ROUTE + route, params, bodyParams, token);
+	}
+	
+	public static JSONObject sendDelete(String route, String params, JSONObject bodyParams, String token) {
+		return HttpService.sendDelete(API_TEST_URL + Servlet.API_ROUTE + route, params, bodyParams, token);
+	}
+	
+	public static JSONObject sendGet(String route, String params, JSONObject bodyParams, String token) {
+		return HttpService.sendGet(API_TEST_URL + Servlet.API_ROUTE + route, params, bodyParams, token);
+	}
+	
 	@Before
 	public void setUp() {
 		System.out.println("\n####################################################################################" );
 		System.out.println("######## " + "" + " ######## " + testName);
 		System.out.println("####################################################################################" );
-    }
-	
-	public static JSONObject sendPost(String route, String params, JSONObject bodyParams, String token) {
-		return send(new HttpPost(API_TEST_URL + Servlet.API_ROUTE + route + "?" + params), bodyParams, token);
-	}
-	
-	public static JSONObject sendPut(String route, String params, JSONObject bodyParams, String token) {
-		return send(new HttpPut(API_TEST_URL + Servlet.API_ROUTE + route + "?" + params), bodyParams, token);
-	}
-	
-	public static JSONObject sendDelete(String route, String params, JSONObject bodyParams, String token) {
-		return send(new HttpDelete(API_TEST_URL + Servlet.API_ROUTE + route + "?" + params), bodyParams, token);
-	}
-	
-	public static JSONObject sendGet(String route, String params, JSONObject bodyParams, String token) {
-		return send(new HttpGet(API_TEST_URL + Servlet.API_ROUTE + route + "?" + params), bodyParams, token);
-	}
-	
-	public static JSONObject send(HttpUriRequest request, JSONObject bodyParams, String token) {
-		if(token != null)
-			request.addHeader(HttpHeaders.AUTHORIZATION, token);
-
-        try {
-        	if(bodyParams != null) {
-        		if(request instanceof HttpPost)
-            		((HttpPost) request).setEntity(new StringEntity(bodyParams.toString()));
-        		if(request instanceof HttpPut)
-            		((HttpPut) request).setEntity(new StringEntity(bodyParams.toString()));
-        	}
-        		
-			try (CloseableHttpClient httpClient = HttpClients.createDefault(); 
-				CloseableHttpResponse response = httpClient.execute(request)) {
-				String result = EntityUtils.toString(response.getEntity());
-				System.out.println(request.getURI() + " " + response.getStatusLine().getStatusCode() + " " + result);
-				JSONObject res = new JSONObject(result);
-				
-				res.put("status", response.getStatusLine().getStatusCode());
-				
-				return res;
-	        }
-		} catch (ParseException | IOException e) {
-			e.printStackTrace();
-		}
-
-        return null;
     }
 	
 	@Rule

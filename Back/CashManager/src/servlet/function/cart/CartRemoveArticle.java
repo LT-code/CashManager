@@ -24,7 +24,6 @@ public class CartRemoveArticle implements RouteFunction, ServletLanbdaMachine {
 																(String) urlParams.getJSONArray("codeArticle").get(0));
 		cartArticleService.delete(ca);
 		list.add(ResponseHandler.objectToMap(ca));
-		db.close();
 		return list;
 	}
 }
