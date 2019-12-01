@@ -27,8 +27,7 @@ public class ArticleCreate implements RouteFunction, ServletAdminMachine {
 					bodyParams.getString("name"),
 					bodyParams.getFloat("price")
 				));
-			list.add(ResponseHandler.objectToMap(a));
-		db.close();		
+		list.add(ResponseHandler.objectToMap(a));
 		return list;
 	}
 }

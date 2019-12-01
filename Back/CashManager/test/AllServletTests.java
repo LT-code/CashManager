@@ -15,7 +15,8 @@ import utils.servlet.HttpStatus;
 					servlet.SettingServletTest.class,
 					servlet.AuthorisationServletTest.class,
 					servlet.ArticleServletTest.class,
-					servlet.CartArticlesServletTest.class
+					servlet.CartArticlesServletTest.class,
+					servlet.PaymentServletTest.class
 				})
 public class AllServletTests {
 
@@ -38,7 +39,7 @@ public class AllServletTests {
 		
 		resmachine = ServletTest.sendPost("/machine/connect", "", ParamConnect, null);
 		assertEquals(HttpStatus.SUCCESS, resmachine.get("status"));	
-		ServletTest.adminTokenMachine = resmachine.getJSONArray("data").getJSONObject(0).getString("token");
+		ServletTest.adminTokenMachine = resmachine.getJSONArray("data").getJSONObject(0).getJSONObject("machine").getString("token");
 		
 		// machine 2
 		Param.put("idMachine", "2fHUdz78Jhd67b");
@@ -53,8 +54,9 @@ public class AllServletTests {
 		
 		resmachine = ServletTest.sendPost("/machine/connect", "", ParamConnect, null);
 		assertEquals(HttpStatus.SUCCESS, resmachine.get("status"));	
-		ServletTest.lambdaTokenMachine = resmachine.getJSONArray("data").getJSONObject(0).getString("token");
-	}
+		ServletTest.lambdaTokenMachine = resmachine.getJSONArray("data").getJSONObject(0).getJSONObject("machine").getString("token");
+		ServletTest.lambdaIdCart = resmachine.getJSONArray("data").getJSONObject(0).getInt("currentIdCart");
+    }
     
     @AfterClass
 	public static void tearDownClass() {

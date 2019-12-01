@@ -5,12 +5,15 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
+import entities.Article;
 import entities.CartArticles;
+import services.ArticleService;
 import services.CartArticlesService;
 import servlet.function.RouteFunction;
 import servlet.permissions.ServletLanbdaMachine;
 import utils.LogsHandler;
 import utils.bdd.DBConnector;
+import utils.servlet.HttpStatus;
 import utils.servlet.ResponseHandler;
 
 /**
@@ -26,8 +29,9 @@ public class CartAddArticle implements RouteFunction, ServletLanbdaMachine {
 					bodyParams.getLong("idCart"),
 					bodyParams.getString("codeArticle")
 				));
-		list.add(ResponseHandler.objectToMap(c));
-		db.close();
+		Article a = new Article(new ArticleService(db, log).get(c.getCodeArticle()));
+		list.add(ResponseHandler.objectToMap(a));
+		log.setHttpStatus(HttpStatus.CREATED);
 		return list;
 	}
 }

@@ -20,7 +20,7 @@ public class SettingDelete implements RouteFunction, ServletAdminMachine {
 		
 		Setting s = new Setting(service.get(Integer.parseInt((String) urlParams.getJSONArray("idSetting").get(0))));
 		service.delete(s);
-		db.close();
+		
 		list.add(ResponseHandler.objectToMap(s));
 		return list;
 	}

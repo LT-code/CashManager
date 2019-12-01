@@ -31,6 +31,10 @@ public class LogsHandler {
     	return httpStatus;
     }
     
+    public void setHttpStatus(int status) {
+    	this.httpStatus = status;
+    }
+    
     public void addError(Exception e, int status) {
     	addError(e.getMessage(), LogsHandler.getMessageError(e), status);
     }
@@ -70,6 +74,13 @@ public class LogsHandler {
 		messages.removeAll(messages);
 		principalMessages = "";
 		this.isValid = true;
+    }
+    
+    public String getLastInfo() {
+    	for(int i = messages.size()-1; i >= 0; i--)
+    		if(messages.get(i).substring(0, 4).equals("INFO"))
+    			return messages.get(i).substring(12);
+    	return "";
     }
 
 	public static String getHoursDate() {

@@ -26,7 +26,6 @@ public class CartCreate implements RouteFunction, ServletLanbdaMachine {
 					bodyParams.getString("idMachine")
 				));
 		list.add(ResponseHandler.objectToMap(c));
-		db.close();
 		return list;
 	}
 }

@@ -24,7 +24,6 @@ public class ArticleRemove implements RouteFunction, ServletAdminMachine {
 		Article a = new Article(articleService.get((String) urlParams.getJSONArray("code").get(0)));
 		articleService.delete(a);
 		list.add(ResponseHandler.objectToMap(a));
-		db.close();
 		return list;
 	}
 }

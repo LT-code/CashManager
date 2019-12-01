@@ -1,8 +1,12 @@
 package services;
 
+import java.sql.SQLException;
+
 import dao.CartDao;
 import dao.Dao;
 import entities.EntityClass;
+import entities.Setting;
+import exception.InvalidNumberReslut;
 import utils.LogsHandler;
 import utils.bdd.DBConnector;
 
@@ -16,6 +20,12 @@ public class CartService extends Service {
 	@Override
 	public Dao getDao() {
 		return this.cartDao;
+	}
+	
+	public Setting getCurrentSetting(long idCart) throws SQLException, InvalidNumberReslut {
+		Setting s = cartDao.getCurrentSetting(idCart);
+		logsHandler.addInfo("Success getting current settings.");
+		return s;
 	}
 	
 

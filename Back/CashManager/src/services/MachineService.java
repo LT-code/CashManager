@@ -1,6 +1,7 @@
 package services;
 
 import java.sql.SQLException;
+import java.util.Map;
 
 import dao.Dao;
 import dao.MachineDao;
@@ -19,7 +20,13 @@ public class MachineService extends Service {
 
 	public Machine getByToken(String token) throws SQLException, InvalidNumberReslut {
 		Machine m = this.machineDao.getByToken(token);
-		logsHandler.addInfo("Succès de la recuperation de la machine " + token + ".");
+		logsHandler.addInfo("Success getting machine token=" + token + ".");
+		return m;
+	}
+	
+	public Map<String, Object> getMachineIdCart(String code) throws SQLException, InvalidNumberReslut {
+		Map<String, Object> m = machineDao.getMachineIdCart(code);
+		logsHandler.addInfo("Success getting machine code=" + code + ".");
 		return m;
 	}
 	
