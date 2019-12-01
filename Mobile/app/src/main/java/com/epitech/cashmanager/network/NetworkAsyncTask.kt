@@ -28,7 +28,8 @@ class ServerConnection : AsyncTask<String, Int, Boolean>() {
 
     override fun onPostExecute(result: Boolean?) {
         super.onPostExecute(result)
-        MyApp.networkLink.serverLink = result!!
+        MyApp.networkLink.serverLink = (result!! && MyApp.machineSettingSession != null
+                && !MyApp.machineSettingSession!![0].machine.token.isNullOrEmpty())
         Log.d("serverLink", MyApp.networkLink.serverLink.toString())
     }
 }

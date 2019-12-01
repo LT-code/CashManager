@@ -7,6 +7,7 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -15,21 +16,24 @@ import com.epitech.cashmanager.R
 import com.epitech.cashmanager.databinding.ActivitySettingsBinding
 import com.epitech.cashmanager.global.MyApp
 import com.epitech.cashmanager.global.MyApp.GlobalVar
-import com.epitech.cashmanager.model.BackObject
-import com.epitech.cashmanager.model.PaymentSetting
+import com.epitech.cashmanager.model.responseModel.MachineSettingResponse
+import com.epitech.cashmanager.model.requestModel.MachineSettingRequest
+import com.epitech.cashmanager.model.responseModel.CartResponse
 import com.epitech.cashmanager.network.RetrofitInstance
-import com.epitech.cashmanager.network.ServerConnection
-import com.epitech.cashmanager.service.SettingService
+import com.epitech.cashmanager.service.CartService
+import com.epitech.cashmanager.service.MachineService
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.net.URL
+import org.json.JSONObject
+
+
 
 
 class SettingsActivity : AppCompatActivity() {
 
-    var backResponse: BackObject? = null
     lateinit var binding: ActivitySettingsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,33 +68,78 @@ class SettingsActivity : AppCompatActivity() {
 
     fun establishConnexion(view: View) {
         val serverIP = (findViewById<View>(R.id.serverIP) as TextInputEditText).text.toString()
+        val serverPassword = (findViewById<View>(R.id.serverPassword) as TextInputEditText).text.toString()
         if (MyApp.hasNetworkAccess) {
             MyApp.backUrl = serverIP
             MyApp.backHostUrl = URL(MyApp.backUrl).host
             MyApp.networkInstance = RetrofitInstance()
-            ServerConnection().execute()
+//            ServerConnection().execute()
+            getToken(serverPassword)
         } else {
             Toast.makeText(applicationContext, "CHECK UR CONNEXION", Toast.LENGTH_LONG).show()
         }
     }
 
-    fun getPaymentSettings() {
-        val service = GlobalVar.networkInstance!!.retrofit.create(SettingService::class.java)
-        val settingRequest: Call<BackObject> = service.getPaymentSetting()
+    fun getToken(serverPassword : String){
+        val service = GlobalVar.networkInstance!!.retrofit.create(MachineService::class.java)
+        var machineSettingRequest = MachineSettingRequest("PH1", serverPassword) // refacto id
+        val connectRequest: Call<MachineSettingResponse> = service.getConnexionToken(machineSettingRequest)
 
-        settingRequest.enqueue(object : Callback<BackObject> {
-            override fun onResponse(call: Call<BackObject>, response: Response<BackObject>) {
-                if (response.body() != null) {
-                    backResponse = response.body()
-                    Toast.makeText(applicationContext, backResponse!!.message, Toast.LENGTH_LONG).show()
-                    GlobalVar.paymentSetting = backResponse!!.data as PaymentSetting
+        connectRequest.enqueue(object : Callback<MachineSettingResponse> {
+            override fun onResponse(call: Call<MachineSettingResponse>, response: Response<MachineSettingResponse>) {
+                if (response.isSuccessful) {
+                    GlobalVar.machineSettingSession = response.body()!!.data
+                    MyApp.networkLink.serverLink = (!GlobalVar.machineSettingSession!![0].machine.token.isNullOrEmpty())
+                    Toast.makeText(applicationContext, "LINK Success", Toast.LENGTH_LONG).show()
+                    initShoppingCart()
+                } else {
+                    Log.e("CONNEXION FAILED", response.errorBody()!!.string())
                 }
             }
-            override fun onFailure(call: Call<BackObject>, t: Throwable) {
-                Log.e("COURSE", "Error : $t")
+            override fun onFailure(call: Call<MachineSettingResponse>, t: Throwable) {
+                Log.e("Machine/Connect", "Error : $t")
             }
         })
     }
+
+    fun initShoppingCart() {
+        val service = GlobalVar.networkInstance!!.retrofit.create(CartService::class.java)
+        val connectRequest: Call<CartResponse> = service.getCartArticles(
+            MyApp.machineSettingSession!![0].machine.token!!, MyApp.machineSettingSession!![0].currentIdCart)
+
+        connectRequest.enqueue(object : Callback<CartResponse> {
+            override fun onResponse(call: Call<CartResponse>, response: Response<CartResponse>) {
+                if (response.isSuccessful) {
+                    GlobalVar.articleList = response.body()!!.data
+                    Toast.makeText(applicationContext, "ALL IS OK", Toast.LENGTH_LONG).show()
+                } else {
+                    Log.e("GET Cart Failed", response.errorBody()!!.string())
+                    Toast.makeText(applicationContext, response.errorBody()!!.string(), Toast.LENGTH_LONG).show()
+                }
+            }
+            override fun onFailure(call: Call<CartResponse>, t: Throwable) {
+                Log.e("GET Cart Failed", "Error : $t")
+            }
+        })
+    }
+
+//    fun getPaymentSettings() {
+//        val service = GlobalVar.networkInstance!!.retrofit.create(SettingService::class.java)
+//        val settingRequest: Call<MachineSettingResponse> = service.getPaymentSetting()
+//
+//        settingRequest.enqueue(object : Callback<MachineSettingResponse> {
+//            override fun onResponse(call: Call<MachineSettingResponse>, response: Response<MachineSettingResponse>) {
+//                if (response.body() != null) {
+//                    backResponse = response.body()
+//                    Toast.makeText(applicationContext, backResponse!!.message, Toast.LENGTH_LONG).show()
+//                    GlobalVar.paymentSetting = backResponse!!.data as PaymentSetting
+//                }
+//            }
+//            override fun onFailure(call: Call<MachineSettingResponse>, t: Throwable) {
+//                Log.e("COURSE", "Error : $t")
+//            }
+//        })
+//    }
 
 //    fun getArticles() {
 //        if (GlobalVar.articleList.isNotEmpty()) {

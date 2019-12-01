@@ -1,6 +1,12 @@
 package com.epitech.cashmanager.model
 
+import com.google.gson.annotations.SerializedName
+
 class Article(
-    val title: String,
-    val price: Int
+    @SerializedName("name")
+    var name: String,
+    @SerializedName("price")
+    var price: Double,
+    @SerializedName("code")
+    var code: String
 )

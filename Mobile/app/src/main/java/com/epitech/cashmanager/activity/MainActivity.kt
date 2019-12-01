@@ -20,6 +20,19 @@ import com.epitech.cashmanager.R
 import com.epitech.cashmanager.global.MyApp
 import com.google.zxing.integration.android.IntentIntegrator
 import android.os.Parcelable
+import android.provider.Settings
+import com.epitech.cashmanager.model.Article
+import com.epitech.cashmanager.model.requestModel.CartArticleRequest
+import com.epitech.cashmanager.model.requestModel.MachineSettingRequest
+import com.epitech.cashmanager.model.responseModel.ArticleResponse
+import com.epitech.cashmanager.model.responseModel.MachineSettingResponse
+import com.epitech.cashmanager.service.ArticleService
+import com.epitech.cashmanager.service.CartService
+import com.epitech.cashmanager.service.MachineService
+import com.google.zxing.integration.android.IntentResult
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity(){
@@ -34,6 +47,7 @@ class MainActivity : AppCompatActivity(){
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         navView.setupWithNavController(navController)
+        MyApp.deviceId = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
     }
 
     private val networkChangeReceiver = object : BroadcastReceiver() {
@@ -58,6 +72,11 @@ class MainActivity : AppCompatActivity(){
         unregisterReceiver(networkChangeReceiver)
     }
 
+    fun goToSettings(view: View) {
+        val settingsIntent = Intent(this, SettingsActivity::class.java)
+        startActivity(settingsIntent)
+    }
+
     fun onRadioButtonClicked(view: View) {
         if (view is RadioButton) {
             // Is the button now checked?
@@ -70,14 +89,12 @@ class MainActivity : AppCompatActivity(){
                         // Credit Card Code
                         MyApp.isCreditCardSelected = true
                         MyApp.isBankCheckSelected = false
-                        Toast.makeText(this, "Credit Card", Toast.LENGTH_LONG + 2).show()
                     }
                 R.id.radioBtnBankCheck ->
                     if (checked) {
                         // Bank Check Code
                         MyApp.isBankCheckSelected = true
                         MyApp.isCreditCardSelected = false
-                        Toast.makeText(this, "Bank Check", Toast.LENGTH_LONG + 2).show()
                     }
             }
         }
@@ -88,11 +105,6 @@ class MainActivity : AppCompatActivity(){
         scanner.initiateScan()
     }
 
-    fun goToSettings(view: View) {
-        val settingsIntent = Intent(this, SettingsActivity::class.java)
-        startActivity(settingsIntent)
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == Activity.RESULT_OK) {
             val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
@@ -100,12 +112,38 @@ class MainActivity : AppCompatActivity(){
                 if (result.contents == null) {
                     Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG + 2).show()
                 } else {
-                    Toast.makeText(this, "1 Scanned: " + result.contents, Toast.LENGTH_LONG + 2).show()
+                    Toast.makeText(this, "Scanned: " + result.contents, Toast.LENGTH_LONG + 2).show()
+                    addArticleToCart(result)
                 }
             } else {
                 super.onActivityResult(requestCode, resultCode, data)
             }
         }
+    }
+
+    fun addArticleToCart(intentResult: IntentResult){
+        var articleCartRequest = CartArticleRequest(MyApp.machineSettingSession!![0].currentIdCart, intentResult.contents)
+        val service = MyApp.networkInstance!!.retrofit.create(CartService::class.java)
+        val addArticleRequest: Call<ArticleResponse> = service.addOneArticle(
+            MyApp.machineSettingSession!![0].machine.token!!, articleCartRequest)
+
+        addArticleRequest.enqueue(object : Callback<ArticleResponse> {
+            override fun onResponse(call: Call<ArticleResponse>, response: Response<ArticleResponse>) {
+                if (response.isSuccessful) {
+                    var articleScanned : List<Article> = response.body()!!.data
+                    // GET ARTICLE CART OR FIND ARTICLE
+                    var articleIsPresent = MyApp.articleList!![0].listArticleCart.find {
+                            articleCart ->
+                        articleCart.article == articleScanned[0]
+                    }
+                } else {
+                    Log.e("GET ARTICLE FAILED", response.errorBody()!!.string())
+                }
+            }
+            override fun onFailure(call: Call<ArticleResponse>, t: Throwable) {
+                Log.e("GET ARTICLE FAILED", "Error : $t")
+            }
+        })
     }
 
     override fun onNewIntent(intent: Intent) {
