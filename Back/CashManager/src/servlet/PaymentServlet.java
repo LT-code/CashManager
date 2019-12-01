@@ -18,9 +18,9 @@ public class PaymentServlet extends Servlet {
 	private static final Route[] ROUTES =
 		{
 			new Route(Route.GET, API_ROUTE + "/payment/get_types", new GetPaymentTypes(), "", ""),
-			new Route(Route.POST, API_ROUTE + "/payment/choose_payment_type", new PaymentChoosePaymentType(), "", ""),
-			new Route(Route.PUT, API_ROUTE + "/payment/pay", new PaymentPay(), "", ""),
-			new Route(Route.DELETE, API_ROUTE + "/payment/cancel", new PaymentCancel(), "", "")
+			new Route(Route.POST, API_ROUTE + "/payment/choose_payment_type", new PaymentChoosePaymentType(), "int idCart, int idType", ""),
+			new Route(Route.PUT, API_ROUTE + "/payment/pay", new PaymentPay(), "int idCart | if credit card : String number, String pin | if cheque : String code", ""),
+			new Route(Route.DELETE, API_ROUTE + "/payment/cancel", new PaymentCancel(), "", "idCart=?")
 		};
 	
 	@Override
