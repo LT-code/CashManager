@@ -21,6 +21,12 @@ public class HttpService {
 		return send(new HttpPost(route + "?" + params), bodyParams, token);
 	}
 	
+	public static JSONObject sendPost(String route, String params, JSONObject bodyParams, String token, String headerKey, String headerValue) {
+		HttpUriRequest request = new HttpPost(route + "?" + params);
+		request.addHeader(headerKey, headerValue);
+		return send(request, bodyParams, token);
+	}
+	
 	public static JSONObject sendPut(String route, String params, JSONObject bodyParams, String token) {
 		return send(new HttpPut(route + "?" + params), bodyParams, token);
 	}

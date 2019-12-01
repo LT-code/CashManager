@@ -32,8 +32,8 @@ public class PaymentTypeTable implements TableClass {
 		if(table.createTable(db)) {
 			LogsHandler logs = new LogsHandler();
 			PaymentTypeService service = new PaymentTypeService(db, logs);
+			service.add(new PaymentType(TYPE_CREDIT_CARD));
 			service.add(new PaymentType(TYPE_CHEQUE));
-			service.add(new PaymentType("Credit card"));
 			logs.displayLogs();
 		}
 	}

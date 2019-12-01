@@ -6,6 +6,8 @@ import java.util.Map;
 import org.json.JSONObject;
 
 import entities.Payment;
+import entities.Setting;
+import services.CartService;
 import services.PaymentService;
 import servlet.function.RouteFunction;
 import servlet.permissions.ServletLanbdaMachine;
@@ -19,18 +21,19 @@ import utils.servlet.ResponseHandler;
  * Create a machine
  */
 public class PaymentPay implements RouteFunction, ServletLanbdaMachine {
-	
-	
 	@Override
 	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		PaymentService servicePayment = new PaymentService(db, log);
-		Payment p = servicePayment.getActivePayment(urlParams.getJSONArray("idCart").getInt(0));
-		
+		Payment p = servicePayment.getActivePayment(bodyParams.getInt("idCart"));
+				
 		if(p != null) {
-			if(p.pay(bodyParams, log)) {
+			Setting s = new CartService(db, log).getCurrentSetting(bodyParams.getInt("idCart"));
+			if(p.pay(bodyParams, s.getAttemptsNumber(), log)) {
 				servicePayment.update(p);	
 				log.addInfo("The payment has been allowed.");
 			}
+			else
+				log.addError("The payment has been refused", HttpStatus.BAD_REQUEST);
 			
 			list.add(ResponseHandler.objectToMap(p));
 		}
