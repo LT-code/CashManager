@@ -12,9 +12,10 @@ import utils.bdd.DBConnector;
 import utils.bdd.Table;
 
 public abstract class Dao {
-	DBConnector db;
-	LogsHandler errorHandler;
-	Table table;
+	private DBConnector db;
+	private LogsHandler errorHandler;
+	private Table table;
+	
 	
 	public Dao(DBConnector db, LogsHandler errorHandler, Table table) {
 		this.table = table; 
@@ -112,6 +113,10 @@ public abstract class Dao {
     
     public Table getTable() {
     	return table;
+    }
+    
+    public LogsHandler getLogsHandler() {
+    	return errorHandler;
     }
 
 	public Map<String, Object> get(Object id) throws SQLException, InvalidNumberReslut {
