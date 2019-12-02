@@ -30,6 +30,18 @@
             app:layout_constraintTop_toTopOf="@+id/signalVector"
             app:layout_constraintVertical_bias="0.0" />
 
+        <TextView
+            android:id="@+id/txtTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:text="Your Cart is Empty"
+            android:textSize="30sp"
+            app:fontFamily="@font/roboto"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
     <data>
     <variable name="signalState" type="com.epitech.cashmanager.network.NetworkLink"/>

@@ -37,7 +37,10 @@ class MyApp : Application() {
         // Article
         var articleList : List<Cart>? = null
 
-        var test = HashMap<Article, Int>()
+        fun hasNotEmptyCart() : Boolean {
+            return (!articleList.isNullOrEmpty() &&
+                    !articleList!![0].listArticleCart.isNullOrEmpty())
+        }
 
         // NFC
         var isCreditCardSelected: Boolean = false

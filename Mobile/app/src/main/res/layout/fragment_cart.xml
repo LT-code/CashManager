@@ -32,8 +32,9 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <ScrollView
-            android:layout_width="388dp"
-            android:layout_height="555dp"
+            android:id="@+id/scrollView2"
+            android:layout_width="386dp"
+            android:layout_height="522dp"
             android:layout_marginTop="80dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.478"
@@ -46,139 +47,23 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="83dp"
-                    android:layout_marginLeft="@dimen/mtrl_card_spacing"
-                    android:layout_marginTop="@dimen/mtrl_card_spacing"
-                    android:layout_marginRight="@dimen/mtrl_card_spacing"
-                    android:minHeight="200dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:text="TEST 1 Article Name" />
-
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="180dp"
-                        android:layout_height="36dp"
-                        android:layout_marginTop="45dp"
-                        android:text="TEST 1 Article Price" />
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="180dp"
-                        android:layout_height="36dp"
-                        android:layout_marginLeft="187dp"
-                        android:layout_marginTop="45dp"
-                        android:text="TEST 1 Article Qte" />
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="83dp"
-                    android:layout_marginLeft="@dimen/mtrl_card_spacing"
-                    android:layout_marginTop="@dimen/mtrl_card_spacing"
-                    android:layout_marginRight="@dimen/mtrl_card_spacing"
-                    android:minHeight="200dp">
-
-                    <TextView
-                        android:layout_width="128dp"
-                        android:layout_height="40dp"
-                        android:text="TEST 2" />
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="83dp"
-                    android:layout_marginLeft="@dimen/mtrl_card_spacing"
-                    android:layout_marginTop="@dimen/mtrl_card_spacing"
-                    android:layout_marginRight="@dimen/mtrl_card_spacing"
-                    android:minHeight="200dp">
-
-                    <TextView
-                        android:layout_width="128dp"
-                        android:layout_height="40dp"
-                        android:text="TEST 3" />
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="83dp"
-                    android:layout_marginLeft="@dimen/mtrl_card_spacing"
-                    android:layout_marginTop="@dimen/mtrl_card_spacing"
-                    android:layout_marginRight="@dimen/mtrl_card_spacing"
-                    android:minHeight="200dp">
-
-                    <TextView
-                        android:layout_width="128dp"
-                        android:layout_height="40dp"
-                        android:text="TEST 4" />
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="83dp"
-                    android:layout_marginLeft="@dimen/mtrl_card_spacing"
-                    android:layout_marginTop="@dimen/mtrl_card_spacing"
-                    android:layout_marginRight="@dimen/mtrl_card_spacing"
-                    android:minHeight="200dp">
-
-                    <TextView
-                        android:layout_width="128dp"
-                        android:layout_height="40dp"
-                        android:text="TEST 5" />
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="83dp"
-                    android:layout_marginLeft="@dimen/mtrl_card_spacing"
-                    android:layout_marginTop="@dimen/mtrl_card_spacing"
-                    android:layout_marginRight="@dimen/mtrl_card_spacing"
-                    android:minHeight="200dp">
-
-                    <TextView
-                        android:layout_width="128dp"
-                        android:layout_height="40dp"
-                        android:text="TEST 6" />
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="83dp"
-                    android:layout_marginLeft="@dimen/mtrl_card_spacing"
-                    android:layout_marginTop="@dimen/mtrl_card_spacing"
-                    android:layout_marginRight="@dimen/mtrl_card_spacing"
-                    android:minHeight="200dp">
-
-                    <TextView
-                        android:layout_width="128dp"
-                        android:layout_height="40dp"
-                        android:text="TEST 7" />
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="83dp"
-                    android:layout_marginLeft="@dimen/mtrl_card_spacing"
-                    android:layout_marginTop="@dimen/mtrl_card_spacing"
-                    android:layout_marginRight="@dimen/mtrl_card_spacing"
-                    android:minHeight="200dp">
-
-                    <TextView
-                        android:layout_width="128dp"
-                        android:layout_height="40dp"
-                        android:text="TEST 8" />
-                </com.google.android.material.card.MaterialCardView>
-
             </LinearLayout>
         </ScrollView>
 
+        <TextView
+            android:id="@+id/txtTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:text="Your Cart is Empty"
+            android:textSize="30sp"
+            app:fontFamily="@font/roboto"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
     <data>
-    <variable name="signalState" type="com.epitech.cashmanager.network.NetworkLink"/>
+        <variable name="signalState" type="com.epitech.cashmanager.network.NetworkLink"/>
     </data>
 </layout>

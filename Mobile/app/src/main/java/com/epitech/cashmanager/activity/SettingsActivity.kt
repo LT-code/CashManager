@@ -82,7 +82,7 @@ class SettingsActivity : AppCompatActivity() {
 
     fun getToken(serverPassword : String){
         val service = GlobalVar.networkInstance!!.retrofit.create(MachineService::class.java)
-        var machineSettingRequest = MachineSettingRequest("PH1", serverPassword) // refacto id
+        var machineSettingRequest = MachineSettingRequest(MyApp.deviceId, serverPassword)
         val connectRequest: Call<MachineSettingResponse> = service.getConnexionToken(machineSettingRequest)
 
         connectRequest.enqueue(object : Callback<MachineSettingResponse> {
@@ -94,10 +94,12 @@ class SettingsActivity : AppCompatActivity() {
                     initShoppingCart()
                 } else {
                     Log.e("CONNEXION FAILED", response.errorBody()!!.string())
+                    Toast.makeText(applicationContext, "CONNEXION FAILED" + response.errorBody()!!.string(), Toast.LENGTH_LONG).show()
                 }
             }
             override fun onFailure(call: Call<MachineSettingResponse>, t: Throwable) {
-                Log.e("Machine/Connect", "Error : $t")
+                Log.e("CONNEXION FAILED", "Error : $t")
+                Toast.makeText(applicationContext, "CONNEXION FAILED - Technical Error", Toast.LENGTH_LONG).show()
             }
         })
     }
@@ -111,14 +113,15 @@ class SettingsActivity : AppCompatActivity() {
             override fun onResponse(call: Call<CartResponse>, response: Response<CartResponse>) {
                 if (response.isSuccessful) {
                     GlobalVar.articleList = response.body()!!.data
-                    Toast.makeText(applicationContext, "ALL IS OK", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "Get Data OK :)", Toast.LENGTH_LONG).show()
                 } else {
                     Log.e("GET Cart Failed", response.errorBody()!!.string())
-                    Toast.makeText(applicationContext, response.errorBody()!!.string(), Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "GET Cart Failed" + response.errorBody()!!.string(), Toast.LENGTH_LONG).show()
                 }
             }
             override fun onFailure(call: Call<CartResponse>, t: Throwable) {
                 Log.e("GET Cart Failed", "Error : $t")
+                Toast.makeText(applicationContext, "GET Cart Failed - Technical Error", Toast.LENGTH_LONG).show()
             }
         })
     }

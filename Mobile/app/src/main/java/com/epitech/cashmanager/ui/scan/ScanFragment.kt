@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -25,8 +26,18 @@ class ScanFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        // Radio Button Rules
         radioBtnCreditCard.isChecked = MyApp.isCreditCardSelected
         radioBtnBankCheck.isChecked = MyApp.isBankCheckSelected
+        var txtPaymentMethod = view!!.findViewById<TextView>(R.id.txtPaymentMethod)
+        if (MyApp.isCreditCardSelected) {
+            txtPaymentMethod.text = "Credit Card (NFC)"
+        } else if (MyApp.isBankCheckSelected) {
+            txtPaymentMethod.text = "Bank Check (QR Code)"
+        } else {
+            txtPaymentMethod.text = "Choose your Payment Method"
+        }
+        // NFC Rules
         MyApp.nfcAdapter = NfcAdapter.getDefaultAdapter(context)
         if (!MyApp.isNFCCompatible(MyApp.nfcAdapter)) {
             radioBtnCreditCard.isEnabled = false
@@ -35,6 +46,12 @@ class ScanFragment : Fragment() {
             if (!MyApp.isNFCActivate(MyApp.nfcAdapter)) {
                 Toast.makeText(context, "don't forget to activate NFC", Toast.LENGTH_LONG + 2).show()
             }
+        }
+        // Display Total Cart
+        if (MyApp.hasNotEmptyCart()) {
+            txtTotal.text = "Total : " + MyApp.articleList!![0].total.toString() + "$"
+        } else {
+            txtTotal.text = "Your Cart is Empty"
         }
     }
 //

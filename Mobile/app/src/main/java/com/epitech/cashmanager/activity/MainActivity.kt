@@ -21,14 +21,12 @@ import com.epitech.cashmanager.global.MyApp
 import com.google.zxing.integration.android.IntentIntegrator
 import android.os.Parcelable
 import android.provider.Settings
+import android.widget.TextView
 import com.epitech.cashmanager.model.Article
 import com.epitech.cashmanager.model.requestModel.CartArticleRequest
-import com.epitech.cashmanager.model.requestModel.MachineSettingRequest
 import com.epitech.cashmanager.model.responseModel.ArticleResponse
-import com.epitech.cashmanager.model.responseModel.MachineSettingResponse
-import com.epitech.cashmanager.service.ArticleService
+import com.epitech.cashmanager.model.responseModel.CartResponse
 import com.epitech.cashmanager.service.CartService
-import com.epitech.cashmanager.service.MachineService
 import com.google.zxing.integration.android.IntentResult
 import retrofit2.Call
 import retrofit2.Callback
@@ -78,6 +76,7 @@ class MainActivity : AppCompatActivity(){
     }
 
     fun onRadioButtonClicked(view: View) {
+        var txtPaymentMethod = findViewById<TextView>(R.id.txtPaymentMethod)
         if (view is RadioButton) {
             // Is the button now checked?
             val checked = view.isChecked
@@ -89,12 +88,14 @@ class MainActivity : AppCompatActivity(){
                         // Credit Card Code
                         MyApp.isCreditCardSelected = true
                         MyApp.isBankCheckSelected = false
+                        txtPaymentMethod.text = "Credit Card (NFC)"
                     }
                 R.id.radioBtnBankCheck ->
                     if (checked) {
                         // Bank Check Code
                         MyApp.isBankCheckSelected = true
                         MyApp.isCreditCardSelected = false
+                        txtPaymentMethod.text = "Bank Check (QR Code)"
                     }
             }
         }
@@ -112,7 +113,7 @@ class MainActivity : AppCompatActivity(){
                 if (result.contents == null) {
                     Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG + 2).show()
                 } else {
-                    Toast.makeText(this, "Scanned: " + result.contents, Toast.LENGTH_LONG + 2).show()
+                    Toast.makeText(this, "Search For : " + result.contents, Toast.LENGTH_LONG + 2).show()
                     addArticleToCart(result)
                 }
             } else {
@@ -130,18 +131,38 @@ class MainActivity : AppCompatActivity(){
         addArticleRequest.enqueue(object : Callback<ArticleResponse> {
             override fun onResponse(call: Call<ArticleResponse>, response: Response<ArticleResponse>) {
                 if (response.isSuccessful) {
-                    var articleScanned : List<Article> = response.body()!!.data
-                    // GET ARTICLE CART OR FIND ARTICLE
-                    var articleIsPresent = MyApp.articleList!![0].listArticleCart.find {
-                            articleCart ->
-                        articleCart.article == articleScanned[0]
-                    }
+                    Toast.makeText(applicationContext, "ARTICLE IS ADD", Toast.LENGTH_LONG).show()
+                    getShoppingCart()
                 } else {
-                    Log.e("GET ARTICLE FAILED", response.errorBody()!!.string())
+                    Log.e("ADD ARTICLE FAILED", response.errorBody()!!.string())
+                    Toast.makeText(applicationContext, "ADD ARTICLE FAILED" + response.errorBody()!!.string(), Toast.LENGTH_LONG).show()
                 }
             }
             override fun onFailure(call: Call<ArticleResponse>, t: Throwable) {
-                Log.e("GET ARTICLE FAILED", "Error : $t")
+                Log.e("ADD ARTICLE FAILED", "Error : $t")
+                Toast.makeText(applicationContext, "ADD ARTICLE FAILED - Technical Error", Toast.LENGTH_LONG).show()
+            }
+        })
+    }
+
+    fun getShoppingCart() {
+        val service = MyApp.networkInstance!!.retrofit.create(CartService::class.java)
+        val connectRequest: Call<CartResponse> = service.getCartArticles(
+            MyApp.machineSettingSession!![0].machine.token!!, MyApp.machineSettingSession!![0].currentIdCart)
+
+        connectRequest.enqueue(object : Callback<CartResponse> {
+            override fun onResponse(call: Call<CartResponse>, response: Response<CartResponse>) {
+                if (response.isSuccessful) {
+                    MyApp.articleList = response.body()!!.data
+                    Toast.makeText(applicationContext, "CART IS UPDATE", Toast.LENGTH_LONG).show()
+                } else {
+                    Log.e("GET Cart Failed", response.errorBody()!!.string())
+                    Toast.makeText(applicationContext, "GET Cart Failed" + response.errorBody()!!.string(), Toast.LENGTH_LONG).show()
+                }
+            }
+            override fun onFailure(call: Call<CartResponse>, t: Throwable) {
+                Log.e("GET Cart Failed", "Error : $t")
+                Toast.makeText(applicationContext, "GET Cart Failed - Technical Error", Toast.LENGTH_LONG).show()
             }
         })
     }

@@ -11,7 +11,8 @@ interface CartService {
     fun getCartArticles(@Header("Authorization") authorization : String,
                       @Query("idCart") idCart : Int): Call<CartResponse>
 
-    @POST("cart/add_articles")
+    @Headers("Content-Type: application/json")
+    @POST("cart/add_article")
     fun addOneArticle(@Header("Authorization") authorization : String,
                       @Body body : CartArticleRequest): Call<ArticleResponse>
 }
