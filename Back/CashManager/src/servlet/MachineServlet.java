@@ -16,13 +16,18 @@ public class MachineServlet extends Servlet {
 	
 	private static final Route[] ROUTES =
 		{
-			new Route(Route.POST, API_ROUTE + "/machine/create", new MachineCreate(), "String idMachine, long idSetting, boolean isAdmin, String password", ""),
-			new Route(Route.POST, API_ROUTE + "/machine/connect", new MachineConnect(), "String idMachine, String password", ""),
-			new Route(Route.DELETE, API_ROUTE + "/machine/remove", new MachineDelete(), "", "idMachine=?")
+			new Route(Route.POST, API_ROUTE + "/machine/create", new MachineCreate(), "String idMachine, long idSetting, boolean isAdmin, String password", "", "Create a machine."),
+			new Route(Route.POST, API_ROUTE + "/machine/connect", new MachineConnect(), "String idMachine, String password", "", "Connect the machine to the server for getting a token."),
+			new Route(Route.DELETE, API_ROUTE + "/machine/remove", new MachineDelete(), "", "idMachine=?", "Remove a machine.")
 		};
 	
 	@Override
 	public Route[] getRoutes() {
 		return ROUTES;
+	}
+
+	@Override
+	public String getName() {
+		return "Machine";
 	}
 }

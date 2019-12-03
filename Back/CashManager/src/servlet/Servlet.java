@@ -41,6 +41,9 @@ public abstract class Servlet extends HttpServlet {
 	/*
 	 *  Those functions are made to be overrided with the servlet's routes
 	 */
+	
+	public abstract String getName();
+	
 	public Route[] getRoutes() 	{ return null; }
 
 	/**

@@ -23,4 +23,9 @@ public class RootServlet extends Servlet {
 			
 		return res;
 	}
+
+	@Override
+	public String getName() {
+		return "/";
+	}
 }

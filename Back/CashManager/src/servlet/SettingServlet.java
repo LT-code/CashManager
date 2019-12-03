@@ -15,12 +15,17 @@ public class SettingServlet extends Servlet {
 
 	private static final Route[] ROUTES =
 		{
-			new Route(Route.POST, API_ROUTE + "/setting/create", new SettingCreate(), "", ""),
-			new Route(Route.DELETE, API_ROUTE + "/setting/remove", new SettingDelete(), "", "code=?")
+			new Route(Route.POST, API_ROUTE + "/setting/create", new SettingCreate(), "", "", "Create a setting."),
+			new Route(Route.DELETE, API_ROUTE + "/setting/remove", new SettingDelete(), "", "code=?", "Remove a setting.")
 		};
 	
 	@Override
 	public Route[] getRoutes() {
 		return ROUTES;
+	}
+
+	@Override
+	public String getName() {
+		return "Setting";
 	}
 }

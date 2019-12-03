@@ -1,6 +1,8 @@
 package utils.servlet;
 
 import servlet.function.RouteFunction;
+import servlet.permissions.ServletAdminMachine;
+import servlet.permissions.ServletLanbdaMachine;
 
 public class Route {
 	public static final int POST = 0;
@@ -14,13 +16,15 @@ public class Route {
 	private RouteFunction servletFunction;
 	private String bodyParamsRequired;
 	private String urlParamsRequired;
+	private String description;
 	
-	public Route(int type, String routePath, RouteFunction servletFunction, String bodyParamsRequired, String urlParamsRequired) {
+	public Route(int type, String routePath, RouteFunction servletFunction, String bodyParamsRequired, String urlParamsRequired, String description) {
 		this.type = type;
 		this.routePath = routePath;
 		this.servletFunction = servletFunction;
 		this.bodyParamsRequired = bodyParamsRequired;
 		this.urlParamsRequired = urlParamsRequired;
+		this.description = description;
 	}
 	
 	public String getBodyParamsRequired() {
@@ -65,5 +69,15 @@ public class Route {
 	
 	public String getStringType() {
 		return STRING_ROUTES[type];
+	}
+	
+	public String toString() {
+		return 	this.getStringType() + " " + this.getRoutePath() +
+				(urlParamsRequired != "" ? "?" + urlParamsRequired : "") +
+				(this.getServletFunction() instanceof ServletAdminMachine ? " (Admin machine token auth required)" : "") +
+				(this.getServletFunction() instanceof ServletLanbdaMachine ? " (Machine auth token required)" : "") +
+				(bodyParamsRequired != "" ? " | Body JSON Params : " + bodyParamsRequired : "") +
+				"<p>" + description + "</p>" +
+				"</br>"; 
 	}
 }

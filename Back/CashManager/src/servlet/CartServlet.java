@@ -17,14 +17,19 @@ public class CartServlet extends Servlet {
 	
 	private static final Route[] ROUTES =
 		{
-			new Route(Route.POST, API_ROUTE + "/cart/create", 	new CartCreate(), "String idMachine", ""),
-			new Route(Route.POST, API_ROUTE + "/cart/add_article", new CartAddArticle(), "long idCart, String codeArticle", ""),
-			new Route(Route.DELETE, API_ROUTE + "/cart/remove_article", new CartRemoveArticle(), "", "idCart=?,codeArticle=?"),
-			new Route(Route.GET, API_ROUTE + "/cart/get_articles", new CartGetArticles(), "", "idCart=?")
+			new Route(Route.POST, API_ROUTE + "/cart/create", 	new CartCreate(), "String idMachine", "", "Create a cart."),
+			new Route(Route.POST, API_ROUTE + "/cart/add_article", new CartAddArticle(), "long idCart, String codeArticle", "", "Add an article in the cart."),
+			new Route(Route.DELETE, API_ROUTE + "/cart/remove_article", new CartRemoveArticle(), "", "idCart=?,codeArticle=?", "Remove an article from the cart."),
+			new Route(Route.GET, API_ROUTE + "/cart/get_articles", new CartGetArticles(), "", "idCart=?", "List all articles contained by the cart.")
 		};
 	
 	@Override
 	public Route[] getRoutes() {
 		return ROUTES;
+	}
+
+	@Override
+	public String getName() {
+		return "Cart";
 	}
 }

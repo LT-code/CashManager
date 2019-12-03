@@ -1,0 +1,2293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.diagrams="http://ns.yatta-solutions.com/umllab/diagrams/1.1.0" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_Vf6nIBXOEeqYXI7B5_DzjA">
+  <modelElement href="CashManagerDaoServiceServlet.uml#_VcL9sBXOEeqYXI7B5_DzjA"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tB_KUBXOEeqYXI7B5_DzjA" sourceAnchor="47.0,16.0" targetAnchor="47.0,60.0"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tCLXkBXOEeqYXI7B5_DzjA" sourceAnchor="267.0,0.0" targetAnchor="47.0,60.0" containedItem="_tCMlsBXOEeqYXI7B5_DzjA"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tCXk0BXOEeqYXI7B5_DzjA" sourceAnchor="267.0,0.0" targetAnchor="268.0,354.0" superClass="_tC1e4BXOEeqYXI7B5_DzjA" subClass="_tCMlsBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WFuC4BXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcOo4BXQEeqYXI7B5_DzjA" sourceY="-52" targetX="75" targetY="37"/>
+    <bendpoints xmi:id="_CcOo4RXQEeqYXI7B5_DzjA" sourceX="-75" sourceY="-52" targetY="37"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_tCguwBXOEeqYXI7B5_DzjA" source="_tC1e4BXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJP4ABXOEeqYXI7B5_DzjA"/>
+    <stereotypes xmi:id="_tCrG0xXOEeqYXI7B5_DzjA" name="Reference">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJQfEBXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_tCrG0BXOEeqYXI7B5_DzjA" text=""/>
+    <sourceRole xmi:id="_tCrG0RXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJP4ARXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tCsU8BXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tCrt4RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_tCrG0hXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="db" navigable="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIkikBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_JFFzQBXQEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIkikRXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tCsU8hXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tCsU8RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_tCm1YBXOEeqYXI7B5_DzjA" source="_tC1e4BXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJQfERXOEeqYXI7B5_DzjA"/>
+    <stereotypes xmi:id="_tCrt4BXOEeqYXI7B5_DzjA" name="Reference">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJRGIBXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_tCrG1BXOEeqYXI7B5_DzjA" text=""/>
+    <sourceRole xmi:id="_tCrG1RXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJQfEhXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tCsU9RXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tCsU9BXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_tCrG1hXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="errorHandler" navigable="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIkikhXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_JFGaUBXQEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIlJoBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tCsU9xXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tCsU9hXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tCnccBXOEeqYXI7B5_DzjA" sourceAnchor="268.0,0.0" targetAnchor="47.0,60.0" containedItem="_tC1e4BXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_tAC0JBXPEeqYXI7B5_DzjA" sourceY="-18" targetX="299" targetY="36"/>
+    <bendpoints xmi:id="_tADbMBXPEeqYXI7B5_DzjA" sourceX="-299" sourceY="-18" targetY="36"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_tCtjEBXOEeqYXI7B5_DzjA" source="_tC1e4BXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJRGIRXOEeqYXI7B5_DzjA"/>
+    <stereotypes xmi:id="_tCtjERXOEeqYXI7B5_DzjA" name="Reference">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJRtMBXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_tCtjEhXOEeqYXI7B5_DzjA" text=""/>
+    <sourceRole xmi:id="_tCtjExXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJRGIhXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tCtjFBXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tCtjFRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_tCtjFhXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="table" navigable="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIlJoRXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tCtjFxXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tCtjGBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tDUAABXOEeqYXI7B5_DzjA" sourceAnchor="279.0,0.0" targetAnchor="268.0,354.0" superClass="_tC1e4BXOEeqYXI7B5_DzjA" subClass="_tDu2wBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WF-hkBXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcOo4hXQEeqYXI7B5_DzjA" sourceY="-30" targetX="-497" targetY="37"/>
+    <bendpoints xmi:id="_CcOo4xXQEeqYXI7B5_DzjA" sourceX="497" sourceY="-30" targetY="37"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tDtooBXOEeqYXI7B5_DzjA" sourceAnchor="279.0,0.0" targetAnchor="47.0,60.0" containedItem="_tDu2wBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_tADbMxXPEeqYXI7B5_DzjA" sourceY="-441" targetX="-572" targetY="36"/>
+    <bendpoints xmi:id="_tADbNBXPEeqYXI7B5_DzjA" sourceX="572" sourceY="-441" targetY="36"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tFApIBXOEeqYXI7B5_DzjA" sourceAnchor="47.0,16.0" targetAnchor="47.0,60.0">
+    <bendpoints xmi:id="_ZkzjdBXPEeqYXI7B5_DzjA" sourceY="-37" targetX="-1482" targetY="36"/>
+    <bendpoints xmi:id="_ZkzjdRXPEeqYXI7B5_DzjA" sourceX="1482" sourceY="-37" targetY="36"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tFqJYBXOEeqYXI7B5_DzjA" sourceAnchor="85.0,0.0" targetAnchor="47.0,60.0" containedItem="_tF4y4BXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_iqv0ThXPEeqYXI7B5_DzjA" sourceY="-274" targetX="-541" targetY="32"/>
+    <bendpoints xmi:id="_iqv0TxXPEeqYXI7B5_DzjA" sourceX="541" sourceY="-274" targetY="32"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tGP_QBXOEeqYXI7B5_DzjA" sourceAnchor="241.0,0.0" targetAnchor="47.0,60.0" containedItem="_tGRNYBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_iqv0UhXPEeqYXI7B5_DzjA" sourceY="-276" targetX="9" targetY="32"/>
+    <bendpoints xmi:id="_iqv0UxXPEeqYXI7B5_DzjA" sourceX="-9" sourceY="-276" targetY="32"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tHQE0BXOEeqYXI7B5_DzjA" sourceAnchor="164.0,0.0" targetAnchor="202.0,156.0" superClass="_tHsJsBXOEeqYXI7B5_DzjA" subClass="_tF4y4BXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGRchBXOEeqYXI7B5_DzjA"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tHRS8BXOEeqYXI7B5_DzjA" sourceAnchor="197.0,0.0" targetAnchor="202.0,156.0" superClass="_tHsJsBXOEeqYXI7B5_DzjA" subClass="_tGRNYBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGSqpBXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcOB0BXQEeqYXI7B5_DzjA" sourceY="-32" targetX="427" targetY="103"/>
+    <bendpoints xmi:id="_CcOB0RXQEeqYXI7B5_DzjA" sourceX="-427" sourceY="-32" targetY="103"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_tHofUBXOEeqYXI7B5_DzjA" sourceAnchor="202.0,0.0" targetAnchor="0.0,129.0" target="_tPT0oBXOEeqYXI7B5_DzjA" source="_tHsJsBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJRtNBXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcQeFxXQEeqYXI7B5_DzjA" sourceY="-328" targetX="-421"/>
+    <stereotypes xmi:id="_tHq7kRXOEeqYXI7B5_DzjA" name="Reference">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJSUQBXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_tHqUgBXOEeqYXI7B5_DzjA" text="">
+      <visualProperties xmi:id="_uLDrNBXOEeqYXI7B5_DzjA" position="188.5,-21.5"/>
+    </nameVisual>
+    <sourceRole xmi:id="_tHqUgRXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJRtNRXOEeqYXI7B5_DzjA"/>
+      <visualProperties xmi:id="_uLDrMxXOEeqYXI7B5_DzjA" position="-17.0,-92.92857142857133"/>
+      <visibility xmi:id="_tHq7lxXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tHq7lhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_tHq7kBXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="service" navigable="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WImXwBXOEeqYXI7B5_DzjA"/>
+      <visualProperties xmi:id="_uLESQBXOEeqYXI7B5_DzjA" position="-114.0,2.5"/>
+      <stereotypes xmi:id="_JFHBYBXQEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIm-0BXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tHrioRXOEeqYXI7B5_DzjA" label="#"/>
+      <cardinality xmi:id="_tHrioBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_tHofURXOEeqYXI7B5_DzjA" source="_tHsJsBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJSUQRXOEeqYXI7B5_DzjA"/>
+    <stereotypes xmi:id="_tHq7lRXOEeqYXI7B5_DzjA" name="Reference">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJS7UBXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_tHq7khXOEeqYXI7B5_DzjA" text=""/>
+    <sourceRole xmi:id="_tHq7kxXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJSUQhXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tHripBXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tHrioxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_tHq7lBXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="returnObject" navigable="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIm-0RXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_JFHBYRXQEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIm-0hXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tHriphXOEeqYXI7B5_DzjA" label="#"/>
+      <cardinality xmi:id="_tHripRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tHofUhXOEeqYXI7B5_DzjA" sourceAnchor="202.0,0.0" targetAnchor="47.0,60.0" containedItem="_tHsJsBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_iqumJBXPEeqYXI7B5_DzjA" sourceY="-30" targetX="-208" targetY="32"/>
+    <bendpoints xmi:id="_iqumJRXPEeqYXI7B5_DzjA" sourceX="208" sourceY="-30" targetY="32"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tHwbIBXOEeqYXI7B5_DzjA" sourceAnchor="200.0,0.0" targetAnchor="202.0,156.0" superClass="_tHsJsBXOEeqYXI7B5_DzjA" subClass="_tIFyUBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGVt8BXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcOB0hXQEeqYXI7B5_DzjA" sourceY="-38" targetX="871" targetY="103"/>
+    <bendpoints xmi:id="_CcOB0xXQEeqYXI7B5_DzjA" sourceX="-871" sourceY="-38" targetY="103"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tIEkMBXOEeqYXI7B5_DzjA" sourceAnchor="286.0,0.0" targetAnchor="47.0,60.0" containedItem="_tIFyUBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_iqwbUhXPEeqYXI7B5_DzjA" sourceY="-282" targetX="495" targetY="32"/>
+    <bendpoints xmi:id="_iqwbUxXPEeqYXI7B5_DzjA" sourceX="-495" sourceY="-282" targetY="32"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tLr44BXOEeqYXI7B5_DzjA" sourceAnchor="282.0,0.0" targetAnchor="280.0,259.0" superClass="_tPT0oBXOEeqYXI7B5_DzjA" subClass="_tNczcBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGEBIBXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcOB1hXQEeqYXI7B5_DzjA" sourceY="-31" targetX="-377" targetY="31"/>
+    <bendpoints xmi:id="_CcOB1xXQEeqYXI7B5_DzjA" sourceX="377" sourceY="-31" targetY="31"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tMtzoBXOEeqYXI7B5_DzjA" sourceAnchor="295.0,0.0" targetAnchor="47.0,60.0" containedItem="_tNczcBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_Zk0xkhXPEeqYXI7B5_DzjA" sourceY="-23" targetX="-52" targetY="1648"/>
+    <bendpoints xmi:id="_Zk0xkxXPEeqYXI7B5_DzjA" sourceX="650" sourceY="-23" targetX="598" targetY="1648"/>
+    <bendpoints xmi:id="_Zk0xlBXPEeqYXI7B5_DzjA" sourceX="650" sourceY="-1635" targetX="598" targetY="36"/>
+    <bendpoints xmi:id="_Zk0xlRXPEeqYXI7B5_DzjA" sourceX="52" sourceY="-1635" targetY="36"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_tNFAABXOEeqYXI7B5_DzjA" sourceAnchor="560.0,202.0" targetAnchor="0.0,177.0" target="_tC1e4BXOEeqYXI7B5_DzjA" source="_tPT0oBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJRtMRXOEeqYXI7B5_DzjA"/>
+    <stereotypes xmi:id="_tNZwIhXOEeqYXI7B5_DzjA" name="Reference">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJRtMxXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_tNZJEBXOEeqYXI7B5_DzjA" text="">
+      <visualProperties xmi:id="_uLE5URXOEeqYXI7B5_DzjA" position="-22.0,2.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_tNZwIBXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJRtMhXOEeqYXI7B5_DzjA"/>
+      <visualProperties xmi:id="_uLE5UBXOEeqYXI7B5_DzjA" position="27.0,-55.0"/>
+      <visibility xmi:id="_tNcMYRXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tNcMYBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_tNZwIRXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="dao" navigable="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIlwsBXOEeqYXI7B5_DzjA"/>
+      <visualProperties xmi:id="_uLE5UhXOEeqYXI7B5_DzjA" position="-77.0,2.0"/>
+      <visibility xmi:id="_tNcMYxXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tNcMYhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tNaXMBXOEeqYXI7B5_DzjA" sourceAnchor="293.0,0.0" targetAnchor="47.0,60.0" containedItem="_tPT0oBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_Zk1YoBXPEeqYXI7B5_DzjA" sourceY="-1170" targetX="-26" targetY="36"/>
+    <bendpoints xmi:id="_Zk1YoRXPEeqYXI7B5_DzjA" sourceX="26" sourceY="-1170" targetY="36"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tNyxsBXOEeqYXI7B5_DzjA" sourceAnchor="294.0,0.0" targetAnchor="280.0,259.0" superClass="_tPT0oBXOEeqYXI7B5_DzjA" subClass="_tOzeUBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGHEcBXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcOB1BXQEeqYXI7B5_DzjA" sourceY="-30" targetX="240" targetY="31"/>
+    <bendpoints xmi:id="_CcOB1RXQEeqYXI7B5_DzjA" sourceX="-240" sourceY="-30" targetY="31"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tOhxgBXOEeqYXI7B5_DzjA" sourceAnchor="294.0,0.0" targetAnchor="47.0,60.0" containedItem="_tOzeUBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_Zk0xmBXPEeqYXI7B5_DzjA" sourceY="-1470" targetX="286" targetY="36"/>
+    <bendpoints xmi:id="_Zk0xmRXPEeqYXI7B5_DzjA" sourceX="-286" sourceY="-1470" targetY="36"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tRfl8BXOEeqYXI7B5_DzjA" sourceAnchor="47.0,0.0" targetAnchor="47.0,62.0">
+    <bendpoints xmi:id="__INI0xXOEeqYXI7B5_DzjA" sourceY="-154" targetX="-598" targetY="31"/>
+    <bendpoints xmi:id="__INI1BXOEeqYXI7B5_DzjA" sourceX="598" sourceY="-154" targetY="31"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tSH4EBXOEeqYXI7B5_DzjA" sourceAnchor="47.0,0.0" targetAnchor="47.0,62.0">
+    <bendpoints xmi:id="_C47BbhXPEeqYXI7B5_DzjA" sourceY="-260" targetX="1209" targetY="295"/>
+    <bendpoints xmi:id="_C47BbxXPEeqYXI7B5_DzjA" sourceX="-1209" sourceY="-260" targetY="295"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_tSMJgBXOEeqYXI7B5_DzjA" targetItem="_tSN-sBXOEeqYXI7B5_DzjA" sourceItem="_tSLicBXOEeqYXI7B5_DzjA"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tSMwkBXOEeqYXI7B5_DzjA" sourceAnchor="0.0,31.0" targetAnchor="0.0,31.0" containedItem="_tSN-sBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_SvJ6SRXPEeqYXI7B5_DzjA" sourceX="-124" targetX="-1578" targetY="34"/>
+    <bendpoints xmi:id="_SvJ6ShXPEeqYXI7B5_DzjA" sourceX="-124" sourceY="164" targetX="-1578" targetY="198"/>
+    <bendpoints xmi:id="_SvJ6SxXPEeqYXI7B5_DzjA" sourceX="922" sourceY="164" targetX="-532" targetY="198"/>
+    <bendpoints xmi:id="_SvKhUBXPEeqYXI7B5_DzjA" sourceX="922" sourceY="-34" targetX="-532"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tTxd4BXOEeqYXI7B5_DzjA" sourceAnchor="0.0,57.0" targetAnchor="0.0,31.0" containedItem="_tUpnoBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_SvJ6QBXPEeqYXI7B5_DzjA" sourceX="-15" targetX="-1477" targetY="-32"/>
+    <bendpoints xmi:id="_SvJ6QRXPEeqYXI7B5_DzjA" sourceX="-15" sourceY="111" targetX="-1477" targetY="79"/>
+    <bendpoints xmi:id="_SvJ6QhXPEeqYXI7B5_DzjA" sourceX="930" sourceY="111" targetX="-532" targetY="79"/>
+    <bendpoints xmi:id="_SvJ6QxXPEeqYXI7B5_DzjA" sourceX="930" sourceY="32" targetX="-532"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_tWO8ABXOEeqYXI7B5_DzjA" targetItem="_tWR_UBXOEeqYXI7B5_DzjA" sourceItem="_tVk0sBXOEeqYXI7B5_DzjA"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tWPjEBXOEeqYXI7B5_DzjA" sourceAnchor="882.0,30.0" targetAnchor="0.0,31.0" containedItem="_tWR_UBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_SvKhVxXPEeqYXI7B5_DzjA" sourceX="30" targetX="-532" targetY="149"/>
+    <bendpoints xmi:id="_SvKhWBXPEeqYXI7B5_DzjA" sourceX="30" sourceY="-149" targetX="-532"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tWW30BXOEeqYXI7B5_DzjA" sourceAnchor="47.0,0.0" targetAnchor="47.0,62.0">
+    <bendpoints xmi:id="_C48PiBXPEeqYXI7B5_DzjA" sourceY="-260" targetX="1326" targetY="295"/>
+    <bendpoints xmi:id="_C48PiRXPEeqYXI7B5_DzjA" sourceX="-1326" sourceY="-260" targetY="295"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tXHFwBXOEeqYXI7B5_DzjA" sourceAnchor="0.0,31.0" targetAnchor="47.0,62.0">
+    <bendpoints xmi:id="_C48PihXPEeqYXI7B5_DzjA" sourceX="-39" targetX="-801" targetY="716"/>
+    <bendpoints xmi:id="_C48PixXPEeqYXI7B5_DzjA" sourceX="-39" sourceY="-421" targetX="-801" targetY="295"/>
+    <bendpoints xmi:id="_C48PjBXPEeqYXI7B5_DzjA" sourceX="762" sourceY="-421" targetY="295"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_tXMlUBXOEeqYXI7B5_DzjA" targetItem="_tX4h0BXOEeqYXI7B5_DzjA" sourceItem="_tXL-QBXOEeqYXI7B5_DzjA"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tX1egBXOEeqYXI7B5_DzjA" sourceAnchor="0.0,67.0" targetAnchor="47.0,0.0" containedItem="_tX4h0BXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_Hfb5jRXPEeqYXI7B5_DzjA" sourceX="-36" targetY="-118"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_tZBxUBXOEeqYXI7B5_DzjA" targetItem="_tZENkBXOEeqYXI7B5_DzjA" sourceItem="_tYSKcBXOEeqYXI7B5_DzjA"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tZCYYBXOEeqYXI7B5_DzjA" sourceAnchor="424.0,0.0" targetAnchor="47.0,62.0" containedItem="_tZENkBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_HfbSfBXPEeqYXI7B5_DzjA" sourceY="-902" targetX="-667" targetY="-262"/>
+    <bendpoints xmi:id="_HfbSfRXPEeqYXI7B5_DzjA" sourceX="520" sourceY="-902" targetX="-147" targetY="-262"/>
+    <bendpoints xmi:id="_HfbSfhXPEeqYXI7B5_DzjA" sourceX="520" sourceY="-433" targetX="-147" targetY="207"/>
+    <bendpoints xmi:id="_HfbSfxXPEeqYXI7B5_DzjA" sourceX="667" sourceY="-433" targetY="207"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_tZLiUBXOEeqYXI7B5_DzjA" targetItem="_tZ7JMBXOEeqYXI7B5_DzjA" sourceItem="_tZIfABXOEeqYXI7B5_DzjA"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tZd2MBXOEeqYXI7B5_DzjA" sourceAnchor="441.0,0.0" targetAnchor="47.0,62.0" containedItem="_tZ7JMBXOEeqYXI7B5_DzjA"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_ta9rABXOEeqYXI7B5_DzjA" sourceAnchor="0.0,30.0" targetAnchor="411.0,82.0" dashed="true" superClass="_tdCuoBXOEeqYXI7B5_DzjA" subClass="_tSN-sBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGe34RXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcQeEhXQEeqYXI7B5_DzjA" sourceX="-74" targetX="60" targetY="521"/>
+    <bendpoints xmi:id="_CcQeExXQEeqYXI7B5_DzjA" sourceX="-74" sourceY="-183" targetX="60" targetY="338"/>
+    <bendpoints xmi:id="_CcQeFBXQEeqYXI7B5_DzjA" sourceX="-134" sourceY="-183" targetY="338"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tbAuUBXOEeqYXI7B5_DzjA" sourceAnchor="441.0,0.0" targetAnchor="411.0,82.0" dashed="true" superClass="_tdCuoBXOEeqYXI7B5_DzjA" subClass="_tUpnoBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGgtEBXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcPP9hXQEeqYXI7B5_DzjA" sourceY="-467" targetX="644" targetY="-97"/>
+    <bendpoints xmi:id="_CcPP9xXQEeqYXI7B5_DzjA" sourceX="-1100" sourceY="-467" targetX="-456" targetY="-97"/>
+    <bendpoints xmi:id="_CcPP-BXQEeqYXI7B5_DzjA" sourceX="-1100" sourceY="-32" targetX="-456" targetY="338"/>
+    <bendpoints xmi:id="_CcPP-RXQEeqYXI7B5_DzjA" sourceX="-644" sourceY="-32" targetY="338"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tbAuURXOEeqYXI7B5_DzjA" sourceAnchor="441.0,61.0" targetAnchor="411.0,82.0" dashed="true" superClass="_tdCuoBXOEeqYXI7B5_DzjA" subClass="_tWR_UBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGh7MBXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcP3ABXQEeqYXI7B5_DzjA" sourceY="91" targetX="646" targetY="756"/>
+    <bendpoints xmi:id="_CcP3ARXQEeqYXI7B5_DzjA" sourceX="-1589" sourceY="91" targetX="-943" targetY="756"/>
+    <bendpoints xmi:id="_CcP3AhXQEeqYXI7B5_DzjA" sourceX="-1589" sourceY="-327" targetX="-943" targetY="338"/>
+    <bendpoints xmi:id="_CcP3AxXQEeqYXI7B5_DzjA" sourceX="-646" sourceY="-327" targetY="338"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tbtR4BXOEeqYXI7B5_DzjA" sourceAnchor="0.0,67.0" targetAnchor="411.0,82.0" dashed="true" superClass="_tdCuoBXOEeqYXI7B5_DzjA" subClass="_tX4h0BXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGqeEBXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcPP8xXQEeqYXI7B5_DzjA" sourceX="-45" targetX="-913" targetY="555"/>
+    <bendpoints xmi:id="_CcPP9BXQEeqYXI7B5_DzjA" sourceX="-45" sourceY="-217" targetX="-913" targetY="338"/>
+    <bendpoints xmi:id="_CcPP9RXQEeqYXI7B5_DzjA" sourceX="868" sourceY="-217" targetY="338"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tcFFUBXOEeqYXI7B5_DzjA" sourceAnchor="0.0,30.0" targetAnchor="411.0,82.0" dashed="true" superClass="_tdCuoBXOEeqYXI7B5_DzjA" subClass="_tZENkBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGthYBXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcOo5hXQEeqYXI7B5_DzjA" sourceX="-23" targetX="-883" targetY="710"/>
+    <bendpoints xmi:id="_CcPP8BXQEeqYXI7B5_DzjA" sourceX="-23" sourceY="-372" targetX="-883" targetY="338"/>
+    <bendpoints xmi:id="_CcPP8RXQEeqYXI7B5_DzjA" sourceX="860" sourceY="-372" targetY="338"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tcFFURXOEeqYXI7B5_DzjA" sourceAnchor="440.0,0.0" targetAnchor="411.0,82.0" dashed="true" superClass="_tdCuoBXOEeqYXI7B5_DzjA" subClass="_tZ7JMBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGwksBXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcOo5BXQEeqYXI7B5_DzjA" sourceY="-30" targetX="-426" targetY="338"/>
+    <bendpoints xmi:id="_CcOo5RXQEeqYXI7B5_DzjA" sourceX="426" sourceY="-30" targetY="338"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tcJWwBXOEeqYXI7B5_DzjA" sourceAnchor="441.0,0.0" targetAnchor="47.0,62.0" containedItem="_tdCuoBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_C49dohXPEeqYXI7B5_DzjA" sourceY="-30" targetX="-345" targetY="295"/>
+    <bendpoints xmi:id="_C49doxXPEeqYXI7B5_DzjA" sourceX="345" sourceY="-30" targetY="295"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tdW3sBXOEeqYXI7B5_DzjA" sourceAnchor="0.0,31.0" targetAnchor="47.0,62.0">
+    <bendpoints xmi:id="__IO-DhXOEeqYXI7B5_DzjA" sourceX="-116" targetX="-2266" targetY="1412"/>
+    <bendpoints xmi:id="__IO-DxXOEeqYXI7B5_DzjA" sourceX="-116" sourceY="-1381" targetX="-2266" targetY="31"/>
+    <bendpoints xmi:id="__IO-EBXOEeqYXI7B5_DzjA" sourceX="2150" sourceY="-1381" targetY="31"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tdbJIBXOEeqYXI7B5_DzjA" sourceAnchor="441.0,0.0" targetAnchor="79.0,52.0" dashed="true" superClass="_tfIZUBXOEeqYXI7B5_DzjA" subClass="_tSN-sBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGfe8BXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcQeFRXQEeqYXI7B5_DzjA" sourceY="-30" targetX="478" targetY="233"/>
+    <bendpoints xmi:id="_CcQeFhXQEeqYXI7B5_DzjA" sourceX="-478" sourceY="-30" targetY="233"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tdbwMBXOEeqYXI7B5_DzjA" sourceAnchor="826.0,0.0" targetAnchor="79.0,52.0" dashed="true" superClass="_tfIZUBXOEeqYXI7B5_DzjA" subClass="_tWR_UBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGh7MRXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcP3BBXQEeqYXI7B5_DzjA" sourceY="-143" targetX="934" targetY="233"/>
+    <bendpoints xmi:id="_CcP3BRXQEeqYXI7B5_DzjA" sourceX="-934" sourceY="-143" targetY="233"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tdcXQBXOEeqYXI7B5_DzjA" sourceAnchor="882.0,36.0" targetAnchor="79.0,52.0" dashed="true" superClass="_tfIZUBXOEeqYXI7B5_DzjA" subClass="_tZENkBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGuIcBXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcPP8hXQEeqYXI7B5_DzjA" sourceX="75" targetY="488"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_teVvIBXOEeqYXI7B5_DzjA" sourceAnchor="80.0,0.0" targetAnchor="57.0,60.0" containedItem="_tfIZUBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_MPcr4BXPEeqYXI7B5_DzjA" sourceY="-26" targetX="-26" targetY="36"/>
+    <bendpoints xmi:id="_MPcr4RXPEeqYXI7B5_DzjA" sourceX="26" sourceY="-26" targetY="36"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tfLcoBXOEeqYXI7B5_DzjA" sourceAnchor="171.0,0.0" targetAnchor="82.0,52.0" dashed="true" superClass="_tfzHsBXOEeqYXI7B5_DzjA" subClass="_tUpnoBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGgtERXOEeqYXI7B5_DzjA"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tfxSgBXOEeqYXI7B5_DzjA" sourceAnchor="82.0,0.0" targetAnchor="57.0,60.0" containedItem="_tfzHsBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="_MPcr4hXPEeqYXI7B5_DzjA" sourceY="-26" targetX="169" targetY="36"/>
+    <bendpoints xmi:id="_MPcr4xXPEeqYXI7B5_DzjA" sourceX="-169" sourceY="-26" targetY="36"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tf6ccBXOEeqYXI7B5_DzjA" sourceAnchor="209.0,133.0" targetAnchor="47.0,62.0" containedItem="_tgKUEBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="__IPlHBXOEeqYXI7B5_DzjA" sourceY="45" targetX="-372" targetY="728"/>
+    <bendpoints xmi:id="__IPlHRXOEeqYXI7B5_DzjA" sourceX="1025" sourceY="45" targetX="653" targetY="728"/>
+    <bendpoints xmi:id="__IPlHhXOEeqYXI7B5_DzjA" sourceX="1025" sourceY="-652" targetX="653" targetY="31"/>
+    <bendpoints xmi:id="__IPlHxXOEeqYXI7B5_DzjA" sourceX="372" sourceY="-652" targetY="31"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_tf84sBXOEeqYXI7B5_DzjA" source="_tgKUEBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJS7URXOEeqYXI7B5_DzjA"/>
+    <stereotypes xmi:id="_tf84sRXOEeqYXI7B5_DzjA" name="Reference">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJTiYBXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_tf84shXOEeqYXI7B5_DzjA" text=""/>
+    <sourceRole xmi:id="_tf84sxXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJS7UhXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tf84tBXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tf84tRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_tf84thXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="ROUTES" navigable="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WInl4xXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_JFHBYhXQEeqYXI7B5_DzjA" name="Array">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIoM8BXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_JFHocBXQEeqYXI7B5_DzjA" name="StyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIoM8hXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tf84txXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tf84uBXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_tglx4BXOEeqYXI7B5_DzjA" source="_thPSIBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJTiZBXOEeqYXI7B5_DzjA"/>
+    <stereotypes xmi:id="_thNc8RXOEeqYXI7B5_DzjA" name="Reference">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJUJcBXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_thM14BXOEeqYXI7B5_DzjA" text=""/>
+    <sourceRole xmi:id="_thM14RXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJTiZRXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_thOEARXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_thOEABXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_thNc8BXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="ROUTES" navigable="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIpbERXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_JFHocRXQEeqYXI7B5_DzjA" name="Array">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIpbExXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_JFHochXQEeqYXI7B5_DzjA" name="StyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIpbFRXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_thOEAxXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_thOEAhXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tgoOIBXOEeqYXI7B5_DzjA" sourceAnchor="303.0,0.0" targetAnchor="47.0,62.0" containedItem="_thPSIBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="__IPlIhXOEeqYXI7B5_DzjA" sourceY="-515" targetX="492" targetY="31"/>
+    <bendpoints xmi:id="__IPlIxXOEeqYXI7B5_DzjA" sourceX="-492" sourceY="-515" targetY="31"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_thtzQBXOEeqYXI7B5_DzjA" sourceAnchor="133.0,111.0" targetAnchor="47.0,62.0" containedItem="_tihrkBXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="__IPlFhXOEeqYXI7B5_DzjA" sourceY="41" targetX="28" targetY="698"/>
+    <bendpoints xmi:id="__IPlFxXOEeqYXI7B5_DzjA" sourceX="595" sourceY="41" targetX="623" targetY="698"/>
+    <bendpoints xmi:id="__IPlGBXOEeqYXI7B5_DzjA" sourceX="595" sourceY="-626" targetX="623" targetY="31"/>
+    <bendpoints xmi:id="__IPlGRXOEeqYXI7B5_DzjA" sourceX="-28" sourceY="-626" targetY="31"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_tinyMBXOEeqYXI7B5_DzjA" targetItem="_tk3N4BXOEeqYXI7B5_DzjA" sourceItem="_til9ABXOEeqYXI7B5_DzjA"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tjO2MBXOEeqYXI7B5_DzjA" sourceAnchor="209.0,0.0" targetAnchor="503.0,310.0" superClass="_tk3N4BXOEeqYXI7B5_DzjA" subClass="_tgKUEBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGXjIBXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcP3BhXQEeqYXI7B5_DzjA" sourceY="-30" targetX="-267" targetY="93"/>
+    <bendpoints xmi:id="_CcP3BxXQEeqYXI7B5_DzjA" sourceX="267" sourceY="-30" targetY="93"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tjO2MRXOEeqYXI7B5_DzjA" sourceAnchor="209.0,0.0" targetAnchor="503.0,310.0" superClass="_tk3N4BXOEeqYXI7B5_DzjA" subClass="_thPSIBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGYxQBXOEeqYXI7B5_DzjA"/>
+    <bendpoints xmi:id="_CcQeEBXQEeqYXI7B5_DzjA" sourceY="-39" targetX="258" targetY="93"/>
+    <bendpoints xmi:id="_CcQeERXQEeqYXI7B5_DzjA" sourceX="-258" sourceY="-39" targetY="93"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_tjO2MhXOEeqYXI7B5_DzjA" sourceAnchor="129.0,0.0" targetAnchor="503.0,310.0" superClass="_tk3N4BXOEeqYXI7B5_DzjA" subClass="_tihrkBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WGbNgxXOEeqYXI7B5_DzjA"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_tjPdQBXOEeqYXI7B5_DzjA" source="_tk3N4BXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJVXkBXOEeqYXI7B5_DzjA"/>
+    <stereotypes xmi:id="_tk0xoRXOEeqYXI7B5_DzjA" name="Reference">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJVXkhXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_tk0KkBXOEeqYXI7B5_DzjA" text=""/>
+    <sourceRole xmi:id="_tk0KkRXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WJVXkRXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tk1_wRXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tk1_wBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_tk0xoBXOEeqYXI7B5_DzjA" aggregationKind="NONE" name="log" navigable="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WItFchXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_JFHocxXQEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WItFcxXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tk1_wxXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tk1_whXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ContainmentVisual" xmi:id="_tjPdQRXOEeqYXI7B5_DzjA" sourceAnchor="499.0,0.0" targetAnchor="47.0,62.0" containedItem="_tk3N4BXOEeqYXI7B5_DzjA">
+    <bendpoints xmi:id="__IPlEhXOEeqYXI7B5_DzjA" sourceY="-30" targetX="-30" targetY="31"/>
+    <bendpoints xmi:id="__IPlExXOEeqYXI7B5_DzjA" sourceX="30" sourceY="-30" targetY="31"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_tjRScBXOEeqYXI7B5_DzjA" targetItem="_tk30_hXOEeqYXI7B5_DzjA" sourceItem="_tjQrYBXOEeqYXI7B5_DzjA"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_tjRSchXOEeqYXI7B5_DzjA" targetItem="_tk31BBXOEeqYXI7B5_DzjA" sourceItem="_tjRScRXOEeqYXI7B5_DzjA"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_tjSgkRXOEeqYXI7B5_DzjA" targetItem="_tk31OxXOEeqYXI7B5_DzjA" sourceItem="_tjSgkBXOEeqYXI7B5_DzjA"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_tjTHoBXOEeqYXI7B5_DzjA" targetItem="_tk31ShXOEeqYXI7B5_DzjA" sourceItem="_tjSgkhXOEeqYXI7B5_DzjA"/>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_tSLicBXOEeqYXI7B5_DzjA" sourceConnectionVisual="_tSMJgBXOEeqYXI7B5_DzjA" text="Create a machine" item="_tSN-sBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJHVJBXOEeqYXI7B5_DzjA"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_tVk0sBXOEeqYXI7B5_DzjA" sourceConnectionVisual="_tWO8ABXOEeqYXI7B5_DzjA" text="Create a machine" item="_tWR_UBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJHVJRXOEeqYXI7B5_DzjA"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_tXL-QBXOEeqYXI7B5_DzjA" sourceConnectionVisual="_tXMlUBXOEeqYXI7B5_DzjA" text="Create a machine" item="_tX4h0BXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJH8MhXOEeqYXI7B5_DzjA"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_tYSKcBXOEeqYXI7B5_DzjA" sourceConnectionVisual="_tZBxUBXOEeqYXI7B5_DzjA" text="Create a machine" item="_tZENkBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJH8NBXOEeqYXI7B5_DzjA"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_tZIfABXOEeqYXI7B5_DzjA" sourceConnectionVisual="_tZLiUBXOEeqYXI7B5_DzjA" text="Create a machine" item="_tZ7JMBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJIjQBXOEeqYXI7B5_DzjA"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_til9ABXOEeqYXI7B5_DzjA" sourceConnectionVisual="_tinyMBXOEeqYXI7B5_DzjA" text="Servlet implementation class EngineServlet" item="_tk3N4BXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJIjQxXOEeqYXI7B5_DzjA"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_tjQrYBXOEeqYXI7B5_DzjA" sourceConnectionVisual="_tjRScBXOEeqYXI7B5_DzjA" text="@see HttpServlet#HttpServlet()" item="_tk30_hXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJIjRBXOEeqYXI7B5_DzjA"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_tjRScRXOEeqYXI7B5_DzjA" sourceConnectionVisual="_tjRSchXOEeqYXI7B5_DzjA" text="Those functions are made to be overrided with the servlet's routes" item="_tk31BBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJIjRRXOEeqYXI7B5_DzjA"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_tjSgkBXOEeqYXI7B5_DzjA" sourceConnectionVisual="_tjSgkRXOEeqYXI7B5_DzjA" text="- Check authorisations and erros to finally send the response&#xA;&#x9; * @param type for logging the request&#xA;&#x9; * @param functionRes for choosing the right route&#xA;&#x9; * @param request&#xA;&#x9; * @param response&#xA;&#x9; * @return whether the user is allowed to use the function or not" item="_tk31OxXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJIjRhXOEeqYXI7B5_DzjA"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_tjSgkhXOEeqYXI7B5_DzjA" sourceConnectionVisual="_tjTHoBXOEeqYXI7B5_DzjA" text="Get the body and url parametres and execute the function of the route" item="_tk31ShXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_WJIjRxXOEeqYXI7B5_DzjA"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tPT0oBXOEeqYXI7B5_DzjA" containment="_tNaXMBXOEeqYXI7B5_DzjA" name="Service" abstractClass="true" associationsIn="_tHofUBXOEeqYXI7B5_DzjA" associationsOut="_tNFAABXOEeqYXI7B5_DzjA" subclassedBy="_tLr44BXOEeqYXI7B5_DzjA _tNyxsBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V6g4cBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tPT0oRXOEeqYXI7B5_DzjA" position="1021.0,1500.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tPT0ohXOEeqYXI7B5_DzjA" label="+"/>
+    <attributes xmi:id="_tPT0oxXOEeqYXI7B5_DzjA" name="dao">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIlwsBXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tPT0pBXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tPT0pRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <type xmi:id="_tPT0phXOEeqYXI7B5_DzjA" name="Dao">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V54mUBXOEeqYXI7B5_DzjA"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_tPT0pxXOEeqYXI7B5_DzjA" name="Service">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WGL88RXOEeqYXI7B5_DzjA"/>
+      <keywords xmi:id="_tPT0qBXOEeqYXI7B5_DzjA" keyword="create"/>
+      <visibility xmi:id="_tPT0qRXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tPT0qhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tPT0qxXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WGMkAhXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tPT0rBXOEeqYXI7B5_DzjA" name="Service">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V6g4cBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tPT0rRXOEeqYXI7B5_DzjA" name="dao">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WGL88hXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tPT0rhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tPT0rxXOEeqYXI7B5_DzjA" name="Dao">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V54mUBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tPT0sBXOEeqYXI7B5_DzjA" name="add">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHin0BXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tPT0sRXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tPT0shXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_tPT0sxXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHin0RXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tPT0tBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tPT0tRXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tPT0thXOEeqYXI7B5_DzjA" name="update">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHjO4BXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tPT0txXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tPT0uBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_tPT0uRXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHjO4RXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tPT0uhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tPT0uxXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tPT0vBXOEeqYXI7B5_DzjA" name="delete">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHjO4hXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tPT0vRXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tPT0vhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_tPT0vxXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHj18BXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tPT0wBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tPT0wRXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tPT0whXOEeqYXI7B5_DzjA" name="get">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHj18RXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tPT0wxXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHkdABXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tPT0xBXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tPT0xRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tPT0xhXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHkdARXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tPT0xxXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tPT0yBXOEeqYXI7B5_DzjA" name="id">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHj18hXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tPT0yRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tPT0yhXOEeqYXI7B5_DzjA" name="Object">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WHOewRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tPT0yxXOEeqYXI7B5_DzjA" abstractOperation="true" name="validator">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHkdAhXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tPT0zBXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tPT0zRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tPT0zhXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHlEERXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tPT0zxXOEeqYXI7B5_DzjA" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tPT00BXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHlEEBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tPT00RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tPT00hXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tPT00xXOEeqYXI7B5_DzjA" name="validatorAdd">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHlEEhXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tPT01BXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tPT01RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tPT01hXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHlEFBXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tPT01xXOEeqYXI7B5_DzjA" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tPT02BXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHlEExXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tPT02RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tPT02hXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tPT02xXOEeqYXI7B5_DzjA" name="validatorUpdate">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHlrIBXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tPT03BXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tPT03RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tPT03hXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHlrIhXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tPT03xXOEeqYXI7B5_DzjA" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tPT04BXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHlrIRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tPT04RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tPT04hXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tPT04xXOEeqYXI7B5_DzjA" name="validatorDelete">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHmSMBXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tPT05BXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tPT05RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tPT05hXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHmSMhXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tPT05xXOEeqYXI7B5_DzjA" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tPT06BXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHmSMRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tPT06RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tPT06hXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tPT06xXOEeqYXI7B5_DzjA" name="serviceMethod">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHmSMxXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tPT07BXOEeqYXI7B5_DzjA" label="#"/>
+      <cardinality xmi:id="_tPT07RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_tPT07hXOEeqYXI7B5_DzjA" name="serviceFonction">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHmSNBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tPT07xXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tPT08BXOEeqYXI7B5_DzjA" name="ServiceFunction">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V6uT0BXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tPT08RXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHmSNRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tPT08hXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tPT08xXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tF4y4BXOEeqYXI7B5_DzjA" containment="_tFqJYBXOEeqYXI7B5_DzjA" name="AddFunction" generalizations="_tHQE0BXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V6pbUBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tF4y4RXOEeqYXI7B5_DzjA" position="436.0,2246.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tF4y4hXOEeqYXI7B5_DzjA" label="+"/>
+    <operations xmi:id="_tF4y4xXOEeqYXI7B5_DzjA" name="getMessage">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V6qCYBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tF4y5BXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6qpcRXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tF4y5RXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6qpchXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tF4y5hXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tF4y5xXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tF4y6BXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6qpcBXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tF4y6RXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_tF4y6hXOEeqYXI7B5_DzjA" name="AddFunction">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WGQ1cBXOEeqYXI7B5_DzjA"/>
+      <keywords xmi:id="_tF4y6xXOEeqYXI7B5_DzjA" keyword="create"/>
+      <visibility xmi:id="_tF4y7BXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tF4y7RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tF4y7hXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WGRcgxXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tF4y7xXOEeqYXI7B5_DzjA" name="AddFunction">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V6pbUBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tF4y8BXOEeqYXI7B5_DzjA" name="service">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WGRcgBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tF4y8RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tF4y8hXOEeqYXI7B5_DzjA" name="Service">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V6g4cBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tF4y8xXOEeqYXI7B5_DzjA" name="execute">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHoucRXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tF4y9BXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHpVgBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tF4y9RXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHpVgRXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tF4y9hXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tF4y9xXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_tF4y-BXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHouchXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tF4y-RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tF4y-hXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tGRNYBXOEeqYXI7B5_DzjA" containment="_tGP_QBXOEeqYXI7B5_DzjA" name="DeleteFunction" generalizations="_tHRS8BXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V6r3kBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tGRNYRXOEeqYXI7B5_DzjA" position="830.0,2248.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tGRNYhXOEeqYXI7B5_DzjA" label="+"/>
+    <operations xmi:id="_tGRNYxXOEeqYXI7B5_DzjA" name="getMessage">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V6seoBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tGRNZBXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6tFsRXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tGRNZRXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6tFshXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tGRNZhXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tGRNZxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tGRNaBXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6tFsBXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tGRNaRXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_tGRNahXOEeqYXI7B5_DzjA" name="DeleteFunction">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WGSDkBXOEeqYXI7B5_DzjA"/>
+      <keywords xmi:id="_tGRNaxXOEeqYXI7B5_DzjA" keyword="create"/>
+      <visibility xmi:id="_tGRNbBXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tGRNbRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tGRNbhXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WGSqoxXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tGRNbxXOEeqYXI7B5_DzjA" name="DeleteFunction">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V6r3kBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tGRNcBXOEeqYXI7B5_DzjA" name="service">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WGSqoBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tGRNcRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tGRNchXOEeqYXI7B5_DzjA" name="Service">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V6g4cBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tGRNcxXOEeqYXI7B5_DzjA" name="execute">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHp8kBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tGRNdBXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHp8khXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tGRNdRXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHqjoBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tGRNdhXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tGRNdxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_tGRNeBXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHp8kRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tGRNeRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tGRNehXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tIFyUBXOEeqYXI7B5_DzjA" containment="_tIEkMBXOEeqYXI7B5_DzjA" name="UpdateFunction" generalizations="_tHwbIBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V6x-MBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tIFyURXOEeqYXI7B5_DzjA" position="1271.0,2254.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tIFyUhXOEeqYXI7B5_DzjA" label="+"/>
+    <operations xmi:id="_tIFyUxXOEeqYXI7B5_DzjA" name="getMessage">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V6ylQBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tIFyVBXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6ylQhXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tIFyVRXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6zMUBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tIFyVhXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tIFyVxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tIFyWBXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6ylQRXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tIFyWRXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_tIFyWhXOEeqYXI7B5_DzjA" name="UpdateFunction">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WGVG4BXOEeqYXI7B5_DzjA"/>
+      <keywords xmi:id="_tIFyWxXOEeqYXI7B5_DzjA" keyword="create"/>
+      <visibility xmi:id="_tIFyXBXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tIFyXRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tIFyXhXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WGVG5BXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tIFyXxXOEeqYXI7B5_DzjA" name="UpdateFunction">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V6x-MBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tIFyYBXOEeqYXI7B5_DzjA" name="service">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WGVG4RXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tIFyYRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tIFyYhXOEeqYXI7B5_DzjA" name="Service">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V6g4cBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tIFyYxXOEeqYXI7B5_DzjA" name="execute">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHrxwBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tIFyZBXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHrxwhXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tIFyZRXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHsY0BXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tIFyZhXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tIFyZxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_tIFyaBXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHrxwRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tIFyaRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tIFyahXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tOzeUBXOEeqYXI7B5_DzjA" containment="_tOhxgBXOEeqYXI7B5_DzjA" name="MachineService" generalizations="_tNyxsBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V6WgYBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tOzeURXOEeqYXI7B5_DzjA" position="1247.0,1820.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tOzeUhXOEeqYXI7B5_DzjA" label="+"/>
+    <operations xmi:id="_tOzeUxXOEeqYXI7B5_DzjA" name="getByToken">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V6XugBXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tOzeVBXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tOzeVRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tOzeVhXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHdvUBXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tOzeVxXOEeqYXI7B5_DzjA" name="Machine">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF8sYBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tOzeWBXOEeqYXI7B5_DzjA" name="token">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6XugRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tOzeWRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tOzeWhXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tOzeWxXOEeqYXI7B5_DzjA" name="getMachineIdCart">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V6YVkBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tOzeXBXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6Y8oBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tOzeXRXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tOzeXhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tOzeXxXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHdvURXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tOzeYBXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tOzeYRXOEeqYXI7B5_DzjA" name="code">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6YVkRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tOzeYhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tOzeYxXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tOzeZBXOEeqYXI7B5_DzjA" name="MachineService">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHdIQBXOEeqYXI7B5_DzjA"/>
+      <keywords xmi:id="_tOzeZRXOEeqYXI7B5_DzjA" keyword="create"/>
+      <visibility xmi:id="_tOzeZhXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tOzeZxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tOzeaBXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHdIRRXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tOzeaRXOEeqYXI7B5_DzjA" name="MachineService">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V6WgYBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tOzeahXOEeqYXI7B5_DzjA" name="db">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHdIQRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tOzeaxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tOzebBXOEeqYXI7B5_DzjA" name="DBConnector">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tOzebRXOEeqYXI7B5_DzjA" name="errHandler">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHdIQhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tOzebhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tOzebxXOEeqYXI7B5_DzjA" name="LogsHandler">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tOzecBXOEeqYXI7B5_DzjA" name="validator">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHeWYBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tOzecRXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHeWYxXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tOzechXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHe9cBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tOzecxXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tOzedBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tOzedRXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHeWYhXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tOzedhXOEeqYXI7B5_DzjA" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tOzedxXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHeWYRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tOzeeBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tOzeeRXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tNczcBXOEeqYXI7B5_DzjA" containment="_tMtzoBXOEeqYXI7B5_DzjA" name="ArticleService" generalizations="_tLr44BXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V6NWcBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tNczcRXOEeqYXI7B5_DzjA" position="642.0,1821.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tNczchXOEeqYXI7B5_DzjA" label="+"/>
+    <operations xmi:id="_tNczcxXOEeqYXI7B5_DzjA" name="ArticleService">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHXosRXOEeqYXI7B5_DzjA"/>
+      <keywords xmi:id="_tNczdBXOEeqYXI7B5_DzjA" keyword="create"/>
+      <visibility xmi:id="_tNczdRXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tNczdhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tNczdxXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHYPwBXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tNczeBXOEeqYXI7B5_DzjA" name="ArticleService">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V6NWcBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tNczeRXOEeqYXI7B5_DzjA" name="db">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHXoshXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tNczehXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tNczexXOEeqYXI7B5_DzjA" name="DBConnector">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tNczfBXOEeqYXI7B5_DzjA" name="errHandler">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHXosxXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tNczfRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tNczfhXOEeqYXI7B5_DzjA" name="LogsHandler">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tNczfxXOEeqYXI7B5_DzjA" name="validator">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHYPwRXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tNczgBXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHY20BXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tNczgRXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHY20RXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tNczghXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tNczgxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tNczhBXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHYPwxXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tNczhRXOEeqYXI7B5_DzjA" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tNczhhXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHYPwhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tNczhxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tNcziBXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tC1e4BXOEeqYXI7B5_DzjA" containment="_tCnccBXOEeqYXI7B5_DzjA" name="Dao" abstractClass="true" associationsIn="_tNFAABXOEeqYXI7B5_DzjA" associationsOut="_tCguwBXOEeqYXI7B5_DzjA _tCm1YBXOEeqYXI7B5_DzjA _tCtjEBXOEeqYXI7B5_DzjA" subclassedBy="_tCXk0BXOEeqYXI7B5_DzjA _tDUAABXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V54mUBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tC1e4RXOEeqYXI7B5_DzjA" position="2431.0,1525.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tC1e4hXOEeqYXI7B5_DzjA" label="+"/>
+    <attributes xmi:id="_tC1e4xXOEeqYXI7B5_DzjA" name="db">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIkikBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_JFTOoBXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_JFT1sBXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_JFajYBXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <visibility xmi:id="_tC1e5RXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tC1e5hXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <type xmi:id="_tC1e5xXOEeqYXI7B5_DzjA" name="DBConnector">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_tC1e6BXOEeqYXI7B5_DzjA" name="errorHandler">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIkikhXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_JFUcwBXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_JFUcwRXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_JFajYRXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <visibility xmi:id="_tC1e6hXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tC1e6xXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <type xmi:id="_tC1e7BXOEeqYXI7B5_DzjA" name="LogsHandler">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_tC1e7RXOEeqYXI7B5_DzjA" name="table">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIlJoRXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tC1e7hXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tC1e7xXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <type xmi:id="_tC1e8BXOEeqYXI7B5_DzjA" name="Table">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WF3M0RXOEeqYXI7B5_DzjA"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_tC1e8RXOEeqYXI7B5_DzjA" name="queryList">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V56bgBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tC1e8hXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V57poBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tC1e8xXOEeqYXI7B5_DzjA" label="#"/>
+      <cardinality xmi:id="_tC1e9BXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tC1e9RXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHRiEhXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tC1e9hXOEeqYXI7B5_DzjA" name="ArrayList">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFvRARXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tC1e9xXOEeqYXI7B5_DzjA" name="queryString">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V57CkBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC1e-BXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tC1e-RXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tC1e-hXOEeqYXI7B5_DzjA" name="query">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V58QsBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tC1e-xXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V583wRXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tC1e_BXOEeqYXI7B5_DzjA" label="#"/>
+      <cardinality xmi:id="_tC1e_RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tC1e_hXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHSwMRXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tC1e_xXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tC1fABXOEeqYXI7B5_DzjA" name="queryString">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V583wBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC1fARXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tC1fAhXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tC1fAxXOEeqYXI7B5_DzjA" name="getLogsHandler">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V59e0BXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tC1fBBXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tC1fBRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tC1fBhXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHSwMhXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tC1fBxXOEeqYXI7B5_DzjA" name="LogsHandler">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_tC1fCBXOEeqYXI7B5_DzjA" name="Dao">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHMpkBXOEeqYXI7B5_DzjA"/>
+      <keywords xmi:id="_tC1fCRXOEeqYXI7B5_DzjA" keyword="create"/>
+      <visibility xmi:id="_tC1fChXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tC1fCxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tC1fDBXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHNQoxXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tC1fDRXOEeqYXI7B5_DzjA" name="Dao">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V54mUBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tC1fDhXOEeqYXI7B5_DzjA" name="db">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHMpkRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC1fDxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tC1fEBXOEeqYXI7B5_DzjA" name="DBConnector">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tC1fERXOEeqYXI7B5_DzjA" name="errorHandler">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHMpkhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC1fEhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tC1fExXOEeqYXI7B5_DzjA" name="LogsHandler">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tC1fFBXOEeqYXI7B5_DzjA" name="table">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHNQoBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC1fFRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tC1fFhXOEeqYXI7B5_DzjA" name="Table">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF3M0RXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tC1fFxXOEeqYXI7B5_DzjA" name="add">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHN3sBXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tC1fGBXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tC1fGRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tC1fGhXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHN3shXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tC1fGxXOEeqYXI7B5_DzjA" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tC1fHBXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHN3sRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC1fHRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tC1fHhXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tC1fHxXOEeqYXI7B5_DzjA" name="update">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHN3sxXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tC1fIBXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tC1fIRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tC2F8BXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHN3tRXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tC2F8RXOEeqYXI7B5_DzjA" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tC2F8hXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHN3tBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC2F8xXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tC2F9BXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tC2F9RXOEeqYXI7B5_DzjA" name="addArrayElem">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHPF0RXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tC2F9hXOEeqYXI7B5_DzjA" name="Array">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHPs4BXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tC2F9xXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tC2F-BXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+      <outParameters xmi:id="_tC2F-RXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHPF1BXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tC2F-hXOEeqYXI7B5_DzjA" name="Object">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WHOewRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tC2F-xXOEeqYXI7B5_DzjA" name="arr">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHPF0hXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC2F_BXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+        <type xmi:id="_tC2F_RXOEeqYXI7B5_DzjA" name="Object">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WHOewRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tC2F_hXOEeqYXI7B5_DzjA" name="elem">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHPF0xXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC2F_xXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tC2GABXOEeqYXI7B5_DzjA" name="Object">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WHOewRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tC2GARXOEeqYXI7B5_DzjA" name="delete">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHQT8BXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tC2GAhXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tC2GAxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tC2GBBXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHQT8hXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tC2GBRXOEeqYXI7B5_DzjA" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tC2GBhXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHQT8RXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC2GBxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tC2GCBXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tC2GCRXOEeqYXI7B5_DzjA" name="queryList">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHQT8xXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tC2GChXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHQ7AhXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tC2GCxXOEeqYXI7B5_DzjA" label="#"/>
+      <cardinality xmi:id="_tC2GDBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tC2GDRXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHRiEBXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tC2GDhXOEeqYXI7B5_DzjA" name="ArrayList">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFvRARXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tC2GDxXOEeqYXI7B5_DzjA" name="queryString">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHQ7ABXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC2GEBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tC2GERXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tC2GEhXOEeqYXI7B5_DzjA" name="values">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHQ7ARXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC2GExXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+        <type xmi:id="_tC2GFBXOEeqYXI7B5_DzjA" name="Object">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WHOewRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tC2GFRXOEeqYXI7B5_DzjA" name="query">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHSJIBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tC2GFhXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHSJIxXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tC2GFxXOEeqYXI7B5_DzjA" label="#"/>
+      <cardinality xmi:id="_tC2GGBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tC2GGRXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHSJJBXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tC2GGhXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tC2GGxXOEeqYXI7B5_DzjA" name="queryString">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHSJIRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC2GHBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tC2GHRXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tC2GHhXOEeqYXI7B5_DzjA" name="values">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHSJIhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC2GHxXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+        <type xmi:id="_tC2GIBXOEeqYXI7B5_DzjA" name="Object">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WHOewRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tC2GIRXOEeqYXI7B5_DzjA" name="get">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHTXQBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tC2GIhXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHT-UBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tC2GIxXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tC2GJBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tC2GJRXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHT-URXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tC2GJhXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tC2GJxXOEeqYXI7B5_DzjA" name="id">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHTXQRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tC2GKBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tC2GKRXOEeqYXI7B5_DzjA" name="Object">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WHOewRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tCMlsBXOEeqYXI7B5_DzjA" containment="_tCLXkBXOEeqYXI7B5_DzjA" name="ArticleDao" generalizations="_tCXk0BXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V5vcYBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tCMlsRXOEeqYXI7B5_DzjA" position="2507.0,1968.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tCMlshXOEeqYXI7B5_DzjA" label="+"/>
+    <operations xmi:id="_tCMlsxXOEeqYXI7B5_DzjA" name="ArticleDao">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHJmQBXOEeqYXI7B5_DzjA"/>
+      <keywords xmi:id="_tCMltBXOEeqYXI7B5_DzjA" keyword="create"/>
+      <visibility xmi:id="_tCMltRXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tCMlthXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tCMltxXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHJmRRXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tCMluBXOEeqYXI7B5_DzjA" name="ArticleDao">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V5vcYBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tCMluRXOEeqYXI7B5_DzjA" name="db">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHJmQRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tCMluhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tCMluxXOEeqYXI7B5_DzjA" name="DBConnector">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tCMlvBXOEeqYXI7B5_DzjA" name="errorHandler">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHJmQhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tCMlvRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tCMlvhXOEeqYXI7B5_DzjA" name="LogsHandler">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tDu2wBXOEeqYXI7B5_DzjA" containment="_tDtooBXOEeqYXI7B5_DzjA" name="MachineDao" generalizations="_tDUAABXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V6CXUBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tDu2wRXOEeqYXI7B5_DzjA" position="1923.0,1946.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tDu2whXOEeqYXI7B5_DzjA" label="+"/>
+    <operations xmi:id="_tDu2wxXOEeqYXI7B5_DzjA" name="getByToken">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V6C-YBXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tDu2xBXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tDu2xRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tDu2xhXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHVMcBXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tDu2xxXOEeqYXI7B5_DzjA" name="Machine">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF8sYBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tDu2yBXOEeqYXI7B5_DzjA" name="token">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6C-YRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tDu2yRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tDu2yhXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tDu2yxXOEeqYXI7B5_DzjA" name="getMachineIdCart">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V6DlcBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tDu2zBXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6EMgBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tDu2zRXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tDu2zhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tDu2zxXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHVMcRXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tDu20BXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tDu20RXOEeqYXI7B5_DzjA" name="code">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6DlcRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tDu20hXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tDu20xXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tDu21BXOEeqYXI7B5_DzjA" name="MachineDao">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHUlYBXOEeqYXI7B5_DzjA"/>
+      <keywords xmi:id="_tDu21RXOEeqYXI7B5_DzjA" keyword="create"/>
+      <visibility xmi:id="_tDu21hXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tDu21xXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tDu22BXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHUlZRXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tDu22RXOEeqYXI7B5_DzjA" name="MachineDao">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V6CXUBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tDu22hXOEeqYXI7B5_DzjA" name="db">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHUlYRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tDu22xXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tDu23BXOEeqYXI7B5_DzjA" name="DBConnector">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tDu23RXOEeqYXI7B5_DzjA" name="errorHandler">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHUlYhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tDu23hXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tDu23xXOEeqYXI7B5_DzjA" name="LogsHandler">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tZ7JMBXOEeqYXI7B5_DzjA" comments="_tZIfABXOEeqYXI7B5_DzjA" targetConnectionVisual="_tZLiUBXOEeqYXI7B5_DzjA" containment="_tZd2MBXOEeqYXI7B5_DzjA" name="MachineCreate" generalizations="_tcFFURXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V7fv4BXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tZ7JMRXOEeqYXI7B5_DzjA" position="42.0,962.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tZ7JMhXOEeqYXI7B5_DzjA" label="+"/>
+    <operations xmi:id="_tZ7JMxXOEeqYXI7B5_DzjA" name="execute">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIPLYBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tZ7JNBXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIPychXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tZ7JNRXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIQZgBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tZ7JNhXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIRAkBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tZ7JNxXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tZ7JOBXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+      <outParameters xmi:id="_tZ7JORXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIPycBXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tZ7JOhXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tZ7JOxXOEeqYXI7B5_DzjA" name="db">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIPLYRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tZ7JPBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tZ7JPRXOEeqYXI7B5_DzjA" name="DBConnector">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tZ7JPhXOEeqYXI7B5_DzjA" name="bodyParams">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIPLYhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tZ7JPxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tZ7JQBXOEeqYXI7B5_DzjA" name="JSONObject">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGcboBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tZ7JQRXOEeqYXI7B5_DzjA" name="urlParams">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIPLYxXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tZ7JQhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tZ7JQxXOEeqYXI7B5_DzjA" name="JSONObject">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGcboBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tZ7JRBXOEeqYXI7B5_DzjA" name="list">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIPLZBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tZ7JRRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tZ7JRhXOEeqYXI7B5_DzjA" name="List">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGA90BXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tZ7JRxXOEeqYXI7B5_DzjA" name="log">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIPLZRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tZ7JSBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tZ7JSRXOEeqYXI7B5_DzjA" name="LogsHandler">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tZENkBXOEeqYXI7B5_DzjA" comments="_tYSKcBXOEeqYXI7B5_DzjA" targetConnectionVisual="_tZBxUBXOEeqYXI7B5_DzjA" containment="_tZCYYBXOEeqYXI7B5_DzjA" name="MachineDelete" generalizations="_tcFFUBXOEeqYXI7B5_DzjA _tdcXQBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V7becBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tZENkRXOEeqYXI7B5_DzjA" position="48.0,1274.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tZENkhXOEeqYXI7B5_DzjA" label="+"/>
+    <operations xmi:id="_tZENkxXOEeqYXI7B5_DzjA" name="execute">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIJr0BXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tZENlBXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIKS4BXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tZENlRXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIK58BXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tZENlhXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIMIEBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tZENlxXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tZENmBXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+      <outParameters xmi:id="_tZENmRXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIJr1hXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tZENmhXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tZENmxXOEeqYXI7B5_DzjA" name="db">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIJr0RXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tZENnBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tZENnRXOEeqYXI7B5_DzjA" name="DBConnector">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tZENnhXOEeqYXI7B5_DzjA" name="bodyParams">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIJr0hXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tZENnxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tZENoBXOEeqYXI7B5_DzjA" name="JSONObject">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGcboBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tZENoRXOEeqYXI7B5_DzjA" name="urlParams">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIJr0xXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tZENohXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tZENoxXOEeqYXI7B5_DzjA" name="JSONObject">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGcboBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tZENpBXOEeqYXI7B5_DzjA" name="list">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIJr1BXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tZENpRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tZENphXOEeqYXI7B5_DzjA" name="List">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGA90BXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tZENpxXOEeqYXI7B5_DzjA" name="log">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIJr1RXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tZENqBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tZENqRXOEeqYXI7B5_DzjA" name="LogsHandler">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tX4h0BXOEeqYXI7B5_DzjA" comments="_tXL-QBXOEeqYXI7B5_DzjA" targetConnectionVisual="_tXMlUBXOEeqYXI7B5_DzjA" containment="_tX1egBXOEeqYXI7B5_DzjA" name="MachineConnect" generalizations="_tbtR4BXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V7V-4BXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tX4h0RXOEeqYXI7B5_DzjA" position="40.0,1082.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tX4h0hXOEeqYXI7B5_DzjA" label="+"/>
+    <attributes xmi:id="_tX4h0xXOEeqYXI7B5_DzjA" defaultValue="100" name="TOKEN_SIZE" staticAttribute="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIr3UhXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tX4h1BXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tX4h1RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <type xmi:id="_tX4h1hXOEeqYXI7B5_DzjA" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_tX4h1xXOEeqYXI7B5_DzjA" name="generateToken">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V7Wl8BXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tX4h2BXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tX4h2RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tX4h2hXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V7Wl8RXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tX4h2xXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_tX4h3BXOEeqYXI7B5_DzjA" name="execute">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WICXEBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tX4h3RXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIDlMBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tX4h3hXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIDlMRXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tX4h3xXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIEMQRXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tX4h4BXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tX4h4RXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+      <outParameters xmi:id="_tX4h4hXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIC-JBXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tX4h4xXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tX4h5BXOEeqYXI7B5_DzjA" name="db">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WICXERXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tX4h5RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tX4h5hXOEeqYXI7B5_DzjA" name="DBConnector">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tX4h5xXOEeqYXI7B5_DzjA" name="bodyParams">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIC-IBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tX4h6BXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tX4h6RXOEeqYXI7B5_DzjA" name="JSONObject">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGcboBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tX4h6hXOEeqYXI7B5_DzjA" name="urlParams">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIC-IRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tX4h6xXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tX4h7BXOEeqYXI7B5_DzjA" name="JSONObject">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGcboBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tX4h7RXOEeqYXI7B5_DzjA" name="list">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIC-IhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tX4h7hXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tX4h7xXOEeqYXI7B5_DzjA" name="List">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGA90BXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tX4h8BXOEeqYXI7B5_DzjA" name="log">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIC-IxXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tX4h8RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tX4h8hXOEeqYXI7B5_DzjA" name="LogsHandler">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tX4h8xXOEeqYXI7B5_DzjA" name="getMapRes">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIEzUBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tX4h9BXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIFaYBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tX4h9RXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tX4h9hXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tX4h9xXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIFaYRXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tX4h-BXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tX4h-RXOEeqYXI7B5_DzjA" name="m">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIEzURXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tX4h-hXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tX4h-xXOEeqYXI7B5_DzjA" name="Machine">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF8sYBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tX4h_BXOEeqYXI7B5_DzjA" name="machineMap">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIEzUhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tX4h_RXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tX4h_hXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tX4h_xXOEeqYXI7B5_DzjA" name="db">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIEzUxXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tX4iABXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tX4iARXOEeqYXI7B5_DzjA" name="DBConnector">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tX4iAhXOEeqYXI7B5_DzjA" name="log">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIEzVBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tX4iAxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tX4iBBXOEeqYXI7B5_DzjA" name="LogsHandler">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:InterfaceVisual" xmi:id="_tdCuoBXOEeqYXI7B5_DzjA" containment="_tcJWwBXOEeqYXI7B5_DzjA" name="RouteFunction" subclassedBy="_ta9rABXOEeqYXI7B5_DzjA _tbAuUBXOEeqYXI7B5_DzjA _tbAuURXOEeqYXI7B5_DzjA _tbtR4BXOEeqYXI7B5_DzjA _tcFFUBXOEeqYXI7B5_DzjA _tcFFURXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V7E5IBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tdCuoRXOEeqYXI7B5_DzjA" position="497.0,512.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tdCuohXOEeqYXI7B5_DzjA" label="+"/>
+    <operations xmi:id="_tdCuoxXOEeqYXI7B5_DzjA" abstractOperation="true" name="execute">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHu1ERXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tdCupBXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHvcIxXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tdCupRXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tdCuphXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+      <outParameters xmi:id="_tdCupxXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHvcIRXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tdCuqBXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tdCuqRXOEeqYXI7B5_DzjA" name="db">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHu1EhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tdCuqhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tdCuqxXOEeqYXI7B5_DzjA" name="DBConnector">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tdCurBXOEeqYXI7B5_DzjA" name="bodyParams">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHu1ExXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tdCurRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tdCurhXOEeqYXI7B5_DzjA" name="JSONObject">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGcboBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tdCurxXOEeqYXI7B5_DzjA" name="urlParams">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHu1FBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tdCusBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tdCusRXOEeqYXI7B5_DzjA" name="JSONObject">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGcboBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tdCushXOEeqYXI7B5_DzjA" name="list">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHu1FRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tdCusxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tdCutBXOEeqYXI7B5_DzjA" name="List">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGA90BXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tdCutRXOEeqYXI7B5_DzjA" name="log">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHvcIBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tdCuthXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tdCutxXOEeqYXI7B5_DzjA" name="LogsHandler">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tUpnoBXOEeqYXI7B5_DzjA" containment="_tTxd4BXOEeqYXI7B5_DzjA" name="ArticleGet" generalizations="_tbAuUBXOEeqYXI7B5_DzjA _tfLcoBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V7IjgBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tUpnoRXOEeqYXI7B5_DzjA" position="1111.0,964.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tUpnohXOEeqYXI7B5_DzjA" label="+"/>
+    <operations xmi:id="_tUpnoxXOEeqYXI7B5_DzjA" name="execute">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHztkBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tUpnpBXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WH0UoBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tUpnpRXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WH0UoRXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tUpnphXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WH1iwBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tUpnpxXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tUpnqBXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+      <outParameters xmi:id="_tUpnqRXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHztlhXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tUpnqhXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tUpnqxXOEeqYXI7B5_DzjA" name="db">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHztkRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tUpnrBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tUpnrRXOEeqYXI7B5_DzjA" name="DBConnector">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tUpnrhXOEeqYXI7B5_DzjA" name="bodyParams">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHztkhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tUpnrxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tUpnsBXOEeqYXI7B5_DzjA" name="JSONObject">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGcboBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tUpnsRXOEeqYXI7B5_DzjA" name="urlParams">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHztkxXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tUpnshXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tUpnsxXOEeqYXI7B5_DzjA" name="JSONObject">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGcboBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tUpntBXOEeqYXI7B5_DzjA" name="list">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHztlBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tUpntRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tUpnthXOEeqYXI7B5_DzjA" name="List">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGA90BXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tUpntxXOEeqYXI7B5_DzjA" name="log">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHztlRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tUpnuBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tUpnuRXOEeqYXI7B5_DzjA" name="LogsHandler">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:InterfaceVisual" xmi:id="_tfIZUBXOEeqYXI7B5_DzjA" containment="_teVvIBXOEeqYXI7B5_DzjA" name="ServletAdminMachine" subclassedBy="_tdbJIBXOEeqYXI7B5_DzjA _tdbwMBXOEeqYXI7B5_DzjA _tdcXQBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V7BOwBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tfIZURXOEeqYXI7B5_DzjA" position="926.0,770.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tfIZUhXOEeqYXI7B5_DzjA" label="+"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:InterfaceVisual" xmi:id="_tfzHsBXOEeqYXI7B5_DzjA" containment="_tfxSgBXOEeqYXI7B5_DzjA" name="ServletLanbdaMachine" subclassedBy="_tfLcoBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V7w1oBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tfzHsRXOEeqYXI7B5_DzjA" position="1200.0,783.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tfzHshXOEeqYXI7B5_DzjA" label="+"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tWR_UBXOEeqYXI7B5_DzjA" comments="_tVk0sBXOEeqYXI7B5_DzjA" targetConnectionVisual="_tWO8ABXOEeqYXI7B5_DzjA" containment="_tWPjEBXOEeqYXI7B5_DzjA" name="ArticleRemove" generalizations="_tbAuURXOEeqYXI7B5_DzjA _tdbwMBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V7K_wBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tWR_URXOEeqYXI7B5_DzjA" position="1113.0,1198.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tWR_UhXOEeqYXI7B5_DzjA" label="+"/>
+    <operations xmi:id="_tWR_UxXOEeqYXI7B5_DzjA" name="execute">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WH2J0BXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tWR_VBXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WH2w4BXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tWR_VRXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WH3X8BXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tWR_VhXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WH3_ABXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tWR_VxXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tWR_WBXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+      <outParameters xmi:id="_tWR_WRXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WH2J1hXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tWR_WhXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tWR_WxXOEeqYXI7B5_DzjA" name="db">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WH2J0RXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tWR_XBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tWR_XRXOEeqYXI7B5_DzjA" name="DBConnector">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tWR_XhXOEeqYXI7B5_DzjA" name="bodyParams">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WH2J0hXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tWR_XxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tWR_YBXOEeqYXI7B5_DzjA" name="JSONObject">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGcboBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tWR_YRXOEeqYXI7B5_DzjA" name="urlParams">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WH2J0xXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tWR_YhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tWR_YxXOEeqYXI7B5_DzjA" name="JSONObject">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGcboBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tWR_ZBXOEeqYXI7B5_DzjA" name="list">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WH2J1BXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tWR_ZRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tWR_ZhXOEeqYXI7B5_DzjA" name="List">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGA90BXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tWR_ZxXOEeqYXI7B5_DzjA" name="log">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WH2J1RXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tWR_aBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tWR_aRXOEeqYXI7B5_DzjA" name="LogsHandler">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tk3N4BXOEeqYXI7B5_DzjA" comments="_til9ABXOEeqYXI7B5_DzjA" targetConnectionVisual="_tinyMBXOEeqYXI7B5_DzjA" containment="_tjPdQRXOEeqYXI7B5_DzjA" name="Servlet" abstractClass="true" associationsOut="_tjPdQBXOEeqYXI7B5_DzjA" subclassedBy="_tjO2MBXOEeqYXI7B5_DzjA _tjO2MRXOEeqYXI7B5_DzjA _tjO2MhXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V7pg4BXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tk3N4RXOEeqYXI7B5_DzjA" position="2161.0,537.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tk308BXOEeqYXI7B5_DzjA" label="+"/>
+    <attributes xmi:id="_tk308RXOEeqYXI7B5_DzjA" defaultValue="1L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WItFcBXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tk308hXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tk308xXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <type xmi:id="_tk309BXOEeqYXI7B5_DzjA" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_tk309RXOEeqYXI7B5_DzjA" name="log">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WItFchXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_JFZVQhXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_JFZ8UBXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_JFbKcBXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <visibility xmi:id="_tk309xXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tk30-BXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <type xmi:id="_tk30-RXOEeqYXI7B5_DzjA" name="LogsHandler">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_tk30-hXOEeqYXI7B5_DzjA" defaultValue="&quot;/cashmanager&quot;" name="API_ROUTE" staticAttribute="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WItFdBXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tk30-xXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tk30_BXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <type xmi:id="_tk30_RXOEeqYXI7B5_DzjA" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_tk30_hXOEeqYXI7B5_DzjA" comments="_tjQrYBXOEeqYXI7B5_DzjA" targetConnectionVisual="_tjRScBXOEeqYXI7B5_DzjA" name="Servlet">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V7qH8BXOEeqYXI7B5_DzjA"/>
+      <keywords xmi:id="_tk30_xXOEeqYXI7B5_DzjA" keyword="create"/>
+      <visibility xmi:id="_tk31ABXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tk31ARXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tk31AhXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V7qvAhXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tk31AxXOEeqYXI7B5_DzjA" name="Servlet">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V7pg4BXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_tk31BBXOEeqYXI7B5_DzjA" comments="_tjRScRXOEeqYXI7B5_DzjA" targetConnectionVisual="_tjRSchXOEeqYXI7B5_DzjA" name="getRoutes">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V7qvAxXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tk31BRXOEeqYXI7B5_DzjA" name="Array">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V7rWEBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tk31BhXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tk31BxXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+      <outParameters xmi:id="_tk31CBXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V7qvBBXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tk31CRXOEeqYXI7B5_DzjA" name="Route">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGW8EBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_tk31ChXOEeqYXI7B5_DzjA" name="getServletRoutes">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V7skMBXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tk31CxXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tk31DBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tk31DRXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V7skMRXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tk31DhXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_tk31DxXOEeqYXI7B5_DzjA" name="doPost">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIb_sBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tk31EBXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIcmwBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tk31ERXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIcmwRXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tk31EhXOEeqYXI7B5_DzjA" label="#"/>
+      <cardinality xmi:id="_tk31ExXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_tk31FBXOEeqYXI7B5_DzjA" name="request">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIb_sRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31FRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31FhXOEeqYXI7B5_DzjA" name="HttpServletRequest">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WG4ggRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tk31FxXOEeqYXI7B5_DzjA" name="response">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIb_shXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31GBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31GRXOEeqYXI7B5_DzjA" name="HttpServletResponse">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WG4ggxXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tk31GhXOEeqYXI7B5_DzjA" name="doGet">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIdN0BXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tk31GxXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIdN0xXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tk31HBXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WId04BXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tk31HRXOEeqYXI7B5_DzjA" label="#"/>
+      <cardinality xmi:id="_tk31HhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_tk31HxXOEeqYXI7B5_DzjA" name="request">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIdN0RXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31IBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31IRXOEeqYXI7B5_DzjA" name="HttpServletRequest">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WG4ggRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tk31IhXOEeqYXI7B5_DzjA" name="response">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIdN0hXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31IxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31JBXOEeqYXI7B5_DzjA" name="HttpServletResponse">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WG4ggxXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tk31JRXOEeqYXI7B5_DzjA" name="doPut">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WId04hXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tk31JhXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIeb8BXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tk31JxXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIeb8RXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tk31KBXOEeqYXI7B5_DzjA" label="#"/>
+      <cardinality xmi:id="_tk31KRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_tk31KhXOEeqYXI7B5_DzjA" name="request">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WId04xXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31KxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31LBXOEeqYXI7B5_DzjA" name="HttpServletRequest">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WG4ggRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tk31LRXOEeqYXI7B5_DzjA" name="response">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WId05BXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31LhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31LxXOEeqYXI7B5_DzjA" name="HttpServletResponse">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WG4ggxXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tk31MBXOEeqYXI7B5_DzjA" name="doDelete">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIfDABXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tk31MRXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIfDAxXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tk31MhXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIfDBBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tk31MxXOEeqYXI7B5_DzjA" label="#"/>
+      <cardinality xmi:id="_tk31NBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_tk31NRXOEeqYXI7B5_DzjA" name="request">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIfDARXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31NhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31NxXOEeqYXI7B5_DzjA" name="HttpServletRequest">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WG4ggRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tk31OBXOEeqYXI7B5_DzjA" name="response">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIfDAhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31ORXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31OhXOEeqYXI7B5_DzjA" name="HttpServletResponse">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WG4ggxXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tk31OxXOEeqYXI7B5_DzjA" comments="_tjSgkBXOEeqYXI7B5_DzjA" targetConnectionVisual="_tjSgkRXOEeqYXI7B5_DzjA" name="treatRequest">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIfqERXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tk31PBXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tk31PRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_tk31PhXOEeqYXI7B5_DzjA" name="type">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIfqEhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31PxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31QBXOEeqYXI7B5_DzjA" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tk31QRXOEeqYXI7B5_DzjA" name="functionRes">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIfqExXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31QhXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+        <type xmi:id="_tk31QxXOEeqYXI7B5_DzjA" name="Route">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGW8EBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tk31RBXOEeqYXI7B5_DzjA" name="request">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIfqFBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31RRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31RhXOEeqYXI7B5_DzjA" name="HttpServletRequest">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WG4ggRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tk31RxXOEeqYXI7B5_DzjA" name="response">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIfqFRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31SBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31SRXOEeqYXI7B5_DzjA" name="HttpServletResponse">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WG4ggxXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tk31ShXOEeqYXI7B5_DzjA" comments="_tjSgkhXOEeqYXI7B5_DzjA" targetConnectionVisual="_tjTHoBXOEeqYXI7B5_DzjA" name="executeRequest">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIgRIRXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tk31SxXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tk31TBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_tk31TRXOEeqYXI7B5_DzjA" name="request">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIgRIhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31ThXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31TxXOEeqYXI7B5_DzjA" name="HttpServletRequest">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WG4ggRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tk31UBXOEeqYXI7B5_DzjA" name="response">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIg4MBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31URXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31UhXOEeqYXI7B5_DzjA" name="HttpServletResponse">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WG4ggxXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tk31UxXOEeqYXI7B5_DzjA" name="servletFunction">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIg4MRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31VBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31VRXOEeqYXI7B5_DzjA" name="RouteFunction">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V7E5IBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tk31VhXOEeqYXI7B5_DzjA" name="list">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIg4MhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31VxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31WBXOEeqYXI7B5_DzjA" name="List">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGA90BXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tk31WRXOEeqYXI7B5_DzjA" name="db">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIg4MxXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tk31WhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tk31WxXOEeqYXI7B5_DzjA" name="DBConnector">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tgKUEBXOEeqYXI7B5_DzjA" containment="_tf6ccBXOEeqYXI7B5_DzjA" name="ArticleServlet" associationsOut="_tf84sBXOEeqYXI7B5_DzjA" generalizations="_tjO2MBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V60acBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tgKUERXOEeqYXI7B5_DzjA" position="2188.0,970.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_tgKUEhXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V60acRXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <stereotypes xmi:id="_tgKUExXOEeqYXI7B5_DzjA" name="Annotations">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V61okhXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <visibility xmi:id="_tgKUFBXOEeqYXI7B5_DzjA" label="+"/>
+    <attributes xmi:id="_tgKUFRXOEeqYXI7B5_DzjA" defaultValue="1L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WInl4BXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tgKUFhXOEeqYXI7B5_DzjA" name="StyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WInl4hXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tgKUFxXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tgKUGBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <type xmi:id="_tgKUGRXOEeqYXI7B5_DzjA" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_tgKUGhXOEeqYXI7B5_DzjA" defaultValue="{&#xA;&#x9;&#x9;&#x9;new Route(Route.POST, API_ROUTE + &quot;/article/create&quot;, new ArticleCreate(), &quot;String code, String name, float price&quot;, &quot;&quot;),&#xA;&#x9;&#x9;&#x9;new Route(Route.DELETE, API_ROUTE + &quot;/article/remove&quot;, new ArticleRemove(), &quot;&quot;, &quot;code=?&quot;),&#xA;&#x9;&#x9;&#x9;new Route(Route.GET, API_ROUTE + &quot;/article/get&quot;, new ArticleGet(), &quot;&quot;, &quot;code=?&quot;)&#xA;&#x9;&#x9;}" name="ROUTES" staticAttribute="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WInl4xXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_JFXgEBXQEeqYXI7B5_DzjA" name="Array"/>
+      <stereotypes xmi:id="_JFXgERXQEeqYXI7B5_DzjA" name="StyledElement"/>
+      <stereotypes xmi:id="_JFYHIBXQEeqYXI7B5_DzjA" name="Array"/>
+      <stereotypes xmi:id="_JFYHIRXQEeqYXI7B5_DzjA" name="StyledElement"/>
+      <stereotypes xmi:id="_JFbxgBXQEeqYXI7B5_DzjA" name="Array"/>
+      <stereotypes xmi:id="_JFcYkBXQEeqYXI7B5_DzjA" name="StyledElement"/>
+      <visibility xmi:id="_tgKUHRXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tgKUHhXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+      <type xmi:id="_tgKUHxXOEeqYXI7B5_DzjA" name="Route">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WGW8EBXOEeqYXI7B5_DzjA"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_tgKUIBXOEeqYXI7B5_DzjA" name="getRoutes">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V61BgBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tgKUIRXOEeqYXI7B5_DzjA" name="Array">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V61BgxXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tgKUIhXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V61okBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tgKUIxXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tgKUJBXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+      <outParameters xmi:id="_tgKUJRXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V61BgRXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tgKUJhXOEeqYXI7B5_DzjA" name="Route">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGW8EBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_thPSIBXOEeqYXI7B5_DzjA" containment="_tgoOIBXOEeqYXI7B5_DzjA" name="MachineServlet" associationsOut="_tglx4BXOEeqYXI7B5_DzjA" generalizations="_tjO2MRXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V65S8BXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_thPSIRXOEeqYXI7B5_DzjA" position="2713.0,979.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_thPSIhXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V656ABXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <stereotypes xmi:id="_thPSIxXOEeqYXI7B5_DzjA" name="Annotations">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V67vMBXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <visibility xmi:id="_thPSJBXOEeqYXI7B5_DzjA" label="+"/>
+    <attributes xmi:id="_thPSJRXOEeqYXI7B5_DzjA" defaultValue="1L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIo0BRXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_thPSJhXOEeqYXI7B5_DzjA" name="StyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIpbEBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_thPSJxXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_thPSKBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <type xmi:id="_thPSKRXOEeqYXI7B5_DzjA" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_thPSKhXOEeqYXI7B5_DzjA" defaultValue="{&#xA;&#x9;&#x9;&#x9;new Route(Route.POST, API_ROUTE + &quot;/machine/create&quot;, new MachineCreate(), &quot;String idMachine, long idSetting, boolean isAdmin, String password&quot;, &quot;&quot;),&#xA;&#x9;&#x9;&#x9;new Route(Route.POST, API_ROUTE + &quot;/machine/connect&quot;, new MachineConnect(), &quot;String idMachine, String password&quot;, &quot;&quot;),&#xA;&#x9;&#x9;&#x9;new Route(Route.DELETE, API_ROUTE + &quot;/machine/remove&quot;, new MachineDelete(), &quot;&quot;, &quot;idMachine=?&quot;)&#xA;&#x9;&#x9;}" name="ROUTES" staticAttribute="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIpbERXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_JFYuMBXQEeqYXI7B5_DzjA" name="Array"/>
+      <stereotypes xmi:id="_JFYuMRXQEeqYXI7B5_DzjA" name="StyledElement"/>
+      <stereotypes xmi:id="_JFZVQBXQEeqYXI7B5_DzjA" name="Array"/>
+      <stereotypes xmi:id="_JFZVQRXQEeqYXI7B5_DzjA" name="StyledElement"/>
+      <stereotypes xmi:id="_JFcYkRXQEeqYXI7B5_DzjA" name="Array"/>
+      <stereotypes xmi:id="_JFc_oBXQEeqYXI7B5_DzjA" name="StyledElement"/>
+      <visibility xmi:id="_thPSLRXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_thPSLhXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+      <type xmi:id="_thPSLxXOEeqYXI7B5_DzjA" name="Route">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WGW8EBXOEeqYXI7B5_DzjA"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_thPSMBXOEeqYXI7B5_DzjA" name="getRoutes">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V66hEBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_thPSMRXOEeqYXI7B5_DzjA" name="Array">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V67IIBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_thPSMhXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V67IIRXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_thPSMxXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_thPSNBXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+      <outParameters xmi:id="_thPSNRXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V66hERXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_thPSNhXOEeqYXI7B5_DzjA" name="Route">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGW8EBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tihrkBXOEeqYXI7B5_DzjA" containment="_thtzQBXOEeqYXI7B5_DzjA" name="RootServlet" generalizations="_tjO2MhXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V6-ygBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tihrkRXOEeqYXI7B5_DzjA" position="2535.0,1184.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_tihrkhXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V6_ZkBXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <stereotypes xmi:id="_tihrkxXOEeqYXI7B5_DzjA" name="Annotations">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V7AnsBXOEeqYXI7B5_DzjA"/>
+    </stereotypes>
+    <visibility xmi:id="_tihrlBXOEeqYXI7B5_DzjA" label="+"/>
+    <attributes xmi:id="_tihrlRXOEeqYXI7B5_DzjA" defaultValue="1L" name="serialVersionUID" staticAttribute="true">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIqpMhXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tihrlhXOEeqYXI7B5_DzjA" name="StyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WIqpNBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tihrlxXOEeqYXI7B5_DzjA" label="-"/>
+      <cardinality xmi:id="_tihrmBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <type xmi:id="_tihrmRXOEeqYXI7B5_DzjA" name="long">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_tihrmhXOEeqYXI7B5_DzjA" name="getServletRoutes">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V6_ZkRXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tihrmxXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V7AAoRXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tihrnBXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tihrnRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tihrnhXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V7AAoBXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tihrnxXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tSN-sBXOEeqYXI7B5_DzjA" comments="_tSLicBXOEeqYXI7B5_DzjA" targetConnectionVisual="_tSMJgBXOEeqYXI7B5_DzjA" containment="_tSMwkBXOEeqYXI7B5_DzjA" name="ArticleCreate" generalizations="_ta9rABXOEeqYXI7B5_DzjA _tdbJIBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V7GuUBXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tSN-sRXOEeqYXI7B5_DzjA" position="1042.0,1085.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tSN-shXOEeqYXI7B5_DzjA" label="+"/>
+    <operations xmi:id="_tSN-sxXOEeqYXI7B5_DzjA" name="execute">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHwqQBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_tSN-tBXOEeqYXI7B5_DzjA" name="Generics">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHx4YBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tSN-tRXOEeqYXI7B5_DzjA" name="LegacyStyledElement">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHx4YRXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_tSN-thXOEeqYXI7B5_DzjA" name="Annotations">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHzGgBXOEeqYXI7B5_DzjA"/>
+      </stereotypes>
+      <visibility xmi:id="_tSN-txXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tSN-uBXOEeqYXI7B5_DzjA" label="1..*" max="-1" min="1"/>
+      <outParameters xmi:id="_tSN-uRXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHxRUxXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tSN-uhXOEeqYXI7B5_DzjA" name="Map">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFwfIRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tSN-uxXOEeqYXI7B5_DzjA" name="db">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHwqQRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tSN-vBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tSN-vRXOEeqYXI7B5_DzjA" name="DBConnector">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFs0wRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tSN-vhXOEeqYXI7B5_DzjA" name="bodyParams">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHwqQhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tSN-vxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tSN-wBXOEeqYXI7B5_DzjA" name="JSONObject">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGcboBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tSN-wRXOEeqYXI7B5_DzjA" name="urlParams">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHxRUBXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tSN-whXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tSN-wxXOEeqYXI7B5_DzjA" name="JSONObject">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGcboBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tSN-xBXOEeqYXI7B5_DzjA" name="list">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHxRURXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tSN-xRXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tSN-xhXOEeqYXI7B5_DzjA" name="List">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WGA90BXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tSN-xxXOEeqYXI7B5_DzjA" name="log">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHxRUhXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tSN-yBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tSN-yRXOEeqYXI7B5_DzjA" name="LogsHandler">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WFsNsBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_tHsJsBXOEeqYXI7B5_DzjA" containment="_tHofUhXOEeqYXI7B5_DzjA" name="ServiceFunction" abstractClass="true" associationsOut="_tHofUBXOEeqYXI7B5_DzjA _tHofURXOEeqYXI7B5_DzjA" subclassedBy="_tHQE0BXOEeqYXI7B5_DzjA _tHRS8BXOEeqYXI7B5_DzjA _tHwbIBXOEeqYXI7B5_DzjA">
+    <modelElement href="CashManagerDaoServiceServlet.uml#_V6uT0BXOEeqYXI7B5_DzjA"/>
+    <visualProperties xmi:id="_tHsJsRXOEeqYXI7B5_DzjA" position="398.0,1957.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_tHsJshXOEeqYXI7B5_DzjA" label="+"/>
+    <attributes xmi:id="_tHsJsxXOEeqYXI7B5_DzjA" name="service">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WImXwBXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_JFVq4BXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_JFVq4RXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_JFc_oRXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <visibility xmi:id="_tHsJtRXOEeqYXI7B5_DzjA" label="#"/>
+      <cardinality xmi:id="_tHsJthXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <type xmi:id="_tHsJtxXOEeqYXI7B5_DzjA" name="Service">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6g4cBXOEeqYXI7B5_DzjA"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_tHsJuBXOEeqYXI7B5_DzjA" name="returnObject">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WIm-0RXOEeqYXI7B5_DzjA"/>
+      <stereotypes xmi:id="_JFWR8BXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_JFW5ABXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_JFdmsBXQEeqYXI7B5_DzjA" name="LegacyStyledElement"/>
+      <visibility xmi:id="_tHsJuhXOEeqYXI7B5_DzjA" label="#"/>
+      <cardinality xmi:id="_tHsJuxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <type xmi:id="_tHsJvBXOEeqYXI7B5_DzjA" name="Object">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHOewRXOEeqYXI7B5_DzjA"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_tHsJvRXOEeqYXI7B5_DzjA" name="getReturnObject">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V6u64BXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tHsJvhXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tHsJvxXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tHsJwBXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHqjohXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tHsJwRXOEeqYXI7B5_DzjA" name="Object">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WHOewRXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_tHsJwhXOEeqYXI7B5_DzjA" abstractOperation="true" name="getMessage">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_V6vh8BXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tHsJwxXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tHsJxBXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tHsJxRXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_V6wJABXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tHsJxhXOEeqYXI7B5_DzjA" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_tHsJxxXOEeqYXI7B5_DzjA" name="ServiceFunction">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WGT4wBXOEeqYXI7B5_DzjA"/>
+      <keywords xmi:id="_tHsJyBXOEeqYXI7B5_DzjA" keyword="create"/>
+      <visibility xmi:id="_tHsJyRXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tHsJyhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_tHsJyxXOEeqYXI7B5_DzjA">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WGT4xBXOEeqYXI7B5_DzjA"/>
+        <type xmi:id="_tHsJzBXOEeqYXI7B5_DzjA" name="ServiceFunction">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V6uT0BXOEeqYXI7B5_DzjA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_tHsJzRXOEeqYXI7B5_DzjA" name="service">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WGT4wRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tHsJzhXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tHsJzxXOEeqYXI7B5_DzjA" name="Service">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_V6g4cBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_tHsJ0BXOEeqYXI7B5_DzjA" abstractOperation="true" name="execute">
+      <modelElement href="CashManagerDaoServiceServlet.uml#_WHrKsBXOEeqYXI7B5_DzjA"/>
+      <visibility xmi:id="_tHsJ0RXOEeqYXI7B5_DzjA" label="+"/>
+      <cardinality xmi:id="_tHsJ0hXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+      <parameters xmi:id="_tHsJ0xXOEeqYXI7B5_DzjA" name="entityClass">
+        <modelElement href="CashManagerDaoServiceServlet.uml#_WHrKsRXOEeqYXI7B5_DzjA"/>
+        <cardinality xmi:id="_tHsJ1BXOEeqYXI7B5_DzjA" label="1" max="1" min="1"/>
+        <type xmi:id="_tHsJ1RXOEeqYXI7B5_DzjA" name="EntityClass">
+          <modelElement href="CashManagerDaoServiceServlet.uml#_WF2lwBXOEeqYXI7B5_DzjA"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>

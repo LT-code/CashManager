@@ -16,13 +16,18 @@ public class ArticleServlet extends Servlet {
 
 	private static final Route[] ROUTES =
 		{
-			new Route(Route.POST, API_ROUTE + "/article/create", new ArticleCreate(), "String code, String name, float price", ""),
-			new Route(Route.DELETE, API_ROUTE + "/article/remove", new ArticleRemove(), "", "code=?"),
-			new Route(Route.GET, API_ROUTE + "/article/get", new ArticleGet(), "", "code=?")
+			new Route(Route.POST, API_ROUTE + "/article/create", new ArticleCreate(), "String code, String name, float price", "", "Create an article."),
+			new Route(Route.DELETE, API_ROUTE + "/article/remove", new ArticleRemove(), "", "code=?", "Remove an article"),
+			new Route(Route.GET, API_ROUTE + "/article/get", new ArticleGet(), "", "code=?", "Get an article information.")
 		};
 	
 	@Override
 	public Route[] getRoutes() {
 		return ROUTES;
+	}
+
+	@Override
+	public String getName() {
+		return "Article";
 	}
 }
