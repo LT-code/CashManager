@@ -1,5 +1,6 @@
 package com.epitech.cashmanager.ui.scan
 
+import android.graphics.Color
 import android.nfc.NfcAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.children
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.epitech.cashmanager.R
@@ -42,10 +45,6 @@ class ScanFragment : Fragment() {
         if (!MyApp.isNFCCompatible(MyApp.nfcAdapter)) {
             radioBtnCreditCard.isEnabled = false
             radioBtnBankCheck.isChecked = true
-        } else {
-            if (!MyApp.isNFCActivate(MyApp.nfcAdapter)) {
-                Toast.makeText(context, "don't forget to activate NFC", Toast.LENGTH_LONG + 2).show()
-            }
         }
         // Display Total Cart
         if (MyApp.hasNotEmptyCart()) {

@@ -2,10 +2,7 @@ package com.epitech.cashmanager.global
 
 import android.app.Application
 import android.nfc.NfcAdapter
-import com.epitech.cashmanager.model.Article
-import com.epitech.cashmanager.model.Cart
-import com.epitech.cashmanager.model.MachineSettingSession
-import com.epitech.cashmanager.model.PaymentSetting
+import com.epitech.cashmanager.model.*
 import com.epitech.cashmanager.network.RetrofitInstance
 import com.epitech.cashmanager.network.ServerConnection
 import com.epitech.cashmanager.network.NetworkLink
@@ -31,9 +28,6 @@ class MyApp : Application() {
             }
         }
 
-        // Settings
-        var paymentSetting: PaymentSetting? = null
-
         // Article
         var articleList : List<Cart>? = null
 
@@ -42,11 +36,17 @@ class MyApp : Application() {
                     !articleList!![0].listArticleCart.isNullOrEmpty())
         }
 
+        // Payment
+        var paymentMethodResponse : List<PaymentMethod>? = null
+        var actualBankCheckScanned : String? = null
+
         // NFC
         var isCreditCardSelected: Boolean = false
         var isBankCheckSelected: Boolean = false
 
         lateinit var nfcAdapter: NfcAdapter
+
+        var nfcReader : NdefReaderTask = NdefReaderTask()
 
         fun isNFCCompatible(nfcAdapter: NfcAdapter?): Boolean {
             return (nfcAdapter != null)

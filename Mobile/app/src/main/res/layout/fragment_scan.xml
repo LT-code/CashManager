@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scanConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activity.MainActivity">
@@ -91,7 +93,7 @@
             android:layout_height="240dp"
             android:layout_marginBottom="136dp"
             android:background="@android:drawable/dialog_holo_light_frame"
-            android:onClick="launchScan"
+            android:onClick="launchArticleScan"
             android:scaleType="fitCenter"
             android:tint="#4D7597"
             app:layout_constraintBottom_toBottomOf="parent"

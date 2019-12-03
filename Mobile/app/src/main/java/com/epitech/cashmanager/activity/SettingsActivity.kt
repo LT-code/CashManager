@@ -7,7 +7,6 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -27,7 +26,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.net.URL
-import org.json.JSONObject
 
 
 
@@ -73,7 +71,6 @@ class SettingsActivity : AppCompatActivity() {
             MyApp.backUrl = serverIP
             MyApp.backHostUrl = URL(MyApp.backUrl).host
             MyApp.networkInstance = RetrofitInstance()
-//            ServerConnection().execute()
             getToken(serverPassword)
         } else {
             Toast.makeText(applicationContext, "CHECK UR CONNEXION", Toast.LENGTH_LONG).show()
@@ -125,30 +122,4 @@ class SettingsActivity : AppCompatActivity() {
             }
         })
     }
-
-//    fun getPaymentSettings() {
-//        val service = GlobalVar.networkInstance!!.retrofit.create(SettingService::class.java)
-//        val settingRequest: Call<MachineSettingResponse> = service.getPaymentSetting()
-//
-//        settingRequest.enqueue(object : Callback<MachineSettingResponse> {
-//            override fun onResponse(call: Call<MachineSettingResponse>, response: Response<MachineSettingResponse>) {
-//                if (response.body() != null) {
-//                    backResponse = response.body()
-//                    Toast.makeText(applicationContext, backResponse!!.message, Toast.LENGTH_LONG).show()
-//                    GlobalVar.paymentSetting = backResponse!!.data as PaymentSetting
-//                }
-//            }
-//            override fun onFailure(call: Call<MachineSettingResponse>, t: Throwable) {
-//                Log.e("COURSE", "Error : $t")
-//            }
-//        })
-//    }
-
-//    fun getArticles() {
-//        if (GlobalVar.articleList.isNotEmpty()) {
-//            GlobalVar.networkLink.serverLink = true
-//            for (c in GlobalVar.articleList)
-//                Toast.makeText(applicationContext, "One course : ${c.title} : ${c.price} ", Toast.LENGTH_LONG).show()
-//        }
-//    }
 }
