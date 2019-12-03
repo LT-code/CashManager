@@ -12,24 +12,18 @@ import services.function.AddFunction;
 import services.function.DeleteFunction;
 import services.function.ServiceFunction;
 import services.function.UpdateFunction;
-import utils.LogsHandler;
-import utils.bdd.DBConnector;
 import utils.servlet.HttpStatus;
 
 
 public abstract class Service {
-	DBConnector db;
-	protected LogsHandler logsHandler;
+	private Dao dao;
 	
-	public Service(DBConnector db, LogsHandler errHandler) {
-		this.db = db;
-		this.logsHandler = errHandler;
+	public Service(Dao dao) {
+		this.dao = dao;
 	}    
 
-    public abstract Dao getDao();
-    
-    public LogsHandler getLogsHandler() {
-        return logsHandler;
+    public Dao getDao() {
+    	return dao;
     }
 
     //public abstract Map<String, Object> get();
@@ -48,22 +42,9 @@ public abstract class Service {
     
     public Map<String, Object> get(Object id) throws SQLException, InvalidNumberReslut {
     	Map<String, Object> map = this.getDao().get(id);
-    	logsHandler.addInfo("Success getting " + this.getDao().getTable().getName() + " id=" + id + ".");
+    	dao.getLogsHandler().addInfo("Success getting " + this.getDao().getTable().getName() + " id=" + id + ".");
     	return map;
     }
-    
-    public void methodAdd(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
-        this.getDao().add(entityClass);
-    }
-    
-    public void methodUpdate(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
-        this.getDao().update(entityClass);
-    }
-    
-    public void methodDelete(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
-        this.getDao().delete(entityClass);
-    }
-
     
     public abstract boolean validator(EntityClass entityClass);
     
@@ -85,6 +66,6 @@ public abstract class Service {
     
     protected void serviceMethod(ServiceFunction serviceFonction, EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
         serviceFonction.execute(entityClass);
-        logsHandler.addInfo("Success of " + serviceFonction.getMessage() + this.getDao().getTable().entityNameClass() + ".", (serviceFonction instanceof AddFunction ? HttpStatus.CREATED : HttpStatus.SUCCESS));
+        dao.getLogsHandler().addInfo("Success of " + serviceFonction.getMessage() + this.getDao().getTable().entityNameClass() + ".", (serviceFonction instanceof AddFunction ? HttpStatus.CREATED : HttpStatus.SUCCESS));
 	}
 }

@@ -2,7 +2,6 @@ package services;
 
 import java.sql.SQLException;
 
-import dao.Dao;
 import dao.PaymentDao;
 import entities.EntityClass;
 import entities.Payment;
@@ -11,25 +10,18 @@ import utils.LogsHandler;
 import utils.bdd.DBConnector;
 
 public class PaymentService extends Service {
-	PaymentDao dao = new PaymentDao(db, this.getLogsHandler());
-	
 	public PaymentService(DBConnector db, LogsHandler errHandler) {
-		super(db, errHandler);
-	}
-	
-	@Override
-	public Dao getDao() {
-		return this.dao;
-	}
-
-	@Override
-	public boolean validator(EntityClass entityClass) {
-		return true;
+		super(new PaymentDao(db, errHandler));
 	}
 
 	public Payment getActivePayment(int idCart) throws SQLException, InvalidNumberReslut {
-		Payment p =  dao.getActivePayment(idCart);
-		logsHandler.addInfo("Success getting active payment.");
+		Payment p =  ((PaymentDao) this.getDao()).getActivePayment(idCart);
+		this.getDao().getLogsHandler().addInfo("Success getting active payment.");
 		return p;
+	}
+	
+	@Override
+	public boolean validator(EntityClass entityClass) {
+		return true;
 	}
 }

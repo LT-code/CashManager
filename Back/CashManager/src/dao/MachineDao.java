@@ -10,7 +10,6 @@ import utils.LogsHandler;
 import utils.bdd.DBConnector;
 
 public class MachineDao extends Dao {
-
 	public MachineDao(DBConnector db, LogsHandler errorHandler) {
 		super(db, errorHandler, MachineTable.getTable());
 	}

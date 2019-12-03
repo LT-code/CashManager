@@ -21,6 +21,6 @@ public class UpdateFunction extends ServiceFunction {
     public void execute(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
         if(!service.validatorUpdate(entityClass))
             throw new ValidatorNotRecpectedException("update " + entityClass.getClass());
-        service.methodUpdate(entityClass);
+        service.getDao().update(entityClass);
     }
 }
