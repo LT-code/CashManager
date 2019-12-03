@@ -25,13 +25,14 @@ public class PaymentPay implements RouteFunction, ServletLanbdaMachine {
 	public List<Map<String, Object>> execute(DBConnector db, JSONObject bodyParams, JSONObject urlParams, List<Map<String, Object>> list, LogsHandler log) throws Exception {
 		PaymentService servicePayment = new PaymentService(db, log);
 		Payment p = servicePayment.getActivePayment(bodyParams.getInt("idCart"));
-				
+		
 		if(p != null) {
 			Setting s = new CartService(db, log).getCurrentSetting(bodyParams.getInt("idCart"));
-			if(p.pay(bodyParams, s.getAttemptsNumber(), log)) {
-				servicePayment.update(p);	
+			boolean res = p.pay(bodyParams, s.getAttemptsNumber(), log);
+			servicePayment.update(p);
+			
+			if(res)
 				log.addInfo("The payment has been allowed.");
-			}
 			else
 				log.addError("The payment has been refused", HttpStatus.BAD_REQUEST);
 			
