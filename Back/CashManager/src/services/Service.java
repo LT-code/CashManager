@@ -46,19 +46,6 @@ public abstract class Service {
     	return map;
     }
     
-    public void methodAdd(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
-        this.getDao().add(entityClass);
-    }
-    
-    public void methodUpdate(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
-        this.getDao().update(entityClass);
-    }
-    
-    public void methodDelete(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
-        this.getDao().delete(entityClass);
-    }
-
-    
     public abstract boolean validator(EntityClass entityClass);
     
     public boolean validatorAdd(EntityClass entityClass) {

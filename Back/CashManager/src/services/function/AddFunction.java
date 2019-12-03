@@ -21,6 +21,6 @@ public class AddFunction extends ServiceFunction {
     public void execute(EntityClass entityClass) throws ValidatorNotRecpectedException, NoResultException, SQLException {
         if(!service.validatorAdd(entityClass))
             throw new ValidatorNotRecpectedException("add " + entityClass.getClass());
-        service.methodAdd(entityClass);
+        service.getDao().add(entityClass);
     }
 }
